@@ -7,7 +7,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: '0xPolygon',
-  projectName: 'Polygon SDK',
+  projectName: 'polygon-sdk-docs',
   themeConfig: {
     colorMode: {
       defaultMode: 'dark'
@@ -67,9 +67,10 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/0xPolygon/polygon-sdk-docs'
+            'https://github.com/0xPolygon/polygon-sdk-docs',
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: true
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
