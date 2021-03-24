@@ -1,16 +1,26 @@
 module.exports = {
-  docs: [
+  introduction: [
+    'home/overview',
+    'home/polygon-sdk-architecture'
+  ],
+  development: [
+    'develop/getting-started',
+    'develop/cli-commands',
     {
       type: 'category',
-      label: 'Docusaurus Tutorial',
+      label: 'Modules',
       items: [
-        'getting-started',
-        'create-a-page',
-        'create-a-document',
-        'create-a-blog-post',
-        'markdown-features',
-        'thank-you',
-      ],
-    },
-  ],
+        'develop/modules/blockchain',
+        'develop/modules/chain',
+        'develop/modules/consensus',
+        'develop/modules/crypto',
+        'develop/modules/json-rpc',
+        'develop/modules/minimal',
+        'develop/modules/protocol',
+        'develop/modules/sealer',
+        'develop/modules/state',
+        'develop/modules/types'
+      ]
+    }
+  ]
 };

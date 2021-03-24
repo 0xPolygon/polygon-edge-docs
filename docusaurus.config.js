@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-32x32.png',
   organizationName: '0xPolygon',
   projectName: 'polygon-sdk-docs',
   themeConfig: {
@@ -24,9 +24,15 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          to: 'docs/home/overview',
+          activeBasePath: 'docs/home',
+          label: 'Basics',
+          position: 'left'
+        },
+        {
+          to: 'docs/develop/getting-started',
+          activeBasePath: 'docs/develop',
+          label: 'Develop',
           position: 'left'
         },
         {
@@ -70,7 +76,7 @@ module.exports = {
           editUrl:
             'https://github.com/0xPolygon/polygon-sdk-docs',
           showLastUpdateAuthor: false,
-          showLastUpdateTime: true
+          showLastUpdateTime: false
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
