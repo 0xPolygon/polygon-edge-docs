@@ -7,15 +7,15 @@ module.exports = {
   ],
   modules: [
     'modules/blockchain',
-    'modules/chain',
-    'modules/consensus',
-    'modules/crypto',
-    'modules/json-rpc',
     'modules/minimal',
-    'modules/protocol',
-    'modules/sealer',
+    'modules/networking',
     'modules/state',
+    'modules/protocol',
+    'modules/storage',
+    'modules/json-rpc',
+    'modules/sealer',
+    'modules/consensus',
     'modules/types',
-    'modules/storage'
+    'modules/other-modules'
   ]
 };

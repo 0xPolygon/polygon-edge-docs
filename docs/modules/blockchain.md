@@ -17,7 +17,7 @@ One of the main modules of the Polygon SDK are **Blockchain** and **State**. <br
 
 The key takeaway is that these 2 parts are very connected, and they work closely together in order for the client to function. <br /> For example, when the **Blockchain** layer receives a new block (and no reorganization occurred), it calls the **State** to perform a state transition.
 
-**Blockchain** also has to deal with some parts relating to consensus (ex. *is this ethHash correct?*, *is this PoW correct?*). In one sentence, **it is the main core of logic through which all blocks are included**.
+**Blockchain** also has to deal with some parts relating to consensus (ex. *is this ethHash correct?*, *is this PoW correct?*). <br /> In one sentence, **it is the main core of logic through which all blocks are included**.
 
 ## *WriteBlocks*
 
@@ -141,3 +141,9 @@ type Event struct {
 	Source string
 }
 ````
+
+:::tip Refresher
+Do you remember when we mentioned the ***monitor*** command in the [CLI Commands](/docs/home/cli-commands)?
+
+The Blockchain Events are the original events that happen in Polygon SDK, and they're later mapped to a Protocol Buffers message format for easy transfer.
+:::
