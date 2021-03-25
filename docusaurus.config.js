@@ -30,9 +30,9 @@ module.exports = {
           position: 'left'
         },
         {
-          to: 'docs/develop/getting-started',
-          activeBasePath: 'docs/develop',
-          label: 'Develop',
+          to: 'docs/modules/blockchain',
+          activeBasePath: 'docs/modules',
+          label: 'Modules',
           position: 'left'
         },
         {

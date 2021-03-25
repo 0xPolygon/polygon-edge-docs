@@ -1,26 +1,20 @@
 module.exports = {
   introduction: [
     'home/overview',
-    'home/polygon-sdk-architecture'
+    'home/getting-started',
+    'home/polygon-sdk-architecture',
+    'home/cli-commands'
   ],
-  development: [
-    'develop/getting-started',
-    'develop/cli-commands',
-    {
-      type: 'category',
-      label: 'Modules',
-      items: [
-        'develop/modules/blockchain',
-        'develop/modules/chain',
-        'develop/modules/consensus',
-        'develop/modules/crypto',
-        'develop/modules/json-rpc',
-        'develop/modules/minimal',
-        'develop/modules/protocol',
-        'develop/modules/sealer',
-        'develop/modules/state',
-        'develop/modules/types'
-      ]
-    }
+  modules: [
+    'modules/blockchain',
+    'modules/chain',
+    'modules/consensus',
+    'modules/crypto',
+    'modules/json-rpc',
+    'modules/minimal',
+    'modules/protocol',
+    'modules/sealer',
+    'modules/state',
+    'modules/types'
   ]
 };
