@@ -104,5 +104,14 @@ The following *./genesis.json* file is generated:
 
 The **shorthand** when specifying addresses and ports is **:<port\>**, which sets the address part to localhost (127.0.0.1).
 
+### Data Directory
+
+When executing the *data-dir* flag, a **test-chain** folder is generated.
+The folder structure consists of the following sub-folders:
+* **blockchain** - Stores the LevelDB for blockchain objects
+* **trie** - Stores the LevelDB for the Merkle tries
+* **keystore** - Stores private keys for the client. This includes the libp2p private key, and the sealing / validator private key
+* **consensus** - Stores any consensus information that the client might need while working
+
 ## 📜 Resources
 * **[Protocol Buffers](https://developers.google.com/protocol-buffers)**

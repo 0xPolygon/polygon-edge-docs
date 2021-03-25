@@ -15,6 +15,7 @@ module.exports = {
     'modules/protocol',
     'modules/sealer',
     'modules/state',
-    'modules/types'
+    'modules/types',
+    'modules/storage'
   ]
 };

@@ -32,11 +32,11 @@ Polygon SDK is designed to offer off-the-shelf pluggable consensus algortihms.
 
 The current list of supported consensus algorithms:
 
-* IBFT
 * Ethereum's Nakamoto PoW
-* Clique PoA (not fully implemented yet)
+* IBFT (⚠️WIP)
+* Clique PoA (⚠️WIP)
 
-We plan to add support for more consensus algorithms in the future (HotSuff, Tendermint etc). Contact us if you would like to use a specific, not yet supported algorithm for your project.
+We plan to add support for more consensus algorithms in the future (HotSuff, Tendermint etc).<br /> [Contact the team](mailto:contact@polygon.technology) if you would like to use a specific, not yet supported algorithm for your project.
 
 ## Blockchain
 The Blockchain layer is the central layer that coordinates everything in the Polygon SDK system. It is covered in depth in the corresponding *Modules* section.
