@@ -11,10 +11,10 @@ module.exports = {
     'modules/networking',
     'modules/state',
     'modules/protocol',
-    'modules/storage',
     'modules/json-rpc',
     'modules/sealer',
     'modules/consensus',
+    'modules/storage',
     'modules/types',
     'modules/other-modules'
   ]

@@ -427,3 +427,14 @@ func (c *state) Run() ([]byte, error) {
 	return c.ret, vmerr
 }
 ````
+
+## 📜 Resources
+* **[Merkle Trees](https://brilliant.org/wiki/merkle-tree/)**
+* **[Merkle Proofs](https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5)**
+* **[How is data stored in Ethereum?](https://hackernoon.com/getting-deep-into-ethereum-how-data-is-stored-in-ethereum-e3f669d96033)**
+* **[Diving into Ethereum's world state](https://medium.com/cybermiles/diving-into-ethereums-world-state-c893102030ed)**
+* **[How does Ethereum work anyway?](https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369)**
+* **[A (Practical) Walkthrough of Smart Contract Storage](https://medium.com/coinmonks/a-practical-walkthrough-smart-contract-storage-d3383360ea1b)**
+* **[Inside an Ethereum transaction](https://medium.com/@codetractio/inside-an-ethereum-transaction-fa94ffca912f)**
+* **[Life Cycle of an Ethereum Transaction](https://medium.com/blockchannel/life-cycle-of-an-ethereum-transaction-e5c66bae0f6e)**
+* **[Ethereum Design Rationale](https://github.com/ethereum/wiki/wiki/Design-Rationale)**
