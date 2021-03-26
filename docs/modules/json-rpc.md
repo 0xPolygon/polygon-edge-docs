@@ -71,7 +71,7 @@ It provides support for filtering blocks on the blockchain.<br />
 Specifically, it includes both a **log** and a **block** level filter.
 
 The Filter Manager relies heavily on Subscription Events, mentioned in
-the [Blockchain](docs/modules/blockchain#blockchain-subscriptions) section
+the [Blockchain](blockchain#blockchain-subscriptions) section
 
 ````go title="jsonrpc/filter_manager.go"
 type Filter struct {

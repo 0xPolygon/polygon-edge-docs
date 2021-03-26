@@ -20,7 +20,8 @@ module.exports = {
       title: 'Polygon SDK',
       logo: {
         alt: 'Polygon SDK Logo',
-        src: 'img/logo.svg'
+        src: 'img/logo.svg',
+        href: 'docs/home/overview'
       },
       items: [
         {
