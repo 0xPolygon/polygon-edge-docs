@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Polygon SDK',
-  url: 'https://gifted-pike-b1f52e.netlify.app/',
+  url: 'https://gifted-pike-b1f52e.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
