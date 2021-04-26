@@ -21,19 +21,25 @@ module.exports = {
       logo: {
         alt: 'Polygon SDK Logo',
         src: 'img/logo.svg',
-        href: 'docs/home/overview'
+        href: 'docs/guides/overview'
       },
       items: [
         {
-          to: 'docs/home/overview',
-          activeBasePath: 'docs/home',
-          label: 'Basics',
+          to: 'docs/guides/overview',
+          activeBasePath: 'docs/guides',
+          label: 'Guides',
           position: 'left'
         },
         {
-          to: 'docs/modules/blockchain',
-          activeBasePath: 'docs/modules',
-          label: 'Modules',
+          to: 'docs/how-tos/howto-set-up-node',
+          activeBasePath: 'docs/how-tos',
+          label: 'How-tos',
+          position: 'left'
+        },
+        {
+          to: 'docs/reference/polygon-sdk-architecture',
+          activeBasePath: 'docs/reference',
+          label: 'Reference',
           position: 'left'
         },
         {
@@ -74,8 +80,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/0xPolygon/polygon-sdk-docs',
+          editUrl: 'https://github.com/0xPolygon/polygon-sdk-docs',
           showLastUpdateAuthor: false,
           showLastUpdateTime: false
         },

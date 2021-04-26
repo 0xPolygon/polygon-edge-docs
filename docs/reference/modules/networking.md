@@ -60,7 +60,7 @@ These methods are implemented in ***minimal/system_service.go***.
 ### GRPC for Other Nodes
 
 The Polygon SDK also implements several service methods that are used by other nodes on the network. <br />
-The mentioned service is described in the **[Protocol](/docs/modules/protocol)** section.
+The mentioned service is described in the **[Protocol](/docs/reference/protocol)** section.
 
 ## 📜 Resources
 * **[Protocol Buffers](https://developers.google.com/protocol-buffers)**

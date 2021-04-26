@@ -5,7 +5,7 @@ title: State
 
 To truly understand how **State** works, you must understand some basic Ethereum concepts.<br />
 
-You can always skip ahead to the part where we dive into **[State](/docs/modules/state#overview)**.
+You can always skip ahead to the part where we dive into **[State](/docs/reference/state#overview)**.
 
 ## Ethereum Basics
 
@@ -92,7 +92,8 @@ of transactions:
    that executes a setter method)
 3. Transactions that deploy a contract (therefore, create an account, the contract account)
 
-:::tip Technically, **1** and **2** are the same - transactions that send message calls that affect an account state,
+:::tip Clarification
+Technically, **1** and **2** are the same - transactions that send message calls that affect an account state,
 either EOA or contract accounts.
 
 It is easier to think about them as three different types.
