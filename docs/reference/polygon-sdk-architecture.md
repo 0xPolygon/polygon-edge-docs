@@ -28,12 +28,12 @@ Most importantly, it provides a great foundation for more advanced features, whi
 ## Synchronization & Consensus
 The separation of the synchronization and consensus protocols allows for modularity and implementation of **custom** sync and consensus mechanisms - depending on how the client is being run.
 
-Polygon SDK is designed to offer off-the-shelf pluggable consensus algortihms.
+Polygon SDK is designed to offer off-the-shelf pluggable consensus algorithms.
 
 The current list of supported consensus algorithms:
 
-* Ethereum's Nakamoto PoW
-* IBFT (⚠️WIP)
+* IBFT
+* Ethereum's Nakamoto PoW (⚠️WIP)
 * Clique PoA (⚠️WIP)
 
 We plan to add support for more consensus algorithms in the future (HotSuff, Tendermint etc).<br /> [Contact the team](mailto:contact@polygon.technology) if you would like to use a specific, not yet supported algorithm for your project.

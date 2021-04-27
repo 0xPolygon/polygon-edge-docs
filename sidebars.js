@@ -20,7 +20,7 @@ module.exports = {
         'reference/modules/other-modules'
       ]
     },
-    'reference/reference-e2e'
+    // 'reference/reference-e2e'
   ],
   guides: [
     'guides/overview',

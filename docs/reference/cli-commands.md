@@ -10,25 +10,48 @@ This section details the present commands, command flags in the Polygon SDK, and
 | **Command** | **Description**                                                                                                                                      |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | server      | The default command that starts the blockchain client, by bootstrapping all modules together                                                         |
-| dev         | ⚠️WIP. "Bypasses" consensus and networking and starts a blockchain locally. It starts a local node and mines every transaction in a separate block    |
+| dev         | "Bypasses" consensus and networking and starts a blockchain locally. It starts a local node and mines every transaction in a separate block    |
 | genesis     | Generates a *genesis.json* file, which is used to set predefined chain state before starting the client. The structure of the genesis file is described below |
 
 
 ## 👷 Operator Commands
 
+### Peer Commands
+
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
-| peers add <*address*\>    | Adds a new peer. The parameter is a libp2p address                                  |
-| peers list             | Lists all the peers the client is connected to, through libp2p                      |
-| peers status <*address*\> | Returns the status of a specific peer from the peers list, using the libp2p address |
+| peers add <*address*\>    | Adds a new peer using their libp2p address                                  |
+| peers list             | Lists all the peers the client is connected to through libp2p                      |
+| peers status <*address*\> | Returns the status of a specific peer from the peers list, using the libp2p address 
+
+### IBFT Commands
+
+| **Command**            | **Description**                                                                     |
+|------------------------|-------------------------------------------------------------------------------------|
+| ibft init <*data-dir*\>   | Initializes IBFT for the Polygon SDK                              |
+| ibft snapshot             | Returns the IBFT snapshot                    |
+| ibft candidates  | Queries the current set of proposed candidates, as well as candidates that have not been included yet |
+| ibft propose --add <*eth-address*\>                | Proposes a new candidate to be added to the snapshot list         |
+| ibft propose --remove <*eth-address*\>                | Proposes a new candidate to be removed from the snapshot list         |
+| ibft status                | Returns the overall status of the IBFT client   
+
+
+### Transaction Pool Commands
+
+| **Command**            | **Description**                                                                     |
+|------------------------|-------------------------------------------------------------------------------------|
+| txpool add    | Adds a new peer. The parameter is a libp2p address                                  |
+| txpool status             | Lists all the peers the client is connected to, through libp2p                      
+
+### Blockchain commands
+
+| **Command**            | **Description**                                                                     |
+|------------------------|-------------------------------------------------------------------------------------|
 | status                 | Returns the status of the client. The detailed response can be found below          |
 | monitor                | Subscribes to a blockchain event stream. The detailed response can be found below   |
-| version                | Returns the current version of the client  
+| version                | Returns the current version of the client
 
-All the CLI commands are implemented in:
-````bash
-minimal/system_service.go
-````
+## Responses
 
 ### Status Response
 
@@ -64,7 +87,7 @@ message BlockchainEvent {
 }
 ````
 
-### Genesis Template
+## Genesis Template
 The genesis file should be used to set the initial state of the blockchain (ex. if some accounts should have a starting balance).
 
 The following *./genesis.json* file is generated:
@@ -89,20 +112,6 @@ The following *./genesis.json* file is generated:
     "bootnodes": []
 }
 ````
-
-## Command Flags
-
-| **Command**       | **Description**                                                                                                     |
-|-------------------|---------------------------------------------------------------------------------------------------------------------|
-| seal              | Makes the current node join the sealing process                                                                     |
-| data-dir <*path*\>  | Specify the directory for storing Polygon SDK client data. The structure of the generated folder is described below |
-| config <*path*\>    | Pass in a configuration file for the command flags                                                                  |
-| grpc <*address*\>   | Specify the address (and port!) for the GRPC server                                                                 |
-| libp2p <*address*\> | Specify the address (and port!) for the libp2p server                                                               |
-| jsonrpc           | Specify the address (and port!) for the JSON RPC server                                                             |
-| join <*address*\>   | Adds another node as a peer using the libp2p address of the node                                                    |
-
-The **shorthand** when specifying addresses and ports is **:<port\>**, which sets the address part to localhost (127.0.0.1).
 
 ### Data Directory
 
