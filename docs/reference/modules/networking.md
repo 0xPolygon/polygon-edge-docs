@@ -32,7 +32,7 @@ The node operator has a better overview of what is going on with the system by c
 
 The following section might seem familiar, because it was briefly covered in the [CLI Commands](/docs/home/cli-commands) section.
 
-The GRPC service that is intented to be used by **node operators** is defined like so:
+The GRPC service that is intended to be used by **node operators** is defined like so:
 ````go title="minimal/proto/system.proto"
 service System {
     // GetInfo returns info about the client

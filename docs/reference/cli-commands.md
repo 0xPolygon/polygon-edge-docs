@@ -40,8 +40,8 @@ This section details the present commands, command flags in the Polygon SDK, and
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
-| txpool add    | Adds a new peer. The parameter is a libp2p address                                  |
-| txpool status             | Lists all the peers the client is connected to, through libp2p                      
+| txpool add    | Adds a transaction to the transaction pool, using different flags                               |
+| txpool status             | Returns the number of transactions in the pool                    
 
 ### Blockchain commands
 

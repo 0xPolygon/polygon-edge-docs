@@ -7,7 +7,7 @@ title: Blockchain
 
 One of the main modules of the Polygon SDK are **Blockchain** and **State**. <br />
 
-**Blockchain** is the powerhouse that deals with block reogranizations. This means that it deals with all the logic that happens when a new block is included into the blockchain.
+**Blockchain** is the powerhouse that deals with block reorganizations. This means that it deals with all the logic that happens when a new block is included into the blockchain.
 
 **State** represents the *state transition* object. It deals with how the state changes when a new block is included. <br /> Among other things, **State** handles:
 * Executing transactions

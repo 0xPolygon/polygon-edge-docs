@@ -31,7 +31,7 @@ module.exports = {
           position: 'left'
         },
         {
-          to: 'docs/how-tos/howto-set-up-node',
+          to: 'docs/how-tos/howto-set-ibft',
           activeBasePath: 'docs/how-tos',
           label: 'How-tos',
           position: 'left'

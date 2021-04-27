@@ -13,7 +13,7 @@ endpoints.
 
 ## Blockchain Interface
 
-The Polygon SDK uses the ***blockhain interface*** to define all the methods that the JSON RPC module needs to use, in
+The Polygon SDK uses the ***blockchain interface*** to define all the methods that the JSON RPC module needs to use, in
 order to deliver its endpoints.
 
 The blockchain interface is implemented by the **[Minimal](docs/reference/minimal)** server. It is the base implementation

@@ -44,10 +44,10 @@ module.exports = {
     }
   ],
   howTos: [
-    'how-tos/howto-set-up-node',
+    'how-tos/howto-set-ibft',
+    // 'how-tos/howto-set-up-node',
     'how-tos/howto-query-operator',
     'how-tos/howto-query-json-rpc',
-    'how-tos/howto-set-ibft',
     'how-tos/howto-report-bug',
     'how-tos/howto-propose-feature'
   ]
