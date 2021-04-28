@@ -42,7 +42,13 @@ We plan to add support for more consensus algorithms in the future (HotStuff, Te
 The Blockchain layer is the central layer that coordinates everything in the Polygon SDK system. It is covered in depth in the corresponding *Modules* section.
 
 ## State
-The State layer contains state transition logic. It deals with how the state changes when a new block is included. It is covered in depth in the corresponding *Modules* section.
+The State inner layer contains state transition logic. It deals with how the state changes when a new block is included. It is covered in depth in the corresponding *Modules* section.
 
 ## JSON RPC
 The JSON RPC layer is an API layer that dApp developers use to interact with the blockchain. It is covered in depth in the corresponding *Modules* section.
+
+## TxPool
+The TxPool layer represents the transaction pool, and it is closely linked with other modules in the system, as transactions can be added from multiple entry points.
+
+## GRPC
+The GRPC layer is vital for operator interactions. Through it, node operators can easily interact with the client, providing an enjoyable UX.
