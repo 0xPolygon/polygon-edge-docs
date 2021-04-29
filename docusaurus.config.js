@@ -71,7 +71,7 @@ module.exports = {
       //     ]
       //   }
       // ],
-      copyright: `Made with ❤ by the humans at MVP Workshop`
+      copyright: `Made with ❤ by the humans at <a href="https://mvpworkshop.co">MVP Workshop</a>`
     }
   },
   presets: [
