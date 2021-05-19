@@ -21,57 +21,20 @@ module.exports = {
       logo: {
         alt: 'Polygon SDK Logo',
         src: 'img/logo.svg',
-        href: 'docs/guides/overview'
+        href: 'docs/overview'
       },
       items: [
         {
-          to: 'docs/guides/overview',
-          activeBasePath: 'docs/guides',
-          label: 'Guides',
+          to: 'docs/overview',
+          activeBasePath: 'docs/',
+          label: 'Develop',
           position: 'left'
-        },
-        {
-          to: 'docs/how-tos/howto-set-ibft',
-          activeBasePath: 'docs/how-tos',
-          label: 'How-tos',
-          position: 'left'
-        },
-        {
-          to: 'docs/reference/polygon-sdk-architecture',
-          activeBasePath: 'docs/reference',
-          label: 'Reference',
-          position: 'left'
-        },
-        {
-          href: 'https://github.com/0xPolygon/polygon-sdk',
-          label: 'GitHub',
-          position: 'right'
         }
       ]
     },
     footer: {
       style: 'dark',
-      // links: [
-      //   {
-      //     title: 'Docs',
-      //     items: [
-      //       {
-      //         label: 'Getting Started',
-      //         to: 'docs/'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     title: 'More',
-      //     items: [
-      //       {
-      //         label: 'GitHub',
-      //         href: 'https://github.com/facebook/docusaurus'
-      //       }
-      //     ]
-      //   }
-      // ],
-      copyright: `Made with ❤ by the humans at <a href="https://mvpworkshop.co">MVP Workshop</a>`
+      copyright: `Made with ❤ by the humans at <a href='https://mvpworkshop.co'>MVP Workshop</a>`
     }
   },
   presets: [
