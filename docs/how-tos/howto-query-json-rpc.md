@@ -31,7 +31,7 @@ The balance can be either a `hex` or `uint256` value.
 
 ## Step 2: Start the Polygon SDK in dev mode
 
-To start the SDK in development mode, which is explained in the [CLI Commands](/docs/reference/cli-commands) section, 
+To start the SDK in development mode, which is explained in the [CLI Commands](/docs/cli-commands) section, 
 run the following: 
 ````bash
 go run main.go server --chain genesis.json --dev --log-level debug

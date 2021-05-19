@@ -169,7 +169,7 @@ Ethereum has 4 types of tries:
    world state trie is included in a block (in the stateRoot field) to represent the current state when that block was
    created. We only have one world state trie
 2. The account storage trie contains the data associated to a smart contract. The hash of the root node of the Account
-   storage trie is included in the sccount state (in the storageRoot field). We have one Account storage trie for each
+   storage trie is included in the account state (in the storageRoot field). We have one Account storage trie for each
    account
 3. The transaction trie contains all the transactions included in a block. The hash of the root node of the Transaction
    trie is included in the block header (in the transactionsRoot field). We have one transaction trie per block

@@ -5,7 +5,7 @@ title: How to propose a new feature
 
 ## Overview
 
-If you want to include a fix, or just contribute to the code, it is hightly encouraged you reach out to the team first. <br/>
+If you want to include a fix, or just contribute to the code, it is highly encouraged you reach out to the team first. <br/>
 The Polygon SDK uses a relatively basic feature proposition template, that is concise and to the point.
 
 ## PR Template

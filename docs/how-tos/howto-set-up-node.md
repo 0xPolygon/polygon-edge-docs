@@ -6,7 +6,7 @@ title: How to set up a node locally
 ## Useful information
 
 For a better understanding of some commands that will be used later on, it is recommended that you go over
-the [CLI Commands](/docs/reference/cli-commands), before diving deeper into the examples below.
+the [CLI Commands](/docs/cli-commands), before diving deeper into the examples below.
 
 The main Polygon SDK version is located on the **develop** branch, and is considered to be a stable version of the SDK,
 while other branches are mid-feature implementations.
@@ -35,7 +35,7 @@ To briefly go over what has been done so far:
 * The *seal* flag means that the node being started is going to participate in block sealing
 
 By default, the client uses an empty genesis file with a ~5s PoW. The structure of the genesis file is covered in
-the [CLI Commands](/docs/reference/cli-commands) section.
+the [CLI Commands](/docs/cli-commands) section.
 
 After running the previous command, in the logs of the running client you will see the **libP2P** address required to
 connect to this node. This should be an address in the following form:
