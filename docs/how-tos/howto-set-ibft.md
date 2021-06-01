@@ -102,3 +102,19 @@ go run main.go monitor --address localhost:20000
 ````
 
 The above command will start monitoring blockchain event activity on the client that's running on port *20000*
+
+## Networking on Cloud providers
+
+Most cloud providers don't expose the IP addresses (especially public ones) as a direct network interface on your VM but rather setup an invisible NAT proxy.
+
+To allow the nodes to connect to each other in this case you would need to listen on the `0.0.0.0` IP address to bind on all interfaces, but you would still need to specify the IP address which other nodes can use to connect to your instance. This is achieved using the `--nat` argument where you can specify your external IP.
+
+> Example:
+>
+> The associated IP address that you wish to listen on is `192.0.2.1`, but it is not directly bound to any of your network interfaces.
+> To allow the nodes to connect you would pass the following parameters:
+>
+> `go run main.go ... --libp2p 0.0.0.0:10001 --nat 192.0.2.1`
+>
+> This would make your node listen on all interfaces, but also make it aware that the clients are connecting to it through the specified `--nat` address.
+> 
