@@ -59,7 +59,7 @@ and append the node ID (from the previous step) to it. For example:
 ## Step 3: Generate an IBFT genesis file with the previous accounts as validators
 
 ````bash
-go run main.go genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ipv4/127.0.0.1/tcp/10001/p2p/<node_id_1> --bootnode /ipv4/127.0.0.1/tcp/20001/p2p/<node_id_2> --bootnode /ipv4/127.0.0.1/tcp/30001/p2p/<node_id_3> --bootnode /ipv4/127.0.0.1/tcp/40001/p2p/<node_id_4>
+go run main.go genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ip4/127.0.0.1/tcp/10001/p2p/<node_id_1> --bootnode /ip4/127.0.0.1/tcp/20001/p2p/<node_id_2> --bootnode /ip4/127.0.0.1/tcp/30001/p2p/<node_id_3> --bootnode /ip4/127.0.0.1/tcp/40001/p2p/<node_id_4>
 ````
 
 What this command does:
