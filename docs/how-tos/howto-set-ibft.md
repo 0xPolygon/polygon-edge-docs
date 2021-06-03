@@ -39,10 +39,27 @@ go run main.go ibft init test-chain-3
 go run main.go ibft init test-chain-4
 ````
 
-## Step 2: Generate an IBFT genesis file with the previous accounts as validators
+Each of these commands will print [node ID](https://docs.libp2p.io/concepts/peer-id/). You will need that information for the next step.
+
+## Step 2: Using the clients as bootstrap nodes
+
+To start the clients as bootstrap nodes you will need to specify their address schemes by encoding them
+into a [multiaddr format](https://docs.libp2p.io/concepts/addressing/):
+```
+/ip4/<ip_address>/tcp/<port>/p2p/<node_id>
+```
+
+To do so, you should specify the IP address and the port for each of the clients,
+and append the node ID (from the previous step) to it. For example:
+
+```
+/ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
+```
+
+## Step 3: Generate an IBFT genesis file with the previous accounts as validators
 
 ````bash
-go run main.go genesis --consensus ibft --ibft-validators-prefix-path test-chain-
+go run main.go genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ip4/127.0.0.1/tcp/10001/p2p/<node_id_1> --bootnode /ip4/127.0.0.1/tcp/20001/p2p/<node_id_2> --bootnode /ip4/127.0.0.1/tcp/30001/p2p/<node_id_3> --bootnode /ip4/127.0.0.1/tcp/40001/p2p/<node_id_4>
 ````
 
 What this command does:
@@ -51,8 +68,10 @@ What this command does:
 * The *--ibft-validators-prefix-path* sets the prefix folder path to the one specified which IBFT in Polygon SDK can
   use. This directory is used to house the **consensus** folder, where the validator's private key is kept. The
   validator's PK is needed in order to build the genesis file - the initial list of bootstrap nodes.
+* The *--bootnode* sets the bootnodes addresses that will be used to allow a new node to discover other nodes in the network through them.
+  Since we are starting a new network, and it only consists of these nodes, we enter their `multiaddr` addresses.
 
-## Step 3: Run all the clients
+## Step 4: Run all the clients
 
 To run the **first** client:
 
@@ -92,7 +111,7 @@ The structure of the genesis file is covered in the [CLI Commands](/docs/cli-com
 After running the previous commands, you have set up a 4 client IBFT network, capable of sealing blocks and recovering
 from node failure.
 
-## Step 3: Monitor node activity
+## Step 5: Monitor node activity
 
 Now that you've set up at least 1 running client, you can monitor the information that passes through, such as forks and
 reorgs, using the **monitor** command:
