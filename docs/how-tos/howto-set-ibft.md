@@ -46,14 +46,14 @@ Each of these commands will print [node ID](https://docs.libp2p.io/concepts/peer
 To start the clients as bootstrap nodes you will need to specify their address schemes by encoding them
 into a [multiaddr format](https://docs.libp2p.io/concepts/addressing/):
 ```
-/ipv4/<ip_address>/tcp/<port>/p2p/<node_id>
+/ip4/<ip_address>/tcp/<port>/p2p/<node_id>
 ```
 
 To do so, you should specify the IP address and the port for each of the clients,
 and append the node ID (from the previous step) to it. For example:
 
 ```
-/ipv4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
+/ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
 ```
 
 ## Step 3: Generate an IBFT genesis file with the previous accounts as validators
