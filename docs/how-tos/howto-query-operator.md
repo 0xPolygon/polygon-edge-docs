@@ -12,7 +12,11 @@ A functioning node is required in order to query any kind of operator informatio
 With the Polygon SDK, node operators are in control and informed about what the node they're operating is doing.<br />
 At any time, they can use the node information layer, built on top of gRPC, and get meaningful information - no log sifting required.
 
-**Note:** If your node isn't running on `127.0.0.1:8545` you should add a flag `--grpc-address <address:port>` to the commands listed in this document.
+:::note
+
+If your node isn't running on `127.0.0.1:8545` you should add a flag `--grpc-address <address:port>` to the commands listed in this document.
+
+:::
 
 ## Peer information
 
