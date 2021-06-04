@@ -117,7 +117,7 @@ Now that you've set up at least 1 running client, you can monitor the informatio
 reorgs, using the **monitor** command:
 
 ````bash
-go run main.go monitor --address localhost:20000
+go run main.go monitor --grpc-address localhost:20000
 ````
 
 The above command will start monitoring blockchain event activity on the client that's running on port *20000*
