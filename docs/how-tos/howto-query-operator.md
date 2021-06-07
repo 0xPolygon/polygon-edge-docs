@@ -33,7 +33,7 @@ This will return a list of libp2p addresses that are currently peers of the runn
 
 For the status of a specific peer, run:
 ````bash
-go run main.go peers status <address>
+go run main.go peers status --libp2p-node-id <address>
 ````
 With the *address* parameter being the libp2p address of the peer.
 
