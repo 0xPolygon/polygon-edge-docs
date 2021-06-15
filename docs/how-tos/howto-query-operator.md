@@ -24,7 +24,7 @@ If your node isn't running on `127.0.0.1:8545` you should add a flag `--grpc-add
 
 To get a complete list of connected peers (including the running node itself), run the following command:
 ````bash
-go run main.go peers list
+go run main.go peers-list
 ````
 
 This will return a list of libp2p addresses that are currently peers of the running client.
@@ -33,7 +33,7 @@ This will return a list of libp2p addresses that are currently peers of the runn
 
 For the status of a specific peer, run:
 ````bash
-go run main.go peers status --peer-id <address>
+go run main.go peers-status --peer-id <address>
 ````
 With the *address* parameter being the libp2p address of the peer.
 
@@ -47,11 +47,11 @@ Luckily, the Polygon SDK provides an easy way to find this information.
 
 Running the following command returns the most recent snapshot.
 ````bash
-go run main.go ibft snapshot
+go run main.go ibft-snapshot
 ````
 To query the snapshot at a specific height (block number), the operator can run:
 ````bash
-go run main.go ibft snapshot --num <block-number>
+go run main.go ibft-snapshot --num <block-number>
 ````
 
 ### Candidates
@@ -64,14 +64,14 @@ This command queries the current set of proposed candidates, as well as candidat
 
 ### Status
 
-The following command returns the status of the overall IBFT client:
+The following command returns the current validator key of the running IBFT client:
 ````bash
-go run main.go ibft status
+go run main.go ibft-status
 ````
 
 ## Transaction pool
 
 To find the current number of transactions in the transaction pool, the operator can run:
 ````bash
-go run main.go txpool status
+go run main.go txpool-status
 ````

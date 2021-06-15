@@ -20,28 +20,27 @@ This section details the present commands, command flags in the Polygon SDK, and
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
-| peers add <*address*\>    | Adds a new peer using their libp2p address                                  |
-| peers list             | Lists all the peers the client is connected to through libp2p                      |
-| peers status <*address*\> | Returns the status of a specific peer from the peers list, using the libp2p address 
+| peers-add   | Adds a new peer using their libp2p address                                  |
+| peers-list             | Lists all the peers the client is connected to through libp2p                      |
+| peers-status <*address*\> | Returns the status of a specific peer from the peers list, using the libp2p address 
 
 ### IBFT Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
-| ibft init <*data-dir*\>   | Initializes IBFT for the Polygon SDK                              |
-| ibft snapshot             | Returns the IBFT snapshot                    |
-| ibft candidates  | Queries the current set of proposed candidates, as well as candidates that have not been included yet |
-| ibft propose --add <*eth-address*\>                | Proposes a new candidate to be added to the snapshot list         |
-| ibft propose --remove <*eth-address*\>                | Proposes a new candidate to be removed from the snapshot list         |
-| ibft status                | Returns the overall status of the IBFT client   
+| ibft-init   | Initializes IBFT for the Polygon SDK                              |
+| ibft-snapshot             | Returns the IBFT snapshot                    |
+| ibft-candidates  | Queries the current set of proposed candidates, as well as candidates that have not been included yet |
+| ibft-propose                | Proposes a new candidate to be added / removed from the validator set        |
+| ibft-status                | Returns the overall status of the IBFT client   
 
 
 ### Transaction Pool Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
-| txpool add    | Adds a transaction to the transaction pool, using different flags                               |
-| txpool status             | Returns the number of transactions in the pool                    
+| txpool-add    | Adds a transaction to the transaction pool, using different flags                               |
+| txpool-status             | Returns the number of transactions in the pool                    
 
 ### Blockchain commands
 

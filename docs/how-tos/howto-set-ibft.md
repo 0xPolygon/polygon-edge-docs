@@ -24,19 +24,19 @@ other.
 In order to get up and running with IBFT, you need to initialize some data folders:
 
 ````bash
-go run main.go ibft init --data-dir test-chain-1
+go run main.go ibft-init --data-dir test-chain-1
 ````
 
 ````bash
-go run main.go ibft init --data-dir test-chain-2
+go run main.go ibft-init --data-dir test-chain-2
 ````
 
 ````bash
-go run main.go ibft init --data-dir test-chain-3
+go run main.go ibft-init --data-dir test-chain-3
 ````
 
 ````bash
-go run main.go ibft init --data-dir test-chain-4
+go run main.go ibft-init --data-dir test-chain-4
 ````
 
 Each of these commands will print [node ID](https://docs.libp2p.io/concepts/peer-id/). You will need that information for the next step.
