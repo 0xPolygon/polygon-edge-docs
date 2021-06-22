@@ -58,9 +58,9 @@ The command should return the following output:
 Now that we've confirmed the account we set up as premined has the correct balance, we can transfer some ether:
 
 ````bash
-go run main.go txpool-add --nonce 0 --from 0x1010101010101010101010101010101010101010 --to 0x0000000000000000000000000000000000000010 --value 0x100
+go run main.go txpool add --nonce 0 --from 0x1010101010101010101010101010101010101010 --to 0x0000000000000000000000000000000000000010 --value 0x100
 ````
 
-The **txpool-add** command adds the transaction to the transaction pool.
+The **txpool add** command adds the transaction to the transaction pool.
 
 In this case, the transfer is from `0x1010101010101010101010101010101010101010` to `0x0000000000000000000000000000000000000010`, with the value being `0x100` wei.
