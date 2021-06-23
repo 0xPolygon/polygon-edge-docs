@@ -64,7 +64,7 @@ This command queries the current set of proposed candidates, as well as candidat
 
 ### Status
 
-The following command returns the status of the overall IBFT client:
+The following command returns the current validator key of the running IBFT client:
 ````bash
 go run main.go ibft status
 ````

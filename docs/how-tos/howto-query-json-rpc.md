@@ -20,7 +20,7 @@ go run main.go genesis --premine 0x1010101010101010101010101010101010101010
 
 The **premine** flag sets the address that should be included with a starting balance in the **genesis** file.<br />
 In this case, the address `0x1010101010101010101010101010101010101010` will have a starting **default balance** of 
-`0x100000000000000000000000000`.
+`0x3635C9ADC5DEA00000 wei`.
 
 If we wanted to specify a balance, we can separate out the balance and address with a `:`, like so:
 ````bash
