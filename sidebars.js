@@ -6,7 +6,14 @@ module.exports = {
       type: 'category',
       label: 'How-tos',
       items: [
-        'how-tos/howto-set-ibft',
+        {
+          type: 'category',
+          label: 'How to setup IBFT',
+          items: [
+            'how-tos/howto-setup-ibft/howto-set-ibft-locally',
+            'how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud',
+          ]
+        },
         'how-tos/howto-query-operator',
         'how-tos/howto-query-json-rpc',
         'how-tos/howto-report-bug',
