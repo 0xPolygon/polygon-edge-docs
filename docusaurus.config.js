@@ -43,7 +43,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/0xPolygon/polygon-sdk-docs',
+          editUrl: 'https://github.com/0xPolygon/polygon-sdk-docs/blob/main',
           showLastUpdateAuthor: false,
           showLastUpdateTime: false
         },
