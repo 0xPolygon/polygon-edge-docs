@@ -139,6 +139,19 @@ Example if we would like to premine 1000 ETH to address `0x3956E90e632AEbBF34DEB
 
 :::
 
+:::info Set the block gas limit
+
+The default gas limit for each block is `5242880`. This value is wrote in the genesis file, but you may want to
+increase / decrease it.
+
+To do so, you can use the flag `--block-gas-limit` followed by the desired value as shown below :
+
+```shell
+--block-gas-limit 1000000000
+```
+
+:::
+
 
 ## Step 4: Run all the clients
 
