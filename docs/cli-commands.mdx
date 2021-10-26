@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 This section details the present commands, command flags in the Polygon SDK, and how they're used.
 
-## 🚀 Startup Commands
+## Startup Commands
 
 | **Command** | **Description**                                                                                                                                      |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -16,9 +16,9 @@ This section details the present commands, command flags in the Polygon SDK, and
 | dev         | "Bypasses" consensus and networking and starts a blockchain locally. It starts a local node and mines every transaction in a separate block    |
 | genesis     | Generates a *genesis.json* file, which is used to set predefined chain state before starting the client. The structure of the genesis file is described below |
 
-### 🚩 Server flags
+### Server flags
 
-<h3><i>seal</i></h3>
+<h4><i>seal</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -37,7 +37,7 @@ Sets the flag indicating that the client should seal blocks. Default: `false`.
 
 ---
 
-<h3><i>data-dir</i></h3>
+<h4><i>data-dir</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -57,7 +57,7 @@ Specifies the data directory used for storing Polygon SDK client data. Default: 
 ---
 
 
-<h3><i>jsonrpc</i></h3>
+<h4><i>jsonrpc</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -76,7 +76,7 @@ Sets the address and port for the JSON-RPC service `address:port`. Default addre
 
 ---
 
-<h3><i>grpc</i></h3>
+<h4><i>grpc</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -95,7 +95,7 @@ Sets the address and port for the gRPC service `address:port`. Default address: 
 
 ---
 
-<h3><i>libp2p</i></h3>
+<h4><i>libp2p</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -114,7 +114,7 @@ Sets the address and port for the libp2p service `address:port`. Default address
 
 ---
 
-<h3><i>max-peers</i></h3>
+<h4><i>max-peers</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -133,7 +133,7 @@ Sets the client's max peer count. Default: `20`.
 
 ---
 
-<h3><i>log-level</i></h3>
+<h4><i>log-level</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -152,7 +152,7 @@ Sets the log level for console output. Default: `INFO`.
 
 ---
 
-<h3><i>chain</i></h3>
+<h4><i>chain</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -171,7 +171,7 @@ Specifies the genesis file used for starting the chain. Default: `test`.
 
 ---
 
-<h3><i>join</i></h3>
+<h4><i>join</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -190,7 +190,7 @@ Specifies the address of the peer that should be joined.
 
 ---
 
-<h3><i>nat</i></h3>
+<h4><i>nat</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -209,7 +209,7 @@ Sets the the external IP address without the port, as it can be seen by peers.
 
 ---
 
-<h3><i>config</i></h3>
+<h4><i>config</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -228,7 +228,7 @@ Specifies the path to the CLI config. Supports `.json` and `.hcl`.
 
 ---
 
-<h3><i>dev</i></h3>
+<h4><i>dev</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -247,7 +247,7 @@ Sets the client to dev mode. Default: `false`.
 
 ---
 
-<h3><i>dev-interval</i></h3>
+<h4><i>dev-interval</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -266,7 +266,7 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 ---
 
-<h3><i>no-discover</i></h3>
+<h4><i>no-discover</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -283,9 +283,9 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 Prevents the client from discovering other peers. Default: `false`.
 
-### 🚩 Dev flags
+### Dev flags
 
-<h3><i>log-level</i></h3>
+<h4><i>log-level</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -304,7 +304,7 @@ Sets the log level for console output. Default: `INFO`.
 
 ---
 
-<h3><i>premine</i></h3>
+<h4><i>premine</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -325,7 +325,7 @@ Default premined balance: `0x3635C9ADC5DEA00000`.
 
 ---
 
-<h3><i>dev-interval</i></h3>
+<h4><i>dev-interval</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -344,7 +344,7 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 ---
 
-<h3><i>block-gas-limit</i></h3>
+<h4><i>block-gas-limit</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -363,7 +363,7 @@ Sets the gas limit of each block. Default: `5000`.
 
 ---
 
-<h3><i>chainid</i></h3>
+<h4><i>chainid</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -380,9 +380,9 @@ Sets the gas limit of each block. Default: `5000`.
 
 Sets the ID of the chain. Default: `100`.
 
-### 🚩 Genesis flags
+### Genesis flags
 
-<h3><i>dir</i></h3>
+<h4><i>dir</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -401,7 +401,7 @@ Sets the directory for the Polygon SDK genesis data. Default: `./genesis.json`.
 
 ---
 
-<h3><i>name</i></h3>
+<h4><i>name</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -420,7 +420,7 @@ Sets the name for the chain. Default: `example`.
 
 ---
 
-<h3><i>premine</i></h3>
+<h4><i>premine</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -441,7 +441,7 @@ Default premined balance: `0x3635C9ADC5DEA00000`.
 
 ---
 
-<h3><i>chainid</i></h3>
+<h4><i>chainid</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -460,7 +460,7 @@ Sets the ID of the chain. Default: `100`.
 
 ---
 
-<h3><i>ibft-validators-prefix-path</i></h3>
+<h4><i>ibft-validators-prefix-path</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -479,7 +479,7 @@ Prefix path for validator folder directory. Needs to be present if the flag `ibf
 
 ---
 
-<h3><i>ibft-validator</i></h3>
+<h4><i>ibft-validator</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -498,7 +498,7 @@ Sets passed in addresses as IBFT validators. Needs to be present if the flag `ib
 
 ---
 
-<h3><i>block-gas-limit</i></h3>
+<h4><i>block-gas-limit</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -517,7 +517,7 @@ Refers to the maximum amount of gas used by all operations in a block. Default: 
 
 ---
 
-<h3><i>consensus</i></h3>
+<h4><i>consensus</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -536,7 +536,7 @@ Sets consensus protocol. Default: `pow`.
 
 ---
 
-<h3><i>bootnode</i></h3>
+<h4><i>bootnode</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -556,9 +556,9 @@ Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 ---
 
 
-## 👷 Operator Commands
+## Operator Commands
 
-### 🌟 Peer Commands
+### Peer Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
@@ -566,9 +566,9 @@ Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 | peers list             | Lists all the peers the client is connected to through libp2p                      |
 | peers status | Returns the status of a specific peer from the peers list, using the libp2p address 
 
-### 🚩 Peers add flags
+#### Peers add flags
 
-<h3><i>addr</i></h3>
+<h4><i>addr</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -587,7 +587,7 @@ Peer's libp2p address in the multiaddr format.
 
 ---
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -604,9 +604,9 @@ Peer's libp2p address in the multiaddr format.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🚩 Peers list flags
+#### Peers list flags
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -623,9 +623,9 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🚩 Peers status flags
+#### Peers status flags
 
-<h3><i>peer-id</i></h3>
+<h4><i>peer-id</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -644,7 +644,7 @@ Libp2p node ID of a specific peer within p2p network.
 
 ---
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -661,7 +661,7 @@ Libp2p node ID of a specific peer within p2p network.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🌟 IBFT Commands
+### IBFT Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
@@ -671,9 +671,9 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | ibft propose                | Proposes a new candidate to be added / removed from the validator set        |
 | ibft status                | Returns the overall status of the IBFT client   
 
-### 🚩 Ibft init flags
+#### Ibft init flags
 
-<h3><i>data-dir</i></h3>
+<h4><i>data-dir</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -690,9 +690,9 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Sets the directory for the Polygon SDK data.
 
-### 🚩 Ibft snapshot flags
+#### Ibft snapshot flags
 
-<h3><i>number</i></h3>
+<h4><i>number</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -711,7 +711,7 @@ The block height (number) for the snapshot.
 
 ---
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -728,9 +728,9 @@ The block height (number) for the snapshot.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🚩 Ibft candidates flags
+#### Ibft candidates flags
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -747,9 +747,9 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🚩 Ibft propose flags
+#### Ibft propose flags
 
-<h3><i>vote</i></h3>
+<h4><i>vote</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -768,7 +768,7 @@ Proposes a change to the validator set. Possible values: `[auth, drop]`.
 
 ---
 
-<h3><i>addr</i></h3>
+<h4><i>addr</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -787,7 +787,7 @@ Address of the account to be voted for.
 
 ---
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -804,9 +804,9 @@ Address of the account to be voted for.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🚩 Ibft status flags
+#### Ibft status flags
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -823,16 +823,16 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🌟 Transaction Pool Commands
+### Transaction Pool Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
 | txpool add    | Adds a transaction to the transaction pool, using different flags                               |
 | txpool status             | Returns the number of transactions in the pool                    
 
-### 🚩 Txpool add flags
+#### Txpool add flags
 
-<h3><i>from</i></h3>
+<h4><i>from</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -851,7 +851,7 @@ The sender address.
 
 ---
 
-<h3><i>to</i></h3>
+<h4><i>to</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -870,7 +870,7 @@ The receiver address.
 
 ---
 
-<h3><i>value</i></h3>
+<h4><i>value</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -889,7 +889,7 @@ The value of the transaction in wei.
 
 ---
 
-<h3><i>gasPrice</i></h3>
+<h4><i>gasPrice</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -908,7 +908,7 @@ The gas price in wei.
 
 ---
 
-<h3><i>nonce</i></h3>
+<h4><i>nonce</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -927,7 +927,7 @@ The nonce of the transaction.
 
 ---
 
-<h3><i>gasLimit</i></h3>
+<h4><i>gasLimit</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -946,7 +946,7 @@ The specified gas limit in wei.
 
 ---
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -963,9 +963,9 @@ The specified gas limit in wei.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🚩 Txpool status flags
+#### Txpool status flags
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -990,9 +990,9 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | monitor                | Subscribes to a blockchain event stream. The detailed response can be found below   |
 | version                | Returns the current version of the client
 
-### 🚩 Status flags
+#### Status flags
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
@@ -1009,9 +1009,9 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-### 🚩 Monitor flags
+#### Monitor flags
 
-<h3><i>grpc-address</i></h3>
+<h4><i>grpc-address</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
