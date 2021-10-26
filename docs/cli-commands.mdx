@@ -16,7 +16,7 @@ This section details the present commands, command flags in the Polygon SDK, and
 | dev         | "Bypasses" consensus and networking and starts a blockchain locally. It starts a local node and mines every transaction in a separate block    |
 | genesis     | Generates a *genesis.json* file, which is used to set predefined chain state before starting the client. The structure of the genesis file is described below |
 
-### Server flags
+### server flags
 
 <h4><i>seal</i></h4>
 
@@ -283,7 +283,7 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 Prevents the client from discovering other peers. Default: `false`.
 
-### Dev flags
+### dev flags
 
 <h4><i>log-level</i></h4>
 
@@ -380,7 +380,7 @@ Sets the gas limit of each block. Default: `5000`.
 
 Sets the ID of the chain. Default: `100`.
 
-### Genesis flags
+### genesis flags
 
 <h4><i>dir</i></h4>
 
@@ -566,7 +566,7 @@ Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 | peers list             | Lists all the peers the client is connected to through libp2p                      |
 | peers status | Returns the status of a specific peer from the peers list, using the libp2p address 
 
-#### Peers add flags
+#### peers add flags
 
 <h4><i>addr</i></h4>
 
@@ -604,7 +604,7 @@ Peer's libp2p address in the multiaddr format.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-#### Peers list flags
+#### peers list flags
 
 <h4><i>grpc-address</i></h4>
 
@@ -623,7 +623,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-#### Peers status flags
+#### peers status flags
 
 <h4><i>peer-id</i></h4>
 
@@ -671,7 +671,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | ibft propose                | Proposes a new candidate to be added / removed from the validator set        |
 | ibft status                | Returns the overall status of the IBFT client   
 
-#### Ibft init flags
+#### ibft init flags
 
 <h4><i>data-dir</i></h4>
 
@@ -690,7 +690,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Sets the directory for the Polygon SDK data.
 
-#### Ibft snapshot flags
+#### ibft snapshot flags
 
 <h4><i>number</i></h4>
 
@@ -728,7 +728,7 @@ The block height (number) for the snapshot.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-#### Ibft candidates flags
+#### ibft candidates flags
 
 <h4><i>grpc-address</i></h4>
 
@@ -747,7 +747,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-#### Ibft propose flags
+#### ibft propose flags
 
 <h4><i>vote</i></h4>
 
@@ -804,7 +804,7 @@ Address of the account to be voted for.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-#### Ibft status flags
+#### ibft status flags
 
 <h4><i>grpc-address</i></h4>
 
@@ -830,7 +830,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | txpool add    | Adds a transaction to the transaction pool, using different flags                               |
 | txpool status             | Returns the number of transactions in the pool                    
 
-#### Txpool add flags
+#### txpool add flags
 
 <h4><i>from</i></h4>
 
@@ -963,7 +963,7 @@ The specified gas limit in wei.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-#### Txpool status flags
+#### txpool status flags
 
 <h4><i>grpc-address</i></h4>
 
@@ -990,7 +990,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | monitor                | Subscribes to a blockchain event stream. The detailed response can be found below   |
 | version                | Returns the current version of the client
 
-#### Status flags
+#### status flags
 
 <h4><i>grpc-address</i></h4>
 
@@ -1009,7 +1009,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
-#### Monitor flags
+#### monitor flags
 
 <h4><i>grpc-address</i></h4>
 
