@@ -16,6 +16,7 @@ module.exports = {
         },
         'how-tos/howto-query-operator',
         'how-tos/howto-query-json-rpc',
+        'how-tos/howto-backup-restore',
         'how-tos/howto-report-bug',
         'how-tos/howto-propose-feature'
       ]
