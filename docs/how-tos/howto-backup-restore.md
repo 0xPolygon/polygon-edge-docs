@@ -23,12 +23,13 @@ It is critical for these folders to be preserved in order for the Polygon SDK in
 
 ### Step 1: Stop the running client
 
-Since the Polygon SDK uses **LevelDB** for data storage, it is currently not possible to set up a `cron` job or use `rsync` in order
-to do automatic backups of the data directory while the client is running, as **LevelDB** doesn't allow for concurrent access to its database files.
+Since the Polygon-SDK uses **LevelDB** for data storage, the Polygon-SDK node needs to be stopped for the duration of the backup, 
+as **LevelDB** doesn't allow for concurrent access to its database files.
 
 Additionally, the Polygon SDK also does data flushing on close.
 
-The first step involves stopping the running client (CTRL-C to gracefully shut it down), so it can trigger 2 events:
+The first step involves stopping the running client (either through a service manager or some other mechanism that sends a SIGINT signal to the process), 
+so it can trigger 2 events while gracefully shutting down:
 * Running data flush to disk
 * Release of the DB files lock by LevelDB
 
@@ -58,12 +59,3 @@ Additionally, restore the previously copied `genesis` file.
 
 In order for the Polygon SDK to use the restored data directory, at launch, the user needs to specify the path to the 
 data directory. Please consult the [CLI Commands](/docs/cli-commands) section on information regarding the `data-dir` flag.
-
-## Future improvements
-
-The process of backing up and restoring data directories is cumbersome when the node needs to be turned off in order to perform it.
-
-The Polygon SDK team aims to mitigate this inconvenience by introducing a few new commands, namely `export <filename> [start-block] [end-block]`
-for backing up the current client data, as well as `import <filename>` for restoring previously backed up data.
-
-The commands will be implemented as operator commands through the gRPC layer, and will not require the node operator to turn off the client.
