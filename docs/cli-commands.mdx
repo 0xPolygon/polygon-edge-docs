@@ -558,7 +558,7 @@ Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 
 ## 👷 Operator Commands
 
-### Peer Commands
+### 🌟 Peer Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
@@ -566,7 +566,102 @@ Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 | peers list             | Lists all the peers the client is connected to through libp2p                      |
 | peers status | Returns the status of a specific peer from the peers list, using the libp2p address 
 
-### IBFT Commands
+### 🚩 Peers add flags
+
+<h3><i>addr</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    peers add --addr PEER_ADDRESS
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    peers add --addr /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
+
+  </TabItem>
+</Tabs>
+
+Peer's libp2p address in the multiaddr format.
+
+---
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    peers add [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    peers add --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🚩 Peers list flags
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    peers list [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    peers list --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🚩 Peers status flags
+
+<h3><i>peer-id</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    peers status --peer-id PEER_ID
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    peers status --peer-id 16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
+
+  </TabItem>
+</Tabs>
+
+Libp2p node ID of a specific peer within p2p network.
+
+---
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    peers status [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    peers status --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🌟 IBFT Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
@@ -576,13 +671,316 @@ Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 | ibft propose                | Proposes a new candidate to be added / removed from the validator set        |
 | ibft status                | Returns the overall status of the IBFT client   
 
+### 🚩 Ibft init flags
 
-### Transaction Pool Commands
+<h3><i>data-dir</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft init --data-dir DATA_DIRECTORY
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft init --data-dir ./ibft-dir
+
+  </TabItem>
+</Tabs>
+
+Sets the directory for the Polygon SDK data.
+
+### 🚩 Ibft snapshot flags
+
+<h3><i>number</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft snapshot [--number BLOCK_NUMBER]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft snapshot --number 100
+
+  </TabItem>
+</Tabs>
+
+The block height (number) for the snapshot.
+
+---
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft snapshot [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft snapshot --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🚩 Ibft candidates flags
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft candidates [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft candidates --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🚩 Ibft propose flags
+
+<h3><i>vote</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft propose --vote VOTE
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft propose --vote auth
+
+  </TabItem>
+</Tabs>
+
+Proposes a change to the validator set. Possible values: `[auth, drop]`.
+
+---
+
+<h3><i>addr</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft propose --addr ETH_ADDRESS
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft propose --addr 0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7
+
+  </TabItem>
+</Tabs>
+
+Address of the account to be voted for.
+
+---
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft candidates [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft candidates --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🚩 Ibft status flags
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft status [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft status --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🌟 Transaction Pool Commands
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
 | txpool add    | Adds a transaction to the transaction pool, using different flags                               |
 | txpool status             | Returns the number of transactions in the pool                    
+
+### 🚩 Txpool add flags
+
+<h3><i>from</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool add --from ADDRESS
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool add --from 0xD045FE41468bDcB7A6123A59eDf872679B4cdDb6
+
+  </TabItem>
+</Tabs>
+
+The sender address.
+
+---
+
+<h3><i>to</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool add --to ADDRESS
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool add --to 0x918fB175280aa4D88C0946F964429700D45cf480
+
+  </TabItem>
+</Tabs>
+
+The receiver address.
+
+---
+
+<h3><i>value</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool add --value VALUE
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool add --value 2000000000000000000
+
+  </TabItem>
+</Tabs>
+
+The value of the transaction in wei.
+
+---
+
+<h3><i>gasPrice</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool add --gasPrice GASPRICE
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool add --gasPrice 100000000
+
+  </TabItem>
+</Tabs>
+
+The gas price in wei.
+
+---
+
+<h3><i>nonce</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool add [--nonce NONCE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool add --nonce 20
+
+  </TabItem>
+</Tabs>
+
+The nonce of the transaction.
+
+---
+
+<h3><i>gasLimit</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool add [--gasLimit LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool add --gasLimit 100000000
+
+  </TabItem>
+</Tabs>
+
+The specified gas limit in wei.
+
+---
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool add [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool add --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🚩 Txpool status flags
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool status [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool status --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 ### Blockchain commands
 
@@ -591,6 +989,44 @@ Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 | status                 | Returns the status of the client. The detailed response can be found below          |
 | monitor                | Subscribes to a blockchain event stream. The detailed response can be found below   |
 | version                | Returns the current version of the client
+
+### 🚩 Status flags
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    status [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    status --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+### 🚩 Monitor flags
+
+<h3><i>grpc-address</i></h3>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    monitor [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    monitor --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 ## Responses
 
