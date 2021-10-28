@@ -187,6 +187,22 @@ The structure of the genesis file is covered in the [CLI Commands](/docs/cli-com
 After running the previous commands, you have set up a 4 client IBFT network, capable of sealing blocks and recovering
 from node failure.
 
+:::info Steps to run a non-validator node 
+
+A Non-validator will always sync the latest blocks recieved from the validator node, you can start a non-validator node by running the following command.
+
+````bash 
+go run main.go server --data-dir <directory_path> --chain <genesis_filename> --grpc <portNo> --libp2p <portNo> --jsonrpc <portNo>
+````
+Example you can add **fifth** Non-validator client by executing the following command :
+
+````bash
+go run main.go server --data-dir ./test-chain --chain genesis.json --grpc :50000 --libp2p :50001 --jsonrpc :50002 
+````
+:::
+
+
+
 ## Step 5: Interact with the polygon-sdk network
 
 Now that you've set up at least 1 running client, you can go ahead and interact with the blockchain using the account you premined above
