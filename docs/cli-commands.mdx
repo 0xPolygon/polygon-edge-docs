@@ -114,6 +114,25 @@ Sets the address and port for the libp2p service `address:port`. Default address
 
 ---
 
+<h4><i>block-gas-target</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--block-gas-target BLOCK_GAS_TARGET]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --block-gas-target 10000000
+
+  </TabItem>
+</Tabs>
+
+Sets the target block gas limit for the chain. Default: `8000000`.
+
+---
+
 <h4><i>max-peers</i></h4>
 
 <Tabs>
@@ -322,6 +341,25 @@ Sets the log level for console output. Default: `INFO`.
 Sets the premined accounts and balances in the format `address:amount`.
 The amount can be in either decimal or hex.
 Default premined balance: `0x3635C9ADC5DEA00000`.
+
+---
+
+<h4><i>block-gas-target</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--block-gas-target BLOCK_GAS_TARGET]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --block-gas-target 10000000
+
+  </TabItem>
+</Tabs>
+
+Sets the target block gas limit for the chain. Default: `8000000`.
 
 ---
 
