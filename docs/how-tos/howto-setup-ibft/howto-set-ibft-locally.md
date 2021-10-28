@@ -141,8 +141,20 @@ Example if we would like to premine 1000 ETH to address `0x3956E90e632AEbBF34DEB
 
 :::info Set the block gas limit
 
-The default gas limit for each block is `5242880`. This value is wrote in the genesis file, but you may want to
+The default gas limit for each block is `5242880`. This value is written in the genesis file, but you may want to
 increase / decrease it.
+
+```go title="command/helper/helper.go"
+const (
+	GenesisFileName       = "./genesis.json"
+	DefaultChainName      = "example"
+	DefaultChainID        = 100
+	DefaultPremineBalance = "0x3635C9ADC5DEA00000"
+	DefaultConsensus      = "pow"
+	GenesisGasUsed        = 458752
+	GenesisGasLimit       = 5242880 // The default block gas limit
+)
+```
 
 To do so, you can use the flag `--block-gas-limit` followed by the desired value as shown below :
 
