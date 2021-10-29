@@ -209,6 +209,69 @@ Sets the the external IP address without the port, as it can be seen by peers.
 
 ---
 
+<h4>
+  <i>locals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--locals LOCALS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --locals 0xC12bB5d97A35c6919aC77C709d55F6aa60436900 
+
+  </TabItem>
+</Tabs>
+
+Sets comma separated accounts whose transactions are treated as locals
+
+---
+
+<h4>
+  <i>nolocals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--nolocals]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --nolocals 
+
+  </TabItem>
+</Tabs>
+
+Sets flag to disable price exemptions for locally submitted transactions
+
+---
+
+<h4>
+  <i>price-limit</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--price-limit PRICE_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --price-limit 10000
+
+  </TabItem>
+</Tabs>
+
+Sets minimum gas price limit to enforce for acceptance into the pool. Default: `1`.
+
+---
+
 <h4><i>config</i></h4>
 
 <Tabs>
@@ -379,6 +442,69 @@ Sets the gas limit of each block. Default: `5000`.
 </Tabs>
 
 Sets the ID of the chain. Default: `100`.
+
+---
+
+<h4>
+  <i>locals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--locals LOCALS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --locals 0xC12bB5d97A35c6919aC77C709d55F6aa60436900 
+
+  </TabItem>
+</Tabs>
+
+Sets comma separated accounts whose transactions are treated as locals
+
+---
+
+<h4>
+  <i>nolocals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--nolocals]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --nolocals 
+
+  </TabItem>
+</Tabs>
+
+Sets flag to disable price exemptions for locally submitted transactions
+
+---
+
+<h4>
+  <i>price-limit</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--price-limit PRICE_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --price-limit 10000
+
+  </TabItem>
+</Tabs>
+
+Sets minimum gas price limit to enforce for acceptance into the pool. Default: `1`.
 
 ### genesis flags
 
