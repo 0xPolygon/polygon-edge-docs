@@ -272,6 +272,27 @@ Sets minimum gas price limit to enforce for acceptance into the pool. Default: `
 
 ---
 
+<h4>
+  <i>max-slots</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--max-slots MAX_SLOTS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --max-slots 1024
+    
+  </TabItem>
+</Tabs>
+
+Sets maximum slots in the pool. Default: `4096`.
+
+---
+
 <h4><i>config</i></h4>
 
 <Tabs>
@@ -505,6 +526,29 @@ Sets flag to disable price exemptions for locally submitted transactions
 </Tabs>
 
 Sets minimum gas price limit to enforce for acceptance into the pool. Default: `1`.
+
+---
+
+<h4>
+  <i>max-slots</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    dev [--max-slots MAX_SLOTS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    dev --max-slots 1024
+
+  </TabItem>
+</Tabs>
+
+Sets maximum slots in the pool. Default: `4096`.
+
+---
 
 ### genesis flags
 
