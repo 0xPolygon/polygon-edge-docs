@@ -209,6 +209,27 @@ Sets the the external IP address without the port, as it can be seen by peers.
 
 ---
 
+---
+
+<h4><i>dns</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--dns DNS_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --dns dns4/example.io 
+
+  </TabItem>
+</Tabs>
+
+Sets the the host DNS address. This can be used to adverstise an external DNS. Supports `dns`,`dns4`,`dns6`.
+
+---
+
 <h4><i>config</i></h4>
 
 <Tabs>
@@ -551,7 +572,9 @@ Sets consensus protocol. Default: `pow`.
   </TabItem>
 </Tabs>
 
-Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
+Multiaddr URL for p2p discovery bootstrap.This flag can be used multiple times.
+Instead of an IP address, DNS address of the bootnode can be provided. 
+ 
 
 ---
 
