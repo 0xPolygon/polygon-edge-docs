@@ -206,9 +206,6 @@ Specifies the address of the peer that should be joined.
 </Tabs>
 
 Sets the the external IP address without the port, as it can be seen by peers.
-
----
-
 ---
 
 <h4><i>dns</i></h4>
@@ -227,6 +224,91 @@ Sets the the external IP address without the port, as it can be seen by peers.
 </Tabs>
 
 Sets the the host DNS address. This can be used to adverstise an external DNS. Supports `dns`,`dns4`,`dns6`.
+
+---
+
+<h4>
+  <i>locals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--locals LOCALS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --locals 0xC12bB5d97A35c6919aC77C709d55F6aa60436900 
+
+  </TabItem>
+</Tabs>
+
+Sets comma separated accounts whose transactions are treated as locals
+
+---
+
+<h4>
+  <i>nolocals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--nolocals]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --nolocals 
+
+  </TabItem>
+</Tabs>
+
+Sets flag to disable price exemptions for locally submitted transactions
+
+---
+
+<h4>
+  <i>price-limit</i>
+</h4>
+
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--price-limit PRICE_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --price-limit 10000
+
+  </TabItem>
+</Tabs>
+
+Sets minimum gas price limit to enforce for acceptance into the pool. Default: `1`.
+
+---
+
+<h4>
+  <i>max-slots</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--max-slots MAX_SLOTS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --max-slots 1024
+    
+  </TabItem>
+</Tabs>
+
+Sets maximum slots in the pool. Default: `4096`.
 
 ---
 
@@ -400,6 +482,92 @@ Sets the gas limit of each block. Default: `5000`.
 </Tabs>
 
 Sets the ID of the chain. Default: `100`.
+
+---
+
+<h4>
+  <i>locals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    dev [--locals LOCALS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    dev --locals 0xC12bB5d97A35c6919aC77C709d55F6aa60436900 
+
+  </TabItem>
+</Tabs>
+
+Sets comma separated accounts whose transactions are treated as locals
+
+---
+
+<h4>
+  <i>nolocals</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    dev [--nolocals]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    dev --nolocals 
+
+  </TabItem>
+</Tabs>
+
+Sets flag to disable price exemptions for locally submitted transactions
+
+---
+
+<h4>
+  <i>price-limit</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    dev [--price-limit PRICE_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    dev --price-limit 10000
+
+  </TabItem>
+</Tabs>
+
+Sets minimum gas price limit to enforce for acceptance into the pool. Default: `1`.
+
+---
+
+<h4>
+  <i>max-slots</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    dev [--max-slots MAX_SLOTS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    dev --max-slots 1024
+
+  </TabItem>
+</Tabs>
+
+Sets maximum slots in the pool. Default: `4096`.
+
+---
 
 ### genesis flags
 
