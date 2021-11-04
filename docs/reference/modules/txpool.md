@@ -152,3 +152,46 @@ type TxPool struct {
 The fields in the TxPool object that can cause confusion are the **queue** and **sorted** lists.
 * **queue** - Heap implementation of a sorted list of account transactions (by nonce)
 * **sorted** - Sorted list for all the current promoted transactions (all executable transactions). Sorted by gas price
+
+## Gas limit error management
+
+Whenever you submit a transaction, there are three ways it can be processed by the TxPool.
+
+1. All pending transactions can fit in a block
+2. One or more pending transactions can not fit in a block
+3. One or more pending transactions will never fit in a block
+
+Here, the word **_fit_** means that the transaction has a gas limit that is lower than the remaining gas in the TxPool.
+
+The first scenario does not produce any error.
+
+### Second scenario
+
+- The TxPool remaining gas is set to the gas limit of the last block, lets say **5000**
+- A first transaction is processed and consumes **3000** gas of the TxPool
+  - The remaining gas of the TxPool is now **2000**
+- A second transaction, which is the same as the first one - they both consume 3000 units of gas, is submitted
+- Since the remaining gas of the TxPool is **lower** than the transaction gas, it cannot be processed in the current 
+  block
+  - It is put back into a pending transaction queue so that it can be processed in the next block
+- The first block is written, lets call it **block #1**
+- The TxPool remaining gas is set to the parent block - **block #1**'s gas limit
+- The transaction which was put back into the TxPool pending transaction queue is now processed and written in the block
+  - The TxPool remaining gas is now **2000**
+- The second block is written
+- ...
+
+### Third scenario
+- The TxPool remaining gas is set to the gas limit of the last block, lets say **5000**
+- A first transaction is processed and consumes **3000** gas of the TxPool
+    - The remaining gas of the TxPool is now **2000**
+- A second transaction, with a gas field set to **6000** is submitted
+- Since the block gas limit is **lower** than the transaction gas, this transaction is discarded
+    - It will never be able to fit in a block
+- The first block is written
+- ...
+
+> This happens whenever you get the following error:
+> ```shell
+> 2021-11-04T15:41:07.665+0100 [ERROR] polygon.consensus.dev: failed to write transaction: transaction's gas limit exceeds block gas limit
+> ```
