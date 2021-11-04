@@ -181,6 +181,8 @@ The first scenario does not produce any error.
 - The second block is written
 - ...
 
+![TxPool Error scenario #1](/img/txpool-error-1.png)
+
 ### Third scenario
 - The TxPool remaining gas is set to the gas limit of the last block, lets say **5000**
 - A first transaction is processed and consumes **3000** gas of the TxPool
@@ -190,6 +192,9 @@ The first scenario does not produce any error.
     - It will never be able to fit in a block
 - The first block is written
 - ...
+
+
+![TxPool Error scenario #2](/img/txpool-error-2.png)
 
 > This happens whenever you get the following error:
 > ```shell
