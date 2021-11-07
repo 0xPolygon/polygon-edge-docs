@@ -11,12 +11,13 @@ module.exports = {
           label: 'How to setup IBFT',
           items: [
             'how-tos/howto-setup-ibft/howto-set-ibft-locally',
-            'how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud',
+            'how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud'
           ]
         },
         'how-tos/howto-query-operator',
         'how-tos/howto-query-json-rpc',
         'how-tos/howto-backup-restore',
+        'how-tos/howto-manage-private-keys',
         'how-tos/howto-report-bug',
         'how-tos/howto-propose-feature'
       ]
@@ -47,9 +48,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Guides',
-      items: [
-        'guides/ethereum-state'
-      ]
+      items: ['guides/ethereum-state']
     }
   ]
 };
