@@ -200,3 +200,22 @@ The first scenario does not produce any error.
 > ```shell
 > 2021-11-04T15:41:07.665+0100 [ERROR] polygon.consensus.dev: failed to write transaction: transaction's gas limit exceeds block gas limit
 > ```
+
+## Block Gas Target
+
+There are situations when nodes want to keep the block gas limit below or at a certain target on a running chain.
+
+The node operator can set the target gas limit on a specific node, which will try to apply this limit to newly created blocks. 
+If the majority of the other nodes also have a similar (or same) target gas limit set, then the block gas limit will always hover
+around that block gas target, slowly progressing towards it (at max `1/1024 * parent block gas limit`) as new blocks are created.
+
+### Example scenario
+
+* The node operator sets the block gas limit for a single node to be `5000`
+* Other nodes are configured to be `5000` as well, apart from a single node which is configured to be `7000`
+* When the nodes who have their gas target set to `5000` become proposers, they will check to see if the gas limit is already at the target
+* If the gas limit is not at the target (it is greater / lower), the proposer node will set the block gas target to at most (1/1024 * parent gas limit) in the direction of the target
+   1. Ex: `parentGasLimit = 4500` and `blockGasTarget = 5000`, the proposer will calculate the gas limit for the new block as `4504.39453125` (`4500/1024 + 4500`)
+   2. Ex: `parentGasLimit = 5500` and `blockGasTarget = 5000`, the proposer will calculate the gas limit for the new block as `5494.62890625` (`5500 - 5500/1024`)
+* This ensures that the block gas limit in the chain will be kept at the target, because the single proposer who has the target configured to `7000` cannot advance the limit much, and the majority
+of the nodes who have it set at `5000` will always attempt to keep it there
