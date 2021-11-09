@@ -220,3 +220,17 @@ node-4> go run main.go server --data-dir ./data-dir --chain genesis.json --libp2
 
 After running the previous commands, you have set up a trustless 4 client IBFT network, capable of sealing blocks and recovering
 from node failure.
+
+:::info Steps to run a non-validator node 
+
+A Non-validator will always sync the latest blocks recieved from the validator node, you can start a non-validator node by running the following command.
+
+````bash 
+go run main.go server --data-dir <directory_path> --chain <genesis_filename>  --libp2p <IPAddress:PortNo> --nat <public_or_private_ip>
+````
+Example you can add **fifth** Non-validator client by executing the following command :
+
+````bash
+go run main.go server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat<public_or_private_ip>
+````
+:::
