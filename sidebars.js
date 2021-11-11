@@ -19,7 +19,8 @@ module.exports = {
         'how-tos/howto-backup-restore',
         'how-tos/howto-manage-private-keys',
         'how-tos/howto-report-bug',
-        'how-tos/howto-propose-feature'
+        'how-tos/howto-propose-feature',
+        'how-tos/howto-run-loadbot'
       ]
     },
     {
