@@ -43,7 +43,7 @@ In this case, the addresses `0x1010101010101010101010101010101010101010` and
 ## Step 2: Start the Polygon SDK in dev mode
 
 To start the SDK in development mode, which is explained in the [CLI Commands](/docs/cli-commands) section, run the
-following:
+following command:
 
 ````bash
 go run main.go server --chain genesis.json --dev --log-level debug
@@ -60,7 +60,7 @@ The loadbot supports the following parameters :
 - **gasPrice**: The transaction's gas price
 - **url**: The JSON RPC endpoint used to submit the transactions. If more endpoints are provided, transactions will 
   be submitted using each endpoint one after another
-- **chain-id**: The transaction's chain ID
+- **chainId**: The transaction's chain ID
 - **count**: The number of transactions to send
 - **value**: The amount of ether (in wei) sent in every transaction
 - **grpc**: The gRPC endpoint of one of the node, used to verify if all transactions have been processed
@@ -73,9 +73,8 @@ go run main.go loadbot --url http://127.0.0.1:8545 --grpc 127.0.0.1:9632 --accou
 
 You should get a result similar to this on your terminal :
 ```bash
-Loadbot started !
-Loadbot execution finished. Got following metrics :
-Transactions submitted: 2000
-Transactions failed: 0
-Duration: 10.036689826s
+[LOADBOT RUN]
+Transactions submitted = 2000
+Transactions failed    = 0
+Duration               = 10.035877088s
 ```
