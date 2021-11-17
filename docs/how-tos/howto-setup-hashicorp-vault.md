@@ -71,7 +71,7 @@ Now that the configuration file is present, we can initialize required IBFT data
 file set up in step 1, using the `--secrets-config`:
 
 ```bash
-go run main.go ibft init --secrets-config <PATH>
+go run main.go secrets init --secrets-config <PATH>
 ```
 
 The `PATH` param is the location of the previously generated secrets manager param from step 1.
