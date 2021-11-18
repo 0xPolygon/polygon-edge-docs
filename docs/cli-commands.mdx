@@ -784,11 +784,10 @@ Sets consensus protocol. Default: `pow`.
 </Tabs>
 
 Multiaddr URL for p2p discovery bootstrap.This flag can be used multiple times.
-Instead of an IP address, DNS address of the bootnode can be provided. 
- 
+Instead of an IP address, DNS address of the bootnode can be provided.
+
 
 ---
-
 
 ## Operator Commands
 
@@ -1297,6 +1296,182 @@ message BlockchainEvent {
     }
 }
 ````
+
+## Utilities
+
+### loadbot flags
+
+<h4><i>tps</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--tps NUMBER_OF_TXNS_PER_SECOND]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --tps 2000
+
+  </TabItem>
+</Tabs>
+
+Number of transactions per second to send. Default: `100`.
+
+---
+
+<h4><i>account</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--account ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --account 0x1010101010101010101010101010101010101020
+
+  </TabItem>
+</Tabs>
+
+One of the addresses to use when running the stress test.
+
+---
+
+<h4><i>gasLimit</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gasLimit GAS_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gasLimit 524288
+
+  </TabItem>
+</Tabs>
+
+The transaction gas limit used when creating transaction objects. Default: `1000000`.
+
+---
+
+<h4><i>gasPrice</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gasPrice GAS_PRICE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gasPrice 524288
+
+  </TabItem>
+</Tabs>
+
+The transaction gas price used when creating transaction objects. Default: `0x100000`.
+
+---
+
+<h4><i>url</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--url ENDPOINT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --url http://127.0.0.1:8545
+
+  </TabItem>
+</Tabs>
+
+A JSON RPC endpoint used to send transactions. You can specify more to send transactions to many nodes during the
+stress test.
+
+---
+
+<h4><i>chainId</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--chainId CHAIN_ID]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --chainId 100
+
+  </TabItem>
+</Tabs>
+
+The chain ID endpoint used to send transactions. Default: `100`.
+
+---
+
+<h4><i>count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--count COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --count 100
+
+  </TabItem>
+</Tabs>
+
+The total number of transactions to send. Default: `1000`.
+
+---
+
+<h4><i>value</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--value VALUE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --value 10000000000000000
+
+  </TabItem>
+</Tabs>
+
+The value to send in each transaction.
+
+---
+
+<h4><i>grpc</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--grpc GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --grpc 127.0.0.1:9632
+
+  </TabItem>
+</Tabs>
+
+The gRPC address of a node, used to verify if the TxPool is empty after the stress test.
+
+---
 
 ## Genesis Template
 The genesis file should be used to set the initial state of the blockchain (ex. if some accounts should have a starting balance).
