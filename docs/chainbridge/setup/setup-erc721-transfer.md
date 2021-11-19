@@ -45,7 +45,7 @@ $ cb-sol-cli bridge set-burn \
   --tokenContract "[ERC721_CONTRACT_ADDRESS]"
 
 # Grant minter role to ERC721 Handler contract (Only if you want to mint)
-$ cb-sol-cli erc20 add-minter \
+$ cb-sol-cli erc721 add-minter \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
