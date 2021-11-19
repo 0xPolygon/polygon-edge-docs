@@ -37,6 +37,22 @@ You'll need to specify `chainId` to deploy Bridge contract. It's the uint8 value
 
 :::
 
+:::caution
+
+The default gas price in `cb-sol-cli` is `20000000` (`0.02 Gwei`). To set appropriate gas price in transaction, please give the value in `--gasPrice`.
+
+```bash
+$ cb-sol-cli deploy --all --chainId 99 \
+  --url https://rpc-mumbai.matic.today \
+  --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  --relayers [RELAYER_ACCOUNT_ADDRESS] \
+  --relayerThreshold 1 \
+  # Set gas price to 5 Gwei
+  --gasPrice 5000000000
+```
+
+:::
+
 Once the contracts have been deployed, you will get the following result:
 
 ```bash
