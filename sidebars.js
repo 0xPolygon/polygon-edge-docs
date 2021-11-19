@@ -50,6 +50,27 @@ module.exports = {
       type: 'category',
       label: 'Guides',
       items: ['guides/ethereum-state']
+    },
+    {
+      type: 'category',
+      label: 'ChainBridge',
+      items: [
+        'chainbridge/overview',
+        {
+          type: 'category',
+          label: 'Setup',
+          items: [
+            'chainbridge/setup/outline',
+            'chainbridge/setup/accounts',
+            'chainbridge/setup/setup-polygon-sdk',
+            'chainbridge/setup/deploy-contracts',
+            'chainbridge/setup/setup-relayer',
+            'chainbridge/setup/setup-erc20-transfer',
+            'chainbridge/setup/setup-erc721-transfer',
+            'chainbridge/setup/roles-in-bridge'
+          ]
+        }
+      ]
     }
   ]
 };
