@@ -103,6 +103,17 @@ $ cb-sol-cli erc721 deposit \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]"
 ```
 
+Relayer would get the event and vote for the proposal. It executes a transaction to send NFT to the recipient account in Polygon SDK chain after the required number of votes are submitted. 
+
+```bash
+INFO[11-19|09:07:50] Handling nonfungible deposit event       chain=mumbai
+INFO[11-19|09:07:50] Attempting to resolve message            chain=polygon-sdk type=NonFungibleTransfer src=99 dst=100 nonce=2 rId=000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501
+INFO[11-19|09:07:50] Creating erc721 proposal                 chain=polygon-sdk src=99 nonce=2
+INFO[11-19|09:07:50] Watching for finalization event          chain=polygon-sdk src=99 nonce=2
+INFO[11-19|09:07:50] Submitted proposal vote                  chain=polygon-sdk tx=0x58a22d84a08269ad2e8d52d8dc038621f1a21109d11c7b6e0d32d5bf21ea8505 src=99 depositNonce=2 gasPrice=1
+INFO[11-19|09:08:15] Submitted proposal execution             chain=polygon-sdk tx=0x57419844881a07531e31667c609421662d94d21d0709e64fb728138309267e68 src=99 dst=100 nonce=2 gasPrice=3
+```
+
 You can check the owner in Polygon SDK after execution was completed.
 
 ```bash
