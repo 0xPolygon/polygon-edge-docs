@@ -37,7 +37,7 @@ You'll need to specify `chainId` to deploy Bridge contract. It's the uint8 value
 
 :::
 
-Once the contracts have deployed, you will get the following result:
+Once the contracts have been deployed, you will get the following result:
 
 ```bash
 Deploying contracts...
