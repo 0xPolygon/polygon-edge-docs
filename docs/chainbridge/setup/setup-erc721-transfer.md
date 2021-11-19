@@ -18,7 +18,7 @@ $ cb-sol-cli bridge register-resource \
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC721_HANDLER_CONTRACT_ADDRESS]" \
-  --targetContract "[ERC721_CONTRACT_ADDR]"
+  --targetContract "[ERC721_CONTRACT_ADDRESS]"
 
 # For Polygon SDK Chain
 $ cb-sol-cli bridge register-resource \
@@ -26,9 +26,9 @@ $ cb-sol-cli bridge register-resource \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   # Set ResourceID for ERC721 Token
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
-  --bridge "[BRIDGE_CONTRACT_ADDR]" \
-  --handler "[ERC721_HANDLER_CONTRACT_ADDR]" \
-  --targetContract "[ERC721_CONTRACT_ADDR]"
+  --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
+  --handler "[ERC721_HANDLER_CONTRACT_ADDRESS]" \
+  --targetContract "[ERC721_CONTRACT_ADDRESS]"
 ```
 
 ## (Optional): Make contracts mintable/burnable
@@ -95,7 +95,7 @@ Finally, you will start transfer
 $ cb-sol-cli erc721 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
-  --bridge "[BRIDGE_CONTRACT_ADDR]" \
+  --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
   --id 0x50 \
   # ChainID for Polygon SDK chain

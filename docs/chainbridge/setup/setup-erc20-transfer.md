@@ -26,7 +26,7 @@ $ cb-sol-cli bridge register-resource \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00" \
-  --bridge "[BRIDGE_CONTRACT_ADDR]" \
+  --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
   --targetContract "[ERC20_CONTRACT_ADDRESS]"
 ```
@@ -77,7 +77,7 @@ First, you will get tokens by minting. An account with `minter` role can mint ne
 $ cb-sol-cli erc20 mint \
   --url https://rpc-mumbai.matic.today \
   --privateKey [MINTER_ACCOUNT_PRIVATE_KEY] \
-  --erc20Address "[ERC20_CONTRACT_ADDR]" \
+  --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
   --amount 1000
 ```
 
@@ -87,8 +87,8 @@ To check current balance, you can use `cb-sol-cli erc20 balance` command.
 $ cb-sol-cli erc20 balance \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
-  --erc20Address "[ERC20_CONTRACT_ADDR]" \
-  --address "[ACCOUNT_ADDR]"
+  --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
+  --address "[ACCOUNT_ADDRESS]"
 
 [erc20/balance] Account <ACCOUNT_ADDRESS> has a balance of 1000.0
 ```
