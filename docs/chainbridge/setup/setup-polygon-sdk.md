@@ -18,6 +18,7 @@ $ go build -o main main.go && mv ./main /usr/local/bin/polygon-sdk
 Next, we'll generate validator keys and genesis.json. In IBFT that is a consensus Polygon SDK has, there are 4 validators to run at least. `ibft init` command creates new keys and prepare for the data directory node will store data into. `ibft init` commands will output validator address and Libp2p ID.
 
 ```bash
+# Setup keys and prepare for data directory for validators
 $ polygon-sdk ibft init --data-dir test-chain-1
 
 [IBFT INIT]
@@ -48,12 +49,13 @@ Node ID              = <Node 4 Libp2p Node ID>
 Then, you will generate genesis.json by `genesis` command. An account can have native tokens by specifying premine account on `genesis` command. Native tokens will be paid to deploy contracts by `admin`, vote/execute for proposal by `relayer`, and call `deposit` by `user`. Set each validator libp2p addresses as bootnodes by `bootnode` flag so that validators can connect to each other automatically. Please check [this section](https://sdk-docs.polygon.technology/docs/how-tos/howto-setup-ibft/howto-set-ibft-locally#step-2-prepare-the-multiaddr-connection-string-for-the-bootnode) for more details.
 
 ```bash
+# Generate genesis.json
 $ polygon-sdk genesis \
   --consensus ibft \
   --chainid 100 \
   --name polygon-sdk \
   --ibft-validators-prefix-path test-chain- \
-  # Give native tokens on genesis to following address
+  # Give native tokens on genesis to the following address
   --premine [ADMIN_ACCOUNT_ADDRESS] \
   --premine [RELAYER_ACCOUNT_ADDRESS] \
   --premine [USER_ACCOUNT_ADDRESS] \

@@ -12,19 +12,21 @@ Firstly, you will register a resource ID which associates resources in a cross-c
 To register resource ID, you can use `cb-sol-cli bridge register-resource` command. You will need to give the private key of `admin` account.
 
 ```bash
-# For Polygon PoS Chain
+# For Polygon PoS chain
 $ cb-sol-cli bridge register-resource \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  # Set Resource ID for ERC20
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
   --targetContract "[ERC20_CONTRACT_ADDRESS]"
 
-# For Polygon SDK Chain
+# For Polygon SDK chain
 $ cb-sol-cli bridge register-resource \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  # Set Resource ID for ERC20
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
@@ -73,7 +75,7 @@ We will send ERC20 Tokens from Polygon PoS chain to Polygon SDK chain.
 First, you will get tokens by minting. An account with `minter` role can mint new tokens. The account that has deployed ERC20 contract has `minter` role as default. For other accounts, you would need to run `cb-sol-cli erc20 add-minter` command to grant a minter role to the account before minting.
 
 ```bash
-# Mint ERC20 Tokens
+# Mint ERC20 tokens
 $ cb-sol-cli erc20 mint \
   --url https://rpc-mumbai.matic.today \
   --privateKey [MINTER_ACCOUNT_PRIVATE_KEY] \
@@ -84,6 +86,7 @@ $ cb-sol-cli erc20 mint \
 To check current balance, you can use `cb-sol-cli erc20 balance` command.
 
 ```bash
+# Check ERC20 token balance
 $ cb-sol-cli erc20 balance \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
@@ -96,6 +99,7 @@ $ cb-sol-cli erc20 balance \
 Next, you need to approve ERC20 token transfer from the account by ERC20 Handler
 
 ```bash
+# Approve transfer from the account by ERC20 Handler
 $ cb-sol-cli erc20 approve \
   --url https://rpc-mumbai.matic.today \
   --privateKey [USER_ACCOUNT_ADDRESS] \
@@ -107,11 +111,12 @@ $ cb-sol-cli erc20 approve \
 To start transfer tokens to Polygon SDK chains, you will call `deposit`.
 
 ```bash
+# Start transfer from Polygon PoS to Polygon SDK chain
 $ cb-sol-cli erc20 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
   --amount 10 \
-  # Destination ChainID
+  # ChainID of Polygon SDK chain
   --dest 100 \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]" \
@@ -132,6 +137,7 @@ INFO[11-19|08:16:24] Submitted proposal execution             chain=polygon-sdk 
 Once the execution transaction has been successful, you will get tokens in Polygon SDK chain.
 
 ```bash
+# Check the ERC20 balance in Polygon SDK chain
 $ cb-sol-cli erc20 balance \
   --url https://localhost:10002 \
   --privateKey [PRIVATE_KEY] \

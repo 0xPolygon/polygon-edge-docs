@@ -54,6 +54,7 @@ Next, You need to create `config.json` and set JSON-RPC URLs, relayer address, a
 To start a relayer, you need to import the private key corresponding to the relayer account address. You will need to input password when you import private key. Once import has been successful, key will be stored under `keys/<ADDRESS>.key`.
 
 ```bash
+# Import private key and store to local with encryption
 $ chainbridge accounts import --privateKey [RELAYER_ACCOUNT_PRIVATE_KEY]
 
 INFO[11-19|07:09:01] Importing key... 
@@ -65,6 +66,7 @@ INFO[11-19|07:09:05] private key imported                     address=<RELAYER_A
 Then, you will start a relayer. You will need to input the same password when you inputted to store key in the beginning.
 
 ```bash
+# Start relayer
 $ chainbridge --config config.json --latest
 
 INFO[11-19|07:15:19] Starting ChainBridge... 

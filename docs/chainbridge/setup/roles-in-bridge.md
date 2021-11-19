@@ -28,6 +28,7 @@ The operations which are allowed by `admin` account are as below.
 ### Set Resource
 
 ```bash
+# Register new resource
 $ cb-sol-cli bridge register-resource \
   --url [JSON_RPC_URL] \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -40,6 +41,7 @@ $ cb-sol-cli bridge register-resource \
 ### Make contract burnable/mintable
 
 ```bash
+# Let contract burnable/mintable
 $ cb-sol-cli bridge set-burn \
   --url [JSON_RPC_URL] \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -53,6 +55,7 @@ $ cb-sol-cli bridge set-burn \
 Cancel proposal for execution
 
 ```bash
+# Cancel ongoing proposal
 $ cb-sol-cli bridge cancel-proposal \
   --url [JSON_RPC_URL] \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \

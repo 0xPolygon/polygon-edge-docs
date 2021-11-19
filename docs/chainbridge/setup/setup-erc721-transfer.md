@@ -10,7 +10,7 @@ This section guides you a way how to set up ERC721 bridge and send NFT to the ot
 You will need to register resource ID for ERC721 to Bridge contracts on the both chains at first.
 
 ```bash
-# For Polygon PoS Chain
+# For Polygon PoS chain
 $ cb-sol-cli bridge register-resource \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -20,7 +20,7 @@ $ cb-sol-cli bridge register-resource \
   --handler "[ERC721_HANDLER_CONTRACT_ADDRESS]" \
   --targetContract "[ERC721_CONTRACT_ADDRESS]"
 
-# For Polygon SDK Chain
+# For Polygon SDK chain
 $ cb-sol-cli bridge register-resource \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -57,7 +57,7 @@ $ cb-sol-cli erc721 add-minter \
 Firstly, you will mint NFT if you need.
 
 ```bash
-# Mint NFT with 0x50 ID
+# Mint NFT 0x50
 $ cb-sol-cli erc721 mint \
   --url https://rpc-mumbai.matic.today \
   --privateKey [MINTER_ROLE_ACCOUNT] \
@@ -68,7 +68,7 @@ $ cb-sol-cli erc721 mint \
 To check the NFT owner, you can use `cb-sol-cli erc721 owner`
 
 ```bash
-# Check current owner of NFT
+# Check the current owner of NFT
 $ cb-sol-cli erc721 owner \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
@@ -79,7 +79,7 @@ $ cb-sol-cli erc721 owner \
 Then, you will approve a transfer of the NFT by ERC721 Handler
 
 ```bash
-# Approve transfer of the NFT with 0x50 ID by ERC721 Handler
+# Approve transfer of the NFT 0x50 by ERC721 Handler
 $ cb-sol-cli erc721 approve \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
@@ -91,14 +91,14 @@ $ cb-sol-cli erc721 approve \
 Finally, you will start transfer
 
 ```bash
-# Start to transfer NFT to another chain
+# Start transfer from Polygon PoS to Polygon SDK chain
 $ cb-sol-cli erc721 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
   --id 0x50 \
-  # ChainID for Polygon SDK chain
+  # ChainID of Polygon SDK chain
   --dest 100 \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]"
 ```
@@ -117,7 +117,7 @@ INFO[11-19|09:08:15] Submitted proposal execution             chain=polygon-sdk 
 You can check the owner in Polygon SDK after execution was completed.
 
 ```bash
-# Check the owner of NFT with 0x50 ID
+# Check the owner of NFT 0x50 in Polygon SDK chain
 $ cb-sol-cli erc721 owner \
   --url http://localhost:10002 \
   --privateKey [PRIVATE_KEY] \

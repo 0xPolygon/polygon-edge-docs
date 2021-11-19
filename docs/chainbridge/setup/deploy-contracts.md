@@ -8,6 +8,7 @@ In this section, you will deploy required contracts to Polygon PoS and Polygon S
 To use `cb-sol-cli`, you need to clone the codes from repository and build them.
 
 ```bash
+# Setup for cb-sol-cli command
 $ git clone https://github.com/ChainSafe/chainbridge-deploy.git
 $ cd chainbridge-deploy/cb-sol-cli
 $ make install
@@ -16,6 +17,7 @@ $ make install
 Firstly, we will deploy contracts to Polygon PoS chain by `cb-sol-cli deploy` command. `--all` flag make the command deploy all contracts including Bridge, ERC20 Handler, ERC721 Handler, Generic Handler, ERC20, and ERC721 contract. In addition, it'll set the default relayer account address and the threshold.
 
 ```bash
+# Deploy all required contracts into Polygon PoS chain
 $ cb-sol-cli deploy --all --chainId 99 \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -85,6 +87,7 @@ WETC:               Not Deployed
 Also, you will deploy contracts to Polygon SDK chain.
 
 ```bash
+# Deploy all required contracts into Polygon SDK chain
 $ cb-sol-cli deploy --all --chainId 100 \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
