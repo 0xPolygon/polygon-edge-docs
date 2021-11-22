@@ -20,7 +20,8 @@ module.exports = {
         'how-tos/howto-manage-private-keys',
         'how-tos/howto-report-bug',
         'how-tos/howto-propose-feature',
-        'how-tos/howto-run-loadbot'
+        'how-tos/howto-run-loadbot',
+        'how-tos/howto-enable-metrics',
       ]
     },
     {
