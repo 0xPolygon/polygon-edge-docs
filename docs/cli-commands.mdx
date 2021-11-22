@@ -408,6 +408,25 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 Prevents the client from discovering other peers. Default: `false`.
 
+---
+
+<h4><i>speed-up</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--speed-up SPEED_UP_MIN]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --speed-up 1000
+
+  </TabItem>
+</Tabs>
+
+Sets the minimum amount of additional gas fee required to accelerate a same-nonce transaction. Default: `0`.
+
 ### dev flags
 
 <h4><i>log-level</i></h4>
