@@ -18,3 +18,5 @@ In addition, you need to clone the following repositories with the versions to r
 * [Polygon SDK](https://github.com/0xPolygon/polygon-sdk.git): on the `develop` branch
 * [ChainBridge](https://github.com/ChainSafe/ChainBridge): v1.1.5
 * [ChainBridge Deploy Tools](https://github.com/ChainSafe/chainbridge-deploy): `f2aa093` on `main` branch
+
+You need to setup Polygon SDK network before you proceed the next section. Please check [How to set up IBFT locally](https://sdk-docs.polygon.technology/docs/how-tos/howto-setup-ibft/howto-set-ibft-locally) for the details. Please note that you need to set some premined accounts to pay gas costs in Polygon SDK.

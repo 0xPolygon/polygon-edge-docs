@@ -28,7 +28,6 @@ module.exports = {
             'how-tos/howto-bridge-assets/overview',
             'how-tos/howto-bridge-assets/requirements',
             'how-tos/howto-bridge-assets/accounts',
-            'how-tos/howto-bridge-assets/setup-polygon-sdk',
             'how-tos/howto-bridge-assets/deploy-contracts',
             'how-tos/howto-bridge-assets/setup-relayer',
             'how-tos/howto-bridge-assets/setup-erc20-transfer',
