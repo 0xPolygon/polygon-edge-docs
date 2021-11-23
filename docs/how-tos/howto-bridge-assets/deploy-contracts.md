@@ -3,10 +3,6 @@ id: deploy-contracts
 title: Deploy Contracts
 ---
 
-In this section, you will deploy required contracts to Polygon PoS and Polygon SDK chain by `cb-sol-cli`. 
-
-To use `cb-sol-cli`, you need to clone the codes from repository and build them.
-
 ```bash
 # Setup for cb-sol-cli command
 $ git clone https://github.com/ChainSafe/chainbridge-deploy.git
@@ -14,7 +10,7 @@ $ cd chainbridge-deploy/cb-sol-cli
 $ make install
 ```
 
-Firstly, we will deploy contracts to Polygon PoS chain by `cb-sol-cli deploy` command. `--all` flag make the command deploy all contracts including Bridge, ERC20 Handler, ERC721 Handler, Generic Handler, ERC20, and ERC721 contract. In addition, it'll set the default relayer account address and the threshold.
+Firstly, we will deploy contracts to Polygon PoS chain by `cb-sol-cli deploy` command. `--all` flag makes the command deploy all contracts including Bridge, ERC20 Handler, ERC721 Handler, Generic Handler, ERC20, and ERC721 contract. In addition, it'll set the default relayer account address and the threshold.
 
 ```bash
 # Deploy all required contracts into Polygon PoS chain
@@ -27,19 +23,18 @@ $ cb-sol-cli deploy --all --chainId 99 \
 
 :::info ChainID
 
-You'll need to specify `chainId` to deploy Bridge contract. It's the uint8 value in order to identify chains in Bridge contract. You don't have to give the same chain ID used in chain. Give `99` in `chainId` here because the chain ID of Mumbai testnet is `80001` that can't be represented uint8.
+You will need to specify the `chainId` to deploy the Bridge contract. The `chainId` is an arbitrary value used for differentiating between blockchain networks and needs only to be unique, not to be the same as the chain's ID (since 2 networks might have the same one). In this example we set the `99` in `chainId`, because the chain ID of Mumbai testnet is `80001` which cannot be represented with a uint8.
 
 :::
 
 :::info JSON-RPC URL for Polygon PoS
 
-`https://rpc-mumbai.matic.today` is one of the JSON-RPC URLs Polygon official provides, which may have traffic or rate-limits. I would advise you to obtain your JSON-RPC URL by an external service like `Infura` because deploying contracts will send many queries.
-
+`https://rpc-mumbai.matic.today` is a public JSON-RPC URL provided by Polygon, which may have traffic or rate-limits. We advise you to obtain your JSON-RPC URL by an external service like `Infura` because deploying contracts will send many queries/requests to the JSON-RPC.
 :::
 
 :::caution
 
-The default gas price in `cb-sol-cli` is `20000000` (`0.02 Gwei`). To set appropriate gas price in transaction, please give the value in `--gasPrice`.
+The default gas price in `cb-sol-cli` is `20000000` (`0.02 Gwei`). To set appropriate gas price in transaction, please set the value using the `--gasPrice` argument.
 
 ```bash
 $ cb-sol-cli deploy --all --chainId 99 \
@@ -100,7 +95,7 @@ WETC:               Not Deployed
 ================================================================
 ```
 
-Also, you will deploy contracts to Polygon SDK chain.
+Now we may deploy the contracts to the Polygon SDK chain.
 
 ```bash
 # Deploy all required contracts into Polygon SDK chain
@@ -111,4 +106,4 @@ $ cb-sol-cli deploy --all --chainId 100 \
   --relayerThreshold 1
 ```
 
-You need the contract addresses in the next section.
+Save the terminal outputs with the deployed smart contract addresses as we will need them for the next step.

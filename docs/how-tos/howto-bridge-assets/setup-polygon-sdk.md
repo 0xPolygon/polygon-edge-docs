@@ -5,7 +5,7 @@ title: Polygon SDK Setup
 
 In this section, you will setup Polygon SDK network locally.
 
-First, you will get the codes from the repository, build the codes, and move the binary under /usr/local/bin so that you can run it as a command.
+First, you will clone the repository, build the Polygon-SDK and put the `polygon-sdk` in your `$PATH`.
 
 ```bash
 $ git clone https://github.com/0xPolygon/polygon-sdk.git

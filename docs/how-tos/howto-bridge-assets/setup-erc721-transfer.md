@@ -3,11 +3,11 @@ id: setup-erc721-transfer
 title: ERC721 NFT Transfer
 ---
 
-This section guides you a way how to set up ERC721 bridge and send NFT to the other chain.
+This section guides you through setting up an ERC721 bridge and sending NFTs between blockchain networks.
 
 ## Step 1: Register resource ID
 
-You will need to register resource ID for ERC721 to Bridge contracts on the both chains at first.
+You will first need to register the resource ID for the ERC721 token in the Bridge contracts on both chains.
 
 ```bash
 # For Polygon PoS chain
@@ -103,7 +103,7 @@ $ cb-sol-cli erc721 deposit \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]"
 ```
 
-Relayer would get the event and vote for the proposal. It executes a transaction to send NFT to the recipient account in Polygon SDK chain after the required number of votes are submitted. 
+Relayer will get the event and vote for the proposal. It executes a transaction to send NFTs to the recipient account in Polygon SDK chain after the required number of votes are submitted. 
 
 ```bash
 INFO[11-19|09:07:50] Handling nonfungible deposit event       chain=mumbai
@@ -114,7 +114,7 @@ INFO[11-19|09:07:50] Submitted proposal vote                  chain=polygon-sdk 
 INFO[11-19|09:08:15] Submitted proposal execution             chain=polygon-sdk tx=0x57419844881a07531e31667c609421662d94d21d0709e64fb728138309267e68 src=99 dst=100 nonce=2 gasPrice=3
 ```
 
-You can check the owner in Polygon SDK after execution was completed.
+You can check the owner of the NFT on the Polygon SDK network after the execution is completed.
 
 ```bash
 # Check the owner of NFT 0x50 in Polygon SDK chain

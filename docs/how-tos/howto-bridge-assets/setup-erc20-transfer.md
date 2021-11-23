@@ -3,13 +3,13 @@ id: setup-erc20-transfer
 title: ERC20 Token Transfer
 ---
 
-So far, we've set up bridge to exchange assets/data between Polygon PoS and Polygon SDK chain. This section guides you a way how to set up ERC20 bridge and send tokens to another chain.
+So far, we've set up bridge to exchange assets/data between Polygon PoS and Polygon SDK chain. This section will guide you to set up an ERC20 bridge and send tokens between different blockchains.
 
 ## Step 1: Register resource ID
 
-Firstly, you will register a resource ID which associates resources in a cross-chain environment. A Resource ID is 32 bytes value which must be different from other resources but the same on every chain. The Resource IDs are arbitrary, but they may have the chain ID of the home chain in the last byte.
+Firstly, you will register a resource ID which associates resources in a cross-chain environment. A Resource ID is a 32 byte value which must be unique to the resource that we are transferring between these blockchains. The Resource IDs are arbitrary, but they may have the chain ID of the home chain in the last byte, as a convention (home chain referring to the network on which this resources originated from).
 
-To register resource ID, you can use `cb-sol-cli bridge register-resource` command. You will need to give the private key of `admin` account.
+To register resource ID, you can use the `cb-sol-cli bridge register-resource` command. You will need to give the private key of the `admin` account.
 
 ```bash
 # For Polygon PoS chain
@@ -35,17 +35,17 @@ $ cb-sol-cli bridge register-resource \
 
 ## (Optional) Make contracts mintable/burnable
 
-When you send ERC20 tokens between chains, tokens are processed by either way as follows:
+When transferring ERC20 tokens between chains, tokens can be processed in two different modes:
 
 (1) Lock/Release mode
 
-**Source chain**: The tokens you're sending will be locked in ERC20 Handler Contract  
+**Source chain**: The tokens you are sending will be locked in ERC20 Handler Contract  
 **Destination chain**: The same amount of tokens as you sent in the source chain would be unlocked and transferred from ERC20 Handler contract to the recipient account in the destination chain.
 
 (2) Burn/Mint mode
 
-**Source chain**: The tokens you're sending will be burned  
-**Destination chain**: The same amount of tokens as you sent in the source chain would be minted in the destination chain and sent to the recipient account.
+**Source chain**: The tokens you are sending will be burned  
+**Destination chain**: The same amount of tokens as you sent and burned on the source chain will be minted on the destination chain and sent to the recipient account.
 
 You can use different modes in each chain. It means that you can lock ERC20 token in the main chain while mint ERC20 token in the sub chain for transfer. For instance, it may make sense to lock/release tokens if the total supply or mint schedule is controlled. Tokens would be minted/burned if the contract in the sub chain has to follow the supply in the main chain.
 
@@ -72,7 +72,7 @@ $ cb-sol-cli erc20 add-minter \
 
 We will send ERC20 Tokens from Polygon PoS chain to Polygon SDK chain.
 
-First, you will get tokens by minting. An account with `minter` role can mint new tokens. The account that has deployed ERC20 contract has `minter` role as default. For other accounts, you would need to run `cb-sol-cli erc20 add-minter` command to grant a minter role to the account before minting.
+First, you will get tokens by minting. An account with the `minter` role can mint new tokens. The account that has deployed the ERC20 contract has the `minter` role by default. To specify other accounts as members of the `minter` role, you need to run the `cb-sol-cli erc20 add-minter` command.
 
 ```bash
 # Mint ERC20 tokens

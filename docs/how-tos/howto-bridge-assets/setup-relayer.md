@@ -5,7 +5,7 @@ title: Relayer Setup
 
 In this section, you will start a relayer to exchange data between 2 chains. 
 
-First, you will get the codes from the repository, build the codes.
+First, we need to clone and build the ChainBridge repository.
 
 ```bash
 $ git clone https://github.com/ChainSafe/ChainBridge.git
@@ -51,7 +51,7 @@ Next, You need to create `config.json` and set JSON-RPC URLs, relayer address, a
 }
 ```
 
-To start a relayer, you need to import the private key corresponding to the relayer account address. You will need to input password when you import private key. Once import has been successful, key will be stored under `keys/<ADDRESS>.key`.
+To start a relayer, you need to import the private key corresponding to the relayer account address. You will need to input the password when you import private key. Once import has been successful, key will be stored under `keys/<ADDRESS>.key`.
 
 ```bash
 # Import private key and store to local with encryption
@@ -63,7 +63,7 @@ Enter password to encrypt keystore file:
 INFO[11-19|07:09:05] private key imported                     address=<RELAYER_ACCOUNT_ADDRESS> file=.../keys/<RELAYER_ACCOUNT_ADDRESS>.key
 ```
 
-Then, you will start a relayer. You will need to input the same password when you inputted to store key in the beginning.
+Then, you can start the relayer. You will need to input the same password when you inputted to store key in the beginning.
 
 ```bash
 # Start relayer

@@ -5,7 +5,7 @@ title: Roles in Bridge
 
 ## Admin Role
 
-Some operations will be called by only admin role account. By default, the deployer of Bridge contract has `admin` role. To grant admin to an account or remove the role, you can do the following:
+Certain actions can only be performed by the admin role account. By default, the deployer of the Bridge contract has the `admin` role. To grant the admin role to another account or to remove it, you can do the following:
 
 ```bash
 # Grant admin role
