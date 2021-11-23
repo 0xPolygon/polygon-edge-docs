@@ -57,19 +57,19 @@ In order to get up and running with IBFT, you need to initialize the data folder
 one for each node:
 
 ````bash
-go run main.go ibft init --data-dir test-chain-1
+go run main.go secrets init --data-dir test-chain-1
 ````
 
 ````bash
-go run main.go ibft init --data-dir test-chain-2
+go run main.go secrets init --data-dir test-chain-2
 ````
 
 ````bash
-go run main.go ibft init --data-dir test-chain-3
+go run main.go secrets init --data-dir test-chain-3
 ````
 
 ````bash
-go run main.go ibft init --data-dir test-chain-4
+go run main.go secrets init --data-dir test-chain-4
 ````
 
 Each of these commands will print the validator key and the [node ID](https://docs.libp2p.io/concepts/peer-id/). You will need the Node ID of the first node for the next step.
@@ -97,7 +97,7 @@ Since we are running on localhost, it is safe to assume that the `<ip_address>` 
 
 For the `<port>` we will use `10001` since we will configure the libp2p server for `node 1` to listen on this port later.
 
-And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `go run main.go ibft init --data-dir test-chain-1` command (which was used to generate keys and data directories for the `node1`)
+And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `go run main.go secrets init --data-dir test-chain-1` command (which was used to generate keys and data directories for the `node1`)
 
 After the assembly, the multiaddr connection string to the `node 1` which we will use as the bootnode will look something like this (only the `<node_id>` which is at the end should be different):
 ```

@@ -353,6 +353,25 @@ Specifies the path to the CLI config. Supports `.json` and `.hcl`.
 
 ---
 
+<h4><i>secrets-config</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--secrets-config SECRETS_CONFIG]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --secrets-config ./secretsManagerConfig.json
+
+  </TabItem>
+</Tabs>
+
+Sets the path to the SecretsManager config file. Used for Hashicorp Vault. If omitted, the local FS secrets manager is used.
+
+---
+
 <h4><i>dev</i></h4>
 
 <Tabs>
@@ -898,30 +917,11 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 | **Command**            | **Description**                                                                     |
 |------------------------|-------------------------------------------------------------------------------------|
-| ibft init   | Initializes IBFT for the Polygon SDK                              |
 | ibft snapshot             | Returns the IBFT snapshot                    |
 | ibft candidates  | Queries the current set of proposed candidates, as well as candidates that have not been included yet |
 | ibft propose                | Proposes a new candidate to be added / removed from the validator set        |
 | ibft status                | Returns the overall status of the IBFT client   
 
-<h3>ibft init flags</h3>
-
-<h4><i>data-dir</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    ibft init --data-dir DATA_DIRECTORY
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    ibft init --data-dir ./ibft-dir
-
-  </TabItem>
-</Tabs>
-
-Sets the directory for the Polygon SDK data.
 
 <h3>ibft snapshot flags</h3>
 
@@ -1260,6 +1260,148 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 </Tabs>
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+---
+
+## Secrets Commands
+
+| **Command** | **Description**                                                                                                                                      |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| secrets init      | Initializes the private keys to the corresponding secrets manager                                                         |
+| secrets generate         | Generates a secrets manager configuration file which can be parsed by the Polygon SDK    |
+
+### secrets init flags
+
+<h4><i>config</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets init [--config SECRETS_CONFIG]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets init --config ./secretsManagerConfig.json
+
+  </TabItem>
+</Tabs>
+
+Sets the path to the SecretsManager config file. Used for Hashicorp Vault. If omitted, the local FS secrets manager is used.
+
+---
+
+<h4><i>data-dir</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets init [--data-dir DATA_DIRECTORY]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets init --data-dir ./example-dir
+
+  </TabItem>
+</Tabs>
+
+Sets the directory for the Polygon SDK data if the local FS is used.
+
+### secrets generate flags
+
+<h4><i>dir</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets generate [--dir DATA_DIRECTORY]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets generate --dir ./example-dir
+
+  </TabItem>
+</Tabs>
+
+Sets the directory for the secrets manager configuration file Default: `./secretsManagerConfig.json`
+
+---
+
+<h4><i>type</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets generate [--type TYPE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets generate --type hashicorp-vault
+
+  </TabItem>
+</Tabs>
+
+Specifies the type of the secrets manager [`hashicorp-vault`]. Default: `hashicorp-vault`
+
+---
+
+<h4><i>token</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets generate [--token TOKEN]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets generate --token s.zNrXa9zF9mgrdnClM7PZ19cu
+
+  </TabItem>
+</Tabs>
+
+Specifies the access token for the service
+
+---
+
+<h4><i>server-url</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets generate [--server-url SERVER_URL]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets generate --server-url http://127.0.0.1:8200
+
+  </TabItem>
+</Tabs>
+
+Specifies the server URL for the service
+
+---
+
+<h4><i>name</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets generate [--name NODE_NAME]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets generate --name node-1
+
+  </TabItem>
+</Tabs>
+
+Specifies the name of the node for on-service record keeping. Default: `polygon-sdk-node`
 
 ## Responses
 
