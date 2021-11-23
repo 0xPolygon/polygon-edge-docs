@@ -47,7 +47,7 @@ generated config file, which contains all the necessary information for secret s
 To generate the configuration, run the following command:
 
 ```bash
-go run main.go secrets-manager generate --dir <PATH> --token <TOKEN> --server-url <SERVER_URL> --name <NODE_NAME>
+go run main.go secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVER_URL> --name <NODE_NAME>
 ```
 
 Parameters present:
@@ -68,10 +68,10 @@ Secrets are stored on the following base path: `secrets/node_name`
 ## Step 2 - Initialize IBFT using the configuration
 
 Now that the configuration file is present, we can initialize required IBFT data (secret keys) with the configuration 
-file set up in step 1, using the `--secrets-config`:
+file set up in step 1, using the `--config`:
 
 ```bash
-go run main.go secrets init --secrets-config <PATH>
+go run main.go secrets init --config <PATH>
 ```
 
 The `PATH` param is the location of the previously generated secrets manager param from step 1.
