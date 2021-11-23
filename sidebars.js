@@ -21,7 +21,20 @@ module.exports = {
         'how-tos/howto-manage-private-keys',
         'how-tos/howto-report-bug',
         'how-tos/howto-propose-feature',
-        'how-tos/howto-run-loadbot'
+        'how-tos/howto-run-loadbot',
+        {
+          type: 'category',
+          label: 'How to bridge assets between networks',
+          items: [
+            'how-tos/howto-bridge-assets/overview',
+            'how-tos/howto-bridge-assets/requirements',
+            'how-tos/howto-bridge-assets/deploy-contracts',
+            'how-tos/howto-bridge-assets/setup-relayer',
+            'how-tos/howto-bridge-assets/setup-erc20-transfer',
+            'how-tos/howto-bridge-assets/setup-erc721-transfer',
+            'how-tos/howto-bridge-assets/roles-in-bridge'
+          ]
+        }
       ]
     },
     {
