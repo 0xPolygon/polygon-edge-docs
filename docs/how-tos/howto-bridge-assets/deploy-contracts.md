@@ -3,7 +3,7 @@ id: deploy-contracts
 title: Deploy Contracts
 ---
 
-In this section, you will deploy required contracts to Polygon PoS and Polygon SDK chain by `cb-sol-cli`. 
+In this section, you will deploy required contracts to Polygon PoS and Polygon SDK chain with `cb-sol-cli`.
 
 ```bash
 # Setup for cb-sol-cli command
