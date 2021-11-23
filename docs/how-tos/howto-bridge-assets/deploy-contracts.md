@@ -3,6 +3,8 @@ id: deploy-contracts
 title: Deploy Contracts
 ---
 
+In this section, you will deploy required contracts to Polygon PoS and Polygon SDK chain by `cb-sol-cli`. 
+
 ```bash
 # Setup for cb-sol-cli command
 $ git clone https://github.com/ChainSafe/chainbridge-deploy.git
