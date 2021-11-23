@@ -1,6 +1,6 @@
 ---
-id: outline
-title: Outline
+id: requirements
+title: Requirements
 ---
 
 This guide walks through the setup for a bridge between a running Polygon PoS (Mumbai testnet) and a local Polygon SDK network.
