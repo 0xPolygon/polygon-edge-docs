@@ -62,19 +62,19 @@ In order to get up and running with IBFT, you need to initialize the data folder
 
 
 ````bash
-node-1> go run main.go ibft init --data-dir data-dir
+node-1> go run main.go secrets init --data-dir data-dir
 ````
 
 ````bash
-node-2> go run main.go ibft init --data-dir data-dir
+node-2> go run main.go secrets init --data-dir data-dir
 ````
 
 ````bash
-node-3> go run main.go ibft init --data-dir data-dir
+node-3> go run main.go secrets init --data-dir data-dir
 ````
 
 ````bash
-node-4> go run main.go ibft init --data-dir data-dir
+node-4> go run main.go secrets init --data-dir data-dir
 ````
 
 Each of these commands will print the [node ID](https://docs.libp2p.io/concepts/peer-id/). You will need that information for the next step.
@@ -113,7 +113,7 @@ As the first part of the multiaddr connection string is the `<ip_address>`, here
 
 For the `<port>` we will use `1478`, since it is the default libp2p port.
 
-And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `go run main.go ibft init --data-dir data-dir` command (which was used to generate keys and data directories for the `node 1`)
+And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `go run main.go secrets init --data-dir data-dir` command (which was used to generate keys and data directories for the `node 1`)
 
 After the assembly, the multiaddr connection string to the `node 1` which we will use as the bootnode will look something like this (only the `<node_id>` which is at the end should be different):
 ```
@@ -124,11 +124,11 @@ After the assembly, the multiaddr connection string to the `node 1` which we wil
 
 This step can be run on your local machine, but you will need the public validator keys for each of the 4 validators.
 
-Validators can safely share the `Public key (address)` as displayed below in the output to their `ibft init` commands, so that
+Validators can safely share the `Public key (address)` as displayed below in the output to their `secrets init` commands, so that
 you may securely generate the genesis.json with those validators in the initial validator set, identified by their public keys:
 
 ```
-[IBFT INIT]
+[SECRETS INIT]
 Public key (address) = 0xC12bB5d97A35c6919aC77C709d55F6aa60436900
 Node ID              = 16Uiu2HAmVZnsqvTwuzC9Jd4iycpdnHdyVZJZTpVC8QuRSKmZdUrf
 ```
