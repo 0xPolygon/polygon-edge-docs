@@ -22,6 +22,7 @@ module.exports = {
         'how-tos/howto-report-bug',
         'how-tos/howto-propose-feature',
         'how-tos/howto-run-loadbot',
+        'how-tos/howto-enable-metrics',
         {
           type: 'category',
           label: 'How to bridge assets between networks',
