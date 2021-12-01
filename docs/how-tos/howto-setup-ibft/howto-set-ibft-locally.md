@@ -93,6 +93,11 @@ In this guide, we will treat the first node as the bootnode for all other nodes.
 is that `nodes 2-4` connecting to the `node 1` will get information on how to connect to one another through the mutually
 contacted `node 1`.
 
+:::info You need to specify at least two bootnodes to start a node
+
+Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list only one, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
+:::
+
 Since we are running on localhost, it is safe to assume that the `<ip_address>` is `127.0.0.1`.
 
 For the `<port>` we will use `10001` since we will configure the libp2p server for `node 1` to listen on this port later.

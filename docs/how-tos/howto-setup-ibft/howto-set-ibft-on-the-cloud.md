@@ -104,9 +104,9 @@ In this guide, we will treat the first node as the bootnode for all other nodes.
 is that `nodes 2-4` connecting to the `node 1` will get information on how to connect to one another through the mutually
 contacted `node 1`. 
 
-:::info You need to specify at least one bootnode for discovery to work
+:::info You need to specify at least two bootnodes to start a node
 
-Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just one. In this guide we will list only one, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
+Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list only one, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
 :::
 
 As the first part of the multiaddr connection string is the `<ip_address>`, here you will need to enter the IP address as reachable by other nodes, depending on your setup this might be a private or a public IP address, not `127.0.0.1`.
