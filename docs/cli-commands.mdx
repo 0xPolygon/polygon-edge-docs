@@ -353,6 +353,48 @@ Sets maximum slots in the pool. Default: `4096`.
 
 ---
 
+<h4>
+  <i>account-pending-limit</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--account-pending-limit ACCOUNT_PENDING_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --account-pending-limit 16
+    
+  </TabItem>
+</Tabs>
+
+Sets maximum number of transactions in pending queue per account. Default: `16`.
+
+---
+
+<h4>
+  <i>account-pending-limit</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--lifetime LIFETIME]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --lifetime 3h
+    
+  </TabItem>
+</Tabs>
+
+Sets the maximum amount of time a non-executable transaction can wait in the queue. Default: `3h`.
+
+---
+
 <h4><i>config</i></h4>
 
 <Tabs>
@@ -647,6 +689,48 @@ Sets minimum gas price limit to enforce for acceptance into the pool. Default: `
 </Tabs>
 
 Sets maximum slots in the pool. Default: `4096`.
+
+---
+
+<h4>
+  <i>account-pending-limit</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--account-pending-limit ACCOUNT_PENDING_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --account-pending-limit 16
+    
+  </TabItem>
+</Tabs>
+
+Sets maximum number of transactions in pending queue per account. Default: `16`.
+
+---
+
+<h4>
+  <i>account-pending-limit</i>
+</h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--lifetime LIFETIME]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --lifetime 3h
+    
+  </TabItem>
+</Tabs>
+
+Sets the maximum amount of time a non-executable transaction can wait in the queue. Default: `3h`.
 
 ---
 
