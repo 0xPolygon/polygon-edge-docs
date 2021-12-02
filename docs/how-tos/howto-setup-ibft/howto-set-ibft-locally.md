@@ -89,13 +89,13 @@ to the [multiaddr format](https://docs.libp2p.io/concepts/addressing/):
 /ip4/<ip_address>/tcp/<port>/p2p/<node_id>
 ```
 
-In this guide, we will treat the first node as the bootnode for all other nodes. What will happen in this scenario
-is that `nodes 2-4` connecting to the `node 1` will get information on how to connect to one another through the mutually
-contacted `node 1`.
+In this guide, we will treat the first and second node as the bootnodes for all other nodes. What will happen in this scenario
+is that nodes connect to the `node 1` or `node 2` will get information on how to connect to one another through the mutually
+contacted bootnode. 
 
 :::info You need to specify at least two bootnodes to start a node
 
-Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list only one, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
+Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list two nodes, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
 :::
 
 Since we are running on localhost, it is safe to assume that the `<ip_address>` is `127.0.0.1`.
@@ -108,11 +108,15 @@ After the assembly, the multiaddr connection string to the `node 1` which we wil
 ```
 /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
 ```
+Similarly we construct multiaddr for second bootnode as shown below
+```
+/ip4/127.0.0.1/tcp/10002/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
+```
 
 ## Step 3: Generate an IBFT genesis file with the 4 nodes as validators
 
 ````bash
-go run main.go genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
+go run main.go genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW --bootnode /ip4/127.0.0.1/tcp/10002/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
 ````
 
 What this command does:

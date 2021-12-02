@@ -100,13 +100,13 @@ to the [multiaddr format](https://docs.libp2p.io/concepts/addressing/):
 /ip4/<ip_address>/tcp/<port>/p2p/<node_id>
 ```
 
-In this guide, we will treat the first node as the bootnode for all other nodes. What will happen in this scenario
-is that `nodes 2-4` connecting to the `node 1` will get information on how to connect to one another through the mutually
-contacted `node 1`. 
+In this guide, we will treat the first and second node as the bootnodes for all other nodes. What will happen in this scenario
+is that nodes connect to the `node 1` or `node 2` will get information on how to connect to one another through the mutually
+contacted bootnode. 
 
 :::info You need to specify at least two bootnodes to start a node
 
-Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list only one, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
+Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list two nodes, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
 :::
 
 As the first part of the multiaddr connection string is the `<ip_address>`, here you will need to enter the IP address as reachable by other nodes, depending on your setup this might be a private or a public IP address, not `127.0.0.1`.
@@ -118,6 +118,10 @@ And lastly, we need the `<node_id>` which we can get from the output of the prev
 After the assembly, the multiaddr connection string to the `node 1` which we will use as the bootnode will look something like this (only the `<node_id>` which is at the end should be different):
 ```
 /ip4/<public_or_private_ip>/tcp/1478/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
+```
+Similarly we construct multiaddr for second bootnode as shown below
+```
+/ip4/<public_or_private_ip>/tcp/1478/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
 ```
 
 ## Step 3: Generate an IBFT genesis file with the 4 nodes as validators
@@ -136,7 +140,7 @@ Node ID              = 16Uiu2HAmVZnsqvTwuzC9Jd4iycpdnHdyVZJZTpVC8QuRSKmZdUrf
 Given that you have received all 4 of the validators' public keys, you can run the following command to generate the `genesis.json`
 
 ````bash
-go run main.go genesis --consensus ibft --ibft-validator=0xC12bB5d97A35c6919aC77C709d55F6aa60436900 --ibft-validator=<2nd_validator_pubkey> --ibft-validator=<3rd_validator_pubkey> --ibft-validator=<4th_validator_pubkey> --bootnode=<bootnode_multiaddr_connection_string_from_step_2> --bootnode <optionally_more_bootnodes>
+go run main.go genesis --consensus ibft --ibft-validator=0xC12bB5d97A35c6919aC77C709d55F6aa60436900 --ibft-validator=<2nd_validator_pubkey> --ibft-validator=<3rd_validator_pubkey> --ibft-validator=<4th_validator_pubkey> --bootnode=<first_bootnode_multiaddr_connection_string_from_step_2> --bootnode <second_bootnode_multiaddr_connection_string_from_step_2> --bootnode <optionally_more_bootnodes>
 ````
 
 What this command does:
