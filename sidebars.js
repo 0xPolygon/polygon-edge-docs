@@ -35,7 +35,8 @@ module.exports = {
             'how-tos/howto-bridge-assets/setup-erc721-transfer',
             'how-tos/howto-bridge-assets/roles-in-bridge'
           ]
-        }
+        },
+        'how-tos/howto-add-new-validators'
       ]
     },
     {
