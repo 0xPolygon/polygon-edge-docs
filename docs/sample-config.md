@@ -1,4 +1,4 @@
-## Config File
+## Server Config File
 
 Following is the sample format for configuration file: 
 
