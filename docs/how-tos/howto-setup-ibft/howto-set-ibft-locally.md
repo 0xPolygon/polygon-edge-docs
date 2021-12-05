@@ -212,6 +212,22 @@ The structure of the genesis file is covered in the [CLI Commands](/docs/cli-com
 After running the previous commands, you have set up a 4 client IBFT network, capable of sealing blocks and recovering
 from node failure.
 
+:::info Start the client using config file
+
+Instead of specifying all configuration paramaters as cli arguments, Client can also be started using a config file by executing the following command: 
+
+````bash 
+go run main.go server --config <config_file_path>
+````
+Example :
+
+````bash
+go run main.go server --config ./test/config-node1.json
+````
+Currently, we only support `json` based configuration file, Sample config file can be found [here](/files/sampleConfig)(/docs/sample_config)
+
+:::
+
 :::info Steps to run a non-validator node 
 
 A Non-validator will always sync the latest blocks recieved from the validator node, you can start a non-validator node by running the following command.
