@@ -224,7 +224,7 @@ Example :
 ````bash
 go run main.go server --config ./test/config-node1.json
 ````
-Currently, we only support `json` based configuration file, sample config file can be found [here](/files/sampleConfig.md)
+Currently, we only support `json` based configuration file, sample config file can be found [here](/docs/sampleConfig.md)
 
 :::
 
