@@ -251,7 +251,27 @@ go run main.go server --data-dir ./test-chain --chain genesis.json --grpc :50000
 ````
 :::
 
+:::info Specify the price limit
+A Polygon SDK node can be started with a set **price limit** for incoming transactions.
 
+The unit for the price limit is `wei`.
+
+Setting a price limit means that any transaction processed by the current node will need to have a gas price **higher**
+than the set price limit, otherwise it will not be included into a block.
+
+Having the majority of nodes respect a certain price limit enforces the rule that transactions in the network
+cannot be below a certain price threshold.
+
+The default value for the price limit is `0`, meaning it is not enforced at all by default.
+
+Example of using the `--price-limit` flag:
+````bash
+go run main.go server --price-limit 100000 ...
+````
+
+It is worth noting that price limits **are enforced only on non-local transactions**, meaning
+that the price limit does not apply to transactions added locally on the node.
+:::
 
 ## Step 5: Interact with the polygon-sdk network
 
