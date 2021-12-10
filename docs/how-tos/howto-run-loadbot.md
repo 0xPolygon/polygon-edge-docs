@@ -24,7 +24,7 @@ _Feel free to take a look at the flag reference [here](../cli-commands.mdx#loadb
 
 As an example, here is a valid command you can use to run the loadbot using two premined accounts and an IBFT setup:
 ```bash
-go run main.go loadbot  --url http://127.0.0.1:10002 --grpc 127.0.0.1:10000 --account 0xE696952149F3e17A3F2EcD4672207CcF7Df00096 --account 0x9876e8b849437703A34808e926a8a5B48bCb3ccf --count 10 --value 0x100 --tps 100
+go run main.go loadbot  --json http://127.0.0.1:10002 --sender 0xE696952149F3e17A3F2EcD4672207CcF7Df00096 --receiver 0x9876e8b849437703A34808e926a8a5B48bCb3ccf --count 10 --value 0x100 --tps 100
 ```
 
 You should get a result similar to this on your terminal :
