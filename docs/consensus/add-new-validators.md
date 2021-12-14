@@ -6,7 +6,7 @@ title: Add new validators
 
 ### Setup IBFT
 
-To setup the network with 4 active validator nodes locally, refer to the [setup IBFT locally](/docs//how-tos/howto-setup-ibft/howto-set-ibft-locally) section.
+To setup the network with 4 active validator nodes locally, refer to the [setup IBFT locally](/docs/get-started/set-up-ibft-locally) section.
 
 ## Overview
 This guide goes into detail on how to add a new validator node to an active IBFT network with 4 validator nodes.
@@ -21,7 +21,7 @@ go run main.go secrets init --data-dir test-chain-5
 
 This command will print the validator key (address) and the node ID. You will need the validator key (address) for the next step.
 
-## Step 2: From other validator nodes proposes a new candidate to be added
+## Step 2: From other validator nodes propose a new candidate
 
 For a new node to become a validator at least 51% of validators need to propose him.
 
@@ -31,7 +31,7 @@ Example of how to propose a new validator (`0x8B15464F8233F718c8605B16eBADA6fc09
 go run main.go ibft propose --grpc-address 127.0.0.1:10000 --addr 0x8B15464F8233F718c8605B16eBADA6fc09181fC2 --vote auth
 ````
 
-The structure of the IBFT commands is covered in the [CLI Commands](/docs/cli-commands) section.
+The structure of the IBFT commands is covered in the [CLI Commands](/docs/get-started/cli-commands) section.
 
 ## Step 3: Run the client node
 

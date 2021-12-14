@@ -9,7 +9,7 @@ The below guide will instruct you how to set up an IBFT network on your local ma
 purposes.
 
 The procedure differs greatly from the way you would want to setup the IBFT network for a real use scenario on
-a cloud provider: [How to set IBFT on the cloud](/docs/how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud)
+a cloud provider: [How to set IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud)
 
 :::
 
@@ -216,7 +216,7 @@ To briefly go over what has been done so far:
 * The *seal* flag means that the node being started is going to participate in block sealing
 * The *chain* flag specifies which genesis file should be used for chain configuration
 
-The structure of the genesis file is covered in the [CLI Commands](/docs/cli-commands) section.
+The structure of the genesis file is covered in the [CLI Commands](/docs/get-started/cli-commands) section.
 
 After running the previous commands, you have set up a 4 client IBFT network, capable of sealing blocks and recovering
 from node failure.
@@ -282,4 +282,4 @@ and by specifying the JSON-RPC URL to any of the 4 nodes:
 - Node 3: `http://localhost:30002`
 - Node 4: `http://localhost:40002`
 
-Follow this guide to issue operator commands to the newly built cluster: [How to query operator information](/docs/how-tos/howto-query-operator) (the GRPC ports for the cluster we have built are `10000`/`20000`/`30000`/`40000` for each node respectively)
+Follow this guide to issue operator commands to the newly built cluster: [How to query operator information](/docs/working-with-node/query-operator) (the GRPC ports for the cluster we have built are `10000`/`20000`/`30000`/`40000` for each node respectively)

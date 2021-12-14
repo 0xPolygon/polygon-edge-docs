@@ -5,7 +5,7 @@ title: Network stress testing
 
 ## Prerequisites
 
-This how-to assumes that:
+This guide assumes that:
 
 - You have a working polygon-sdk network up and running (using IBFT or dev)
 - Both your JSON-RPC and gRPC endpoints are reachable
@@ -20,7 +20,7 @@ export PSDK_0x9876e8b849437703A34808e926a8a5B48bCb3ccf=07eb13980486964e7e6f1172e
 
 ## Start the loadbot
 
-_Feel free to take a look at the flag reference [here](../cli-commands.mdx#loadbot-flags)_.
+_Feel free to take a look at the flag reference [here](/docs/get-started/cli-commands#loadbot-flags)_.
 
 As an example, here is a valid command you can use to run the loadbot using two premined accounts and an IBFT setup:
 ```bash

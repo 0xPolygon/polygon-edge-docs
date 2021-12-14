@@ -58,4 +58,4 @@ Additionally, restore the previously copied `genesis` file.
 ### Step 3: Run the Polygon SDK client while specifying the correct data directory 
 
 In order for the Polygon SDK to use the restored data directory, at launch, the user needs to specify the path to the 
-data directory. Please consult the [CLI Commands](/docs/cli-commands) section on information regarding the `data-dir` flag.
+data directory. Please consult the [CLI Commands](/docs/get-started/cli-commands) section on information regarding the `data-dir` flag.

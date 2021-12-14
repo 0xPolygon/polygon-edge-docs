@@ -8,7 +8,7 @@ title: Set up IBFT network on the cloud
 The below guide will instruct you how to set up an IBFT network on a cloud provider for a production setup of your testnet or mainnet.
 
 If you would like to setup the IBFT cluster locally to quickly test the `polygon-sdk` before doing a production like setup, please refer to
-[How to set IBFT locally](/docs/how-tos/howto-setup-ibft/howto-set-ibft-locally)
+[How to set IBFT locally](/docs/get-started/set-up-ibft-locally)
 :::
 
 ## Requirements
@@ -199,7 +199,7 @@ After specifying the:
 and generating the `genesis.json`, you should copy it over to all of the VMs in the network. Depending on your setup you may
 copy/paste it, send it to the node operator, or simply SCP/FTP it over.
 
-The structure of the genesis file is covered in the [CLI Commands](/docs/cli-commands) section.
+The structure of the genesis file is covered in the [CLI Commands](/docs/get-started/cli-commands) section.
 
 ## Step 4: Run all the clients
 

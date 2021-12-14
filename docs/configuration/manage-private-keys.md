@@ -11,7 +11,7 @@ The Polygon SDK has two types of private keys that it directly manages:
 
 Currently, the Polygon SDK doesn't offer support for direct account management.
 
-Based on the directory structure outlined in the [Backup & Restore guide](/docs/how-tos/howto-backup-restore#base-folders),
+Based on the directory structure outlined in the [Backup & Restore guide](/docs/working-with-node/backup-restore),
 the Polygon SDK stores these mentioned key files in two distinct directories - **consensus** and **keystore**.
 
 ## Key format
@@ -34,13 +34,13 @@ Importing keys that don't conform to this key type is not supported.
 The private key file mentioned as the *consensus private key* is also referred to as the **validator private key**.
 This private key is used when the node is acting as a validator in the network, and needs to sign new data.
 
-The private key file is located in `consensus/validator.key`, and adheres to the [key format](/docs/how-tos/howto-manage-private-keys#key-format) mentioned.
+The private key file is located in `consensus/validator.key`, and adheres to the [key format](/docs/configuration/manage-private-keys#key-format) mentioned.
 
 ## Networking Private Key
 
 The private key file mentioned for networking is used by libp2p to generate the corresponding PeerID, and allow the node to participate in the network.
 
-It is located in `keystore/libp2p.key`, and adheres to the [key format](/docs/how-tos/howto-manage-private-keys#key-format) mentioned.
+It is located in `keystore/libp2p.key`, and adheres to the [key format](/docs/configuration/manage-private-keys#key-format) mentioned.
 
 ## Import / Export
 

@@ -143,7 +143,7 @@ type Event struct {
 ````
 
 :::tip Refresher
-Do you remember when we mentioned the ***monitor*** command in the [CLI Commands](/docs/cli-commands)?
+Do you remember when we mentioned the ***monitor*** command in the [CLI Commands](/docs/get-started/cli-commands)?
 
 The Blockchain Events are the original events that happen in Polygon SDK, and they're later mapped to a Protocol Buffers message format for easy transfer.
 :::

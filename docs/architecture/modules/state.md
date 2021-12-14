@@ -5,7 +5,7 @@ title: State
 
 To truly understand how **State** works, you must understand some basic Ethereum concepts.<br />
 
-We highly recommend reading the **[State in Ethereum guide](/docs/guides/ethereum-state)**.
+We highly recommend reading the **[State in Ethereum guide](/docs/concepts/ethereum-state)**.
 
 ## Overview
 

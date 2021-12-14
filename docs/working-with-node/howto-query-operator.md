@@ -5,7 +5,7 @@ title: Query operator information
 
 ## Prerequisites
 
-This how-to assumes you have followed the [guide on how to set up an IBFT cluster locally](/docs/how-tos/howto-setup-ibft/howto-set-ibft-locally) or [guide on how to set up an IBFT cluster on the cloud](/docs/how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud).
+This guide assumes you have followed the [guide on how to set up an IBFT cluster locally](/docs/get-started/set-up-ibft-locally) or [guide on how to set up an IBFT cluster on the cloud](/docs/get-started/set-up-ibft-on-the-cloud).
 
 A functioning node is required in order to query any kind of operator information.
 

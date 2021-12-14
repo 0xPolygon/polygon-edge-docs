@@ -24,7 +24,7 @@ service TxnPoolOperator {
 
 ````
 
-Node operators can query these GRPC endpoints, as described in the **[CLI Commands](/docs/cli-commands#transaction-pool-commands)** section.
+Node operators can query these GRPC endpoints, as described in the **[CLI Commands](/docs/get-started/cli-commands#transaction-pool-commands)** section.
 
 ## Processing Transactions
 

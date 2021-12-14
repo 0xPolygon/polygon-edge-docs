@@ -23,4 +23,4 @@ yet, so please contact Polygon team if you would like to use it in production.
 
 
 
-To get started by running the IBFT `polygon-sdk` cluster locally, please read: [How to set IBFT locally](/docs/how-tos/howto-setup-ibft/howto-set-ibft-locally).
+To get started by running the IBFT `polygon-sdk` cluster locally, please read: [How to set IBFT locally](/docs/get-started/set-up-ibft-locally).
