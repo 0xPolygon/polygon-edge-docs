@@ -32,7 +32,7 @@ Importing keys that don't conform to this key type is not supported.
 ## Consensus Private Key
 
 The private key file mentioned as the *consensus private key* is also referred to as the **validator private key**.
-This private key is used when the node is acting as a validator in the network, and needs to sign new data.
+This private key is used when the node is acting as a validator in the network and needs to sign new data.
 
 The private key file is located in `consensus/validator.key`, and adheres to the [key format](/docs/configuration/manage-private-keys#key-format) mentioned.
 
@@ -47,7 +47,7 @@ It is located in `keystore/libp2p.key`, and adheres to the [key format](/docs/co
 As the key files are stored in simple Base64 on disk, they can be easily backed up or imported.
 
 :::caution Changing the key files
-Any kind of change made to the key files on an already set up / running network can lead to serious network / consensus disruption, 
+Any kind of change made to the key files on an already set up / running network can lead to serious network/consensus disruption, 
 since the consensus and peer discovery mechanisms store the data derived from these keys in node-specific storage, and rely on this data to
 initiate connections and perform consensus logic
 :::

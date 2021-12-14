@@ -14,12 +14,12 @@ For additional information, please read through the [Managing Private Keys Guide
 The modules of the Polygon SDK **should not need to know how to keep secrets**. Ultimately, a module should not care if 
 a secret is stored on a far-away server or locally on the node's disk.
 
-Everything a module needs to know about secret keeping is **knowing to use the secret**, **knowing which secrets to get 
+Everything a module needs to know about secret-keeping is **knowing to use the secret**, **knowing which secrets to get 
 or save**. The finer implementation details of these operations are delegated away to the `SecretsManager`, which of course is an abstraction.
 
 The node operator that's starting the Polygon SDK can now specify which secrets manager they want to use, and as soon 
 as the correct secrets manager is instantiated, the modules deal with the secrets through the mentioned interface - 
-without caring if the secrets are stored on disk or on a server.
+without caring if the secrets are stored on a disk or on a server.
 
 This article details the necessary steps to get the Polygon SDK up and running with a [Hashicorp Vault](https://www.vaultproject.io/) server.
 
@@ -53,7 +53,7 @@ go run main.go secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVE
 Parameters present:
 * `PATH` is the path to which the configuration file should be exported to. Default `./secretsManagerConfig.json`
 * `TOKEN` is the access token previously mentioned in the [prerequisites section](/docs/configuration/set-up-hashicorp-vault#prerequisites)
-* `SERVER_URL` is the url of the API for the Vault server, also mentioned in the [prerequisites section](/docs/configuration/set-up-hashicorp-vault#prerequisites)
+* `SERVER_URL` is the URL of the API for the Vault server, also mentioned in the [prerequisites section](/docs/configuration/set-up-hashicorp-vault#prerequisites)
 * `NODE_NAME` is the name of the current node for which the Vault configuration is being set up as. It can be an arbitrary value. Default `polygon-sdk-node`
 
 :::caution Node names
@@ -67,7 +67,7 @@ Secrets are stored on the following base path: `secrets/node_name`
 
 ## Step 2 - Initialize IBFT using the configuration
 
-Now that the configuration file is present, we can initialize required IBFT data (secret keys) with the configuration 
+Now that the configuration file is present, we can initialize the required IBFT data (secret keys) with the configuration 
 file set up in step 1, using the `--config`:
 
 ```bash
@@ -91,7 +91,7 @@ go run main.go genesis --ibft-validator <VALIDATOR_ADDRESS> ...
 Now that the keys are set up, and the genesis file is generated, the final step to this process would be starting the 
 Polygon SDK with the `server` command.
 
-The `server` command is used in the same manor as in the previously mentioned guides, with a minor addition - the `--secrets-config` flag:
+The `server` command is used in the same manner as in the previously mentioned guides, with a minor addition - the `--secrets-config` flag:
 ```bash
 go run main.go server --secrets-config <PATH> ...
 ```

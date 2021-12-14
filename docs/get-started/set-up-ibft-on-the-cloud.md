@@ -5,9 +5,9 @@ title: Set up IBFT network on the cloud
 
 :::info This guide is for mainnet or testnet setups
 
-The below guide will instruct you how to set up an IBFT network on a cloud provider for a production setup of your testnet or mainnet.
+The below guide will instruct you on how to set up an IBFT network on a cloud provider for a production setup of your testnet or mainnet.
 
-If you would like to setup the IBFT cluster locally to quickly test the `polygon-sdk` before doing a production like setup, please refer to
+If you would like to setup the IBFT cluster locally to quickly test the `polygon-sdk` before doing a production-like setup, please refer to
 [How to set IBFT locally](/docs/get-started/set-up-ibft-locally)
 :::
 
@@ -34,7 +34,7 @@ The required version of the Go programming language is `>=1.16`.
 
 ### Setting up the VM connectivity
 
-Depending on your choice of the cloud provider, you may set up connectivity and rules between the VMs using a firewall,
+Depending on your choice of cloud provider, you may set up connectivity and rules between the VMs using a firewall,
 security groups, or access control lists.
 
 As the only part of the `polygon-sdk` that needs to be exposed to other VMs is the libp2p server, simply allowing
@@ -44,11 +44,11 @@ all communication between VMs on the default libp2p port `1478` is enough.
 
 ![Cloud setup](/img/ibft-setup/cloud.svg)
 
-In this guide our goal is to establish a working `polygon-sdk` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650).
+In this guide, our goal is to establish a working `polygon-sdk` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650).
 The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers.
 Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional IBFT cluster while keeping the validator keys private to ensure a trustless network setup.
 
-In order to achieve that, we will guide you through 4 easy steps:
+To achieve that, we will guide you through 4 easy steps:
 
 0. Take a look at the list of **Requirements** above
 1. Generate the private keys for each of the validators, and initialize the data directory
@@ -58,7 +58,7 @@ In order to achieve that, we will guide you through 4 easy steps:
 
 ## Step 1: Initialize data folders for IBFT and generate validator keys
 
-In order to get up and running with IBFT, you need to initialize the data folders, on each node:
+To get up and running with IBFT, you need to initialize the data folders, on each node:
 
 
 ````bash
@@ -81,32 +81,32 @@ Each of these commands will print the [node ID](https://docs.libp2p.io/concepts/
 
 :::warning Keep your data directory to yourself!
 
-The data directories generated above, besides from initializing the directories for holding the blockchain state, will also generate your validator's private keys.
+The data directories generated above, besides initializing the directories for holding the blockchain state, will also generate your validator's private keys.
 **This key should be kept as a secret, as stealing it would render somebody capable of impersonating you as the validator in the network!**
 :::
 
 ## Step 2: Prepare the multiaddr connection string for the bootnode
 
-For a node to successfully establish connectivity, it must know which `bootnode` server to connect to in order gain
+For a node to successfully establish connectivity, it must know which `bootnode` server to connect to gain
 information about all the remaining nodes on the network. The `bootnode` is sometimes also known as the `rendezvous` server in p2p jargon.
 
 `bootnode` is not a special instance of the polygon-sdk node. Every polygon-sdk node can serve as a `bootnode`, but
 every polygon-sdk node needs to have a set of bootnodes specified which will be contacted to provide information on how to connect with
 all remaining nodes in the network.
 
-In order to create the connection string for specifying the bootnode, we will need to conform
+To create the connection string for specifying the bootnode, we will need to conform
 to the [multiaddr format](https://docs.libp2p.io/concepts/addressing/):
 ```
 /ip4/<ip_address>/tcp/<port>/p2p/<node_id>
 ```
 
-In this guide, we will treat the first and second node as the bootnodes for all other nodes. What will happen in this scenario
-is that nodes connect to the `node 1` or `node 2` will get information on how to connect to one another through the mutually
+In this guide, we will treat the first and second nodes as the bootnodes for all other nodes. What will happen in this scenario
+is that nodes that connect to the `node 1` or `node 2` will get information on how to connect to one another through the mutually
 contacted bootnode. 
 
 :::info You need to specify at least two bootnodes to start a node
 
-Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fallback to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list two nodes, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
+Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fall back to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide, we will list two nodes, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
 :::
 
 As the first part of the multiaddr connection string is the `<ip_address>`, here you will need to enter the IP address as reachable by other nodes, depending on your setup this might be a private or a public IP address, not `127.0.0.1`.
@@ -119,7 +119,7 @@ After the assembly, the multiaddr connection string to the `node 1` which we wil
 ```
 /ip4/<public_or_private_ip>/tcp/1478/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW
 ```
-Similarly we construct multiaddr for second bootnode as shown below
+Similarly, we construct multiaddr for the second bootnode as shown below
 ```
 /ip4/<public_or_private_ip>/tcp/1478/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
 ```
@@ -156,7 +156,7 @@ You will probably want to set up your blockchain network with some addresses hav
 To achieve this, pass as many `--premine` flags as you want per address that you want to be initialized with a certain balance
 on the blockchain.
 
-Example if we would like to premine 1000 ETH to address `0x3956E90e632AEbBF34DEB49b71c28A83Bc029862` in our genesis block, then we would need to supply the following argument:
+For example, if we would like to premine 1000 ETH to address `0x3956E90e632AEbBF34DEB49b71c28A83Bc029862` in our genesis block, then we would need to supply the following argument:
 
 ```
 --premine=0x3956E90e632AEbBF34DEB49b71c28A83Bc029862:1000000000000000000000
@@ -256,7 +256,7 @@ from node failure.
 
 :::info Start the client using config file
 
-Instead of specifying all configuration paramaters as cli arguments, Client can also be started using a config file by executing the following command: 
+Instead of specifying all configuration paramaters as CLI arguments, the Client can also be started using a config file by executing the following command: 
 
 ````bash 
 go run main.go server --config <config_file_path>
@@ -272,12 +272,12 @@ Currently, we only support `json` based configuration file, sample config file c
 
 :::info Steps to run a non-validator node 
 
-A Non-validator will always sync the latest blocks recieved from the validator node, you can start a non-validator node by running the following command.
+A Non-validator will always sync the latest blocks received from the validator node, you can start a non-validator node by running the following command.
 
 ````bash 
 go run main.go server --data-dir <directory_path> --chain <genesis_filename>  --libp2p <IPAddress:PortNo> --nat <public_or_private_ip>
 ````
-Example you can add **fifth** Non-validator client by executing the following command :
+For example, you can add **fifth** Non-validator client by executing the following command :
 
 ````bash
 go run main.go server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat<public_or_private_ip>
@@ -290,7 +290,7 @@ A Polygon SDK node can be started with a set **price limit** for incoming transa
 The unit for the price limit is `wei`.
 
 Setting a price limit means that any transaction processed by the current node will need to have a gas price **higher**
-than the set price limit, otherwise it will not be included into a block.
+then the set price limit, otherwise it will not be included in a block.
 
 Having the majority of nodes respect a certain price limit enforces the rule that transactions in the network
 cannot be below a certain price threshold.

@@ -3,7 +3,7 @@ id: deploy-contracts
 title: Deploy Contracts
 ---
 
-In this section, you will deploy required contracts to Polygon PoS and Polygon SDK chain with `cb-sol-cli`.
+In this section, you will deploy required contracts to the Polygon PoS and Polygon SDK chain with `cb-sol-cli`.
 
 ```bash
 # Setup for cb-sol-cli command
@@ -25,7 +25,7 @@ $ cb-sol-cli deploy --all --chainId 99 \
 
 :::info ChainID
 
-You will need to specify the `chainId` to deploy the Bridge contract. The `chainId` is an arbitrary value used for differentiating between blockchain networks and needs only to be unique, not to be the same as the chain's ID (since 2 networks might have the same one). In this example we set the `99` in `chainId`, because the chain ID of Mumbai testnet is `80001` which cannot be represented with a uint8.
+You will need to specify the `chainId` to deploy the Bridge contract. The `chainId` is an arbitrary value used for differentiating between blockchain networks and needs only to be unique, not to be the same as the chain's ID (since 2 networks might have the same one). In this example, we set the `99` in `chainId`, because the chain ID of the Mumbai testnet is `80001` which cannot be represented with a uint8.
 
 :::
 
@@ -36,7 +36,7 @@ You will need to specify the `chainId` to deploy the Bridge contract. The `chain
 
 :::caution
 
-The default gas price in `cb-sol-cli` is `20000000` (`0.02 Gwei`). To set appropriate gas price in transaction, please set the value using the `--gasPrice` argument.
+The default gas price in `cb-sol-cli` is `20000000` (`0.02 Gwei`). To set the appropriate gas price in a transaction, please set the value using the `--gasPrice` argument.
 
 ```bash
 $ cb-sol-cli deploy --all --chainId 99 \

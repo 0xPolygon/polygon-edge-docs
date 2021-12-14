@@ -117,7 +117,7 @@ It takes in as an argument **ctx**, which just denotes the context from which th
 The other parameter is the list of transactions to be added to the pool.
 
 The key thing to note here is the check for the **From** field within the transaction:
-* If the **From** field is **empty**, it is regarded as an unencrypted / unsigned transaction. These kinds of transactions are only
+* If the **From** field is **empty**, it is regarded as an unencrypted/unsigned transaction. These kinds of transactions are only
 accepted in development mode
 * If the **From** field is **not empty**, that means that it's a signed transaction, so signature verification takes place
 

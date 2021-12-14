@@ -7,7 +7,7 @@ title: Blockchain
 
 One of the main modules of the Polygon SDK are **Blockchain** and **State**. <br />
 
-**Blockchain** is the powerhouse that deals with block reorganizations. This means that it deals with all the logic that happens when a new block is included into the blockchain.
+**Blockchain** is the powerhouse that deals with block reorganizations. This means that it deals with all the logic that happens when a new block is included in the blockchain.
 
 **State** represents the *state transition* object. It deals with how the state changes when a new block is included. <br /> Among other things, **State** handles:
 * Executing transactions
@@ -102,10 +102,10 @@ It is worth mentioning that, because it is the entry point for writing blocks to
 
 ## Blockchain Subscriptions
 
-There needs to be a way to monitor blockchain related changes. <br />
+There needs to be a way to monitor blockchain-related changes. <br />
 This is where **Subscriptions** come in. 
 
-Subscriptions are a way to tap into blockchain event streams, and instantly receive meaningful data.
+Subscriptions are a way to tap into blockchain event streams and instantly receive meaningful data.
 
 ````go title="blockchain/subscription.go"
 type Subscription interface {

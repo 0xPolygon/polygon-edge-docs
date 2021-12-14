@@ -22,7 +22,7 @@ The Merkle trie, at any point in time, is called a ***Snapshot***.
 We can have ***Snapshots*** for the **state trie**, or for the **storage trie** - they are basically the same. <br />
 The only difference is in what the leaves represent:
 
-* In the case of the storage trie, the leaves contain arbitrary state, which we cannot process or know what's in there
+* In the case of the storage trie, the leaves contain an arbitrary state, which we cannot process or know what's in there
 * In the case of the state trie, the leaves represent accounts
 
 ````go title="state/state.go

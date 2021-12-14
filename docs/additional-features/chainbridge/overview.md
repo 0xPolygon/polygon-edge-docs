@@ -17,7 +17,7 @@ A Bridge contract that manages requests, votes, executions needs to be deployed 
 
 ### Handler contract
 
-Handler contract interacts with Target contract to execute deposit or proposal. It validates user's request, calls Target contract, and manages deposit records and some settings for Target contract. There are some Handler contracts to call each Target contract that has a different interface. The indirect calls by Handler contract make the bridge enable to transfer whatever kind of assets or data.
+Handler contract interacts with Target contract to execute deposit or proposal. It validates the user's request, calls Target contract and manages deposit records and some settings for Target contract. There are some Handler contracts to call each Target contract that has a different interface. The indirect calls by Handler contract make the bridge enable to transfer whatever kind of assets or data.
 
 Currently, there are three types of Handler contracts implemented by ChainBridge: ERC20Handler, ERC721Handler, and GenericHandler.
 
@@ -27,7 +27,7 @@ A contract that manages assets to be exchanged or processes messages to be trans
 
 ### Relayer
 
-Relayer is an application that monitors events from every chain and votes for a proposal in the Bridge contract of the destination chain when it receives `Deposit` event from a chain. A relayer calls method in Bridge contract to execute the proposal after the required number of votes are submitted. Bridge delegates execution to Handler contract.
+Relayer is an application that monitors events from every chain and votes for a proposal in the Bridge contract of the destination chain when it receives `Deposit` event from a chain. A relayer calls a method in the Bridge contract to execute the proposal after the required number of votes are submitted. Bridge delegates execution to Handler contract.
 
 <div style={{textAlign: 'center'}}>
 

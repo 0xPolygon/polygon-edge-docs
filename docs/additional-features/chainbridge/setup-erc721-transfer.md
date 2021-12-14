@@ -54,7 +54,7 @@ $ cb-sol-cli erc721 add-minter \
 
 ## Step 2: Transfer NFT
 
-Firstly, you will mint NFT if you need.
+Firstly, you will mint an NFT if you need it.
 
 ```bash
 # Mint NFT 0x50
@@ -88,7 +88,7 @@ $ cb-sol-cli erc721 approve \
   --id 0x50
 ```
 
-Finally, you will start transfer
+Finally, you will start the transfer
 
 ```bash
 # Start transfer from Polygon PoS to Polygon SDK chain
@@ -103,7 +103,7 @@ $ cb-sol-cli erc721 deposit \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]"
 ```
 
-Relayer will get the event and vote for the proposal. It executes a transaction to send NFTs to the recipient account in Polygon SDK chain after the required number of votes are submitted. 
+The relayer will get the event and vote for the proposal. It executes a transaction to send NFTs to the recipient account in the Polygon SDK chain after the required number of votes are submitted. 
 
 ```bash
 INFO[11-19|09:07:50] Handling nonfungible deposit event       chain=mumbai

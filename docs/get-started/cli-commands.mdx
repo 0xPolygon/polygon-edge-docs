@@ -14,7 +14,7 @@ This section details the present commands, command flags in the Polygon SDK, and
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | server      | The default command that starts the blockchain client, by bootstrapping all modules together                                                         |
 | dev         | "Bypasses" consensus and networking and starts a blockchain locally. It starts a local node and mines every transaction in a separate block    |
-| genesis     | Generates a *genesis.json* file, which is used to set predefined chain state before starting the client. The structure of the genesis file is described below |
+| genesis     | Generates a *genesis.json* file, which is used to set a predefined chain state before starting the client. The structure of the genesis file is described below |
 
 ### server flags
 
@@ -52,7 +52,7 @@ Sets the flag indicating that the client should seal blocks. Default: `false`.
   </TabItem>
 </Tabs>
 
-Specifies the data directory used for storing Polygon SDK client data. Default: ``./test-chain`.
+Used to specify the data directory used for storing Polygon SDK client data. Default: ``./test-chain`.
 
 ---
 
@@ -245,7 +245,7 @@ Specifies the address of the peer that should be joined.
   </TabItem>
 </Tabs>
 
-Sets the the external IP address without the port, as it can be seen by peers.
+Sets the external IP address without the port, as it can be seen by peers.
 
 ---
 
@@ -264,7 +264,7 @@ Sets the the external IP address without the port, as it can be seen by peers.
   </TabItem>
 </Tabs>
 
-Sets the the host DNS address. This can be used to adverstise an external DNS. Supports `dns`,`dns4`,`dns6`.
+Sets the host DNS address. This can be used to advertise an external DNS. Supports `dns`,`dns4`,`dns6`.
 
 ---
 
@@ -285,7 +285,7 @@ Sets the the host DNS address. This can be used to adverstise an external DNS. S
   </TabItem>
 </Tabs>
 
-Sets comma separated accounts whose transactions are treated as locals
+Sets comma-separated accounts whose transactions are treated as locals
 
 ---
 
@@ -821,8 +821,8 @@ Sets consensus protocol. Default: `pow`.
   </TabItem>
 </Tabs>
 
-Multiaddr URL for p2p discovery bootstrap.This flag can be used multiple times.
-Instead of an IP address, DNS address of the bootnode can be provided.
+Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
+Instead of an IP address, the DNS address of the bootnode can be provided.
 
 
 ---
@@ -938,7 +938,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 |------------------------|-------------------------------------------------------------------------------------|
 | ibft snapshot             | Returns the IBFT snapshot                    |
 | ibft candidates  | Queries the current set of proposed candidates, as well as candidates that have not been included yet |
-| ibft propose                | Proposes a new candidate to be added / removed from the validator set        |
+| ibft propose                | Proposes a new candidate to be added/removed from the validator set        |
 | ibft status                | Returns the overall status of the IBFT client   
 
 
@@ -1099,7 +1099,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
   </TabItem>
 </Tabs>
 
-The sender address.
+The sender's address.
 
 ---
 
@@ -1118,7 +1118,7 @@ The sender address.
   </TabItem>
 </Tabs>
 
-The receiver address.
+The receiver's address.
 
 ---
 
@@ -1477,7 +1477,7 @@ message BlockchainEvent {
   </TabItem>
 </Tabs>
 
-Number of transactions per second to send. Default: `100`.
+The number of transactions per second to send. Default: `100`.
 
 ---
 
@@ -1666,7 +1666,7 @@ When executing the *data-dir* flag, a **test-chain** folder is generated.
 The folder structure consists of the following sub-folders:
 * **blockchain** - Stores the LevelDB for blockchain objects
 * **trie** - Stores the LevelDB for the Merkle tries
-* **keystore** - Stores private keys for the client. This includes the libp2p private key, and the sealing / validator private key
+* **keystore** - Stores private keys for the client. This includes the libp2p private key and the sealing/validator private key
 * **consensus** - Stores any consensus information that the client might need while working
 
 ## Resources

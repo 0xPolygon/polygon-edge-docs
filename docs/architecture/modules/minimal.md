@@ -6,7 +6,7 @@ title: Minimal
 ## Overview
 
 As mentioned before, Polygon SDK is a set of different modules, all connected to each other.<br />
-The **Blockchain** is connected to the **State**, or for example **Synchronization**, which pipes new blocks into the **Blockchain**.
+The **Blockchain** is connected to the **State**, or for example, **Synchronization**, which pipes new blocks into the **Blockchain**.
 
 **Minimal** is the cornerstone for these inter-connected modules. <br />
 It acts as a central hub for all the services that run on the Polygon SDK.
@@ -18,7 +18,7 @@ Among other things, Minimal is responsible for:
 * Creating a keystore for libp2p communication
 * Creating storage
 * Setting up consensus
-* Setting up the blockchain object with GRPC, JSON RPC and Synchronization
+* Setting up the blockchain object with GRPC, JSON RPC, and Synchronization
 
 ````go title="minimal/server.go"
 func NewServer(logger hclog.Logger, config *Config) (*Server, error) {

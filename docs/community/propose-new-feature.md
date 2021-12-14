@@ -5,7 +5,7 @@ title: Propose a new feature
 
 ## Overview
 
-If you want to include a fix, or just contribute to the code, it is highly encouraged you reach out to the team first. <br/>
+If you want to include a fix, or just contribute to the code, it is highly encouraged for you to reach out to the team first. <br/>
 The Polygon SDK uses a relatively basic feature proposition template, that is concise and to the point.
 
 ## PR Template
@@ -18,7 +18,7 @@ Please provide a detailed description of what was done in this PR
 
 - [ ] Bugfix (non-breaking change that solves an issue)
 - [ ] New feature (non-breaking change that adds functionality)
-- [ ] Breaking change (change that is not backwards-compatible and/or changes current functionality)
+- [ ] Breaking change (change that is not backward-compatible and/or changes current functionality)
 
 ### Breaking changes
 

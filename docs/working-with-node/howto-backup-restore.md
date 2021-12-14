@@ -14,7 +14,7 @@ Polygon SDK leverages LevelDB as its storage engine.
 When starting a Polygon SDK node, the following sub-folders are created in the specified working directory:
 * **blockchain** - Stores the blockchain data
 * **trie** - Stores the Merkle tries (world state data)
-* **keystore** - Stores private keys for the client. This includes the libp2p private key, and the sealing / validator private key
+* **keystore** - Stores private keys for the client. This includes the libp2p private key and the sealing/validator private key
 * **consensus** - Stores any consensus information that the client might need while working. For now, it stores the node's *private validator key*
 
 It is critical for these folders to be preserved in order for the Polygon SDK instance to run smoothly.
@@ -37,7 +37,7 @@ so it can trigger 2 events while gracefully shutting down:
 
 Now that the client is not running, the data directory can be backed up to another medium. 
 Keep in mind that the files with a `.key` extension contain the private key data that can be used to impersonate the current node,
-and they should never be shared with a third / unknown party.
+and they should never be shared with a third/unknown party.
 
 :::info
 Please note that clients running the IBFT consensus mechanism need to back up the generated `genesis` file as well, in order for their

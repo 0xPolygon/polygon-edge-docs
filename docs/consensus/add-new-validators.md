@@ -21,7 +21,7 @@ go run main.go secrets init --data-dir test-chain-5
 
 This command will print the validator key (address) and the node ID. You will need the validator key (address) for the next step.
 
-## Step 2: From other validator nodes propose a new candidate
+## Step 2: Propose a new candidate from other validator nodes
 
 For a new node to become a validator at least 51% of validators need to propose him.
 

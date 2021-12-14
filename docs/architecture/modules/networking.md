@@ -18,19 +18,19 @@ The choice to go with **libp2p** is primarily focused on:
 On top of **libp2p**, the Polygon SDK uses the **GRPC** protocol. <br />
 Technically, the Polygon SDK uses several GRPC protocols, which will be covered later on.
 
-The GRPC layer helps abstract all the request / reply protocols and simplifies the streaming protocols needed for the SDK to function.
+The GRPC layer helps abstract all the request/reply protocols and simplifies the streaming protocols needed for the SDK to function.
 
 GRPC relies on **Protocol Buffers** to define *services* and *message structures*. <br />
 The services and structures are defined in *.proto* files, which are compiled and are language-agnostic.
 
 Earlier, we mentioned that the Polygon SDK leverages several GRPC protocols.<br />
-This was done in order to boost the overall UX for the node operator, something which often lags with clients like GETH and Parity.
+This was done to boost the overall UX for the node operator, something which often lags with clients like GETH and Parity.
 
 The node operator has a better overview of what is going on with the system by calling the GRPC service, instead of sifting through logs to find the information they're looking for.
 
 ### GRPC for Node Operators
 
-The following section might seem familiar, because it was briefly covered in the [CLI Commands](/docs/get-started/cli-commands) section.
+The following section might seem familiar because it was briefly covered in the [CLI Commands](/docs/get-started/cli-commands) section.
 
 The GRPC service that is intended to be used by **node operators** is defined like so:
 ````go title="minimal/proto/system.proto"

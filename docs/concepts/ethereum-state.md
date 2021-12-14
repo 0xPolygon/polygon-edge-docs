@@ -8,7 +8,7 @@ title: State in Ethereum
 Before discussing the main data objects in Ethereum, we need to go over what Merkle trees are, and what are the
 properties that make them useful.
 
-A **Merkle tree** is a *tree* data structure, where the leaf nodes contain the hash of a block of data, and the non-leaf
+A **Merkle tree** is a *tree* data structure, where the leaf nodes contain the hash of a block of data and the non-leaf
 nodes contain the hash of its children nodes.
 
 ![Example Merkle tree](/img/state/merkleTree.png)
@@ -32,7 +32,7 @@ blockchain (as opposed to storing all the data in the blockchain) and still keep
 The **world state** is a mapping between **addresses** (accounts) and **account states**.
 
 The world state is not stored on the blockchain, but the Yellow Paper states it is expected that implementations store
-this data in a trie (also referred as the state database or state trie). The world state can be seen as the global state
+this data in a trie (also referred to as the state database or state trie). The world state can be seen as the global state
 that is constantly updated by transaction executions.
 
 All the information about Ethereum accounts lives in the world state and is stored in the world state trie. If you want
@@ -45,10 +45,10 @@ the account state of that account. We’ll describe how this data is stored shor
 
 In Ethereum, there are two types of accounts: **External Owned Accounts (EOA)** and **Contract Accounts**.
 
-An EOA account is the account that regular users have, that they can use to send Ether to one another and deploy smart
+An EOA account is an account that regular users have, that they can use to send Ether to one another and deploy smart
 contracts with.
 
-A contract account is the account that is created when a smart contract is deployed. Every smart contract has its own
+A contract account is an account that is created when a smart contract is deployed. Every smart contract has its own
 Ethereum account.
 
 The account state contains information about an Ethereum account. For example, it stores how much Ether an account has,
@@ -57,10 +57,10 @@ and the number of transactions sent by the account. Each account has an ***accou
 Let's take a look into each one of the fields in the account state:
 
 * **nonce** - Number of transactions sent from this address (if this is an External Owned Account - EOA) or the number
-  of contract-creations made by this account
+  of contract creations made by this account
 * **balance** - Total Ether (in Wei) owned by this account
 * **storageRoot** - Hash of the root node of the account storage trie
-* **codeHash** - For contract accounts, hash of the EVM code of this account. For EOAs, this will be empty.
+* **codeHash** - For contract accounts, the hash of the EVM code of this account. For EOAs, this will be empty.
 
 One important detail about the account state is that all fields (except the codeHash) are **mutable**. For example, when
 one account sends some Ether to another, the nonce will be incremented, and the balance will be updated to reflect the
@@ -78,7 +78,7 @@ Accounts, as for EOAs the storageRoot is **empty**, and the codeHash is the hash
 
 ## Transactions
 
-Transactions are what makes the state change from the current state to the next state. In Ethereum, we have three types
+Transactions are what make the state change from the current state to the next state. In Ethereum, we have three types
 of transactions:
 
 1. Transactions that transfer value between two EOAs (e.g, change the sender and receiver account balances)
@@ -100,13 +100,13 @@ These are the fields of a transaction:
   transaction
 * **gasLimit** - Maximum amount of gas to be used while executing this transaction
 * **to**
-    * If this transaction is transferring Ether, address of the EOA account that will receive a value transfer
+    * If this transaction is transferring Ether, the address of the EOA account that will receive a value transfer
     * If this transaction is sending a message to a contract (e.g, calling a method in the smart contract), this is
       address of the contract
     * If this transaction is creating a contract, this value is always empty
 * **value**
-    * If this transaction is transferring Ether, amount in Wei that will be transferred to the recipient account
-    * If this transaction is sending a message to a contract, amount of Wei payable by the smart contract receiving the
+    * If this transaction is transferring Ether, the amount in Wei that will be transferred to the recipient account
+    * If this transaction is sending a message to a contract, the amount of Wei payable by the smart contract receiving the
       message
     * If this transaction is creating a contract, this is the amount of Wei that will be added to the balance of the
       created contract
@@ -114,7 +114,7 @@ These are the fields of a transaction:
   transaction
 * **data** (only for value transfer and sending a message call to a smart contract) -Input data of the message call (
   e.g, imagine you are trying to execute a setter method in your smart contract, the data field would contain the
-  identifier of the setter method,and the value that should be passed as parameter)
+  identifier of the setter method, and the value that should be passed as a parameter)
 * **init** (only for contract creation) - The EVM-code utilized for initialization of the contract
 
 Not surprisingly, all transactions in a block are stored in a trie. <br/>The root hash of this trie is stored in the...
@@ -122,7 +122,7 @@ block header! Let's take a look into the anatomy of an Ethereum block.
 
 ## Blocks
 
-The block header is divided in two parts, the **block header** and the **block body**.
+The block header is divided into two parts, the **block header** and the **block body**.
 
 The block header is the blockchain part of Ethereum. This is the structure that contains the hash of its predecessor
 block (also known as parent block), building a cryptographically guaranteed chain.
@@ -142,10 +142,10 @@ The block header contains the following fields:
 * **stateRoot** - Hash of the root node of the world state trie (after all transactions are executed)
 * **transactionsRoot** - Hash of the root node of the transactions trie. This trie contains all transactions in the
   block body
-* **receiptsRoot** - Every time a transactions is executed, Ethereum generates a transaction receipt that contains
+* **receiptsRoot** - Every time a transaction is executed, Ethereum generates a transaction receipt that contains
   information about the transaction execution. This field is the hash of the root node of the transactions receipt trie
 * **logsBloom** - Bloom filter that can be used to find out if logs were generated on transactions in this block (if you
-  want more details check this Stack Overflow answer). This avoids storing of logs in the block (saving a lot of space)
+  want more details check this Stack Overflow answer). This avoids storing logs in the block (saving a lot of space)
 * **difficulty** - Difficulty level of this block. This is a measure of how hard it was to mine this block (I'm not
   diving into the details of how this is calculated in this post)
 * **number** - Number of ancestor blocks. This represents the height of the chain (how many blocks are in the chain).
@@ -154,7 +154,7 @@ The block header contains the following fields:
   transactions included in the block. It is a way to limit the number of transactions in a block
 * **gasUsed** - Sum of the gas cost of each transaction in the block
 * **timestamp** - Unix timestamp when the block was created. Note that due to the decentralized nature of Ethereum, we
-  can't trust in this value (specially when implementing smart contracts that have time related business logic)
+  can't trust in this value (especially when implementing smart contracts that have time-related business logic)
 * **extraData** - Arbitrary byte array that can contain anything. When a miner is creating the block, it can choose to
   add anything in this field
 * **mixHash** - Hash used to verify that a block has been mined properly (if you want to really understand this, read
@@ -168,7 +168,7 @@ Ethereum has 4 types of tries:
 1. The world state trie contains the mapping between addresses and account states. The hash of the root node of the
    world state trie is included in a block (in the stateRoot field) to represent the current state when that block was
    created. We only have one world state trie
-2. The account storage trie contains the data associated to a smart contract. The hash of the root node of the Account
+2. The account storage trie contains the data associated with a smart contract. The hash of the root node of the Account
    storage trie is included in the account state (in the storageRoot field). We have one Account storage trie for each
    account
 3. The transaction trie contains all the transactions included in a block. The hash of the root node of the Transaction
@@ -182,12 +182,12 @@ Objects covered:
 1. **World state**: the hard drive of the distributed computer that is Ethereum. It is a mapping between addresses and
    account states
 2. **Account state**: stores the state of each one of Ethereum's accounts. It also contains the storageRoot of the
-   account state trie, that contains the storage data for the account
-3. **Transaction**: represents a state transition in the system. It can be a funds transfer, a message call or a
+   account state trie, which contains the storage data for the account
+3. **Transaction**: represents a state transition in the system. It can be a funds transfer, a message call, or a
    contract deployment
 4. **Block**: contains the link to the previous block (parentHash) and contains a group of transactions that, when
    executed, will yield the new state of the system. It also contains the stateRoot, the transactionRoot and the
-   receiptsRoot, the hash of the root nodes of the world state trie, the transaction trie and the transaction receipts
+   receiptsRoot, the hash of the root nodes of the world state trie, the transaction trie, and the transaction receipts
    trie, respectively
 
 ![Main Diagram](/img/state/mainDiagram.png)

@@ -60,7 +60,7 @@ type Config struct {
 ````
 
 There may be times when you might want to pass in a custom location for the consensus protocol to store data, or perhaps 
-a custom key-value map which you want the consensus mechanism to use. This can be achieved through the ***Config*** struct, 
+a custom key-value map that you want the consensus mechanism to use. This can be achieved through the ***Config*** struct, 
 which gets read when a new consensus instance is created.
 
 ## IBFT
@@ -313,10 +313,10 @@ func (i *Ibft) processHeaders(headers []*types.Header) error {
 ````
 
 This method is usually called with 1 header, but the flow is the same even with multiple headers. <br />
-For each passed in header, IBFT needs to verify that the proposer of the header is the validator. This can be done easily by 
+For each passed-in header, IBFT needs to verify that the proposer of the header is the validator. This can be done easily by 
 grabbing the latest snapshot, and checking if the node is in the validator set.
 
-Next, the nonce is checked. The vote is included, and tallied - and if there are enough votes a node is added / removed from 
+Next, the nonce is checked. The vote is included, and tallied - and if there are enough votes a node is added/removed from 
 the validator set, following which the new snapshot is saved.
 
 #### Snapshot Store
@@ -374,7 +374,7 @@ func (i *Ibft) setupTransport() error {
 ````
 
 It essentially creates a new topic with IBFT proto, with a new proto buff message.<br />
-The messages are meant to be used by validators. The Polygon SDK then subscribes to the topic, and handles messages accordingly.
+The messages are meant to be used by validators. The Polygon SDK then subscribes to the topic and handles messages accordingly.
 
 #### MessageReq
 
@@ -488,7 +488,7 @@ If the client is **not** a validator, it will continue syncing, and stay in **Sy
 
 #### AcceptState
 
-The **Accept** state always check the snapshot, and the validator set. If the current node is not in the validators set,
+The **Accept** state always check the snapshot and the validator set. If the current node is not in the validators set,
 it moves back to the **Sync** state.
 
 On the other hand, if the node **is** a validator, it calculates the proposer. If it turns out that the current node is the 

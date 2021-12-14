@@ -23,7 +23,7 @@ You need to setup a Polygon SDK network before proceeding to the next section. P
 
 ## Accounts
 
-In this guide, you will use three types of Ethereum accounts in both blockchain networks. Please make sure the accounts have enough native tokens to create transactions before staring. An account can act in several roles at the same time.
+In this guide, you will use three types of Ethereum accounts in both blockchain networks. Please make sure the accounts have enough native tokens to create transactions before starting. An account can act in several roles at the same time.
 
 | **Type** |**Description**                                                                                                                |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -31,4 +31,4 @@ In this guide, you will use three types of Ethereum accounts in both blockchain 
 | relayer  | The account used in the relayer to create transactions to vote or execute a proposal. The relayer accounts pay gas fees when sending transactions for voting and execution in the destination chain.                                                 |
 | user     | The sender/recipient account that sends/receives assets. The sender account pays the gas fees when approving token transfers and calling `deposit` in the Bridge contract to begin a transfer.                                                                    |
 
-Please make sure the accounts have enough native tokens to create transactions before staring. In Polygon SDK, you can assign accounts premined balances when generating the genesis block.
+Please make sure the accounts have enough native tokens to create transactions before starting. In Polygon SDK, you can assign accounts premined balances when generating the genesis block.

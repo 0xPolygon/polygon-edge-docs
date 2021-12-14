@@ -36,7 +36,7 @@ The current list of supported consensus algorithms:
 * Ethereum's Nakamoto PoW (⚠️WIP)
 * Clique PoA (⚠️WIP)
 
-We plan to add support for more consensus algorithms in the future (HotStuff, Tendermint etc).<br /> [Contact the team](mailto:contact@polygon.technology) if you would like to use a specific, not yet supported algorithm for your project.
+We plan to add support for more consensus algorithms in the future (HotStuff, Tendermint, etc).<br /> [Contact the team](mailto:contact@polygon.technology) if you would like to use a specific, not yet supported algorithm for your project.
 
 ## Blockchain
 The Blockchain layer is the central layer that coordinates everything in the Polygon SDK system. It is covered in depth in the corresponding *Modules* section.

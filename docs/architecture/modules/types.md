@@ -15,7 +15,7 @@ The **Types** module implements core object types, such as:
 ## RLP Encoding / Decoding
 
 Unlike clients such as GETH, the Polygon SDK doesn't use reflection for the encoding.<br />
-As a matter of fact, the preference is to not use reflection because it introduces new problems, such as performance
+The preference was to not use reflection because it introduces new problems, such as performance
 degradation, and harder scaling.
 
 The **Types** module provides an easy-to-use interface for RLP marshaling and unmarshalling, using the FastRLP package.

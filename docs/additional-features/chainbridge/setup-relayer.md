@@ -63,7 +63,7 @@ Enter password to encrypt keystore file:
 INFO[11-19|07:09:05] private key imported                     address=<RELAYER_ACCOUNT_ADDRESS> file=.../keys/<RELAYER_ACCOUNT_ADDRESS>.key
 ```
 
-Then, you can start the relayer. You will need to input the same password when you inputted to store key in the beginning.
+Then, you can start the relayer. You will need to input the same password when you inputted to store the key in the beginning.
 
 ```bash
 # Start relayer

@@ -23,7 +23,7 @@ $ cb-sol-cli admin remove-admin \
   --addmin "[NEW_ACCOUNT_ADDRESS]"
 ```
 
-The operations which are allowed by `admin` account are as below.
+The operations which are allowed by the `admin` account are as below.
 
 ### Set Resource
 
@@ -67,7 +67,7 @@ $ cb-sol-cli bridge cancel-proposal \
 
 ### Pause/Unpause
 
-Pause deposits, proposal creation and voting, and deposit executions temporally.
+Pause deposits, proposal creation, voting, and deposit executions temporally.
 
 ```bash
 # Pause
