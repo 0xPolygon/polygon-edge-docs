@@ -1,6 +1,6 @@
 ---
-id: howto-manage-private-keys
-title: How to manage private keys
+id: manage-private-keys
+title: Manage private keys
 ---
 
 ## Overview

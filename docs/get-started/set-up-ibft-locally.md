@@ -1,6 +1,6 @@
 ---
-id: howto-set-ibft-locally
-title: How to set up IBFT locally
+id: set-up-ibft-locally
+title: Set up IBFT network locally
 ---
 
 :::caution This guide is for testing purposes only

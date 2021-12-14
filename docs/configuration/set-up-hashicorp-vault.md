@@ -1,6 +1,6 @@
 ---
-id: howto-setup-hashicorp-vault
-title: How to set up Hashicorp Vault
+id: set-up-hashicorp-vault
+title: Set up Hashicorp Vault
 ---
 
 ## Overview

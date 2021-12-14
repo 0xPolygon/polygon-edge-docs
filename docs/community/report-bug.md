@@ -1,6 +1,6 @@
 ---
-id: howto-report-bug
-title: How to report an issue
+id: report-bug
+title: Report an issue
 ---
 
 ## Overview

@@ -1,6 +1,6 @@
 ---
-id: howto-backup-restore
-title: How to back up / restore
+id: backup-restore
+title: Backup/restore node instance
 ---
 
 ## Overview

@@ -1,6 +1,6 @@
 ---
-id: howto-propose-feature
-title: How to propose a new feature
+id: propose-new-feature
+title: Propose a new feature
 ---
 
 ## Overview

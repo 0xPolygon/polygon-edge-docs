@@ -1,6 +1,6 @@
 ---
-id: howto-add-new-validators
-title: How to add new validators to an active network
+id: add-new-validators
+title: Add new validators
 ---
 ## Requirements
 

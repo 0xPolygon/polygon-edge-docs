@@ -1,6 +1,6 @@
 ---
-id: howto-query-operator
-title: How to query operator information
+id: query-operator
+title: Query operator information
 ---
 
 ## Prerequisites

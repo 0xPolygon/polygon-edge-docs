@@ -1,6 +1,6 @@
 ---
-id: howto-run-loadbot 
-title: How to run the loadbot for stress testing your network
+id: stress-testing
+title: Network stress testing
 ---
 
 ## Prerequisites

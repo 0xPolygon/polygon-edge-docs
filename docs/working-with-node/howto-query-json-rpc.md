@@ -1,6 +1,6 @@
 ---
-id: howto-query-json-rpc
-title: How to query JSON RPC endpoints
+id: query-json-rpc
+title: Query JSON RPC endpoints
 ---
 
 ## Overview

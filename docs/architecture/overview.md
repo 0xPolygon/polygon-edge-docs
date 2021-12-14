@@ -1,5 +1,5 @@
 ---
-id: architecture 
+id: overview 
 title: Architecture Overview
 sidebar_label: Overview
 ---
