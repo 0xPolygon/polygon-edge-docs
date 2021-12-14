@@ -690,6 +690,45 @@ Sets the name for the chain. Default: `example`.
 
 ---
 
+<h4><i>pos</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    genesis [--pos IS_POS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    genesis --pos
+
+  </TabItem>
+</Tabs>
+
+Sets the flag indicating that the client should use Proof of Stake IBFT.
+Defaults to Proof of Authority if flag is not provided or `false`.
+
+---
+
+<h4><i>epoch-size</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    genesis [--epoch-size EPOCH_SIZE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    genesis --epoch-size 50
+
+  </TabItem>
+</Tabs>
+
+Sets the epoch size for the chain. Default `100000`.
+
+---
+
 <h4><i>premine</i></h4>
 
 <Tabs>
