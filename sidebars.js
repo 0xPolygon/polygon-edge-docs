@@ -33,6 +33,8 @@ module.exports = {
       label: 'Consensus',
       items: [
         'consensus/add-new-validators',
+        'consensus/pos-concepts',
+        'consensus/pos-stake-unstake'
       ]
     },
     {

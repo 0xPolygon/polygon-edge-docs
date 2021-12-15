@@ -110,7 +110,7 @@ After the assembly, the multiaddr connection string to the `node 1` which we wil
 ```
 Similarly, we construct the multiaddr for second bootnode as shown below
 ```
-/ip4/127.0.0.1/tcp/10002/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
+/ip4/127.0.0.1/tcp/20001/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
 ```
 
 ## Step 3: Generate an IBFT genesis file with the 4 nodes as validators
