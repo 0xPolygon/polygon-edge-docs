@@ -40,7 +40,7 @@ The **only difference** between setting up a PoS and PoA cluster is in the genes
 **When generating the genesis file for a PoS cluster, an additional flag is needed `--pos`**:
 
 ```bash
-go run main.go genesis --pos ...
+polygon-sdk genesis --pos ...
 ```
 
 ## Setting the length of an epoch
@@ -51,7 +51,7 @@ To set the size of an epoch for a cluster (in blocks), when generating the genes
 specified `--epoch-size`:
 
 ```bash
-go run main.go genesis --epoch-size 50
+polygon-sdk genesis --epoch-size 50
 ```
 
 This value specified in the genesis file that the epoch size should be `50` blocks.

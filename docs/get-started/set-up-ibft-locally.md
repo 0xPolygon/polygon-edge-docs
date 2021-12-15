@@ -57,19 +57,19 @@ In order to get up and running with IBFT, you need to initialize the data folder
 one for each node:
 
 ````bash
-go run main.go secrets init --data-dir test-chain-1
+polygon-sdk secrets init --data-dir test-chain-1
 ````
 
 ````bash
-go run main.go secrets init --data-dir test-chain-2
+polygon-sdk secrets init --data-dir test-chain-2
 ````
 
 ````bash
-go run main.go secrets init --data-dir test-chain-3
+polygon-sdk secrets init --data-dir test-chain-3
 ````
 
 ````bash
-go run main.go secrets init --data-dir test-chain-4
+polygon-sdk secrets init --data-dir test-chain-4
 ````
 
 Each of these commands will print the validator key and the [node ID](https://docs.libp2p.io/concepts/peer-id/). You will need the Node ID of the first node for the next step.
@@ -102,7 +102,7 @@ Since we are running on localhost, it is safe to assume that the `<ip_address>` 
 
 For the `<port>` we will use `10001` since we will configure the libp2p server for `node 1` to listen on this port later.
 
-And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `go run main.go secrets init --data-dir test-chain-1` command (which was used to generate keys and data directories for the `node1`)
+And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `polygon-sdk secrets init --data-dir test-chain-1` command (which was used to generate keys and data directories for the `node1`)
 
 After the assembly, the multiaddr connection string to the `node 1` which we will use as the bootnode will look something like this (only the `<node_id>` which is at the end should be different):
 ```
@@ -116,7 +116,7 @@ Similarly, we construct the multiaddr for second bootnode as shown below
 ## Step 3: Generate an IBFT genesis file with the 4 nodes as validators
 
 ````bash
-go run main.go genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW --bootnode /ip4/127.0.0.1/tcp/20001/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
+polygon-sdk genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW --bootnode /ip4/127.0.0.1/tcp/20001/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
 ````
 
 What this command does:
@@ -186,25 +186,25 @@ avoid port conflicts. This is why we will use the following reasoning for determ
 To run the **first** client (note the port `10001` since it was used as a part of the libp2p multiaddr in **step 2** alongside node 1's Node ID):
 
 ````bash
-go run main.go server --data-dir ./test-chain-1 --chain genesis.json --grpc :10000 --libp2p :10001 --jsonrpc :10002 --seal
+polygon-sdk server --data-dir ./test-chain-1 --chain genesis.json --grpc :10000 --libp2p :10001 --jsonrpc :10002 --seal
 ````
 
 To run the **second** client:
 
 ````bash
-go run main.go server --data-dir ./test-chain-2 --chain genesis.json --grpc :20000 --libp2p :20001 --jsonrpc :20002 --seal
+polygon-sdk server --data-dir ./test-chain-2 --chain genesis.json --grpc :20000 --libp2p :20001 --jsonrpc :20002 --seal
 ````
 
 To run the **third** client:
 
 ````bash
-go run main.go server --data-dir ./test-chain-3 --chain genesis.json --grpc :30000 --libp2p :30001 --jsonrpc :30002 --seal
+polygon-sdk server --data-dir ./test-chain-3 --chain genesis.json --grpc :30000 --libp2p :30001 --jsonrpc :30002 --seal
 ````
 
 To run the **fourth** client:
 
 ````bash
-go run main.go server --data-dir ./test-chain-4 --chain genesis.json --grpc :40000 --libp2p :40001 --jsonrpc :40002 --seal
+polygon-sdk server --data-dir ./test-chain-4 --chain genesis.json --grpc :40000 --libp2p :40001 --jsonrpc :40002 --seal
 ````
 
 To briefly go over what has been done so far:
@@ -226,12 +226,12 @@ from node failure.
 Instead of specifying all configuration parameters as CLI arguments, the Client can also be started using a config file by executing the following command: 
 
 ````bash 
-go run main.go server --config <config_file_path>
+polygon-sdk server --config <config_file_path>
 ````
 Example:
 
 ````bash
-go run main.go server --config ./test/config-node1.json
+polygon-sdk server --config ./test/config-node1.json
 ````
 Currently, we only support `json` based configuration file, sample config file can be found [here](/docs/sample-config)
 
@@ -242,12 +242,12 @@ Currently, we only support `json` based configuration file, sample config file c
 A Non-validator will always sync the latest blocks received from the validator node, you can start a non-validator node by running the following command.
 
 ````bash 
-go run main.go server --data-dir <directory_path> --chain <genesis_filename> --grpc <portNo> --libp2p <portNo> --jsonrpc <portNo>
+polygon-sdk server --data-dir <directory_path> --chain <genesis_filename> --grpc <portNo> --libp2p <portNo> --jsonrpc <portNo>
 ````
 For example, you can add **fifth** Non-validator client by executing the following command :
 
 ````bash
-go run main.go server --data-dir ./test-chain --chain genesis.json --grpc :50000 --libp2p :50001 --jsonrpc :50002 
+polygon-sdk server --data-dir ./test-chain --chain genesis.json --grpc :50000 --libp2p :50001 --jsonrpc :50002 
 ````
 :::
 
@@ -266,7 +266,7 @@ The default value for the price limit is `0`, meaning it is not enforced at all 
 
 Example of using the `--price-limit` flag:
 ````bash
-go run main.go server --price-limit 100000 ...
+polygon-sdk server --price-limit 100000 ...
 ````
 
 It is worth noting that price limits **are enforced only on non-local transactions**, meaning

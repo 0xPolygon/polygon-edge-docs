@@ -47,7 +47,7 @@ generated config file, which contains all the necessary information for secret s
 To generate the configuration, run the following command:
 
 ```bash
-go run main.go secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVER_URL> --name <NODE_NAME>
+polygon-sdk secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVER_URL> --name <NODE_NAME>
 ```
 
 Parameters present:
@@ -71,7 +71,7 @@ Now that the configuration file is present, we can initialize the required IBFT 
 file set up in step 1, using the `--config`:
 
 ```bash
-go run main.go secrets init --config <PATH>
+polygon-sdk secrets init --config <PATH>
 ```
 
 The `PATH` param is the location of the previously generated secrets manager param from step 1.
@@ -83,7 +83,7 @@ and [**How to Set Up IBFT on the Cloud**](/docs/get-started/set-up-ibft-on-the-c
 
 Since Hashicorp Vault is being used instead of the local file system, validator addresses should be added through the `--ibft-validator` flag:
 ```bash
-go run main.go genesis --ibft-validator <VALIDATOR_ADDRESS> ...
+polygon-sdk genesis --ibft-validator <VALIDATOR_ADDRESS> ...
 ```
 
 ## Step 4 - Start the Polygon SDK client
@@ -93,7 +93,7 @@ Polygon SDK with the `server` command.
 
 The `server` command is used in the same manner as in the previously mentioned guides, with a minor addition - the `--secrets-config` flag:
 ```bash
-go run main.go server --secrets-config <PATH> ...
+polygon-sdk server --secrets-config <PATH> ...
 ```
 
 The `PATH` param is the location of the previously generated secrets manager param from step 1.

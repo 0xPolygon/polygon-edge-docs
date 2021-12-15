@@ -24,7 +24,7 @@ If your node isn't running on `127.0.0.1:8545` you should add a flag `--grpc-add
 
 To get a complete list of connected peers (including the running node itself), run the following command:
 ````bash
-go run main.go peers list
+polygon-sdk peers list
 ````
 
 This will return a list of libp2p addresses that are currently peers of the running client.
@@ -33,7 +33,7 @@ This will return a list of libp2p addresses that are currently peers of the runn
 
 For the status of a specific peer, run:
 ````bash
-go run main.go peers status --peer-id <address>
+polygon-sdk peers status --peer-id <address>
 ````
 With the *address* parameter being the libp2p address of the peer.
 
@@ -47,18 +47,18 @@ Luckily, the Polygon SDK provides an easy way to find this information.
 
 Running the following command returns the most recent snapshot.
 ````bash
-go run main.go ibft snapshot
+polygon-sdk ibft snapshot
 ````
 To query the snapshot at a specific height (block number), the operator can run:
 ````bash
-go run main.go ibft snapshot --num <block-number>
+polygon-sdk ibft snapshot --num <block-number>
 ````
 
 ### Candidates
 
 To get the latest info on candidates, the operator can run:
 ````bash
-go run main.go ibft candidates
+polygon-sdk ibft candidates
 ````
 This command queries the current set of proposed candidates, as well as candidates that have not been included yet
 
@@ -66,12 +66,12 @@ This command queries the current set of proposed candidates, as well as candidat
 
 The following command returns the current validator key of the running IBFT client:
 ````bash
-go run main.go ibft status
+polygon-sdk ibft status
 ````
 
 ## Transaction pool
 
 To find the current number of transactions in the transaction pool, the operator can run:
 ````bash
-go run main.go txpool status
+polygon-sdk txpool status
 ````
