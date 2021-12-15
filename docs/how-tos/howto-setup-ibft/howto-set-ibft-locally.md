@@ -239,7 +239,7 @@ Currently, we only support `json` based configuration file, sample config file c
 
 :::info Steps to run a non-validator node 
 
-A Non-validator will always sync the latest blocks recieved from the validator node, you can start a non-validator node by running the following command.
+A Non-validator will always sync the latest blocks received from the validator node, you can start a non-validator node by running the following command.
 
 ````bash 
 go run main.go server --data-dir <directory_path> --chain <genesis_filename> --grpc <portNo> --libp2p <portNo> --jsonrpc <portNo>

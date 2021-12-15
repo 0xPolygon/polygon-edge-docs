@@ -256,7 +256,7 @@ from node failure.
 
 :::info Start the client using config file
 
-Instead of specifying all configuration paramaters as cli arguments, Client can also be started using a config file by executing the following command: 
+Instead of specifying all configuration parameters as cli arguments, Client can also be started using a config file by executing the following command: 
 
 ````bash 
 go run main.go server --config <config_file_path>
@@ -272,7 +272,7 @@ Currently, we only support `json` based configuration file, sample config file c
 
 :::info Steps to run a non-validator node 
 
-A Non-validator will always sync the latest blocks recieved from the validator node, you can start a non-validator node by running the following command.
+A Non-validator will always sync the latest blocks received from the validator node, you can start a non-validator node by running the following command.
 
 ````bash 
 go run main.go server --data-dir <directory_path> --chain <genesis_filename>  --libp2p <IPAddress:PortNo> --nat <public_or_private_ip>
