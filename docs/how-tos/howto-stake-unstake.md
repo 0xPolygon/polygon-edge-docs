@@ -14,7 +14,8 @@ the [setup IBFT locally](/docs//how-tos/howto-setup-ibft/howto-set-ibft-locally)
 with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the
 Polygon SDK.
 
-:::warning PoA and PoS chains incompatible A chain that has previously been running in PoA mode, cannot be converted to
+:::warning PoA and PoS chains incompatible 
+A chain that has previously been running in PoA mode, cannot be converted to
 a PoS chain during execution, and vice versa.
 
 The only way to switch IBFT mechanisms is to reset the chain and start it in the corresponding mode (PoA or PoS) from
@@ -58,7 +59,8 @@ This value specified in the genesis file that the epoch size should be `50` bloc
 
 The default value for the size of an epoch (in blocks) is `100000`.
 
-:::info Lowering the epoch length As outlined in the [Epoch Blocks](/docs/guides/pos-concepts#epoch-blocks) section,
+:::info Lowering the epoch length 
+As outlined in the [Epoch Blocks](/docs/guides/pos-concepts#epoch-blocks) section,
 epoch blocks are used to update the validator sets for nodes.
 
 The default epoch length in blocks (`100000`) may be a long time to way for validator set updates. Considering that new
@@ -101,8 +103,8 @@ Where the parameters are:
 
 ### Staking funds
 
-:::info Staking address The Staking Smart Contract is pre-deployed at
-address `0x0000000000000000000000000000000000001001`.
+:::info Staking address 
+The Staking Smart Contract is pre-deployed at address `0x0000000000000000000000000000000000001001`.
 
 Any kind of interaction with the staking mechanism is done through the Staking Smart Contract at the specified address.
 
