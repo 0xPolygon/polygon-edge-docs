@@ -8,7 +8,7 @@ title: Proof of Stake Concepts
 This section aims to give a better overview of some concepts currently present in the Proof of Stake (PoS)
 implementation of the Polygon SDK.
 
-The Polygon SDK Proof of Stake (PoS) implementation is meant to work alongside the existing PoA IBFT implementation,
+The Polygon SDK Proof of Stake (PoS) implementation is meant to be an alternative to the existing PoA IBFT implementation,
 giving node operators the ability to easily choose between the two when starting a chain.
 
 ## PoS Features
@@ -43,7 +43,7 @@ Addresses can stake funds on the Staking Smart Contract by invoking the `stake` 
 the staked amount in the transaction:
 
 ````js
-  const StakingContractFactory = await ethers.getContractFactory("Staking");
+const StakingContractFactory = await ethers.getContractFactory("Staking");
 let stakingContract = await StakingContractFactory.attach(STAKING_CONTRACT_ADDRESS)
 as
 Staking;
@@ -66,7 +66,7 @@ Addresses that have staked funds can only **unstake all of their staked funds at
 Unstaking can be invoked by calling the `unstake` method on the Staking Smart Contract:
 
 ````js
-  const StakingContractFactory = await ethers.getContractFactory("Staking");
+const StakingContractFactory = await ethers.getContractFactory("Staking");
 let stakingContract = await StakingContractFactory.attach(STAKING_CONTRACT_ADDRESS)
 as
 Staking;
