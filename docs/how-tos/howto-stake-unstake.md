@@ -100,7 +100,7 @@ in the Staking Smart Contract repo:
 npm run stake
 ```
 
-The `stake` Hardhat script stakes a default amount of `10 ETH`, which can be changed by modifying the `scripts/stake.ts` file.
+The `stake` Hardhat script stakes a default amount of `1 ETH`, which can be changed by modifying the `scripts/stake.ts` file.
 
 If the funds being staked are `>= 1 ETH`, the validator set on the Staking Smart Contract is updated, and the address
 will be part of the validator set starting from the next epoch.
