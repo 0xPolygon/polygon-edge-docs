@@ -1,5 +1,5 @@
 ---
-id: query-operator
+id: query-operator-info
 title: Query operator information
 ---
 

@@ -13,21 +13,6 @@ If you would like to setup the IBFT cluster locally to quickly test the `polygon
 
 ## Requirements
 
-### Use the develop branch
-
-The main Polygon SDK version is located on the [develop branch](https://github.com/0xPolygon/polygon-sdk/tree/develop), and is considered to be a stable version of the SDK,
-while other branches are mid-feature implementations.
-
-As the develop branch is the default one, simply running:
-
-```
-git clone https://github.com/0xPolygon/polygon-sdk.git
-```
-
-will fetch the latest stable source code.
-
-Please make sure to have the latest stable source code of the polygon-sdk on all VMs that you will use for building the IBFT cluster.
-
 ### Go version
 
 The required version of the Go programming language is `>=1.16`. 

@@ -16,19 +16,6 @@ a cloud provider: [How to set IBFT on the cloud](/docs/get-started/set-up-ibft-o
 
 ## Requirements
 
-### Use the develop branch
-
-The main Polygon SDK version is located on the [develop branch](https://github.com/0xPolygon/polygon-sdk/tree/develop), and is considered to be a stable version of the SDK,
-while other branches are mid-feature implementations.
-
-As the develop branch is the default one, simply running:
-
-```
-git clone https://github.com/0xPolygon/polygon-sdk.git
-```
-
-will fetch the latest stable source code.
-
 ### Go version
 
 The required version of the Go programming language is `>=1.16`.

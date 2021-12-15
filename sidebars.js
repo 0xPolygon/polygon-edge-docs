@@ -24,7 +24,7 @@ module.exports = {
       label: 'Working with a node',
       items: [
         'working-with-node/query-json-rpc',
-        'working-with-node/query-operator',
+        'working-with-node/query-operator-info',
         'working-with-node/backup-restore',
       ]
     },
