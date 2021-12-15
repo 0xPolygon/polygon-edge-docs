@@ -256,7 +256,7 @@ from node failure.
 
 :::info Start the client using config file
 
-Instead of specifying all configuration paramaters as CLI arguments, the Client can also be started using a config file by executing the following command: 
+Instead of specifying all configuration parameters as CLI arguments, the Client can also be started using a config file by executing the following command: 
 
 ````bash 
 go run main.go server --config <config_file_path>
