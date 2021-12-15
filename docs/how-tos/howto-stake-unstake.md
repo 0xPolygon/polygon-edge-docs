@@ -113,7 +113,7 @@ section.
 
 In order to become part of the validator set, an address needs to stake a certain amount of funds above a threshold.
 
-Currently, the default threshold for becoming part of the validator set is `1 ETH`.
+Currently, the threshold for becoming part of the validator set is `1 ETH`.
 
 Staking can be initiated by calling the `stake` method of the Staking Smart Contract, and specifying a value `>= 1 ETH`.
 
