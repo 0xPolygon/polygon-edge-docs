@@ -32,7 +32,7 @@ module.exports = {
       type: 'category',
       label: 'Consensus',
       items: [
-        'consensus/add-new-validators',
+        'consensus/poa',
         'consensus/pos-concepts',
         'consensus/pos-stake-unstake'
       ]
