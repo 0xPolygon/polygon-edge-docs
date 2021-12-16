@@ -68,7 +68,7 @@ which gets read when a new consensus instance is created.
 ### ExtraData
 
 The blockchain header object, among other fields, has a field called **ExtraData**. <br />
-To review the fields present in the block header, please check out the **[State in Ethereum](/docs/guides/ethereum-state#blocks)** section.
+To review the fields present in the block header, please check out the **[State in Ethereum](/docs/concepts/ethereum-state#blocks)** section.
 
 IBFT uses this extra field to store operational information regarding the block, answering questions like:
 * "Who signed this block?"

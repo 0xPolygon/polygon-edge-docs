@@ -269,4 +269,4 @@ and by specifying the JSON-RPC URL to any of the 4 nodes:
 - Node 3: `http://localhost:30002`
 - Node 4: `http://localhost:40002`
 
-Follow this guide to issue operator commands to the newly built cluster: [How to query operator information](/docs/working-with-node/query-operator) (the GRPC ports for the cluster we have built are `10000`/`20000`/`30000`/`40000` for each node respectively)
+Follow this guide to issue operator commands to the newly built cluster: [How to query operator information](/docs/working-with-node/query-operator-info) (the GRPC ports for the cluster we have built are `10000`/`20000`/`30000`/`40000` for each node respectively)
