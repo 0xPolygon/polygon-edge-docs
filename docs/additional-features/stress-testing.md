@@ -16,7 +16,7 @@ This guide assumes that:
 e.g. to export the variable :
 
 ```bash
-export PSDK_0x9876e8b849437703A34808e926a8a5B48bCb3ccf=07eb13980486964e7e6f1172e0ed65a18117a74ac49503d2878b980ae224e90a
+export PSDK_0x9A2E59d06899a383ef47C1Ec265317986D026055=154c4bc0cca942d8a0b49ece04d95c872d8f53d34b8f2ac76253a3700e4f1151
 ```
 
 ## Start the loadbot
@@ -25,7 +25,7 @@ _Feel free to take a look at the flag reference [here](/docs/get-started/cli-com
 
 As an example, here is a valid command you can use to run the loadbot using two premined accounts and an IBFT setup:
 ```bash
-polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --sender 0xE696952149F3e17A3F2EcD4672207CcF7Df00096 --receiver 0x9876e8b849437703A34808e926a8a5B48bCb3ccf --count 100 --value 0x100 --tps 100
+polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --receiver 0x9876e8b849437703A34808e926a8a5B48bCb3ccf --count 100 --value 0x100 --tps 100
 ```
 
 You should get a result similar to this on your terminal :
