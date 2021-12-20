@@ -275,7 +275,7 @@ A Polygon SDK node can be started with a set **price limit** for incoming transa
 The unit for the price limit is `wei`.
 
 Setting a price limit means that any transaction processed by the current node will need to have a gas price **higher**
-then the set price limit, otherwise it will not be included in a block.
+than the set price limit, otherwise it will not be included into a block.
 
 Having the majority of nodes respect a certain price limit enforces the rule that transactions in the network
 cannot be below a certain price threshold.
