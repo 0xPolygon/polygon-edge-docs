@@ -9,8 +9,8 @@ This guide goes into detail on how to set up a Proof of Stake network with the P
 to become validators and how to unstake funds.
 
 It **highly encouraged** to read and go through
-the [setup IBFT locally](/docs//how-tos/howto-setup-ibft/howto-set-ibft-locally)
-/ [setup IBFT on the cloud](/docs//how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud) sections, before going along
+the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
+/ [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections, before going along
 with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the
 Polygon SDK.
 
@@ -33,8 +33,8 @@ It holds the necessary testing scripts, ABI files and most importantly the Staki
 ## Setting up an N node cluster
 
 Setting up a cluster with the Polygon SDK is covered in
-the [setup IBFT locally](/docs/how-tos/howto-setup-ibft/howto-set-ibft-locally)
-/ [setup IBFT on the cloud](/docs/how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud) sections.
+the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
+/ [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections.
 
 The **only difference** between setting up a PoS and PoA cluster is in the genesis generation part.
 
@@ -46,7 +46,7 @@ go run main.go genesis --pos ...
 
 ## Setting the length of an epoch
 
-Epochs are covered in detail in the [Epoch Blocks](/docs/guides/pos-concepts#epoch-blocks) section.
+Epochs are covered in detail in the [Epoch Blocks](/docs/consensus/pos-concepts#epoch-blocks) section.
 
 To set the size of an epoch for a cluster (in blocks), when generating the genesis file, an additional flag is
 specified `--epoch-size`:
@@ -60,7 +60,7 @@ This value specified in the genesis file that the epoch size should be `50` bloc
 The default value for the size of an epoch (in blocks) is `100000`.
 
 :::info Lowering the epoch length 
-As outlined in the [Epoch Blocks](/docs/guides/pos-concepts#epoch-blocks) section,
+As outlined in the [Epoch Blocks](/docs/consensus/pos-concepts#epoch-blocks) section,
 epoch blocks are used to update the validator sets for nodes.
 
 The default epoch length in blocks (`100000`) may be a long time to way for validator set updates. Considering that new
@@ -109,7 +109,7 @@ The Staking Smart Contract is pre-deployed at address `0x00000000000000000000000
 Any kind of interaction with the staking mechanism is done through the Staking Smart Contract at the specified address.
 
 To learn more about the Staking Smart Contract, please visit
-the [Staking Smart Contract](/docs/guides/pos-concepts#contract-pre-deployment)
+the [Staking Smart Contract](/docs/consensus/pos-concepts#contract-pre-deployment)
 section.
 :::
 
