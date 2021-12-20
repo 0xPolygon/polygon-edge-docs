@@ -1,71 +1,99 @@
 module.exports = {
   develop: [
     'overview',
-    'cli-commands',
     {
       type: 'category',
-      label: 'How-tos',
+      label: 'Get started',
+      items: [
+        'get-started/set-up-ibft-locally',
+        'get-started/set-up-ibft-on-the-cloud',
+        'get-started/cli-commands',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Configuration',
+      items: [
+        'configuration/manage-private-keys',
+        'configuration/set-up-hashicorp-vault',
+        'configuration/enable-metrics',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Working with a node',
+      items: [
+        'working-with-node/query-json-rpc',
+        'working-with-node/query-operator-info',
+        'working-with-node/backup-restore',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Consensus',
+      items: [
+        'consensus/poa',
+        'consensus/pos-concepts',
+        'consensus/pos-stake-unstake'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Additional features',
       items: [
         {
           type: 'category',
-          label: 'How to setup IBFT',
+          label: 'Chainbridge',
           items: [
-            'how-tos/howto-setup-ibft/howto-set-ibft-locally',
-            'how-tos/howto-setup-ibft/howto-set-ibft-on-the-cloud'
+            'additional-features/chainbridge/overview',
+            'additional-features/chainbridge/requirements',
+            'additional-features/chainbridge/deploy-contracts',
+            'additional-features/chainbridge/setup-relayer',
+            'additional-features/chainbridge/setup-erc20-transfer',
+            'additional-features/chainbridge/setup-erc721-transfer',
+            'additional-features/chainbridge/roles-in-bridge'
           ]
         },
-        'how-tos/howto-query-operator',
-        'how-tos/howto-query-json-rpc',
-        'how-tos/howto-setup-hashicorp-vault',
-        'how-tos/howto-backup-restore',
-        'how-tos/howto-manage-private-keys',
-        'how-tos/howto-report-bug',
-        'how-tos/howto-propose-feature',
-        'how-tos/howto-run-loadbot',
-        'how-tos/howto-enable-metrics',
-        {
-          type: 'category',
-          label: 'How to bridge assets between networks',
-          items: [
-            'how-tos/howto-bridge-assets/overview',
-            'how-tos/howto-bridge-assets/requirements',
-            'how-tos/howto-bridge-assets/deploy-contracts',
-            'how-tos/howto-bridge-assets/setup-relayer',
-            'how-tos/howto-bridge-assets/setup-erc20-transfer',
-            'how-tos/howto-bridge-assets/setup-erc721-transfer',
-            'how-tos/howto-bridge-assets/roles-in-bridge'
-          ]
-        },
-        'how-tos/howto-add-new-validators'
+        'additional-features/stress-testing',
       ]
     },
     {
       type: 'category',
       label: 'Architecture',
       items: [
-        'reference/architecture',
+        'architecture/overview',
         {
           type: 'category',
           label: 'Modules',
           items: [
-            'reference/modules/blockchain',
-            'reference/modules/minimal',
-            'reference/modules/networking',
-            'reference/modules/state',
-            'reference/modules/txpool',
-            'reference/modules/json-rpc',
-            'reference/modules/consensus',
-            'reference/modules/storage',
-            'reference/modules/types',
-            'reference/modules/other-modules'
+            'architecture/modules/blockchain',
+            'architecture/modules/minimal',
+            'architecture/modules/networking',
+            'architecture/modules/state',
+            'architecture/modules/txpool',
+            'architecture/modules/json-rpc',
+            'architecture/modules/consensus',
+            'architecture/modules/storage',
+            'architecture/modules/types',
+            'architecture/modules/other-modules'
           ]
         }
       ]
     },
     {
       type: 'category',
-      label: 'Guides',
-      items: ['guides/ethereum-state']
-    }
+      label: 'Concepts',
+      items: [
+        'concepts/ethereum-state'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Community',
+      items: [
+        'community/propose-new-feature',
+        'community/report-bug'
+      ]
+    },
   ]
 };
