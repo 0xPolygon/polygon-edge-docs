@@ -37,3 +37,25 @@
 .navbar__item{
     font-weight: bold;
 }
+
+/* Default value for table content font-size is 0.8rem. With 0.78rem all titles in sidebar fit in one line */
+.table-of-contents {
+    font-size: 0.78rem!important;
+}
+
+.json_rpc_terminal{
+    background-color: rgb(41, 45, 62);
+    width: 100%;
+    color: rgb(191, 199, 213);
+}
+
+.json_rpc_run_command_button{
+    border: 1px solid;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.json_rpc_run_command_button:hover{
+    color:var(--ifm-color-primary);
+}

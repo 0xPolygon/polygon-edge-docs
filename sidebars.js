@@ -8,6 +8,7 @@ module.exports = {
                 'get-started/set-up-ibft-locally',
                 'get-started/set-up-ibft-on-the-cloud',
                 'get-started/cli-commands',
+                'get-started/json-rpc-commands',
             ]
         },
         {
