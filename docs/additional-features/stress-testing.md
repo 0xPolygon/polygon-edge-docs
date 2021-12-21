@@ -30,11 +30,30 @@ polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --sender 0x9A2E59d06899a38
 
 You should get a result similar to this on your terminal :
 ```bash
-[LOADBOT RUN]
-Transactions submitted          = 100
-Transactions failed             = 0
-Average transaction turn around = 0.994750s
-Fastest transaction turn around = 0.002480s
-Slowest transaction turn around = 1.007960s
-Total loadbot execution time    = 2.003250s
+=====[LOADBOT RUN]=====
+
+[COUNT DATA]
+Transactions submitted = 2000
+Transactions failed    = 0
+
+[TURN AROUND DATA]
+Average transaction turn around = 3.490800s
+Fastest transaction turn around = 2.002320s
+Slowest transaction turn around = 5.006770s
+Total loadbot execution time    = 24.009350s
+
+[BLOCK DATA]
+Blocks required = 11
+
+Block #223 = 120 txns
+Block #224 = 203 txns
+Block #225 = 203 txns
+Block #226 = 202 txns
+Block #227 = 201 txns
+Block #228 = 199 txns
+Block #229 = 200 txns
+Block #230 = 199 txns
+Block #231 = 201 txns
+Block #232 = 200 txns
+Block #233 = 72 txns
 ```
