@@ -8,7 +8,7 @@ title: Network stress testing
 This guide assumes that:
 
 - You have a working polygon-sdk network up and running (using IBFT or dev)
-- Both your JSON-RPC and gRPC endpoints are reachable
+- Both your JSON-RPC endpoints are reachable
 - For each of the sender accounts you use, its private key must be saved as an environment variable with the following format:
   - PSDK_ADDRESS=PRIVATE_KEY
 - Each sender account must have the required funds on it to execute a single loadbot run
