@@ -1642,6 +1642,24 @@ The value to send in each transaction.
 
 ---
 
+<h4><i>max-conns</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--max-conns MAX_CONNECTIONS_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --max-conns 1000
+
+  </TabItem>
+</Tabs>
+
+Sets the maximum no.of connections allowed per host, Default: `2*tps`.
+
+---
 
 ## Genesis Template
 The genesis file should be used to set the initial state of the blockchain (ex. if some accounts should have a starting balance).
