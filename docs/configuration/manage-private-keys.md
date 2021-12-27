@@ -6,8 +6,8 @@ title: Manage private keys
 ## Overview
 
 The Polygon SDK has two types of private keys that it directly manages:
-* **Private key used for consensus mechanisms (IBFT)**
-* **Private key used for networking (Libp2p)**
+* **Private key used for the consensus mechanism**
+* **Private key used for networking by libp2p**
 
 Currently, the Polygon SDK doesn't offer support for direct account management.
 

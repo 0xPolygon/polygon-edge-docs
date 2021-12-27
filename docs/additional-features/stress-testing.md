@@ -7,7 +7,7 @@ title: Network stress testing
 
 This guide assumes that:
 
-- You have a working polygon-sdk network up and running (using IBFT or dev)
+- You have a working Polygon-SDK network up and running
 - Both your JSON-RPC endpoints are reachable
 - For each of the sender accounts you use, its private key must be saved as an environment variable with the following format:
   - PSDK_ADDRESS=PRIVATE_KEY
@@ -23,7 +23,7 @@ export PSDK_0x9A2E59d06899a383ef47C1Ec265317986D026055=154c4bc0cca942d8a0b49ece0
 
 _Feel free to take a look at the flag reference [here](/docs/get-started/cli-commands#loadbot-flags)_.
 
-As an example, here is a valid command you can use to run the loadbot using two premined accounts and an IBFT setup:
+As an example, here is a valid command you can use to run the loadbot using two premined accounts:
 ```bash
 polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --receiver 0x9876e8b849437703A34808e926a8a5B48bCb3ccf --count 100 --value 0x100 --tps 100
 ```

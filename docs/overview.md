@@ -29,4 +29,4 @@ yet, so please contact the Polygon team if you would like to use it in productio
 
 
 
-To get started by running the IBFT `polygon-sdk` cluster locally, please read: [Installation](/docs/get-started/installation) and [Local Setup](/docs/get-started/set-up-ibft-locally).
+To get started by running a `polygon-sdk` network locally, please read: [Installation](/docs/get-started/installation) and [Local Setup](/docs/get-started/set-up-ibft-locally).

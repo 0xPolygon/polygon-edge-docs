@@ -9,8 +9,8 @@ This guide goes into detail on how to set up a Proof of Stake network with the P
 to become validators and how to unstake funds.
 
 It **highly encouraged** to read and go through
-the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
-/ [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections, before going along
+the [Local Setup](/docs/get-started/set-up-ibft-locally)
+/ [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) sections, before going along
 with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the
 Polygon SDK.
 
@@ -18,7 +18,7 @@ Polygon SDK.
 A chain that has previously been running in PoA mode, cannot be converted to
 a PoS chain during execution, and vice versa.
 
-The only way to switch IBFT mechanisms is to reset the chain and start it in the corresponding mode (PoA or PoS) from
+The only way to switch consensus mechanisms is to reset the chain and start it in the corresponding mode (PoA or PoS) from
 scratch.
 :::
 
@@ -33,8 +33,8 @@ It holds the necessary testing scripts, ABI files and most importantly the Staki
 ## Setting up an N node cluster
 
 Setting up a cluster with the Polygon SDK is covered in
-the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
-/ [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections.
+the [Local Setup](/docs/get-started/set-up-ibft-locally)
+/ [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) sections.
 
 The **only difference** between setting up a PoS and PoA cluster is in the genesis generation part.
 
