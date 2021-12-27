@@ -16,9 +16,7 @@ a cloud provider: [How to set IBFT on the cloud](/docs/get-started/set-up-ibft-o
 
 ## Requirements
 
-### Go version
-
-The required version of the Go programming language is `>=1.16`.
+Refer to [Installation](/docs/get-started/installation) to install Polygon-SDK.
 
 ## Overview
 

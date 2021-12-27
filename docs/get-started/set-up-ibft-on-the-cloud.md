@@ -13,9 +13,7 @@ If you would like to setup the IBFT cluster locally to quickly test the `polygon
 
 ## Requirements
 
-### Go version
-
-The required version of the Go programming language is `>=1.16`. 
+Refer to [Installation](/docs/get-started/installation) to install Polygon-SDK.
 
 ### Setting up the VM connectivity
 
