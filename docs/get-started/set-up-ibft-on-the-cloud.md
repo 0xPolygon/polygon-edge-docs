@@ -1,6 +1,6 @@
 ---
 id: set-up-ibft-on-the-cloud
-title: Set up IBFT network on the cloud
+title: Cloud Setup
 ---
 
 :::info This guide is for mainnet or testnet setups

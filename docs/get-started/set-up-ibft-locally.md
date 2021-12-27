@@ -1,6 +1,6 @@
 ---
 id: set-up-ibft-locally
-title: Set up IBFT network locally
+title: Local Setup
 ---
 
 :::caution This guide is for testing purposes only
