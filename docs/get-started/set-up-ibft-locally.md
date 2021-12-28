@@ -165,7 +165,7 @@ To do so, you can use the flag `--block-gas-limit` followed by the desired value
 The default file descriptor limit ( maximum number of open files ) on some Operating Systems is pretty small.
 If the nodes are expected to have high throughput, you might consider increasing this limit on the OS level.
 
-Check your OS documenation on how to achieve this, but on Ubuntu the procedure is as follows:
+Check your OS documenation on how to achieve this, on Ubuntu distro the procedure is as follows:
 -	Check current os limits ( open files )
 ```shell title="ulimit -a"
 ubuntu@ubuntu:~$ ulimit -a
@@ -193,8 +193,10 @@ file locks                      (-x) unlimited
 	ulimit -u 65535
 	```
 	- Globaly or per user ( add limits at the end of /etc/security/limits.conf file ) :
+	```shell 
+	sudo vi /etc/security/limits.conf  # we use vi, but you can use your favorite text editor
+	```
 	```shell title="/etc/security/limits.conf"
-	sudo vi /etc/security/limits.conf # we use vi, but you can use your favorite text editor
 	# /etc/security/limits.conf
 	#
 	#Each line describes a limit for a user in the form:
@@ -256,8 +258,9 @@ file locks                      (-x) unlimited
 
 	# End of file
 	```
-	After this change restart the system, and check file descriptor limit again.
-	It should be set to the value you defined in this file.
+	Optionaly, modify additional parameters, save the file and restart the system.
+	After restart check file descriptor limit again.
+	It should be set to the value you defined in limits.conf file.
 :::
 
 
