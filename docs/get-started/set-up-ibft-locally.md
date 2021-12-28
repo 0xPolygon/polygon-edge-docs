@@ -176,7 +176,7 @@ file size               (blocks, -f) unlimited
 pending signals                 (-i) 15391
 max locked memory       (kbytes, -l) 65536
 max memory size         (kbytes, -m) unlimited
-==open files                      (-n) 1024==
+open files                      (-n) 1024
 pipe size            (512 bytes, -p) 8
 POSIX message queues     (bytes, -q) 819200
 real-time priority              (-r) 0
@@ -194,6 +194,7 @@ file locks                      (-x) unlimited
 	```
 	- Globaly or per user ( add limits at the end of /etc/security/limits.conf file ) :
 	```shell title="/etc/security/limits.conf"
+	sudo vi /etc/security/limits.conf # we use vi, but you can use your favorite text editor
 	# /etc/security/limits.conf
 	#
 	#Each line describes a limit for a user in the form:
@@ -250,13 +251,13 @@ file locks                      (-x) unlimited
 	#ftp             -       chroot          /ftp
 	#@student        -       maxlogins       4
 
-	==*               soft    nofile          1000000==
-	==*               hard    nofile          1000000==
+	*               soft    nofile          1000000
+	*               hard    nofile          1000000
 
 	# End of file
 	```
-		After this change restart the system, and check file descriptor limit again.
-		It should be set to the value you defined in this file.
+	After this change restart the system, and check file descriptor limit again.
+	It should be set to the value you defined in this file.
 :::
 
 
