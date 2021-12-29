@@ -178,10 +178,10 @@ To do so, you can use the flag `--block-gas-limit` followed by the desired value
 
 :::info Set system file descriptor limit
 
-The default file descriptor limit ( maximum number of open files ) on some Operating Systems is pretty small.
+The default file descriptor limit ( maximum number of open files ) on some operating systems is pretty small.
 If the nodes are expected to have high throughput, you might consider increasing this limit on the OS level.
 
-Check your OS documenation on how to achieve this, on Ubuntu distro the procedure is as follows:
+For Ubuntu distro the procedure is as follows ( if you're not using Ubuntu/Debian distro, check the official docs for your OS ) :
 -	Check current os limits ( open files )
 ```shell title="ulimit -a"
 ubuntu@ubuntu:~$ ulimit -a
