@@ -452,6 +452,38 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 Prevents the client from discovering other peers. Default: `false`.
 
+---
+
+<h4><i>handler-config</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--handler-config HANDLER_CONFIG]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --handler-config config.json
+
+  </TabItem>
+</Tabs>
+
+Can be provided to configure the JSON-RPC and WS server handler.
+The configurable field is `allowed_origins`.
+
+Here is an example of a valid configuration file which allow all origins to perform a request :
+
+```json
+// config.json
+
+{
+  "allowed_origins": [
+    "*"
+  ]
+}
+```
+
 ### dev flags
 
 <h4><i>log-level</i></h4>
