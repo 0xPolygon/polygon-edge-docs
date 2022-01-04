@@ -19,9 +19,13 @@ When starting a Polygon SDK node, the following sub-folders are created in the s
 
 It is critical for these folders to be preserved in order for the Polygon SDK instance to run smoothly.
 
-## Back up
+## Back up/Restore Whole data
 
-### Step 1: Stop the running client
+This section guides you through backup the data including state data and key and restoring into the new instance.
+
+### Backup
+
+#### Step 1: Stop the running client
 
 Since the Polygon-SDK uses **LevelDB** for data storage, the Polygon-SDK node needs to be stopped for the duration of the backup, 
 as **LevelDB** doesn't allow for concurrent access to its database files.
@@ -33,7 +37,7 @@ so it can trigger 2 events while gracefully shutting down:
 * Running data flush to disk
 * Release of the DB files lock by LevelDB
 
-### Step 2: Backup the directory
+#### Step 2: Backup the directory
 
 Now that the client is not running, the data directory can be backed up to another medium. 
 Keep in mind that the files with a `.key` extension contain the private key data that can be used to impersonate the current node,
@@ -44,18 +48,38 @@ Please note that clients running the IBFT consensus mechanism need to back up th
 restore process to be successful.
 ::: 
 
-## Restore
+### Restore
 
-### Step 1: Stop the running client
+#### Step 1: Stop the running client
 
 If any instance of the Polygon SDK is running, it needs to be stopped in order for step 2 to be successful.
 
-### Step 2: Copy the backed up data directory to the desired folder
+#### Step 2: Copy the backed up data directory to the desired folder
 
 Once the client is not running, the data directory which was previously backed up can be copied over to the desired folder.
 Additionally, restore the previously copied `genesis` file.
 
-### Step 3: Run the Polygon SDK client while specifying the correct data directory 
+#### Step 3: Run the Polygon SDK client while specifying the correct data directory 
 
 In order for the Polygon SDK to use the restored data directory, at launch, the user needs to specify the path to the 
 data directory. Please consult the [CLI Commands](/docs/get-started/cli-commands) section on information regarding the `data-dir` flag.
+
+## Back up/Restore Blockchain
+
+This section guides you through creating archive data of the blockchain in a running node and restoring it in another instance.
+
+### Backup
+
+`backup` command fetches blocks from a running node by gRPC and generates a file of binary archive. If `--from` and `--to` are not given in the command, this command fetches blocks from genesis to latest.
+
+```bash
+$ polygon-sdk backup --grpc localhost:9632 --out archive.dat [--from 0x0] [--to 0x100]
+```
+
+### Restore
+
+To load blocks and apply them into a new node, you will start a server with `--restore` flag.
+
+```bash
+$ polygon-sdk server --restore archive.dat
+```

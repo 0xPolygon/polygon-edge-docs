@@ -452,6 +452,27 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 Prevents the client from discovering other peers. Default: `false`.
 
+---
+
+<h4><i>restore</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--restore RESTORE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --restore backup.dat
+
+  </TabItem>
+</Tabs>
+
+Restore blocks from the specified archive file
+
+---
+
 ### dev flags
 
 <h4><i>log-level</i></h4>
@@ -653,6 +674,25 @@ Sets minimum gas price limit to enforce for acceptance into the pool. Default: `
 </Tabs>
 
 Sets maximum slots in the pool. Default: `4096`.
+
+---
+
+<h4><i>restore</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--restore RESTORE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --restore backup.dat
+
+  </TabItem>
+</Tabs>
+
+Restore blocks from the specified archive file
 
 ---
 
