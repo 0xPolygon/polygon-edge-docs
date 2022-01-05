@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Polygon SDK',
@@ -38,22 +40,18 @@ module.exports = {
       copyright: `Made with ❤ by the humans at <a href='https://mvpworkshop.co'>MVP Workshop</a>`
     },
     typesense: {
-      typesenseCollectionName: 'test1-doc_1641038942', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
-      
+      typesenseCollectionName: 'sdk-docs.polygon.technology', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
       typesenseServerConfig: {
         nodes: [
           {
-            host: 'fvxcy792qoz86bwtp-1.a1.typesense.net',
+            host: 'fvtlbamhupdcon8rp-1.a1.typesense.net',
             port: 443,
             protocol: 'https',
           },
         ],
-        apiKey: '5TLdeqNihrV4sw6afUssvYYPrRdQGucA',
+        apiKey: process.env.TYPESENSE_API_KEY,
       },
-
-    
     },
-
   },
   presets: [
     [
