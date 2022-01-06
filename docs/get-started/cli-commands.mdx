@@ -160,22 +160,41 @@ A more detailed explanation on the block gas target can be found in the [TxPool 
 
 ---
 
-<h4><i>max-peers</i></h4>
+<h4><i>max-inbound-peers</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
 
-    server [--max-peers PEER_COUNT]
+    server [--max-inbound-peers PEER_COUNT]
 
   </TabItem>
   <TabItem value="example" label="Example">
 
-    server --max-peers 50
+    server --max-inbound-peers 50
 
   </TabItem>
 </Tabs>
 
-Sets the client's max peer count. Default: `20`.
+Sets the client's maximum inbound peer count. Default: `40`.
+
+---
+
+<h4><i>max-outbound-peers</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--max-outbound-peers PEER_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --max-outbound-peers 10
+
+  </TabItem>
+</Tabs>
+
+Sets the client's maximum outbound peer count. Default: `10`.
 
 ---
 

@@ -21,7 +21,8 @@ Following is the sample format for configuration file:
 		"libp2p_addr":<libp2p_server_address>,
 		"nat_addr":<nat_address>,
 		"dns_addr":<dns_address>,
-		"max_peers":<maximum_allowded_peers>
+		"max_inbound_peers":<maximum_allowded_inbound_peers>,
+		"max_outbound_peers":<maximum_allowded_outbound_peers>
 	},
 	"txpool":{
 		
