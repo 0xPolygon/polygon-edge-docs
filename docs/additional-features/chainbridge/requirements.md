@@ -19,7 +19,7 @@ In addition, you need to clone the following repositories with the versions to r
 * [ChainBridge](https://github.com/ChainSafe/ChainBridge): v1.1.5
 * [ChainBridge Deploy Tools](https://github.com/ChainSafe/chainbridge-deploy): `f2aa093` on `main` branch
 
-You need to setup a Polygon SDK network before proceeding to the next section. Please check [How to set up IBFT locally](/docs/get-started/set-up-ibft-locally) or [How to set up IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) for more details. 
+You need to setup a Polygon SDK network before proceeding to the next section. Please check [Local Setup](/docs/get-started/set-up-ibft-locally) or [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) for more details. 
 
 ## Accounts
 

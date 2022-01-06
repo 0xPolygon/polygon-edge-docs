@@ -1,28 +1,26 @@
 ---
 id: set-up-ibft-locally
-title: Set up IBFT network locally
+title: Local Setup
 ---
 
 :::caution This guide is for testing purposes only
 
-The below guide will instruct you on how to set up an IBFT network on your local machine for testing and development
+The below guide will instruct you on how to set up a Polygon-SDK network on your local machine for testing and development
 purposes.
 
-The procedure differs greatly from the way you would want to set up the IBFT network for a real use scenario on
-a cloud provider: [How to set IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud)
+The procedure differs greatly from the way you would want to set up Polygon-SDK network for a real use scenario on
+a cloud provider: [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud)
 
 :::
 
 
 ## Requirements
 
-### Go version
-
-The required version of the Go programming language is `>=1.16`.
+Refer to [Installation](/docs/get-started/installation) to install Polygon-SDK.
 
 ## Overview
 
-![Local setup](/img/ibft-setup/local.svg)
+![Local Setup](/img/ibft-setup/local.svg)
 
 In this guide, our goal is to establish a working `polygon-sdk` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650).
 The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers.
@@ -100,7 +98,7 @@ Similarly, we construct the multiaddr for second bootnode as shown below
 /ip4/127.0.0.1/tcp/20001/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
 ```
 
-## Step 3: Generate an IBFT genesis file with the 4 nodes as validators
+## Step 3: Generate the genesis file with the 4 nodes as validators
 
 ````bash
 polygon-sdk genesis --consensus ibft --ibft-validators-prefix-path test-chain- --bootnode /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmJxxH1tScDX2rLGSU9exnuvZKNM9SoK3v315azp68DLPW --bootnode /ip4/127.0.0.1/tcp/20001/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
@@ -266,7 +264,7 @@ file locks                      (-x) unlimited
 
 ## Step 4: Run all the clients
 
-Because we are attempting to run the IBFT network consisting of 4 nodes all on the same machine, we need to take care to 
+Because we are attempting to run a Polygon-SDK network consisting of 4 nodes all on the same machine, we need to take care to 
 avoid port conflicts. This is why we will use the following reasoning for determining the listening ports of each server of a node:
 
 - `10000` for the gRPC server of `node 1`, `20000` for the GRPC server of `node 2`, etc.
@@ -308,7 +306,7 @@ To briefly go over what has been done so far:
 
 The structure of the genesis file is covered in the [CLI Commands](/docs/get-started/cli-commands) section.
 
-After running the previous commands, you have set up a 4 client IBFT network, capable of sealing blocks and recovering
+After running the previous commands, you have set up a 4 node Polygon-SDK network, capable of sealing blocks and recovering
 from node failure.
 
 :::info Start the client using config file

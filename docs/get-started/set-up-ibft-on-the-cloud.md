@@ -1,21 +1,19 @@
 ---
 id: set-up-ibft-on-the-cloud
-title: Set up IBFT network on the cloud
+title: Cloud Setup
 ---
 
 :::info This guide is for mainnet or testnet setups
 
-The below guide will instruct you on how to set up an IBFT network on a cloud provider for a production setup of your testnet or mainnet.
+The below guide will instruct you on how to set up a Polygon-SDK network on a cloud provider for a production setup of your testnet or mainnet.
 
-If you would like to setup the IBFT cluster locally to quickly test the `polygon-sdk` before doing a production-like setup, please refer to
-[How to set IBFT locally](/docs/get-started/set-up-ibft-locally)
+If you would like to setup a Polygon-SDK network locally to quickly test the `polygon-sdk` before doing a production-like setup, please refer to
+[Local Setup](/docs/get-started/set-up-ibft-locally)
 :::
 
 ## Requirements
 
-### Go version
-
-The required version of the Go programming language is `>=1.16`. 
+Refer to [Installation](/docs/get-started/installation) to install Polygon-SDK.
 
 ### Setting up the VM connectivity
 
@@ -31,7 +29,7 @@ all communication between VMs on the default libp2p port `1478` is enough.
 
 In this guide, our goal is to establish a working `polygon-sdk` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650).
 The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers.
-Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional IBFT cluster while keeping the validator keys private to ensure a trustless network setup.
+Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional Polygon-SDK network while keeping the validator keys private to ensure a trustless network setup.
 
 To achieve that, we will guide you through 4 easy steps:
 
@@ -41,9 +39,9 @@ To achieve that, we will guide you through 4 easy steps:
 3. Create the `genesis.json` on your local machine, and send/transfer it to each of the nodes
 4. Start all the nodes 
 
-## Step 1: Initialize data folders for IBFT and generate validator keys
+## Step 1: Initialize data folders and generate validator keys
 
-To get up and running with IBFT, you need to initialize the data folders, on each node:
+To get up and running with Polygon-SDK, you need to initialize the data folders, on each node:
 
 
 ````bash
@@ -109,7 +107,7 @@ Similarly, we construct multiaddr for the second bootnode as shown below
 /ip4/<public_or_private_ip>/tcp/1478/p2p/16Uiu2HAmS9Nq4QAaEiogE4ieJFUYsoH28magT7wSvJPpfUGBj3Hq 
 ```
 
-## Step 3: Generate an IBFT genesis file with the 4 nodes as validators
+## Step 3: Generate the genesis file with the 4 nodes as validators
 
 This step can be run on your local machine, but you will need the public validator keys for each of the 4 validators.
 
@@ -339,7 +337,7 @@ To run the **fourth** client:
 node-4> polygon-sdk server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
 ````
 
-After running the previous commands, you have set up a trustless 4 client IBFT network, capable of sealing blocks and recovering
+After running the previous commands, you have set up a 4 node Polygon-SDK network, capable of sealing blocks and recovering
 from node failure.
 
 :::info Start the client using config file
