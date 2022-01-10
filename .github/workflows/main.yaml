@@ -1,0 +1,21 @@
+---
+on:
+  push:
+    branches:
+      - main
+jobs:
+  run_scrapper:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v2
+      -
+        name: Run docker scrapper
+        env:
+          TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
+          TYPESENSE_PORT: 443
+          TYPESENSE_PROTOCOL: https
+        run: |
+          docker run -it -e "CONFIG=$(cat $GITHUB_WORKSPACE/scrapper_config.json | jq -r tostring)" typesense/docsearch-scraper
