@@ -18,4 +18,4 @@ jobs:
           TYPESENSE_PORT: 443
           TYPESENSE_PROTOCOL: https
         run: |
-          docker run -it -e "CONFIG=$(cat $GITHUB_WORKSPACE/scrapper_config.json | jq -r tostring)" typesense/docsearch-scraper
+          docker run -it -e "CONFIG=$(cat scrapper_config.json | jq -r tostring)" typesense/docsearch-scraper
