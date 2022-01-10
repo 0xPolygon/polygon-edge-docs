@@ -4,14 +4,14 @@ on:
     branches:
       - main
 jobs:
-  run_scrapper:
+  run_scraper:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
       -
-        name: Run docker scrapper
+        name: Run docker scraper
         env:
           TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
           TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
