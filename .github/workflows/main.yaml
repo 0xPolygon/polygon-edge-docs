@@ -12,10 +12,5 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Run docker scraper
-        env:
-          TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
-          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
-          TYPESENSE_PORT: 443
-          TYPESENSE_PROTOCOL: https
         run: |
-          docker run -e "CONFIG=$(cat $GITHUB_WORKSPACE/scrapper_config.json | jq -r tostring)" typesense/docsearch-scraper
+          docker run -e "TYPESENSE_API_KEY=${{ secrets.TYPESENSE_API_KEY }}" -e "TYPESENSE_HOST=${{ secrets.TYPESENSE_HOST }}" -e "TYPESENSE_PORT=443" -e "TYPESENSE_PROTOCOL=https"  -e "CONFIG=$(cat $GITHUB_WORKSPACE/scrapper_config.json | jq -r tostring)" typesense/docsearch-scraper
