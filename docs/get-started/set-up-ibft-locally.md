@@ -251,8 +251,8 @@ file locks                      (-x) unlimited
 	#ftp             -       chroot          /ftp
 	#@student        -       maxlogins       4
 
-	*               soft    nofile          1000000
-	*               hard    nofile          1000000
+	*               soft    nofile          65535
+	*               hard    nofile          65535
 
 	# End of file
 	```
