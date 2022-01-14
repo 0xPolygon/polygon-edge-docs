@@ -47,7 +47,7 @@ This section covers some basic terminology regarding the loadbot configuration.
 
 As an example, here is a valid command you can use to run the loadbot using two premined accounts:
 ```bash
-polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --count 2000 --value 0x100 --tps 100
+polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --grpc-address 127.0.0.1:10000 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --count 2000 --value 0x100 --tps 100
 ```
 
 You should get a result similar to this on your terminal :
