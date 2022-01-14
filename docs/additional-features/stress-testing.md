@@ -16,8 +16,8 @@ The Polygon SDK loadbot is a helper that is meant to stress test the Polygon SDK
 
 Currently, it supports 2 modes:
 
-- `Transfer` - mode that does stress testing using fund-transfer transactions. **[Default]**.
-- `Deploy` - mode that deploys specified smart contracts with each transcation.
+- `transfer` - mode that does stress testing using fund-transfer transactions. **[Default]**.
+- `deploy` - mode that deploys specified smart contracts with each transaction.
 
 ### Transfer Mode
 
