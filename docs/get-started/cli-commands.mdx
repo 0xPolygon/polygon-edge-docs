@@ -1547,6 +1547,139 @@ The number of transactions per second to send. Default: `100`.
 
 ---
 
+<h4><i>mode</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--mode MODE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --mode transfer
+
+  </TabItem>
+</Tabs>
+
+Sets the loadbot run mode [`transfer`, `deploy`]. Default: `transfer`.
+
+---
+
+<h4><i>chain-id</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--chain-id CHAIN_ID]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --chain-id 100
+
+  </TabItem>
+</Tabs>
+
+Sets the network chain ID for transactions. Default: `100`.
+
+---
+
+<h4><i>gas-price</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gas-price GAS_PRICE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gas-price 10000
+
+  </TabItem>
+</Tabs>
+
+The gas price that should be used for the transactions. If omitted, the average gas price is fetched from the network.
+
+---
+
+<h4><i>gas-limit</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gas-limit GAS_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gas-limit 10000
+
+  </TabItem>
+</Tabs>
+
+The gas limit that should be used for the transactions. If omitted, the gas limit is estimated before starting the loadbot.
+
+---
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot --grpc-address GRPC_ADDRESS
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --grpc-address 127.0.0.1:9645
+
+  </TabItem>
+</Tabs>
+
+The GRPC endpoint used to send transactions
+
+---
+
+<h4><i>detailed</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--detailed DETAILED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --detailed
+
+  </TabItem>
+</Tabs>
+
+Flag indicating if the error logs should be shown. Default: `false`.
+
+---
+
+<h4><i>contract</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--contract CONTRACT_PATH]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --contract ./myContract.json
+
+  </TabItem>
+</Tabs>
+
+The path to the contract JSON artifact containing the bytecode. If omitted, a default contract is used.
+
+---
+
 <h4><i>sender</i></h4>
 
 <Tabs>

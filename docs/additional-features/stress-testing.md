@@ -8,24 +8,46 @@ title: Network stress testing
 This guide assumes that:
 
 - You have a working Polygon-SDK network up and running
-- Both your JSON-RPC endpoints are reachable
-- For each of the sender accounts you use, its private key must be saved as an environment variable with the following format:
-  - PSDK_ADDRESS=PRIVATE_KEY
-- Each sender account must have the required funds on it to execute a single loadbot run
+- Both your JSON-RPC and GRPC endpoints are reachable
 
-e.g. to export the variable :
+## Overview
+
+The Polygon SDK loadbot is a helper that is meant to stress test the Polygon SDK cluster.
+
+Currently, it supports 2 modes:
+
+- `Transfer` - mode that does stress testing using fund-transfer transactions. **[Default]**.
+- `Deploy` - mode that deploys specified smart contracts with each transcation.
+
+### Transfer Mode
+
+The transfer mode assumes that there is a sender account that has initial funds to conduct the loadbot run.
+
+The sender's account address and private key need to be specified within the shell that's running the loadbot command.
 
 ```bash
+# Example
 export PSDK_0x9A2E59d06899a383ef47C1Ec265317986D026055=154c4bc0cca942d8a0b49ece04d95c872d8f53d34b8f2ac76253a3700e4f1151
 ```
 
-## Start the loadbot
+### Deploy Mode
 
-_Feel free to take a look at the flag reference [here](/docs/get-started/cli-commands#loadbot-flags)_.
+The deploy mode conducts contract deployment with each new transaction in the loadbot run.
+The contract being deployed can be specified using [specific flags](/docs/get-started/cli-commands#loadbot-flags), or if the contract path is omitted, a default 
+`Greeter.sol` [contract](https://github.com/nomiclabs/hardhat/blob/master/packages/hardhat-core/sample-projects/basic/contracts/Greeter.sol) is used instead.
+
+### Terminology
+
+This section covers some basic terminology regarding the loadbot configuration.
+
+- **count** - The number of transactions to be submitted in the specified mode
+- **tps** - The number of transactions that should be submitted to the node per second
+
+## Start the loadbot
 
 As an example, here is a valid command you can use to run the loadbot using two premined accounts:
 ```bash
-polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --receiver 0x9876e8b849437703A34808e926a8a5B48bCb3ccf --count 100 --value 0x100 --tps 100
+polygon-sdk loadbot  --jsonrpc http://127.0.0.1:10002 --sender 0x9A2E59d06899a383ef47C1Ec265317986D026055 --count 2000 --value 0x100 --tps 100
 ```
 
 You should get a result similar to this on your terminal :
