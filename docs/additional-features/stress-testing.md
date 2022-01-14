@@ -23,7 +23,7 @@ Currently, it supports 2 modes:
 
 The transfer mode assumes that there is a sender account that has initial funds to conduct the loadbot run.
 
-The sender's account address and private key need to be specified within the shell that's running the loadbot command.
+The sender's account address and private key need to be set in the environment variables:
 
 ```bash
 # Example
