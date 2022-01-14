@@ -7,7 +7,7 @@ title: Network stress testing
 
 This guide assumes that:
 
-- You have a working Polygon-SDK network up and running
+- You have a working Polygon SDK network up and running
 - Both your JSON-RPC and GRPC endpoints are reachable
 
 ## Overview
