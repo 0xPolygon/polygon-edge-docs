@@ -20,7 +20,7 @@ $ cb-sol-cli bridge register-resource \
   --handler "[ERC721_HANDLER_CONTRACT_ADDRESS]" \
   --targetContract "[ERC721_CONTRACT_ADDRESS]"
 
-# For Polygon SDK chain
+# For Polygon Edge chain
 $ cb-sol-cli bridge register-resource \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -91,19 +91,19 @@ $ cb-sol-cli erc721 approve \
 Finally, you will start the transfer
 
 ```bash
-# Start transfer from Polygon PoS to Polygon SDK chain
+# Start transfer from Polygon PoS to Polygon Edge chain
 $ cb-sol-cli erc721 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
   --id 0x50 \
-  # ChainID of Polygon SDK chain
+  # ChainID of Polygon Edge chain
   --dest 100 \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]"
 ```
 
-The relayer will get the event and vote for the proposal. It executes a transaction to send NFTs to the recipient account in the Polygon SDK chain after the required number of votes are submitted. 
+The relayer will get the event and vote for the proposal. It executes a transaction to send NFTs to the recipient account in the Polygon Edge chain after the required number of votes are submitted. 
 
 ```bash
 INFO[11-19|09:07:50] Handling nonfungible deposit event       chain=mumbai
@@ -114,10 +114,10 @@ INFO[11-19|09:07:50] Submitted proposal vote                  chain=polygon-sdk 
 INFO[11-19|09:08:15] Submitted proposal execution             chain=polygon-sdk tx=0x57419844881a07531e31667c609421662d94d21d0709e64fb728138309267e68 src=99 dst=100 nonce=2 gasPrice=3
 ```
 
-You can check the owner of the NFT on the Polygon SDK network after the execution is completed.
+You can check the owner of the NFT on the Polygon Edge network after the execution is completed.
 
 ```bash
-# Check the owner of NFT 0x50 in Polygon SDK chain
+# Check the owner of NFT 0x50 in Polygon Edge chain
 $ cb-sol-cli erc721 owner \
   --url http://localhost:10002 \
   --privateKey [PRIVATE_KEY] \

@@ -108,7 +108,7 @@ polygon-sdk genesis --consensus ibft --ibft-validators-prefix-path test-chain- -
 
 What this command does:
 
-* The `--ibft-validators-prefix-path` sets the prefix folder path to the one specified which IBFT in Polygon SDK can
+* The `--ibft-validators-prefix-path` sets the prefix folder path to the one specified which IBFT in Polygon Edge can
   use. This directory is used to house the `consensus/` folder, where the validator's private key is kept. The
   validator's public key is needed in order to build the genesis file - the initial list of bootstrap nodes.
   This flag only makes sense when setting up the network on localhost, as in a real-world scenario we cannot expect all
@@ -342,7 +342,7 @@ polygon-sdk server --data-dir ./test-chain --chain genesis.json --grpc :50000 --
 :::
 
 :::info Specify the price limit
-A Polygon SDK node can be started with a set **price limit** for incoming transactions.
+A Polygon Edge node can be started with a set **price limit** for incoming transactions.
 
 The unit for the price limit is `wei`.
 

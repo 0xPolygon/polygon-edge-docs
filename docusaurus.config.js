@@ -1,6 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Polygon SDK',
+  title: 'Polygon Edge',
   url: 'https://elegant-nightingale-894b88.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -17,9 +17,9 @@ module.exports = {
     },
     navbar: {
       hideOnScroll: true,
-      title: 'Polygon SDK',
+      title: 'Polygon Edge',
       logo: {
-        alt: 'Polygon SDK Logo',
+        alt: 'Polygon Edge Logo',
         src: 'img/logo.svg',
         href: 'docs/overview'
       },

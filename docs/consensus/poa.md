@@ -5,7 +5,7 @@ title: Proof of Authority (PoA)
 
 ## Overview
 
-The IBFT PoA is the default consensus mechanism in the Polygon SDK. In PoA, validators are the ones responsible for creating the blocks and adding them to the blockchain in a series.
+The IBFT PoA is the default consensus mechanism in the Polygon Edge. In PoA, validators are the ones responsible for creating the blocks and adding them to the blockchain in a series.
 
 All of the validators make up a dynamic validator-set, where validators can be added to or removed from the set by employing a voting mechanism. This means that validators can be voted in/out from the validators-set if the majority (51%) of the validator nodes vote to add/drop a certain validator to/from the set. In this way, malicious validators can be recognized and removed from the network, while new trusted validators can be added to the network.
 

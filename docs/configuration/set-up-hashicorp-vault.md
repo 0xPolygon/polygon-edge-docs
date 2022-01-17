@@ -5,23 +5,23 @@ title: Set up Hashicorp Vault
 
 ## Overview
 
-Currently, the Polygon SDK is concerned with keeping 2 major runtime secrets:
+Currently, the Polygon Edge is concerned with keeping 2 major runtime secrets:
 * The **validator private key** used by the node, if the node is a validator
 * The **networking private key** used by libp2p, for participating and communicating with other peers
 
 For additional information, please read through the [Managing Private Keys Guide](/docs/configuration/manage-private-keys)
 
-The modules of the Polygon SDK **should not need to know how to keep secrets**. Ultimately, a module should not care if 
+The modules of the Polygon Edge **should not need to know how to keep secrets**. Ultimately, a module should not care if 
 a secret is stored on a far-away server or locally on the node's disk.
 
 Everything a module needs to know about secret-keeping is **knowing to use the secret**, **knowing which secrets to get 
 or save**. The finer implementation details of these operations are delegated away to the `SecretsManager`, which of course is an abstraction.
 
-The node operator that's starting the Polygon SDK can now specify which secrets manager they want to use, and as soon 
+The node operator that's starting the Polygon Edge can now specify which secrets manager they want to use, and as soon 
 as the correct secrets manager is instantiated, the modules deal with the secrets through the mentioned interface - 
 without caring if the secrets are stored on a disk or on a server.
 
-This article details the necessary steps to get the Polygon SDK up and running with a [Hashicorp Vault](https://www.vaultproject.io/) server.
+This article details the necessary steps to get the Polygon Edge up and running with a [Hashicorp Vault](https://www.vaultproject.io/) server.
 
 :::info previous guides
 It is **highly recommended** that before going through this article, articles on [**How to Set Up IBFT Locally**](/docs/get-started/set-up-ibft-locally) 
@@ -33,7 +33,7 @@ and [**How to Set Up IBFT on the Cloud**](/docs/get-started/set-up-ibft-on-the-c
 
 This article assumes that a functioning instance of the Hashicorp Vault server **is already set up**.
 
-Additionally, it is required that the Hashicorp Vault server being used for the Polygon SDK should have **enabled KV storage**.
+Additionally, it is required that the Hashicorp Vault server being used for the Polygon Edge should have **enabled KV storage**.
 
 Required information before continuing:
 * **The server URL** (the API URL of the Hashicorp Vault server)
@@ -41,7 +41,7 @@ Required information before continuing:
 
 ## Step 1 - Generate the secrets manager configuration
 
-In order for the Polygon SDK to be able to seamlessly communicate with the Vault server, it needs to parse an already
+In order for the Polygon Edge to be able to seamlessly communicate with the Vault server, it needs to parse an already
 generated config file, which contains all the necessary information for secret storage on Vault.
 
 To generate the configuration, run the following command:
@@ -59,7 +59,7 @@ Parameters present:
 :::caution Node names
 Be careful when specifying node names.
 
-The Polygon SDK uses the specified node name to keep track of the secrets it generates and uses on the Vault instance.
+The Polygon Edge uses the specified node name to keep track of the secrets it generates and uses on the Vault instance.
 Specifying an existing node name can have consequences of data being overwritten on the Vault server.
 
 Secrets are stored on the following base path: `secrets/node_name`
@@ -86,10 +86,10 @@ Since Hashicorp Vault is being used instead of the local file system, validator 
 polygon-sdk genesis --ibft-validator <VALIDATOR_ADDRESS> ...
 ```
 
-## Step 4 - Start the Polygon SDK client
+## Step 4 - Start the Polygon Edge client
 
 Now that the keys are set up, and the genesis file is generated, the final step to this process would be starting the 
-Polygon SDK with the `server` command.
+Polygon Edge with the `server` command.
 
 The `server` command is used in the same manner as in the previously mentioned guides, with a minor addition - the `--secrets-config` flag:
 ```bash

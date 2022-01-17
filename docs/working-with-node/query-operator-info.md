@@ -9,7 +9,7 @@ This guide assumes you have followed the [guide on how to set up an IBFT cluster
 
 A functioning node is required in order to query any kind of operator information.
 
-With the Polygon SDK, node operators are in control and informed about what the node they're operating is doing.<br />
+With the Polygon Edge, node operators are in control and informed about what the node they're operating is doing.<br />
 At any time, they can use the node information layer, built on top of gRPC, and get meaningful information - no log sifting required.
 
 :::note
@@ -41,7 +41,7 @@ With the *address* parameter being the libp2p address of the peer.
 
 Lots of times, an operator might want to know about the state of the operating node in IBFT consensus.
 
-Luckily, the Polygon SDK provides an easy way to find this information.
+Luckily, the Polygon Edge provides an easy way to find this information.
 
 ### Snapshots
 

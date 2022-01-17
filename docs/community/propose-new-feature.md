@@ -6,7 +6,7 @@ title: Propose a new feature
 ## Overview
 
 If you want to include a fix, or just contribute to the code, it is highly encouraged for you to reach out to the team first. <br/>
-The Polygon SDK uses a relatively basic feature proposition template, that is concise and to the point.
+The Polygon Edge uses a relatively basic feature proposition template, that is concise and to the point.
 
 ## PR Template
 

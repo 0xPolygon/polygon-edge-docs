@@ -5,14 +5,14 @@ title: Set up and use Proof of Stake (PoS)
 
 ## Overview
 
-This guide goes into detail on how to set up a Proof of Stake network with the Polygon SDK, how to stake funds for nodes
+This guide goes into detail on how to set up a Proof of Stake network with the Polygon Edge, how to stake funds for nodes
 to become validators and how to unstake funds.
 
 It **highly encouraged** to read and go through
 the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
 / [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections, before going along
 with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the
-Polygon SDK.
+Polygon Edge.
 
 :::warning PoA and PoS chains incompatible 
 A chain that has previously been running in PoA mode, cannot be converted to
@@ -32,7 +32,7 @@ It holds the necessary testing scripts, ABI files and most importantly the Staki
 
 ## Setting up an N node cluster
 
-Setting up a cluster with the Polygon SDK is covered in
+Setting up a cluster with the Polygon Edge is covered in
 the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
 / [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections.
 

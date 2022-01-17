@@ -373,7 +373,7 @@ polygon-sdk server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1
 :::
 
 :::info Specify the price limit
-A Polygon SDK node can be started with a set **price limit** for incoming transactions.
+A Polygon Edge node can be started with a set **price limit** for incoming transactions.
 
 The unit for the price limit is `wei`.
 

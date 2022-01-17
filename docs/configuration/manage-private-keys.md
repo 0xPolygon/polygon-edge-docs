@@ -5,14 +5,14 @@ title: Manage private keys
 
 ## Overview
 
-The Polygon SDK has two types of private keys that it directly manages:
+The Polygon Edge has two types of private keys that it directly manages:
 * **Private key used for consensus mechanisms (IBFT)**
 * **Private key used for networking (Libp2p)**
 
-Currently, the Polygon SDK doesn't offer support for direct account management.
+Currently, the Polygon Edge doesn't offer support for direct account management.
 
 Based on the directory structure outlined in the [Backup & Restore guide](/docs/working-with-node/backup-restore),
-the Polygon SDK stores these mentioned key files in two distinct directories - **consensus** and **keystore**.
+the Polygon Edge stores these mentioned key files in two distinct directories - **consensus** and **keystore**.
 
 ## Key format
 
@@ -24,7 +24,7 @@ The private keys are stored in simple **Base64 format**, so they can be human-re
 ```
 
 :::info Key Type
-All private key files generated and used inside the Polygon SDK are relying on ECDSA with the curve [secp256k1](https://en.bitcoin.it/wiki/Secp256k1).
+All private key files generated and used inside the Polygon Edge are relying on ECDSA with the curve [secp256k1](https://en.bitcoin.it/wiki/Secp256k1).
 
 As the curve is non-standard, it cannot be encoded and stored in any standardized PEM format.
 Importing keys that don't conform to this key type is not supported.

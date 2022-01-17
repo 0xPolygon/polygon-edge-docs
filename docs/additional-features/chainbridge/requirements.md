@@ -3,7 +3,7 @@ id: requirements
 title: Requirements
 ---
 
-This guide walks through the setup for a bridge between a running Polygon PoS (Mumbai testnet) and a local Polygon SDK network.
+This guide walks through the setup for a bridge between a running Polygon PoS (Mumbai testnet) and a local Polygon Edge network.
 
 ## Requirements
 
@@ -15,11 +15,11 @@ In this guide, you will run PolygonSDK nodes, ChainBridge relayer, and cb-sol-cl
 
 In addition, you need to clone the following repositories with the versions to run some applications.
 
-* [Polygon SDK](https://github.com/0xPolygon/polygon-sdk.git): on the `develop` branch
+* [Polygon Edge](https://github.com/0xPolygon/polygon-sdk.git): on the `develop` branch
 * [ChainBridge](https://github.com/ChainSafe/ChainBridge): v1.1.5
 * [ChainBridge Deploy Tools](https://github.com/ChainSafe/chainbridge-deploy): `f2aa093` on `main` branch
 
-You need to setup a Polygon SDK network before proceeding to the next section. Please check [How to set up IBFT locally](/docs/get-started/set-up-ibft-locally) or [How to set up IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) for more details. 
+You need to setup a Polygon Edge network before proceeding to the next section. Please check [How to set up IBFT locally](/docs/get-started/set-up-ibft-locally) or [How to set up IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) for more details. 
 
 ## Accounts
 
@@ -31,4 +31,4 @@ In this guide, you will use three types of Ethereum accounts in both blockchain 
 | relayer  | The account used in the relayer to create transactions to vote or execute a proposal. The relayer accounts pay gas fees when sending transactions for voting and execution in the destination chain.                                                 |
 | user     | The sender/recipient account that sends/receives assets. The sender account pays the gas fees when approving token transfers and calling `deposit` in the Bridge contract to begin a transfer.                                                                    |
 
-Please make sure the accounts have enough native tokens to create transactions before starting. In Polygon SDK, you can assign accounts premined balances when generating the genesis block.
+Please make sure the accounts have enough native tokens to create transactions before starting. In Polygon Edge, you can assign accounts premined balances when generating the genesis block.
