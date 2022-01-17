@@ -5,10 +5,10 @@ title: Local Setup
 
 :::caution This guide is for testing purposes only
 
-The below guide will instruct you on how to set up a Polygon-SDK network on your local machine for testing and development
+The below guide will instruct you on how to set up a Polygon Edge network on your local machine for testing and development
 purposes.
 
-The procedure differs greatly from the way you would want to set up Polygon-SDK network for a real use scenario on
+The procedure differs greatly from the way you would want to set up Polygon Edge network for a real use scenario on
 a cloud provider: [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud)
 
 :::
@@ -16,7 +16,7 @@ a cloud provider: [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud)
 
 ## Requirements
 
-Refer to [Installation](/docs/get-started/installation) to install Polygon-SDK.
+Refer to [Installation](/docs/get-started/installation) to install Polygon Edge.
 
 ## Overview
 
@@ -264,7 +264,7 @@ file locks                      (-x) unlimited
 
 ## Step 4: Run all the clients
 
-Because we are attempting to run a Polygon-SDK network consisting of 4 nodes all on the same machine, we need to take care to 
+Because we are attempting to run a Polygon Edge network consisting of 4 nodes all on the same machine, we need to take care to 
 avoid port conflicts. This is why we will use the following reasoning for determining the listening ports of each server of a node:
 
 - `10000` for the gRPC server of `node 1`, `20000` for the GRPC server of `node 2`, etc.
@@ -306,7 +306,7 @@ To briefly go over what has been done so far:
 
 The structure of the genesis file is covered in the [CLI Commands](/docs/get-started/cli-commands) section.
 
-After running the previous commands, you have set up a 4 node Polygon-SDK network, capable of sealing blocks and recovering
+After running the previous commands, you have set up a 4 node Polygon Edge network, capable of sealing blocks and recovering
 from node failure.
 
 :::info Start the client using config file

@@ -5,14 +5,14 @@ title: How to set up and use Proof of Stake (PoS)
 
 ## Overview
 
-This guide goes into detail on how to set up a Proof of Stake network with the Polygon SDK, how to stake funds for nodes
+This guide goes into detail on how to set up a Proof of Stake network with the Polygon Edge, how to stake funds for nodes
 to become validators and how to unstake funds.
 
 It **highly encouraged** to read and go through
 the [Local Setup](/docs/get-started/set-up-ibft-locally)
 / [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) sections, before going along
 with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the
-Polygon SDK.
+Polygon Edge.
 
 :::warning PoA and PoS chains incompatible 
 A chain that has previously been running in PoA mode, cannot be converted to
@@ -32,7 +32,7 @@ It holds the necessary testing scripts, ABI files and most importantly the Staki
 
 ## Setting up an N node cluster
 
-Setting up a cluster with the Polygon SDK is covered in
+Setting up a cluster with the Polygon Edge is covered in
 the [Local Setup](/docs/get-started/set-up-ibft-locally)
 / [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) sections.
 
@@ -41,7 +41,7 @@ The **only difference** between setting up a PoS and PoA cluster is in the genes
 **When generating the genesis file for a PoS cluster, an additional flag is needed `--pos`**:
 
 ```bash
-go run main.go genesis --pos ...
+polygon-edge genesis --pos ...
 ```
 
 ## Setting the length of an epoch
@@ -52,7 +52,7 @@ To set the size of an epoch for a cluster (in blocks), when generating the genes
 specified `--epoch-size`:
 
 ```bash
-go run main.go genesis --epoch-size 50
+polygon-edge genesis --epoch-size 50
 ```
 
 This value specified in the genesis file that the epoch size should be `50` blocks.

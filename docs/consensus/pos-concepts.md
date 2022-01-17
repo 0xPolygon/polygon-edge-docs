@@ -98,7 +98,7 @@ the Staking Smart Contract.
 Epoch lengths (in blocks) are modifiable when generating the genesis file, by using a special flag `--epoch-size`:
 
 ```bash
-go run main.go genesis --epoch-size 50 ...
+polygon-edge genesis --epoch-size 50 ...
 ```
 
 The default size of an epoch is `100000` blocks in the Polygon Edge.
