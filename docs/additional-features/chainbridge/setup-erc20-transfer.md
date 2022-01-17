@@ -127,11 +127,11 @@ After the deposit transaction was successful, the relayer will get the event and
 
 ```bash
 INFO[11-19|08:15:58] Handling fungible deposit event          chain=mumbai dest=100 nonce=1
-INFO[11-19|08:15:59] Attempting to resolve message            chain=polygon-sdk type=FungibleTransfer src=99 dst=100 nonce=1 rId=000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00
-INFO[11-19|08:15:59] Creating erc20 proposal                  chain=polygon-sdk src=99 nonce=1
-INFO[11-19|08:15:59] Watching for finalization event          chain=polygon-sdk src=99 nonce=1
-INFO[11-19|08:15:59] Submitted proposal vote                  chain=polygon-sdk tx=0x67a97849951cdf0480e24a95f59adc65ae75da23d00b4ab22e917a2ad2fa940d src=99 depositNonce=1 gasPrice=1
-INFO[11-19|08:16:24] Submitted proposal execution             chain=polygon-sdk tx=0x63615a775a55fcb00676a40e3c9025eeefec94d0c32ee14548891b71f8d1aad1 src=99 dst=100 nonce=1 gasPrice=5
+INFO[11-19|08:15:59] Attempting to resolve message            chain=polygon-edge type=FungibleTransfer src=99 dst=100 nonce=1 rId=000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00
+INFO[11-19|08:15:59] Creating erc20 proposal                  chain=polygon-edge src=99 nonce=1
+INFO[11-19|08:15:59] Watching for finalization event          chain=polygon-edge src=99 nonce=1
+INFO[11-19|08:15:59] Submitted proposal vote                  chain=polygon-edge tx=0x67a97849951cdf0480e24a95f59adc65ae75da23d00b4ab22e917a2ad2fa940d src=99 depositNonce=1 gasPrice=1
+INFO[11-19|08:16:24] Submitted proposal execution             chain=polygon-edge tx=0x63615a775a55fcb00676a40e3c9025eeefec94d0c32ee14548891b71f8d1aad1 src=99 dst=100 nonce=1 gasPrice=5
 ```
 
 Once the execution transaction has been successful, you will get tokens in the Polygon Edge chain.

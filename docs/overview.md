@@ -18,7 +18,7 @@ implementation, please reach out to the [Polygon team](mailto:contact@polygon.te
 
 To find out more about Polygon, visit the [official website](https://polygon.technology).
 
-**[Github repository](https://github.com/0xPolygon/polygon-sdk)**
+**[Github repository](https://github.com/0xPolygon/polygon-edge)**
 
 :::caution
 
@@ -29,4 +29,4 @@ yet, so please contact the Polygon team if you would like to use it in productio
 
 
 
-To get started by running the IBFT `polygon-sdk` cluster locally, please read: [How to set IBFT locally](/docs/get-started/set-up-ibft-locally).
+To get started by running the IBFT `polygon-edge` cluster locally, please read: [How to set IBFT locally](/docs/get-started/set-up-ibft-locally).

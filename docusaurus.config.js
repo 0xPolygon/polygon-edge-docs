@@ -7,7 +7,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon-32x32.png',
   organizationName: '0xPolygon',
-  projectName: 'polygon-sdk-docs',
+  projectName: 'polygon-edge-docs',
   themeConfig: {
     colorMode: {
       defaultMode: 'dark'

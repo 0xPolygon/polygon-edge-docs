@@ -47,14 +47,14 @@ generated config file, which contains all the necessary information for secret s
 To generate the configuration, run the following command:
 
 ```bash
-polygon-sdk secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVER_URL> --name <NODE_NAME>
+polygon-edge secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVER_URL> --name <NODE_NAME>
 ```
 
 Parameters present:
 * `PATH` is the path to which the configuration file should be exported to. Default `./secretsManagerConfig.json`
 * `TOKEN` is the access token previously mentioned in the [prerequisites section](/docs/configuration/set-up-hashicorp-vault#prerequisites)
 * `SERVER_URL` is the URL of the API for the Vault server, also mentioned in the [prerequisites section](/docs/configuration/set-up-hashicorp-vault#prerequisites)
-* `NODE_NAME` is the name of the current node for which the Vault configuration is being set up as. It can be an arbitrary value. Default `polygon-sdk-node`
+* `NODE_NAME` is the name of the current node for which the Vault configuration is being set up as. It can be an arbitrary value. Default `polygon-edge-node`
 
 :::caution Node names
 Be careful when specifying node names.
@@ -71,7 +71,7 @@ Now that the configuration file is present, we can initialize the required IBFT 
 file set up in step 1, using the `--config`:
 
 ```bash
-polygon-sdk secrets init --config <PATH>
+polygon-edge secrets init --config <PATH>
 ```
 
 The `PATH` param is the location of the previously generated secrets manager param from step 1.
@@ -83,7 +83,7 @@ and [**How to Set Up IBFT on the Cloud**](/docs/get-started/set-up-ibft-on-the-c
 
 Since Hashicorp Vault is being used instead of the local file system, validator addresses should be added through the `--ibft-validator` flag:
 ```bash
-polygon-sdk genesis --ibft-validator <VALIDATOR_ADDRESS> ...
+polygon-edge genesis --ibft-validator <VALIDATOR_ADDRESS> ...
 ```
 
 ## Step 4 - Start the Polygon Edge client
@@ -93,7 +93,7 @@ Polygon Edge with the `server` command.
 
 The `server` command is used in the same manner as in the previously mentioned guides, with a minor addition - the `--secrets-config` flag:
 ```bash
-polygon-sdk server --secrets-config <PATH> ...
+polygon-edge server --secrets-config <PATH> ...
 ```
 
 The `PATH` param is the location of the previously generated secrets manager param from step 1.

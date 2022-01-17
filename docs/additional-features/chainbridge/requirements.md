@@ -15,7 +15,7 @@ In this guide, you will run PolygonSDK nodes, ChainBridge relayer, and cb-sol-cl
 
 In addition, you need to clone the following repositories with the versions to run some applications.
 
-* [Polygon Edge](https://github.com/0xPolygon/polygon-sdk.git): on the `develop` branch
+* [Polygon Edge](https://github.com/0xPolygon/polygon-edge.git): on the `develop` branch
 * [ChainBridge](https://github.com/ChainSafe/ChainBridge): v1.1.5
 * [ChainBridge Deploy Tools](https://github.com/ChainSafe/chainbridge-deploy): `f2aa093` on `main` branch
 
