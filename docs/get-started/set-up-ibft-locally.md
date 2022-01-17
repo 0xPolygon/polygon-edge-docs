@@ -78,9 +78,11 @@ In this guide, we will treat the first and second nodes as the bootnodes for all
 is that nodes that connect to the `node 1` or `node 2` will get information on how to connect to one another through the mutually
 contacted bootnode. 
 
-:::info You need to specify at least two bootnodes to start a node
+:::info You need to specify at least one bootnode to start a node
 
-Having more bootnodes specified when setting up the network will give your nodes more resilience if one of the bootnodes becomes unresponsive, as there will be others to fall back to. It is up to you to decide if you want to list all 4 nodes as the bootnodes, or just two. In this guide we will list two nodes, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
+At least **one** bootnode is required, so other nodes in the network can discover each other. More bootnodes are recommended, as
+they provide resilience to the network in case of outages.
+In this guide we will list two nodes, but this can be changed on the fly, with no impact on the validity of the `genesis.json` file.
 :::
 
 Since we are running on localhost, it is safe to assume that the `<ip_address>` is `127.0.0.1`.
