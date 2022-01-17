@@ -24,8 +24,8 @@ without caring if the secrets are stored on a disk or on a server.
 This article details the necessary steps to get the Polygon Edge up and running with a [Hashicorp Vault](https://www.vaultproject.io/) server.
 
 :::info previous guides
-It is **highly recommended** that before going through this article, articles on [**How to Set Up IBFT Locally**](/docs/get-started/set-up-ibft-locally) 
-and [**How to Set Up IBFT on the Cloud**](/docs/get-started/set-up-ibft-on-the-cloud) are read.
+It is **highly recommended** that before going through this article, articles on [**Local Setup**](/docs/get-started/set-up-ibft-locally) 
+and [**Cloud Setup**](/docs/get-started/set-up-ibft-on-the-cloud) are read.
 :::
 
 
@@ -65,9 +65,9 @@ Specifying an existing node name can have consequences of data being overwritten
 Secrets are stored on the following base path: `secrets/node_name`
 :::
 
-## Step 2 - Initialize IBFT using the configuration
+## Step 2 - Initialize secret keys using the configuration
 
-Now that the configuration file is present, we can initialize the required IBFT data (secret keys) with the configuration 
+Now that the configuration file is present, we can initialize the required secret keys with the configuration 
 file set up in step 1, using the `--config`:
 
 ```bash
@@ -78,8 +78,8 @@ The `PATH` param is the location of the previously generated secrets manager par
 
 ## Step 3 - Generate the genesis file
 
-The genesis file should be generated in a similar manner to the [**How to Set Up IBFT Locally**](/docs/get-started/set-up-ibft-locally)
-and [**How to Set Up IBFT on the Cloud**](/docs/get-started/set-up-ibft-on-the-cloud) guides, with minor changes.
+The genesis file should be generated in a similar manner to the [**Local Setup**](/docs/get-started/set-up-ibft-locally)
+and [**Cloud Setup**](/docs/get-started/set-up-ibft-on-the-cloud) guides, with minor changes.
 
 Since Hashicorp Vault is being used instead of the local file system, validator addresses should be added through the `--ibft-validator` flag:
 ```bash
