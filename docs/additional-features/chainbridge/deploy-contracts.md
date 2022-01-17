@@ -50,6 +50,13 @@ $ cb-sol-cli deploy --all --chainId 99 \
 
 :::
 
+:::caution
+
+Bridge contract takes approximately 0x3f97b8 (4167608) gas to deploy. Please make sure the blocks being generated has enough block gas limit to contain the contract creation transaction. To learn more about changing block gas limit in Polygon SDK, please visit
+the [Local Setup](/docs/get-started/set-up-ibft-locally) 
+
+:::
+
 Once the contracts have been deployed, you will get the following result:
 
 ```bash
