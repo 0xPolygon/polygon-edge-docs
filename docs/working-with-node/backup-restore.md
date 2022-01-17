@@ -40,8 +40,7 @@ Keep in mind that the files with a `.key` extension contain the private key data
 and they should never be shared with a third/unknown party.
 
 :::info
-Please note that clients running the IBFT consensus mechanism need to back up the generated `genesis` file as well, in order for their
-restore process to be successful.
+Please back up and restore the generated `genesis` file manually, so the restored node is fully operational.
 ::: 
 
 ## Restore

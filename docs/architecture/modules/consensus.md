@@ -7,11 +7,9 @@ title: Consensus
 
 The **Consensus** module provides an interface for consensus mechanisms.
 
-Currently, the following consensus engines are being worked on:
-* **IBFT**      ✅
-* **Clique**    (⚠️**WIP**)
-* **Ethash**    (⚠️**WIP**)
-* **PoW**       (⚠️**WIP**)
+Currently, the following consensus engines are available:
+* **IBFT PoA**
+* **IBFT PoS**
 
 The Polygon Edge wants to maintain a state of modularity and pluggability. <br />
 This is why the core consensus logic has been abstracted away, so new consensus mechanisms can be built on top, without
