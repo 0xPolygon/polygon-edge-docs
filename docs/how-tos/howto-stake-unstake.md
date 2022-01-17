@@ -89,14 +89,14 @@ the [Staking Smart Contract repo](https://github.com/0xPolygon/staking-contracts
 Create an `.env` file with the following parameters in the Smart Contracts repo location:
 
 ```bash
-POLYGON_SDK_JSONRPC_URL=http://localhost:10002
+JSONRPC_URL=http://localhost:10002
 PRIVATE_KEYS=0x0454f3ec51e7d6971fc345998bb2ba483a8d9d30d46ad890434e6f88ecb97544
 STAKING_CONTRACT_ADDRESS=0x0000000000000000000000000000000000001001
 ```
 
 Where the parameters are:
 
-* **POLYGON_SDK_JSONRPC_URL** - the JSON-RPC endpoint for the running node
+* **JSONRPC_URL** - the JSON-RPC endpoint for the running node
 * **PRIVATE_KEYS** - private keys of the staker address
 * **STAKING_CONTRACT_ADDRESS** - the address of the staking smart contract (
   default `0x0000000000000000000000000000000000001001`)
