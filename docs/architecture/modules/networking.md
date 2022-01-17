@@ -18,7 +18,7 @@ The choice to go with **libp2p** is primarily focused on:
 On top of **libp2p**, the Polygon Edge uses the **GRPC** protocol. <br />
 Technically, the Polygon Edge uses several GRPC protocols, which will be covered later on.
 
-The GRPC layer helps abstract all the request/reply protocols and simplifies the streaming protocols needed for the SDK to function.
+The GRPC layer helps abstract all the request/reply protocols and simplifies the streaming protocols needed for the Polygon Edge to function.
 
 GRPC relies on **Protocol Buffers** to define *services* and *message structures*. <br />
 The services and structures are defined in *.proto* files, which are compiled and are language-agnostic.

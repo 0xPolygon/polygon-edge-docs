@@ -7,7 +7,7 @@ title: Storage
 
 The Polygon Edge currently utilizes **LevelDB** for data storage, as well as an **in-memory** data store.
 
-Throughout the SDK, when modules need to interact with the underlying data store, 
+Throughout the Polygon Edge, when modules need to interact with the underlying data store, 
 they don't need to know which DB engine or service they're speaking to.
 
 The DB layer is abstracted away between a module called **Storage**, which exports interfaces that modules query.

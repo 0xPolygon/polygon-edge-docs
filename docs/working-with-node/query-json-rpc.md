@@ -31,7 +31,7 @@ The balance can be either a `hex` or `uint256` value.
 
 ## Step 2: Start the Polygon Edge in dev mode
 
-To start the SDK in development mode, which is explained in the [CLI Commands](/docs/get-started/cli-commands) section, 
+To start the Polygon Edge in development mode, which is explained in the [CLI Commands](/docs/get-started/cli-commands) section, 
 run the following: 
 ````bash
 polygon-edge server --chain genesis.json --dev --log-level debug

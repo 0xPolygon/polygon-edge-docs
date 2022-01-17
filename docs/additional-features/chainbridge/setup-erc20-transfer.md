@@ -119,7 +119,7 @@ $ cb-sol-cli erc20 deposit \
   # ChainID of Polygon Edge chain
   --dest 100 \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
-  --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]" \
+  --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_EDGE_CHAIN]" \
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00"
 ```
 

@@ -7,7 +7,7 @@ This guide walks through the setup for a bridge between a running Polygon PoS (M
 
 ## Requirements
 
-In this guide, you will run PolygonSDK nodes, ChainBridge relayer, and cb-sol-cli tool which is a CLI tool to deploy contracts locally. The following environments are required before starting setup.
+In this guide, you will run Polygon Edge nodes, ChainBridge relayer, and cb-sol-cli tool which is a CLI tool to deploy contracts locally. The following environments are required before starting setup.
 
 * Go: >= 1.16
 * Node.js >= 16.13.0

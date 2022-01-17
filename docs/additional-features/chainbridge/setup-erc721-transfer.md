@@ -100,7 +100,7 @@ $ cb-sol-cli erc721 deposit \
   --id 0x50 \
   # ChainID of Polygon Edge chain
   --dest 100 \
-  --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]"
+  --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_EDGE_CHAIN]"
 ```
 
 The relayer will get the event and vote for the proposal. It executes a transaction to send NFTs to the recipient account in the Polygon Edge chain after the required number of votes are submitted. 

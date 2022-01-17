@@ -23,7 +23,7 @@ It is critical for these folders to be preserved in order for the Polygon Edge i
 
 ### Step 1: Stop the running client
 
-Since the Polygon-SDK uses **LevelDB** for data storage, the Polygon-SDK node needs to be stopped for the duration of the backup, 
+Since the Polygon Edge uses **LevelDB** for data storage, the node needs to be stopped for the duration of the backup, 
 as **LevelDB** doesn't allow for concurrent access to its database files.
 
 Additionally, the Polygon Edge also does data flushing on close.
