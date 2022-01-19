@@ -5,31 +5,31 @@ title: Cloud Setup
 
 :::info This guide is for mainnet or testnet setups
 
-The below guide will instruct you on how to set up a Polygon-SDK network on a cloud provider for a production setup of your testnet or mainnet.
+The below guide will instruct you on how to set up a Polygon Edge network on a cloud provider for a production setup of your testnet or mainnet.
 
-If you would like to setup a Polygon-SDK network locally to quickly test the `polygon-sdk` before doing a production-like setup, please refer to
+If you would like to setup a Polygon Edge network locally to quickly test the `polygon-edge` before doing a production-like setup, please refer to
 [Local Setup](/docs/get-started/set-up-ibft-locally)
 :::
 
 ## Requirements
 
-Refer to [Installation](/docs/get-started/installation) to install Polygon-SDK.
+Refer to [Installation](/docs/get-started/installation) to install Polygon Edge.
 
 ### Setting up the VM connectivity
 
 Depending on your choice of cloud provider, you may set up connectivity and rules between the VMs using a firewall,
 security groups, or access control lists.
 
-As the only part of the `polygon-sdk` that needs to be exposed to other VMs is the libp2p server, simply allowing
+As the only part of the `polygon-edge` that needs to be exposed to other VMs is the libp2p server, simply allowing
 all communication between VMs on the default libp2p port `1478` is enough.
 
 ## Overview
 
 ![Cloud setup](/img/ibft-setup/cloud.svg)
 
-In this guide, our goal is to establish a working `polygon-sdk` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650).
+In this guide, our goal is to establish a working `polygon-edge` blockchain network working with [IBFT consensus protocol](https://github.com/ethereum/EIPs/issues/650).
 The blockchain network will consist of 4 nodes of whom all 4 are validator nodes, and as such are eligible for both proposing block, and validating blocks that came from other proposers.
-Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional Polygon-SDK network while keeping the validator keys private to ensure a trustless network setup.
+Each of the 4 nodes will run on their own VM, as the idea of this guide is to give you a fully functional Polygon Edge network while keeping the validator keys private to ensure a trustless network setup.
 
 To achieve that, we will guide you through 4 easy steps:
 
@@ -41,23 +41,23 @@ To achieve that, we will guide you through 4 easy steps:
 
 ## Step 1: Initialize data folders and generate validator keys
 
-To get up and running with Polygon-SDK, you need to initialize the data folders, on each node:
+To get up and running with Polygon Edge, you need to initialize the data folders, on each node:
 
 
 ````bash
-node-1> polygon-sdk secrets init --data-dir data-dir
+node-1> polygon-edge secrets init --data-dir data-dir
 ````
 
 ````bash
-node-2> polygon-sdk secrets init --data-dir data-dir
+node-2> polygon-edge secrets init --data-dir data-dir
 ````
 
 ````bash
-node-3> polygon-sdk secrets init --data-dir data-dir
+node-3> polygon-edge secrets init --data-dir data-dir
 ````
 
 ````bash
-node-4> polygon-sdk secrets init --data-dir data-dir
+node-4> polygon-edge secrets init --data-dir data-dir
 ````
 
 Each of these commands will print the [node ID](https://docs.libp2p.io/concepts/peer-id/). You will need that information for the next step.
@@ -73,8 +73,8 @@ The data directories generated above, besides initializing the directories for h
 For a node to successfully establish connectivity, it must know which `bootnode` server to connect to gain
 information about all the remaining nodes on the network. The `bootnode` is sometimes also known as the `rendezvous` server in p2p jargon.
 
-`bootnode` is not a special instance of the polygon-sdk node. Every polygon-sdk node can serve as a `bootnode`, but
-every polygon-sdk node needs to have a set of bootnodes specified which will be contacted to provide information on how to connect with
+`bootnode` is not a special instance of a Polygon Edge node. Every Polygon Edge node can serve as a `bootnode` and
+every Polygon Edge node needs to have a set of bootnodes specified which will be contacted to provide information on how to connect with
 all remaining nodes in the network.
 
 To create the connection string for specifying the bootnode, we will need to conform
@@ -96,7 +96,7 @@ As the first part of the multiaddr connection string is the `<ip_address>`, here
 
 For the `<port>` we will use `1478`, since it is the default libp2p port.
 
-And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `polygon-sdk secrets init --data-dir data-dir` command (which was used to generate keys and data directories for the `node 1`)
+And lastly, we need the `<node_id>` which we can get from the output of the previously ran command `polygon-edge secrets init --data-dir data-dir` command (which was used to generate keys and data directories for the `node 1`)
 
 After the assembly, the multiaddr connection string to the `node 1` which we will use as the bootnode will look something like this (only the `<node_id>` which is at the end should be different):
 ```
@@ -123,7 +123,7 @@ Node ID              = 16Uiu2HAmVZnsqvTwuzC9Jd4iycpdnHdyVZJZTpVC8QuRSKmZdUrf
 Given that you have received all 4 of the validators' public keys, you can run the following command to generate the `genesis.json`
 
 ````bash
-polygon-sdk genesis --consensus ibft --ibft-validator=0xC12bB5d97A35c6919aC77C709d55F6aa60436900 --ibft-validator=<2nd_validator_pubkey> --ibft-validator=<3rd_validator_pubkey> --ibft-validator=<4th_validator_pubkey> --bootnode=<first_bootnode_multiaddr_connection_string_from_step_2> --bootnode <second_bootnode_multiaddr_connection_string_from_step_2> --bootnode <optionally_more_bootnodes>
+polygon-edge genesis --consensus ibft --ibft-validator=0xC12bB5d97A35c6919aC77C709d55F6aa60436900 --ibft-validator=<2nd_validator_pubkey> --ibft-validator=<3rd_validator_pubkey> --ibft-validator=<4th_validator_pubkey> --bootnode=<first_bootnode_multiaddr_connection_string_from_step_2> --bootnode <second_bootnode_multiaddr_connection_string_from_step_2> --bootnode <optionally_more_bootnodes>
 ````
 
 What this command does:
@@ -302,11 +302,11 @@ The associated IP address that you wish to listen on is `192.0.2.1`, but it is n
 
 To allow the nodes to connect you would pass the following parameters:
 
-`polygon-sdk ... --libp2p 0.0.0.0:10001 --nat 192.0.2.1`
+`polygon-edge ... --libp2p 0.0.0.0:10001 --nat 192.0.2.1`
 
 Or, if you wish to specify a DNS address `dns/example.io`, pass the following parameters:
 
-`polygon-sdk ... --libp2p 0.0.0.0:10001 --dns dns/example.io`
+`polygon-edge ... --libp2p 0.0.0.0:10001 --dns dns/example.io`
 
 This would make your node listen on all interfaces, but also make it aware that the clients are connecting to it through the specified `--nat` or `--dns` address.
 
@@ -316,28 +316,28 @@ To run the **first** client:
 
 
 ````bash
-node-1> polygon-sdk server --data-dir ./data-dir --chain genesis.json  --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
+node-1> polygon-edge server --data-dir ./data-dir --chain genesis.json  --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
 ````
 
 To run the **second** client:
 
 ````bash
-node-2> polygon-sdk server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
+node-2> polygon-edge server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
 ````
 
 To run the **third** client:
 
 ````bash
-node-3> polygon-sdk server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
+node-3> polygon-edge server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
 ````
 
 To run the **fourth** client:
 
 ````bash
-node-4> polygon-sdk server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
+node-4> polygon-edge server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat <public_or_private_ip> --seal
 ````
 
-After running the previous commands, you have set up a 4 node Polygon-SDK network, capable of sealing blocks and recovering
+After running the previous commands, you have set up a 4 node Polygon Edge network, capable of sealing blocks and recovering
 from node failure.
 
 :::info Start the client using config file
@@ -345,12 +345,12 @@ from node failure.
 Instead of specifying all configuration parameters as CLI arguments, the Client can also be started using a config file by executing the following command: 
 
 ````bash 
-polygon-sdk server --config <config_file_path>
+polygon-edge server --config <config_file_path>
 ````
 Example :
 
 ````bash
-polygon-sdk server --config ./test/config-node1.json
+polygon-edge server --config ./test/config-node1.json
 ````
 Currently, we only support `json` based configuration file, sample config file can be found [here](/docs/sample-config)
 
@@ -361,17 +361,17 @@ Currently, we only support `json` based configuration file, sample config file c
 A Non-validator will always sync the latest blocks received from the validator node, you can start a non-validator node by running the following command.
 
 ````bash 
-polygon-sdk server --data-dir <directory_path> --chain <genesis_filename>  --libp2p <IPAddress:PortNo> --nat <public_or_private_ip>
+polygon-edge server --data-dir <directory_path> --chain <genesis_filename>  --libp2p <IPAddress:PortNo> --nat <public_or_private_ip>
 ````
 For example, you can add **fifth** Non-validator client by executing the following command :
 
 ````bash
-polygon-sdk server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat<public_or_private_ip>
+polygon-edge server --data-dir ./data-dir --chain genesis.json --libp2p 0.0.0.0:1478 --nat<public_or_private_ip>
 ````
 :::
 
 :::info Specify the price limit
-A Polygon SDK node can be started with a set **price limit** for incoming transactions.
+A Polygon Edge node can be started with a set **price limit** for incoming transactions.
 
 The unit for the price limit is `wei`.
 
@@ -385,7 +385,7 @@ The default value for the price limit is `0`, meaning it is not enforced at all 
 
 Example of using the `--price-limit` flag:
 ````bash
-polygon-sdk server --price-limit 100000 ...
+polygon-edge server --price-limit 100000 ...
 ````
 
 It is worth noting that price limits **are enforced only on non-local transactions**, meaning

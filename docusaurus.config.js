@@ -2,14 +2,14 @@ require('dotenv').config()
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-    title: 'Polygon SDK',
+    title: 'Polygon Edge',
     url: 'https://elegant-nightingale-894b88.netlify.app',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon-32x32.png',
     organizationName: '0xPolygon',
-    projectName: 'polygon-sdk-docs',
+    projectName: 'polygon-edge-docs',
     themes: ['docusaurus-theme-search-typesense'],
     themeConfig: {
         colorMode: {
@@ -20,9 +20,9 @@ module.exports = {
         },
         navbar: {
             hideOnScroll: true,
-            title: 'Polygon SDK',
+            title: 'Polygon Edge',
             logo: {
-                alt: 'Polygon SDK Logo',
+                alt: 'Polygon Edge Logo',
                 src: 'img/logo.svg',
                 href: 'docs/overview'
             },
@@ -34,7 +34,7 @@ module.exports = {
                     position: 'left'
                 },
                 {
-                    href: 'https://github.com/0xPolygon/polygon-sdk',
+                    href: 'https://github.com/0xPolygon/polygon-edge',
                     position: 'right',
                     className: 'header-github-link',
                     'aria-label': 'GitHub repository',
