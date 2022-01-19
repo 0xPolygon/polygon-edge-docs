@@ -43,7 +43,7 @@ module.exports = {
         },
         footer: {
             style: 'dark',
-            copyright: `Made with ❤ by the humans at <a href='https://mvpworkshop.co'>MVP Workshop</a>`
+            copyright: `Made with ❤ by the humans at <a href='https://trapesys.io'>Trapesys</a>`
         },
         typesense: {
             typesenseCollectionName: 'sdk-docs.polygon.technology', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
