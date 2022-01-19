@@ -1122,10 +1122,11 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 ### Transaction Pool Commands
 
-| **Command**            | **Description**                                                                     |
-|------------------------|-------------------------------------------------------------------------------------|
-| txpool add    | Adds a transaction to the transaction pool, using different flags                               |
-| txpool status             | Returns the number of transactions in the pool                    
+| **Command**            | **Description**                                                                      |
+|------------------------|--------------------------------------------------------------------------------------|
+| txpool add             | Adds a transaction to the transaction pool, using different flags                    |
+| txpool status          | Returns the number of transactions in the pool                                       |
+| txpool subscribe       | Subscribes for events in the transaction pool                                        |
 
 <h3>txpool add flags</h3>
 
@@ -1278,6 +1279,122 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 </Tabs>
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+<h3>txpool subscribe flags</h3>
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+---
+
+<h4><i>promoted</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--promoted LISTEN_PROMOTED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --promoted
+
+  </TabItem>
+</Tabs>
+
+Subscribes for promoted tx events in the TxPool.
+
+---
+
+<h4><i>dropped</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--dropped LISTEN_DROPPED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --dropped
+
+  </TabItem>
+</Tabs>
+
+Subscribes for dropped tx events in the TxPool.
+
+---
+
+<h4><i>demoted</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--demoted LISTEN_DEMOTED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --demoted
+
+  </TabItem>
+</Tabs>
+
+Subscribes for demoted tx events in the TxPool.
+
+---
+
+<h4><i>added</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--added LISTEN_ADDED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --added
+
+  </TabItem>
+</Tabs>
+
+Subscribes for added tx events to the TxPool.
+
+---
+
+<h4><i>enqueued</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--enqueued LISTEN_ENQUEUED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --enqueued
+
+  </TabItem>
+</Tabs>
+
+Subscribes for enqueued tx events in the account queues.
+
+---
 
 ### Blockchain commands
 
