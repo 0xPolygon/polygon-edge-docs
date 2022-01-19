@@ -36,6 +36,16 @@ To achieve that, we will guide you through 4 easy steps:
 As all four nodes will be running on localhost, during the setup process it is expected that all the data directories
 for each of the nodes are in the same parent directory.
 
+:::info Number of validators
+
+There is no minimum to the number of nodes in a cluster, which means clusters with only 1 validator node are possible.
+Keep in mind that with a _single_ node cluster, there is **no crash tolerance** and **no BFT guarantee**.
+
+The minimum recommended number of nodes for achieving a BFT guarantee is 4 - since in a 4 node cluster, the failure of
+1 node can be tolerated, with the remaining 3 functioning normally.
+
+:::
+
 ## Step 1: Initialize data folders for IBFT and generate validator keys
 
 In order to get up and running with IBFT, you need to initialize the data folders,
