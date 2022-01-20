@@ -42,6 +42,6 @@ sudo mv polygon-edge /usr/local/bin
 
 Prior to using `go install` make sure that you have Go `>=1.16` installed and properly configured.
 
-`go install github.com/0xPolygon/polygon-edge@latest`
+`go install github.com/0xPolygon/polygon-edge@develop`
 
-The binary will be available in your `GOBIN` environment variable.
+The binary will be available in your `GOBIN` environment variable, and will include the latest changes from the mainline `develop` branch.
