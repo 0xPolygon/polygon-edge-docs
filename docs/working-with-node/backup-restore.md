@@ -19,6 +19,26 @@ When starting a Polygon SDK node, the following sub-folders are created in the s
 
 It is critical for these folders to be preserved in order for the Polygon SDK instance to run smoothly.
 
+## Create backup from a running node and restore for new node
+
+This section guides you through creating archive data of the blockchain in a running node and restoring it in another instance.
+
+### Backup
+
+`backup` command fetches blocks from a running node by gRPC and generates an archive file. If `--from` and `--to` are not given in the command, this command will fetch blocks from genesis to latest.
+
+```bash
+$ polygon-sdk backup --grpc 127.0.0.1:9632 --out backup.dat [--from 0x0] [--to 0x100]
+```
+
+### Restore
+
+A server imports blocks from an archive at the start when starting with `--restore` flag. Please make sure that there is a key for new validator. To find out more about importing or generating keys, visit the [Set up Hashicorp Vault](/docs/configuration/set-up-hashicorp-vault).
+
+```bash
+$ polygon-sdk server --restore archive.dat
+```
+
 ## Back up/Restore Whole data
 
 This section guides you through backup the data including state data and key and restoring into the new instance.
@@ -63,23 +83,3 @@ Additionally, restore the previously copied `genesis` file.
 
 In order for the Polygon SDK to use the restored data directory, at launch, the user needs to specify the path to the 
 data directory. Please consult the [CLI Commands](/docs/get-started/cli-commands) section on information regarding the `data-dir` flag.
-
-## Back up/Restore Blockchain
-
-This section guides you through creating archive data of the blockchain in a running node and restoring it in another instance.
-
-### Backup
-
-`backup` command fetches blocks from a running node by gRPC and generates a file of binary archive. If `--from` and `--to` are not given in the command, this command fetches blocks from genesis to latest.
-
-```bash
-$ polygon-sdk backup --grpc localhost:9632 --out archive.dat [--from 0x0] [--to 0x100]
-```
-
-### Restore
-
-To load blocks and apply them into a new node, you will start a server with `--restore` flag.
-
-```bash
-$ polygon-sdk server --restore archive.dat
-```
