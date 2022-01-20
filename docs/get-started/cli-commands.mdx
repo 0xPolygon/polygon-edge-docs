@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This section details the present commands, command flags in the Polygon SDK, and how they're used.
+This section details the present commands, command flags in the Polygon Edge, and how they're used.
 
 :::tip JSON output support
 
@@ -58,7 +58,7 @@ Sets the flag indicating that the client should seal blocks. Default: `false`.
   </TabItem>
 </Tabs>
 
-Used to specify the data directory used for storing Polygon SDK client data. Default: ``./test-chain`.
+Used to specify the data directory used for storing Polygon Edge client data. Default: ``./test-chain`.
 
 ---
 
@@ -713,7 +713,7 @@ Restore blocks from the specified archive file
   </TabItem>
 </Tabs>
 
-Sets the directory for the Polygon SDK genesis data. Default: `./genesis.json`.
+Sets the directory for the Polygon Edge genesis data. Default: `./genesis.json`.
 
 ---
 
@@ -1162,10 +1162,11 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 ### Transaction Pool Commands
 
-| **Command**            | **Description**                                                                     |
-|------------------------|-------------------------------------------------------------------------------------|
-| txpool add    | Adds a transaction to the transaction pool, using different flags                               |
-| txpool status             | Returns the number of transactions in the pool                    
+| **Command**            | **Description**                                                                      |
+|------------------------|--------------------------------------------------------------------------------------|
+| txpool add             | Adds a transaction to the transaction pool, using different flags                    |
+| txpool status          | Returns the number of transactions in the pool                                       |
+| txpool subscribe       | Subscribes for events in the transaction pool                                        |
 
 <h3>txpool add flags</h3>
 
@@ -1319,6 +1320,122 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
+<h3>txpool subscribe flags</h3>
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+---
+
+<h4><i>promoted</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--promoted LISTEN_PROMOTED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --promoted
+
+  </TabItem>
+</Tabs>
+
+Subscribes for promoted tx events in the TxPool.
+
+---
+
+<h4><i>dropped</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--dropped LISTEN_DROPPED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --dropped
+
+  </TabItem>
+</Tabs>
+
+Subscribes for dropped tx events in the TxPool.
+
+---
+
+<h4><i>demoted</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--demoted LISTEN_DEMOTED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --demoted
+
+  </TabItem>
+</Tabs>
+
+Subscribes for demoted tx events in the TxPool.
+
+---
+
+<h4><i>added</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--added LISTEN_ADDED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --added
+
+  </TabItem>
+</Tabs>
+
+Subscribes for added tx events to the TxPool.
+
+---
+
+<h4><i>enqueued</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--enqueued LISTEN_ENQUEUED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --enqueued
+
+  </TabItem>
+</Tabs>
+
+Subscribes for enqueued tx events in the account queues.
+
+---
+
 ### Blockchain commands
 
 | **Command**            | **Description**                                                                     |
@@ -1372,7 +1489,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | **Command** | **Description**                                                                                                                                      |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | secrets init      | Initializes the private keys to the corresponding secrets manager                                                         |
-| secrets generate         | Generates a secrets manager configuration file which can be parsed by the Polygon SDK    |
+| secrets generate         | Generates a secrets manager configuration file which can be parsed by the Polygon Edge    |
 
 ### secrets init flags
 
@@ -1410,7 +1527,7 @@ Sets the path to the SecretsManager config file. Used for Hashicorp Vault. If om
   </TabItem>
 </Tabs>
 
-Sets the directory for the Polygon SDK data if the local FS is used.
+Sets the directory for the Polygon Edge data if the local FS is used.
 
 ### secrets generate flags
 
@@ -1505,7 +1622,7 @@ Specifies the server URL for the service
   </TabItem>
 </Tabs>
 
-Specifies the name of the node for on-service record keeping. Default: `polygon-sdk-node`
+Specifies the name of the node for on-service record keeping. Default: `polygon-edge-node`
 
 ---
 
@@ -1584,6 +1701,139 @@ message BlockchainEvent {
 </Tabs>
 
 The number of transactions per second to send. Default: `100`.
+
+---
+
+<h4><i>mode</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--mode MODE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --mode transfer
+
+  </TabItem>
+</Tabs>
+
+Sets the loadbot run mode [`transfer`, `deploy`]. Default: `transfer`.
+
+---
+
+<h4><i>chain-id</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--chain-id CHAIN_ID]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --chain-id 100
+
+  </TabItem>
+</Tabs>
+
+Sets the network chain ID for transactions. Default: `100`.
+
+---
+
+<h4><i>gas-price</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gas-price GAS_PRICE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gas-price 10000
+
+  </TabItem>
+</Tabs>
+
+The gas price that should be used for the transactions. If omitted, the average gas price is fetched from the network.
+
+---
+
+<h4><i>gas-limit</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gas-limit GAS_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gas-limit 10000
+
+  </TabItem>
+</Tabs>
+
+The gas limit that should be used for the transactions. If omitted, the gas limit is estimated before starting the loadbot.
+
+---
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot --grpc-address GRPC_ADDRESS
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --grpc-address 127.0.0.1:9645
+
+  </TabItem>
+</Tabs>
+
+The GRPC endpoint used to send transactions
+
+---
+
+<h4><i>detailed</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--detailed DETAILED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --detailed
+
+  </TabItem>
+</Tabs>
+
+Flag indicating if the error logs should be shown. Default: `false`.
+
+---
+
+<h4><i>contract</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--contract CONTRACT_PATH]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --contract ./myContract.json
+
+  </TabItem>
+</Tabs>
+
+The path to the contract JSON artifact containing the bytecode. If omitted, a default contract is used.
 
 ---
 
@@ -1697,7 +1947,7 @@ The value to send in each transaction.
   </TabItem>
 </Tabs>
 
-Sets the maximum no.of connections allowed per host, Default: `2*tps`.
+Sets the maximum no.of connections allowed per host. Default: `2*tps`.
 
 ---
 

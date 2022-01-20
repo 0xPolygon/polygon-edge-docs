@@ -3,7 +3,7 @@ id: deploy-contracts
 title: Deploy Contracts
 ---
 
-In this section, you will deploy required contracts to the Polygon PoS and Polygon SDK chain with `cb-sol-cli`.
+In this section, you will deploy required contracts to the Polygon PoS and Polygon Edge chain with `cb-sol-cli`.
 
 ```bash
 # Setup for cb-sol-cli command
@@ -97,10 +97,10 @@ WETC:               Not Deployed
 ================================================================
 ```
 
-Now we may deploy the contracts to the Polygon SDK chain.
+Now we may deploy the contracts to the Polygon Edge chain.
 
 ```bash
-# Deploy all required contracts into Polygon SDK chain
+# Deploy all required contracts into Polygon Edge chain
 $ cb-sol-cli deploy --all --chainId 100 \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \

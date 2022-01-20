@@ -3,7 +3,7 @@ id: setup-erc20-transfer
 title: ERC20 Token Transfer
 ---
 
-So far, we've set up bridge to exchange assets/data between Polygon PoS and Polygon SDK chain. This section will guide you to set up an ERC20 bridge and send tokens between different blockchains.
+So far, we've set up bridge to exchange assets/data between Polygon PoS and Polygon Edge chain. This section will guide you to set up an ERC20 bridge and send tokens between different blockchains.
 
 ## Step 1: Register resource ID
 
@@ -22,7 +22,7 @@ $ cb-sol-cli bridge register-resource \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
   --targetContract "[ERC20_CONTRACT_ADDRESS]"
 
-# For Polygon SDK chain
+# For Polygon Edge chain
 $ cb-sol-cli bridge register-resource \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -70,7 +70,7 @@ $ cb-sol-cli erc20 add-minter \
 
 ## Step 2: Transfer ERC20 Token
 
-We will send ERC20 Tokens from the Polygon PoS chain to the Polygon SDK chain.
+We will send ERC20 Tokens from the Polygon PoS chain to the Polygon Edge chain.
 
 First, you will get tokens by minting. An account with the `minter` role can mint new tokens. The account that has deployed the ERC20 contract has the `minter` role by default. To specify other accounts as members of the `minter` role, you need to run the `cb-sol-cli erc20 add-minter` command.
 
@@ -108,36 +108,36 @@ $ cb-sol-cli erc20 approve \
   --amount 500
 ```
 
-To transfer tokens to Polygon SDK chains, you will call `deposit`.
+To transfer tokens to Polygon Edge chains, you will call `deposit`.
 
 ```bash
-# Start transfer from Polygon PoS to Polygon SDK chain
+# Start transfer from Polygon PoS to Polygon Edge chain
 $ cb-sol-cli erc20 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
   --amount 10 \
-  # ChainID of Polygon SDK chain
+  # ChainID of Polygon Edge chain
   --dest 100 \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
-  --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_SDK_CHAIN]" \
+  --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_EDGE_CHAIN]" \
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00"
 ```
 
-After the deposit transaction was successful, the relayer will get the event and vote for the proposal. It executes a transaction to send tokens to the recipient account in the Polygon SDK chain after the required number of votes are submitted. 
+After the deposit transaction was successful, the relayer will get the event and vote for the proposal. It executes a transaction to send tokens to the recipient account in the Polygon Edge chain after the required number of votes are submitted. 
 
 ```bash
 INFO[11-19|08:15:58] Handling fungible deposit event          chain=mumbai dest=100 nonce=1
-INFO[11-19|08:15:59] Attempting to resolve message            chain=polygon-sdk type=FungibleTransfer src=99 dst=100 nonce=1 rId=000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00
-INFO[11-19|08:15:59] Creating erc20 proposal                  chain=polygon-sdk src=99 nonce=1
-INFO[11-19|08:15:59] Watching for finalization event          chain=polygon-sdk src=99 nonce=1
-INFO[11-19|08:15:59] Submitted proposal vote                  chain=polygon-sdk tx=0x67a97849951cdf0480e24a95f59adc65ae75da23d00b4ab22e917a2ad2fa940d src=99 depositNonce=1 gasPrice=1
-INFO[11-19|08:16:24] Submitted proposal execution             chain=polygon-sdk tx=0x63615a775a55fcb00676a40e3c9025eeefec94d0c32ee14548891b71f8d1aad1 src=99 dst=100 nonce=1 gasPrice=5
+INFO[11-19|08:15:59] Attempting to resolve message            chain=polygon-edge type=FungibleTransfer src=99 dst=100 nonce=1 rId=000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00
+INFO[11-19|08:15:59] Creating erc20 proposal                  chain=polygon-edge src=99 nonce=1
+INFO[11-19|08:15:59] Watching for finalization event          chain=polygon-edge src=99 nonce=1
+INFO[11-19|08:15:59] Submitted proposal vote                  chain=polygon-edge tx=0x67a97849951cdf0480e24a95f59adc65ae75da23d00b4ab22e917a2ad2fa940d src=99 depositNonce=1 gasPrice=1
+INFO[11-19|08:16:24] Submitted proposal execution             chain=polygon-edge tx=0x63615a775a55fcb00676a40e3c9025eeefec94d0c32ee14548891b71f8d1aad1 src=99 dst=100 nonce=1 gasPrice=5
 ```
 
-Once the execution transaction has been successful, you will get tokens in the Polygon SDK chain.
+Once the execution transaction has been successful, you will get tokens in the Polygon Edge chain.
 
 ```bash
-# Check the ERC20 balance in Polygon SDK chain
+# Check the ERC20 balance in Polygon Edge chain
 $ cb-sol-cli erc20 balance \
   --url https://localhost:10002 \
   --privateKey [PRIVATE_KEY] \
