@@ -5,7 +5,7 @@ title: Query JSON RPC endpoints
 
 ## Overview
 
-The JSON-RPC layer of the Polygon SDK provides developers with the functionality of easily interacting with the blockchain,
+The JSON-RPC layer of the Polygon Edge provides developers with the functionality of easily interacting with the blockchain,
 through HTTP requests.
 
 This example covers using tools like **curl** to query information, as well as starting the chain with a premined account,
@@ -15,7 +15,7 @@ and sending a transaction.
 
 To generate a genesis file, run the following command:
 ````bash
-polygon-sdk genesis --premine 0x1010101010101010101010101010101010101010
+polygon-edge genesis --premine 0x1010101010101010101010101010101010101010
 ````
 
 The **premine** flag sets the address that should be included with a starting balance in the **genesis** file.<br />
@@ -24,17 +24,17 @@ In this case, the address `0x1010101010101010101010101010101010101010` will have
 
 If we wanted to specify a balance, we can separate out the balance and address with a `:`, like so:
 ````bash
-polygon-sdk genesis --premine 0x1010101010101010101010101010101010101010:0x123123
+polygon-edge genesis --premine 0x1010101010101010101010101010101010101010:0x123123
 ````
 
 The balance can be either a `hex` or `uint256` value.
 
-## Step 2: Start the Polygon SDK in dev mode
+## Step 2: Start the Polygon Edge in dev mode
 
-To start the SDK in development mode, which is explained in the [CLI Commands](/docs/get-started/cli-commands) section, 
+To start the Polygon Edge in development mode, which is explained in the [CLI Commands](/docs/get-started/cli-commands) section, 
 run the following: 
 ````bash
-polygon-sdk server --chain genesis.json --dev --log-level debug
+polygon-edge server --chain genesis.json --dev --log-level debug
 ````
 
 ## Step 3: Query the account balance
@@ -58,7 +58,7 @@ The command should return the following output:
 Now that we've confirmed the account we set up as premined has the correct balance, we can transfer some ether:
 
 ````bash
-polygon-sdk txpool add --nonce 0 --from 0x1010101010101010101010101010101010101010 --to 0x0000000000000000000000000000000000000010 --value 0x100
+polygon-edge txpool add --nonce 0 --from 0x1010101010101010101010101010101010101010 --to 0x0000000000000000000000000000000000000010 --value 0x100
 ````
 
 The **txpool add** command adds the transaction to the transaction pool.
