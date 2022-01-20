@@ -14,14 +14,6 @@ the [Local Setup](/docs/get-started/set-up-ibft-locally)
 with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the
 Polygon Edge.
 
-:::warning PoA and PoS chains incompatible 
-A chain that has previously been running in PoA mode, cannot be converted to
-a PoS chain during execution, and vice versa.
-
-The only way to switch consensus mechanisms is to reset the chain and start it in the corresponding mode (PoA or PoS) from
-scratch.
-:::
-
 Currently, there is no limit to the number of validators that can stake funds on the Staking Smart Contract.
 
 ## Staking Smart Contract
