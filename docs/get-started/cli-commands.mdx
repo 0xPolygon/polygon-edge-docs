@@ -1701,6 +1701,84 @@ Sets the maximum no.of connections allowed per host, Default: `2*tps`.
 
 ---
 
+### backup flags
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    backup [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --grpc-address 127.0.0.1:9632
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+---
+
+<h4><i>out</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    backup [--out OUT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --out backup.dat
+
+  </TabItem>
+</Tabs>
+
+Path of archive file to save.
+
+---
+
+<h4><i>from</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    from [--from FROM]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --from 0x0
+
+  </TabItem>
+</Tabs>
+
+The beginning height of blocks in archive. Default: 0.
+
+---
+
+<h4><i>to</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    to [--to TO]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --to 0x2710
+
+  </TabItem>
+</Tabs>
+
+The end height of blocks in archive.
+
+---
+
 ## Genesis Template
 The genesis file should be used to set the initial state of the blockchain (ex. if some accounts should have a starting balance).
 
