@@ -19,7 +19,7 @@ Polygon Edge comes with cross-compiled AMD64/ARM64 binaries for Darwin and Linux
 
 Official Docker images are hosted under the [hub.docker.com registry](https://hub.docker.com/r/0xpolygon/polygon-edge).
 
-`docker pull 0xpolygon/polygon-edge:latest`
+`docker pull 0xpolygon/polygon-sdk:latest`
 
 ---
 
