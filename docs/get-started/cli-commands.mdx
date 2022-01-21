@@ -452,6 +452,27 @@ Sets the client's dev notification interval in seconds. Default: `0`.
 
 Prevents the client from discovering other peers. Default: `false`.
 
+---
+
+<h4><i>restore</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--restore RESTORE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --restore backup.dat
+
+  </TabItem>
+</Tabs>
+
+Restore blocks from the specified archive file
+
+---
+
 ### dev flags
 
 <h4><i>log-level</i></h4>
@@ -653,6 +674,25 @@ Sets minimum gas price limit to enforce for acceptance into the pool. Default: `
 </Tabs>
 
 Sets maximum slots in the pool. Default: `4096`.
+
+---
+
+<h4><i>restore</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--restore RESTORE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --restore backup.dat
+
+  </TabItem>
+</Tabs>
+
+Restore blocks from the specified archive file
 
 ---
 
@@ -1908,6 +1948,84 @@ The value to send in each transaction.
 </Tabs>
 
 Sets the maximum no.of connections allowed per host. Default: `2*tps`.
+
+---
+
+### backup flags
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    backup [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --grpc-address 127.0.0.1:9632
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+---
+
+<h4><i>out</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    backup [--out OUT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --out backup.dat
+
+  </TabItem>
+</Tabs>
+
+Path of archive file to save.
+
+---
+
+<h4><i>from</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    from [--from FROM]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --from 0x0
+
+  </TabItem>
+</Tabs>
+
+The beginning height of blocks in archive. Default: 0.
+
+---
+
+<h4><i>to</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    to [--to TO]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --to 0x2710
+
+  </TabItem>
+</Tabs>
+
+The end height of blocks in archive.
 
 ---
 
