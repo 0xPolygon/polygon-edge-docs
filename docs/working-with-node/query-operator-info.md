@@ -9,7 +9,7 @@ This guide assumes you have followed the [Local Setup](/docs/get-started/set-up-
 
 A functioning node is required in order to query any kind of operator information.
 
-With the Polygon SDK, node operators are in control and informed about what the node they're operating is doing.<br />
+With the Polygon Edge, node operators are in control and informed about what the node they're operating is doing.<br />
 At any time, they can use the node information layer, built on top of gRPC, and get meaningful information - no log sifting required.
 
 :::note
@@ -24,7 +24,7 @@ If your node isn't running on `127.0.0.1:8545` you should add a flag `--grpc-add
 
 To get a complete list of connected peers (including the running node itself), run the following command:
 ````bash
-polygon-sdk peers list
+polygon-edge peers list
 ````
 
 This will return a list of libp2p addresses that are currently peers of the running client.
@@ -33,7 +33,7 @@ This will return a list of libp2p addresses that are currently peers of the runn
 
 For the status of a specific peer, run:
 ````bash
-polygon-sdk peers status --peer-id <address>
+polygon-edge peers status --peer-id <address>
 ````
 With the *address* parameter being the libp2p address of the peer.
 
@@ -41,24 +41,24 @@ With the *address* parameter being the libp2p address of the peer.
 
 Lots of times, an operator might want to know about the state of the operating node in IBFT consensus.
 
-Luckily, the Polygon SDK provides an easy way to find this information.
+Luckily, the Polygon Edge provides an easy way to find this information.
 
 ### Snapshots
 
 Running the following command returns the most recent snapshot.
 ````bash
-polygon-sdk ibft snapshot
+polygon-edge ibft snapshot
 ````
 To query the snapshot at a specific height (block number), the operator can run:
 ````bash
-polygon-sdk ibft snapshot --num <block-number>
+polygon-edge ibft snapshot --num <block-number>
 ````
 
 ### Candidates
 
 To get the latest info on candidates, the operator can run:
 ````bash
-polygon-sdk ibft candidates
+polygon-edge ibft candidates
 ````
 This command queries the current set of proposed candidates, as well as candidates that have not been included yet
 
@@ -66,12 +66,12 @@ This command queries the current set of proposed candidates, as well as candidat
 
 The following command returns the current validator key of the running IBFT client:
 ````bash
-polygon-sdk ibft status
+polygon-edge ibft status
 ````
 
 ## Transaction pool
 
 To find the current number of transactions in the transaction pool, the operator can run:
 ````bash
-polygon-sdk txpool status
+polygon-edge txpool status
 ````
