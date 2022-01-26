@@ -18,7 +18,7 @@ implementation, please reach out to the [Polygon team](mailto:contact@polygon.te
 
 To find out more about Polygon, visit the [official website](https://polygon.technology).
 
-**[Github repository](https://github.com/0xPolygon/polygon-edge)**
+**[GitHub repository](https://github.com/0xPolygon/polygon-edge)**
 
 :::caution
 
