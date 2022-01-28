@@ -3045,19 +3045,19 @@ ajv@^8.0.0, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-algoliasearch-helper@^3.3.4:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-3.7.0.tgz#c0a0493df84d850360f664ad7a9d4fc78a94fd78"
-  integrity sha512-XJ3QfERBLfeVCyTVx80gon7r3/rgm/CE8Ha1H7cbablRe/X7SfYQ14g/eO+MhjVKIQp+gy9oC6G5ilmLwS1k6w==
-  dependencies:
-    "@algolia/events" "^4.0.1"
-
 algoliasearch-helper@^3.5.5:
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-3.6.2.tgz#45e19b12589cfa0c611b573287f65266ea2cc14a"
   integrity sha512-Xx0NOA6k4ySn+R2l3UMSONAaMkyfmrZ3AP1geEMo32MxDJQJesZABZYsldO9fa6FKQxH91afhi4hO1G0Zc2opg==
   dependencies:
     events "^1.1.1"
+
+algoliasearch-helper@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-3.7.0.tgz#c0a0493df84d850360f664ad7a9d4fc78a94fd78"
+  integrity sha512-XJ3QfERBLfeVCyTVx80gon7r3/rgm/CE8Ha1H7cbablRe/X7SfYQ14g/eO+MhjVKIQp+gy9oC6G5ilmLwS1k6w==
+  dependencies:
+    "@algolia/events" "^4.0.1"
 
 algoliasearch@^4.0.0, algoliasearch@^4.10.5:
   version "4.11.0"
@@ -4192,22 +4192,22 @@ dns-txt@^2.0.2:
   dependencies:
     buffer-indexof "^1.0.0"
 
-docusaurus-theme-search-typesense@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/docusaurus-theme-search-typesense/-/docusaurus-theme-search-typesense-0.2.0.tgz#469c815942f40cf12252db80e76ce5b94cedadc9"
-  integrity sha512-ah05gTACQ+Yt450KqyPzrMKecK5/WnxqKQirbTAlFzOGLhfzcZZrb/rE366ENWLIIc1J14GRVzUTheyx2rM8Jw==
+docusaurus-theme-search-typesense@0.3.0-1:
+  version "0.3.0-1"
+  resolved "https://registry.yarnpkg.com/docusaurus-theme-search-typesense/-/docusaurus-theme-search-typesense-0.3.0-1.tgz#cd1b0690aff88150f82f548037756cc49899b396"
+  integrity sha512-bNY8Kd4PBnOWd6IdIjUK763pgSHJK5egMnZsHgJF55uz+dUbxowfz0kaAPeei/YlLdGfU/EZsRuXrHSfE/B0qw==
   dependencies:
     "@docusaurus/core" "2.0.0-beta.14"
     "@docusaurus/theme-common" "2.0.0-beta.14"
     "@docusaurus/utils" "2.0.0-beta.14"
     "@docusaurus/utils-validation" "2.0.0-beta.14"
-    algoliasearch-helper "^3.3.4"
+    algoliasearch-helper "^3.7.0"
     clsx "^1.1.1"
     eta "^1.12.1"
     lodash "^4.17.20"
     typesense "^0.14.0"
-    typesense-docsearch-react "^0.0.1"
-    typesense-instantsearch-adapter "^2.2.0-1"
+    typesense-docsearch-react "^0.1.0"
+    typesense-instantsearch-adapter "^2.2.0"
 
 dom-converter@^0.2.0:
   version "0.2.0"
@@ -8117,19 +8117,18 @@ typescript@^4.2.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
   integrity sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==
 
-typesense-docsearch-react@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/typesense-docsearch-react/-/typesense-docsearch-react-0.0.1.tgz#d7c5eb3a46fd347c972b99c32fa6fd175b5bdcfb"
-  integrity sha512-B8Rm7jkh2Ij3ulBTagdLcyAOq9Ep45RZWP2GI78Wx5o9kRySLLWAl9fnK7mds4vDDQJbLXN+YSSSdj71fbrSYA==
+typesense-docsearch-react@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/typesense-docsearch-react/-/typesense-docsearch-react-0.1.0.tgz#aa39c69349d660ecef021cb6f8a62ac3e16b9478"
+  integrity sha512-NavWvAylFR1k03kZ8M00ZQwB5s52g3iqr2C2IzHLFjqicD4mt5cYxO/eKZJHBcva2FnG1jnjY01mBEn3z6c+eQ==
   dependencies:
     "@algolia/autocomplete-core" "1.2.1"
     "@algolia/autocomplete-preset-algolia" "1.2.1"
     "@docsearch/css" "3.0.0-alpha.39"
-    algoliasearch "^4.0.0"
     typesense "^0.14.0"
     typesense-instantsearch-adapter "^2.0.1"
 
-typesense-instantsearch-adapter@^2.0.1, typesense-instantsearch-adapter@^2.2.0-1:
+typesense-instantsearch-adapter@^2.0.1, typesense-instantsearch-adapter@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/typesense-instantsearch-adapter/-/typesense-instantsearch-adapter-2.2.0.tgz#6d42ba7293490bdf02854f454ed5b7db16d89b2f"
   integrity sha512-VRmE2cnQhNZc/SgunvHCWUa6AtzDh+Li7DiJLAwC+0JT30y31TBr4sHZ1U5SOtk6OwOhWyyZU8JvZhB0GCrNaA==
