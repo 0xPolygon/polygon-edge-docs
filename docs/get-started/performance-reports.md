@@ -70,6 +70,10 @@ and since block gas limit & block time are set to sane values that don't consume
     <div>
         <table>
             <tr>
+                <td>Polygon Edge version</td>
+                <td>Commit <a href="https://github.com/0xPolygon/polygon-edge/commit/8377162281d1a2e4342ae27cd4e5367c4364aee2">8377162281d1a2e4342ae27cd4e5367c4364aee2</a> on develop branch</td>
+            </tr>
+            <tr>
                 <td>Validator nodes</td>
                 <td>30</td>
             </tr>
@@ -87,7 +91,7 @@ and since block gas limit & block time are set to sane values that don't consume
             </tr>
             <tr>
                 <td>Block gas limit</td>
-                <td>???</td>
+                <td>5242880</td>
             </tr>
         </table>
     </div>
