@@ -12,10 +12,6 @@ Polygon Edge also supports communication with multiple blockchain networks, enab
 
 Industry standard wallets can be used to interact with Polygon Edge through the [JSON-RPC](/docs/working-with-node/query-json-rpc) endpoints and node operators can perform various actions on the nodes through the [gRPC](/docs/working-with-node/query-operator-info) protocol.
 
-This is the first implementation of Polygon Edge, written in **Golang**. Other implementations, written in other
-programming languages might be introduced in the future. If you would like to contribute to this or any future
-implementation, please reach out to the [Polygon team](mailto:contact@polygon.technology).
-
 To find out more about Polygon, visit the [official website](https://polygon.technology).
 
 **[GitHub repository](https://github.com/0xPolygon/polygon-edge)**
