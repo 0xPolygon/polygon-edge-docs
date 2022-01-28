@@ -87,7 +87,7 @@ and since block gas limit & block time are set to sane values that don't consume
             </tr>
             <tr>
                 <td>Block time</td>
-                <td>20000ms</td>
+                <td>2000ms</td>
             </tr>
             <tr>
                 <td>Block gas limit</td>
