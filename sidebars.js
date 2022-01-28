@@ -10,6 +10,7 @@ module.exports = {
                 'get-started/set-up-ibft-on-the-cloud',
                 'get-started/cli-commands',
                 'get-started/json-rpc-commands',
+                'get-started/performance-reports',
             ]
         },
         {
