@@ -35,12 +35,12 @@ Please complete this section if any breaking changes have been made, otherwise d
 
 ### Testing
 
-- [ ] I ran the official test suite
-- [ ] I ran custom tests
+- [ ] I have tested this code with the official test suite
+- [ ] I have tested this code manually
 
-## Custom tests
+## Manual tests
 
-Please complete this section if you ran custom tests for this functionality, otherwise delete it
+Please complete this section if you ran manual tests for this functionality, otherwise delete it
 
 ### Documentation update
 
