@@ -494,6 +494,26 @@ Set block production time in seconds. Default: `2`
 
 ---
 
+<h4><i>access-control-allow-origins</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--access-control-allow-origins ACCESS_CONTROL_ALLOW_ORIGINS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --access-control-allow-origins "*"
+
+  </TabItem>
+</Tabs>
+
+Sets the authorized domains able to share responses from JSON-RPC requests.
+
+---
+
+
 ### dev flags
 
 <h4><i>log-level</i></h4>
