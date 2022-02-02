@@ -7,7 +7,7 @@ title: Protocol
 
 The **Protocol** module contains the logic for the synchronization protocol.
 
-The Polygon SDK uses **libp2p** as the networking layer, and on top of that runs **gRPC**.
+The Polygon Edge uses **libp2p** as the networking layer, and on top of that runs **gRPC**.
 
 ## GRPC for Other Nodes
 

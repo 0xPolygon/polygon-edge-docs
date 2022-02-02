@@ -5,20 +5,20 @@ title: Set up and use Proof of Stake (PoS)
 
 ## Overview
 
-This guide goes into detail on how to set up a Proof of Stake network with the Polygon SDK, how to stake funds for nodes
+This guide goes into detail on how to set up a Proof of Stake network with the Polygon Edge, how to stake funds for nodes
 to become validators and how to unstake funds.
 
 It **highly encouraged** to read and go through
-the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
-/ [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections, before going along
+the [Local Setup](/docs/get-started/set-up-ibft-locally)
+/ [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) sections, before going along
 with this PoS guide. These sections outline the steps needed to start a Proof of Authority (PoA) cluster with the
-Polygon SDK.
+Polygon Edge.
 
 :::warning PoA and PoS chains incompatible 
 A chain that has previously been running in PoA mode, cannot be converted to
 a PoS chain during execution, and vice versa.
 
-The only way to switch IBFT mechanisms is to reset the chain and start it in the corresponding mode (PoA or PoS) from
+The only way to switch consensus mechanisms is to reset the chain and start it in the corresponding mode (PoA or PoS) from
 scratch.
 :::
 
@@ -32,16 +32,16 @@ It holds the necessary testing scripts, ABI files and most importantly the Staki
 
 ## Setting up an N node cluster
 
-Setting up a cluster with the Polygon SDK is covered in
-the [setup IBFT locally](/docs/get-started/set-up-ibft-locally)
-/ [setup IBFT on the cloud](/docs/get-started/set-up-ibft-on-the-cloud) sections.
+Setting up a network with the Polygon Edge is covered in
+the [Local Setup](/docs/get-started/set-up-ibft-locally)
+/ [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) sections.
 
 The **only difference** between setting up a PoS and PoA cluster is in the genesis generation part.
 
 **When generating the genesis file for a PoS cluster, an additional flag is needed `--pos`**:
 
 ```bash
-polygon-sdk genesis --pos ...
+polygon-edge genesis --pos ...
 ```
 
 ## Setting the length of an epoch
@@ -52,7 +52,7 @@ To set the size of an epoch for a cluster (in blocks), when generating the genes
 specified `--epoch-size`:
 
 ```bash
-polygon-sdk genesis --epoch-size 50
+polygon-edge genesis --epoch-size 50
 ```
 
 This value specified in the genesis file that the epoch size should be `50` blocks.
@@ -89,14 +89,14 @@ the [Staking Smart Contract repo](https://github.com/0xPolygon/staking-contracts
 Create an `.env` file with the following parameters in the Smart Contracts repo location:
 
 ```bash
-POLYGON_SDK_JSONRPC_URL=http://localhost:10002
+JSONRPC_URL=http://localhost:10002
 PRIVATE_KEYS=0x0454f3ec51e7d6971fc345998bb2ba483a8d9d30d46ad890434e6f88ecb97544
 STAKING_CONTRACT_ADDRESS=0x0000000000000000000000000000000000001001
 ```
 
 Where the parameters are:
 
-* **POLYGON_SDK_JSONRPC_URL** - the JSON-RPC endpoint for the running node
+* **JSONRPC_URL** - the JSON-RPC endpoint for the running node
 * **PRIVATE_KEYS** - private keys of the staker address
 * **STAKING_CONTRACT_ADDRESS** - the address of the staking smart contract (
   default `0x0000000000000000000000000000000000001001`)

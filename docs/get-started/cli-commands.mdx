@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This section details the present commands, command flags in the Polygon SDK, and how they're used.
+This section details the present commands, command flags in the Polygon Edge, and how they're used.
 
 :::tip JSON output support
 
@@ -58,7 +58,7 @@ Sets the flag indicating that the client should seal blocks. Default: `false`.
   </TabItem>
 </Tabs>
 
-Used to specify the data directory used for storing Polygon SDK client data. Default: ``./test-chain`.
+Used to specify the data directory used for storing Polygon Edge client data. Default: ``./test-chain`.
 
 ---
 
@@ -170,12 +170,56 @@ A more detailed explanation on the block gas target can be found in the [TxPool 
   </TabItem>
   <TabItem value="example" label="Example">
 
-    server --max-peers 50
+    server --max-peers 40
 
   </TabItem>
 </Tabs>
 
-Sets the client's max peer count. Default: `20`.
+Sets the client's maximum peer count. Default: `40`.
+
+Peer limit should be specified either by using `max-peers` or `max-inbound/outbound-peers` flag.
+
+---
+
+<h4><i>max-inbound-peers</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--max-inbound-peers PEER_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --max-inbound-peers 32
+
+  </TabItem>
+</Tabs>
+
+Sets the client's maximum inbound peer count. If `max-peers` is set, max-inbound-peer limit is calculated using the following formulae.
+
+`max-inbound-peer = InboundRatio * max-peers`, where `InboundRatio` is `0.8`.
+
+---
+
+<h4><i>max-outbound-peers</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--max-outbound-peers PEER_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --max-outbound-peers 8
+
+  </TabItem>
+</Tabs>
+
+Sets the client's maximum outbound peer count. If `max-peers` is set, max-outbound-peer count is calculated using the following formulae.
+
+`max-outbound-peer = OutboundRatio * max-peers`, where `OutboundRatio` is `0.2`.
 
 ---
 
@@ -271,48 +315,6 @@ Sets the external IP address without the port, as it can be seen by peers.
 </Tabs>
 
 Sets the host DNS address. This can be used to advertise an external DNS. Supports `dns`,`dns4`,`dns6`.
-
----
-
-<h4>
-  <i>locals</i>
-</h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    server [--locals LOCALS]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    server --locals 0xC12bB5d97A35c6919aC77C709d55F6aa60436900 
-
-  </TabItem>
-</Tabs>
-
-Sets comma-separated accounts whose transactions are treated as locals
-
----
-
-<h4>
-  <i>nolocals</i>
-</h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    server [--nolocals]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    server --nolocals 
-
-  </TabItem>
-</Tabs>
-
-Sets flag to disable price exemptions for locally submitted transactions
 
 ---
 
@@ -454,35 +456,43 @@ Prevents the client from discovering other peers. Default: `false`.
 
 ---
 
-<h4><i>handler-config</i></h4>
+<h4><i>restore</i></h4>
 
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
 
-    server [--handler-config HANDLER_CONFIG]
+    server [--restore RESTORE]
 
   </TabItem>
   <TabItem value="example" label="Example">
 
-    server --handler-config config.json
+    server --restore backup.dat
 
   </TabItem>
 </Tabs>
 
-Can be provided to configure the JSON-RPC and WS server handler.
-The configurable field is `allowed_origins`.
+Restore blocks from the specified archive file
 
-Here is an example of a valid configuration file which allow all origins to perform a request :
+---
 
-```json
-// config.json
+<h4><i>block-time</i></h4>
 
-{
-  "allowed_origins": [
-    "*"
-  ]
-}
-```
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--block-time BLOCK_TIME]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --block-time 1000
+
+  </TabItem>
+</Tabs>
+
+Set block production time in seconds. Default: `2`
+
+---
 
 ### dev flags
 
@@ -605,48 +615,6 @@ Sets the ID of the chain. Default: `100`.
 ---
 
 <h4>
-  <i>locals</i>
-</h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    dev [--locals LOCALS]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    dev --locals 0xC12bB5d97A35c6919aC77C709d55F6aa60436900 
-
-  </TabItem>
-</Tabs>
-
-Sets comma separated accounts whose transactions are treated as locals
-
----
-
-<h4>
-  <i>nolocals</i>
-</h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    dev [--nolocals]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    dev --nolocals 
-
-  </TabItem>
-</Tabs>
-
-Sets flag to disable price exemptions for locally submitted transactions
-
----
-
-<h4>
   <i>price-limit</i>
 </h4>
 
@@ -688,6 +656,25 @@ Sets maximum slots in the pool. Default: `4096`.
 
 ---
 
+<h4><i>restore</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--restore RESTORE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --restore backup.dat
+
+  </TabItem>
+</Tabs>
+
+Restore blocks from the specified archive file
+
+---
+
 ### genesis flags
 
 <h4><i>dir</i></h4>
@@ -705,7 +692,7 @@ Sets maximum slots in the pool. Default: `4096`.
   </TabItem>
 </Tabs>
 
-Sets the directory for the Polygon SDK genesis data. Default: `./genesis.json`.
+Sets the directory for the Polygon Edge genesis data. Default: `./genesis.json`.
 
 ---
 
@@ -1154,10 +1141,11 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 ### Transaction Pool Commands
 
-| **Command**            | **Description**                                                                     |
-|------------------------|-------------------------------------------------------------------------------------|
-| txpool add    | Adds a transaction to the transaction pool, using different flags                               |
-| txpool status             | Returns the number of transactions in the pool                    
+| **Command**            | **Description**                                                                      |
+|------------------------|--------------------------------------------------------------------------------------|
+| txpool add             | Adds a transaction to the transaction pool, using different flags                    |
+| txpool status          | Returns the number of transactions in the pool                                       |
+| txpool subscribe       | Subscribes for events in the transaction pool                                        |
 
 <h3>txpool add flags</h3>
 
@@ -1311,6 +1299,122 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
+<h3>txpool subscribe flags</h3>
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --grpc-address 127.0.0.1:10003
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+---
+
+<h4><i>promoted</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--promoted LISTEN_PROMOTED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --promoted
+
+  </TabItem>
+</Tabs>
+
+Subscribes for promoted tx events in the TxPool.
+
+---
+
+<h4><i>dropped</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--dropped LISTEN_DROPPED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --dropped
+
+  </TabItem>
+</Tabs>
+
+Subscribes for dropped tx events in the TxPool.
+
+---
+
+<h4><i>demoted</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--demoted LISTEN_DEMOTED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --demoted
+
+  </TabItem>
+</Tabs>
+
+Subscribes for demoted tx events in the TxPool.
+
+---
+
+<h4><i>added</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--added LISTEN_ADDED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --added
+
+  </TabItem>
+</Tabs>
+
+Subscribes for added tx events to the TxPool.
+
+---
+
+<h4><i>enqueued</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    txpool subscribe [--enqueued LISTEN_ENQUEUED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    txpool subscribe --enqueued
+
+  </TabItem>
+</Tabs>
+
+Subscribes for enqueued tx events in the account queues.
+
+---
+
 ### Blockchain commands
 
 | **Command**            | **Description**                                                                     |
@@ -1364,7 +1468,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | **Command** | **Description**                                                                                                                                      |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | secrets init      | Initializes the private keys to the corresponding secrets manager                                                         |
-| secrets generate         | Generates a secrets manager configuration file which can be parsed by the Polygon SDK    |
+| secrets generate         | Generates a secrets manager configuration file which can be parsed by the Polygon Edge    |
 
 ### secrets init flags
 
@@ -1402,7 +1506,7 @@ Sets the path to the SecretsManager config file. Used for Hashicorp Vault. If om
   </TabItem>
 </Tabs>
 
-Sets the directory for the Polygon SDK data if the local FS is used.
+Sets the directory for the Polygon Edge data if the local FS is used.
 
 ### secrets generate flags
 
@@ -1497,7 +1601,7 @@ Specifies the server URL for the service
   </TabItem>
 </Tabs>
 
-Specifies the name of the node for on-service record keeping. Default: `polygon-sdk-node`
+Specifies the name of the node for on-service record keeping. Default: `polygon-edge-node`
 
 ---
 
@@ -1576,6 +1680,139 @@ message BlockchainEvent {
 </Tabs>
 
 The number of transactions per second to send. Default: `100`.
+
+---
+
+<h4><i>mode</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--mode MODE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --mode transfer
+
+  </TabItem>
+</Tabs>
+
+Sets the loadbot run mode [`transfer`, `deploy`]. Default: `transfer`.
+
+---
+
+<h4><i>chain-id</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--chain-id CHAIN_ID]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --chain-id 100
+
+  </TabItem>
+</Tabs>
+
+Sets the network chain ID for transactions. Default: `100`.
+
+---
+
+<h4><i>gas-price</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gas-price GAS_PRICE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gas-price 10000
+
+  </TabItem>
+</Tabs>
+
+The gas price that should be used for the transactions. If omitted, the average gas price is fetched from the network.
+
+---
+
+<h4><i>gas-limit</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--gas-limit GAS_LIMIT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --gas-limit 10000
+
+  </TabItem>
+</Tabs>
+
+The gas limit that should be used for the transactions. If omitted, the gas limit is estimated before starting the loadbot.
+
+---
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot --grpc-address GRPC_ADDRESS
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --grpc-address 127.0.0.1:9645
+
+  </TabItem>
+</Tabs>
+
+The GRPC endpoint used to send transactions
+
+---
+
+<h4><i>detailed</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--detailed DETAILED]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --detailed
+
+  </TabItem>
+</Tabs>
+
+Flag indicating if the error logs should be shown. Default: `false`.
+
+---
+
+<h4><i>contract</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    loadbot [--contract CONTRACT_PATH]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    loadbot --contract ./myContract.json
+
+  </TabItem>
+</Tabs>
+
+The path to the contract JSON artifact containing the bytecode. If omitted, a default contract is used.
 
 ---
 
@@ -1689,7 +1926,85 @@ The value to send in each transaction.
   </TabItem>
 </Tabs>
 
-Sets the maximum no.of connections allowed per host, Default: `2*tps`.
+Sets the maximum no.of connections allowed per host. Default: `2*tps`.
+
+---
+
+### backup flags
+
+<h4><i>grpc-address</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    backup [--grpc-address GRPC_ADDRESS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --grpc-address 127.0.0.1:9632
+
+  </TabItem>
+</Tabs>
+
+Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+---
+
+<h4><i>out</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    backup [--out OUT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --out backup.dat
+
+  </TabItem>
+</Tabs>
+
+Path of archive file to save.
+
+---
+
+<h4><i>from</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    from [--from FROM]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --from 0x0
+
+  </TabItem>
+</Tabs>
+
+The beginning height of blocks in archive. Default: 0.
+
+---
+
+<h4><i>to</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    to [--to TO]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    backup --to 0x2710
+
+  </TabItem>
+</Tabs>
+
+The end height of blocks in archive.
 
 ---
 

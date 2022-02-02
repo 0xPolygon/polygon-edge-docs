@@ -5,9 +5,12 @@ module.exports = {
             type: 'category',
             label: 'Get started',
             items: [
+                'get-started/installation',
                 'get-started/set-up-ibft-locally',
                 'get-started/set-up-ibft-on-the-cloud',
                 'get-started/cli-commands',
+                'get-started/json-rpc-commands',
+                'get-started/performance-reports',
             ]
         },
         {

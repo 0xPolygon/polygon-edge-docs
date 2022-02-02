@@ -33,7 +33,7 @@ Next, You need to create `config.json` and set JSON-RPC URLs, relayer address, a
       }
     },
     {
-      "name": "polygon-sdk",
+      "name": "polygon-edge",
       "type": "ethereum",
       "id": "100",
       "endpoint": "http://localhost:10002",
@@ -75,7 +75,7 @@ Enter password for key ./keys/<RELAYER_ACCOUNT_ADDRESS>.key:
 INFO[11-19|07:15:25] Connecting to ethereum chain...          chain=mumbai url=<JSON_RPC_URL>
 Enter password for key ./keys/<RELAYER_ACCOUNT_ADDRESS>.key:
 > [PASSWORD_TO_DECRYPT_KEY]
-INFO[11-19|07:15:31] Connecting to ethereum chain...          chain=polygon-sdk url=<JSON_RPC_URL>
+INFO[11-19|07:15:31] Connecting to ethereum chain...          chain=polygon-edge url=<JSON_RPC_URL>
 ```
 
 Once relayer has begun, it will start to watch new blocks in each chain.

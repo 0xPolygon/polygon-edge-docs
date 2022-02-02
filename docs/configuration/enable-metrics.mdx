@@ -5,7 +5,7 @@ title: Enable Prometheus metrics
 
 ## Overview
 
-Polygon-SDK can report and serve the Prometheus metrics, which in their turn can be consumed using Prometheus collector(s).
+Polygon Edge can report and serve the Prometheus metrics, which in their turn can be consumed using Prometheus collector(s).
 
 Prometheus metrics are disabled by default. It can be enabled by specifying the listener address using `--prometheus` flag or `Telemetry.prometheus` field in the config file. 
 Metrics will be served under `/metrics` on the specified address.
@@ -20,4 +20,5 @@ The following metrics are available:
 | consensus_validators            | Gauge         | Number of Validators                            |
 | consensus_rounds                | Gauge         | Number of Rounds                                |
 | consensus_num_txs               | Gauge         | Number of Transactions in the latest block      |
-| consensus_block_interval        | Histogram     | Time between this and last block in seconds     |
+| consensus_block_interval        | Gauge         | Time between this and last block in seconds     |
+| network_peers                   | Gauge         | Number of Connected peers                       |
