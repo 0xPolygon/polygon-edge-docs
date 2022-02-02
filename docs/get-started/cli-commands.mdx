@@ -888,6 +888,26 @@ Sets consensus protocol. Default: `pow`.
 Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 Instead of an IP address, the DNS address of the bootnode can be provided.
 
+---
+
+<h4><i>max-validator-count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+        genesis [--max-validator-count MAX_VALIDATOR_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+        genesis --max-validator-count 42
+
+  </TabItem>
+</Tabs>
+
+The maximum number of stakers able to join the validator set in a PoS consensus.
+This number cannot exceed the value of MAX_UINT_32.
+
 
 ---
 
