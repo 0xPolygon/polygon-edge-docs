@@ -140,6 +140,7 @@ since block gas limit & block time are set to sane values that don't consume muc
 
 | Metric | Value |
 | ------ | ----- |
+| Transaction type | ERC20 |
 | Transactions per second | 65 |
 | Transactions failed | 0 |
 | Transactions succeeded | 5000 |
@@ -248,7 +249,6 @@ since block gas limit & block time are set to sane values that don't consume muc
 <details>
     <summary>Loadbot log</summary>
     
-    ````bash
     =====[LOADBOT RUN]=====
 
     [COUNT DATA]
@@ -307,7 +307,7 @@ since block gas limit & block time are set to sane values that don't consume muc
     Block #557817 = 16 txns (474800 gasUsed / 5242880 gasLimit) utilization   = 9%
 
     Average utilization across all blocks: 95%
-    ````
+
 </details>
 
 
@@ -328,6 +328,7 @@ since block gas limit & block time are set to sane values that don't consume muc
 
 | Metric | Value |
 | ------ | ----- |
+| Transaction type | ERC721 |
 | Transactions per second | 20 |
 | Transactions failed | 0 |
 | Transactions succeeded | 2000 |
@@ -435,8 +436,7 @@ since block gas limit & block time are set to sane values that don't consume muc
 
 <details>
     <summary>Loadbot log</summary>
-    
-        ````bash
+
         =====[LOADBOT RUN]=====
 
         [COUNT DATA]
@@ -512,5 +512,5 @@ since block gas limit & block time are set to sane values that don't consume muc
         Block #559002 = 8 txns (929568 gasUsed / 5242880 gasLimit) utilization   = 17%
 
         Average utilization across all blocks: 94%
-        ````
+        
 </details>
