@@ -234,7 +234,7 @@ since block gas limit & block time are set to sane values that don't consume muc
             </tr>
             <tr>
                 <td>Transactions sent per second</td>
-                <td>65</td>
+                <td>200</td>
             </tr>
             <tr>
                 <td>Type of transactions</td>
@@ -249,8 +249,6 @@ since block gas limit & block time are set to sane values that don't consume muc
 <details>
     <summary>Loadbot log</summary>
     
-    =====[LOADBOT RUN]=====
-
     [COUNT DATA]
     Transactions submitted = 5000
     Transactions failed    = 0
@@ -422,7 +420,7 @@ since block gas limit & block time are set to sane values that don't consume muc
             </tr>
             <tr>
                 <td>Transactions sent per second</td>
-                <td>20</td>
+                <td>200</td>
             </tr>
             <tr>
                 <td>Type of transactions</td>
@@ -436,8 +434,6 @@ since block gas limit & block time are set to sane values that don't consume muc
 
 <details>
     <summary>Loadbot log</summary>
-
-        =====[LOADBOT RUN]=====
 
         [COUNT DATA]
         Transactions submitted = 2000
