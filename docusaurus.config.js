@@ -3,7 +3,7 @@ require('dotenv').config()
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: 'Polygon Edge',
-    url: 'https://elegant-nightingale-894b88.netlify.app',
+    url: 'https://edge-docs.polygon.technology',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
