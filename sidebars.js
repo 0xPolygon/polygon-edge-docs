@@ -37,7 +37,8 @@ module.exports = {
             items: [
                 'consensus/poa',
                 'consensus/pos-concepts',
-                'consensus/pos-stake-unstake'
+                'consensus/pos-stake-unstake',
+                'consensus/migration-to-pos'
             ]
         },
         {

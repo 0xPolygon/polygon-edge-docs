@@ -87,12 +87,12 @@ Sets the address and port for the JSON-RPC service `address:port`. Default addre
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
 
-    server [--grpc GRPC_ADDRESS]
+    server [--grpc-address GRPC_ADDRESS]
 
   </TabItem>
   <TabItem value="example" label="Example">
 
-    server --grpc 127.0.0.1:10001
+    server --grpc-address 127.0.0.1:10001
 
   </TabItem>
 </Tabs>
@@ -509,7 +509,7 @@ Restore blocks from the specified archive file
   </TabItem>
 </Tabs>
 
-Set block production time in miliseconds. Default: `2000`
+Set block production time in seconds. Default: `2`
 
 ---
 
@@ -799,12 +799,12 @@ Default premined balance: `0x3635C9ADC5DEA00000`.
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
 
-    genesis [--chainid CHAIN_ID]
+    genesis [--chain-id CHAIN_ID]
 
   </TabItem>
   <TabItem value="example" label="Example">
 
-    genesis --chainid 200
+    genesis --chain-id 200
 
   </TabItem>
 </Tabs>
@@ -1022,7 +1022,8 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 | ibft snapshot             | Returns the IBFT snapshot                    |
 | ibft candidates  | Queries the current set of proposed candidates, as well as candidates that have not been included yet |
 | ibft propose                | Proposes a new candidate to be added/removed from the validator set        |
-| ibft status                | Returns the overall status of the IBFT client   
+| ibft status                | Returns the overall status of the IBFT client   |
+| ibft switch                | Add fork configurations into genesis.json file to switch IBFT type |
 
 
 <h3>ibft snapshot flags</h3>
@@ -1157,6 +1158,76 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 </Tabs>
 
 Address of the gRPC API. Default: `127.0.0.1:9632`.
+
+<h3>ibft switch flags</h3>
+
+<h4><i>chain</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--chain GENESIS_FILE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft switch --chain genesis.json
+
+  </TabItem>
+</Tabs>
+
+Specifies the genesis file to update. Default: `test`.
+
+<h4><i>type</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--type TYPE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft switch --type PoS
+
+  </TabItem>
+</Tabs>
+
+Specifies the IBFT type to switch. Possible values: `[PoA, PoS]`.
+
+<h4><i>deployment</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--deployment DEPLOYMENT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft switch --deployment 100
+
+  </TabItem>
+</Tabs>
+
+Specifies the height of contract deployment. Only available with PoS.
+
+<h4><i>from</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--from FROM]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft switch --from 200
+
+  </TabItem>
+</Tabs>
+
+Specifies the beginning height of the fork.
 
 ### Transaction Pool Commands
 
