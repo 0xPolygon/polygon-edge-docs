@@ -39,7 +39,7 @@ The `--json` flag is supported on some commands. This flag instructs the command
   </TabItem>
 </Tabs>
 
-Sets the flag indicating that the client should seal blocks. Default: `false`.
+Sets the flag indicating that the client should seal blocks. Default: `true`.
 
 ---
 
@@ -58,7 +58,7 @@ Sets the flag indicating that the client should seal blocks. Default: `false`.
   </TabItem>
 </Tabs>
 
-Used to specify the data directory used for storing Polygon Edge client data. Default: ``./test-chain`.
+Used to specify the data directory used for storing Polygon Edge client data. Default: `./test-chain`.
 
 ---
 
@@ -78,7 +78,10 @@ Used to specify the data directory used for storing Polygon Edge client data. De
   </TabItem>
 </Tabs>
 
-Sets the address and port for the JSON-RPC service `address:port`. Default address: `0.0.0.0:8545`.
+Sets the address and port for the JSON-RPC service `address:port`.   
+If only port is defined `:10001` it will bind to all interfaces `0.0.0.0:10001`.   
+If omitted the service will bind to the default `address:port`.   
+Default address: `0.0.0.0:8545`.
 
 ---
 
@@ -135,7 +138,9 @@ Sets the address and port for the libp2p service `address:port`. Default address
   </TabItem>
 </Tabs>
 
-Sets the address and port for the prometheus server `address:port`.
+Sets the address and port for the prometheus server `address:port`.   
+If only port is defined `:5001` the service will bind to all interfaces `0.0.0.0:5001`.   
+If omitted the service will not be started.
 
 ---
 
@@ -154,7 +159,7 @@ Sets the address and port for the prometheus server `address:port`.
   </TabItem>
 </Tabs>
 
-Sets the target block gas limit for the chain. Default: `8000000`.
+Sets the target block gas limit for the chain. Default (not enforced): `0`.
 
 A more detailed explanation on the block gas target can be found in the [TxPool section](/docs/architecture/modules/txpool#block-gas-target).
 
@@ -252,12 +257,12 @@ Sets the log level for console output. Default: `INFO`.
   </TabItem>
   <TabItem value="example" label="Example">
 
-    server --chain genesis.json
+    server --chain /home/ubuntu/genesis.json
 
   </TabItem>
 </Tabs>
 
-Specifies the genesis file used for starting the chain. Default: `test`.
+Specifies the genesis file used for starting the chain. Default: `./genesis.json`.
 
 ---
 
@@ -494,6 +499,45 @@ Set block production time in seconds. Default: `2`
 
 ---
 
+<h4><i>restore</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--restore RESTORE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --restore backup.dat
+
+  </TabItem>
+</Tabs>
+
+Restore blocks from the specified archive file
+
+---
+
+<h4><i>access-control-allow-origins</i></h4>
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--access-control-allow-origins ACCESS_CONTROL_ALLOW_ORIGINS]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --access-control-allow-origins "https://edge-docs.polygon.technology"
+
+  </TabItem>
+</Tabs>
+
+Sets the authorized domains to be able to share responses from JSON-RPC requests.   
+Add multiple flags `--access-control-allow-origins "https://example1.com" --access-control-allow-origins "https://example2.com"` to authorize multiple domains.   
+If omitted Access-Control-Allow-Origins header will be set to `*` and all domains will be authorized.
+
+---
+
 ### dev flags
 
 <h4><i>log-level</i></h4>
@@ -511,7 +555,9 @@ Set block production time in seconds. Default: `2`
   </TabItem>
 </Tabs>
 
-Sets the log level for console output. Default: `INFO`.
+Sets the log level for console output.     
+Available options: `TRACE, DEBUG, INFO, WARN, ERROR, OFF`.        
+Default: `INFO`.
 
 ---
 
@@ -530,30 +576,9 @@ Sets the log level for console output. Default: `INFO`.
   </TabItem>
 </Tabs>
 
-Sets the premined accounts and balances in the format `address:amount`.
-The amount can be in either decimal or hex.
+Sets the premined accounts and balances in the format `address:amount` in WEI.     
+The amount can be in either decimal or hex.     
 Default premined balance: `0x3635C9ADC5DEA00000`.
-
----
-
-<h4><i>block-gas-target</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    server [--block-gas-target BLOCK_GAS_TARGET]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    server --block-gas-target 10000000
-
-  </TabItem>
-</Tabs>
-
-Sets the target block gas limit for the chain. Default: `8000000`.
-
-A more detailed explanation on the block gas target can be found in the [TxPool section](/docs/architecture/modules/txpool#block-gas-target).
 
 ---
 
@@ -654,26 +679,6 @@ Sets minimum gas price limit to enforce for acceptance into the pool. Default: `
 
 Sets maximum slots in the pool. Default: `4096`.
 
----
-
-<h4><i>restore</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    server [--restore RESTORE]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    server --restore backup.dat
-
-  </TabItem>
-</Tabs>
-
-Restore blocks from the specified archive file
-
----
 
 ### genesis flags
 
@@ -711,7 +716,7 @@ Sets the directory for the Polygon Edge genesis data. Default: `./genesis.json`.
   </TabItem>
 </Tabs>
 
-Sets the name for the chain. Default: `example`.
+Sets the name for the chain. Default: `polyton-edge`.
 
 ---
 
