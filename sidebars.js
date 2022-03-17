@@ -11,6 +11,7 @@ module.exports = {
                 'get-started/cli-commands',
                 'get-started/json-rpc-commands',
                 'get-started/performance-reports',
+                'get-started/set-up-blockscout',
             ]
         },
         {
