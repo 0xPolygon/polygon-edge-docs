@@ -1,5 +1,5 @@
 ---
-id: howto-deploy-blockscout 
+id: set-up-blockscout 
 title: How to set up and run Blockscout with Polygon-Edge
 ---
 
