@@ -1,6 +1,6 @@
 ---
 id: set-up-blockscout 
-title: How to set up and run Blockscout with Polygon-Edge
+title: Set up and run Blockscout
 ---
 
 ## Overview
@@ -16,13 +16,14 @@ This guide will try to simplify the deployment process and provide you with the 
 ### DB Server
 The requirement for following this guide is to have a database server ready, database and db user configured.
 This guide will not go into details on how to deploy and configure PosgreSQL server.
-There are plenty of guides on now to do this, but if you'd like you can use this [DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
+There are plenty of guides on now to do this, for example [DigitalOcean Guide](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
 
 :::info DISCLAMER
-This guide is meant only to help you to get Blockscout up and running. 
+This guide is meant only to help you to get Blockscout up and running on a single instance which is not ideal production setup.   
+For production, you'll probably want to introduce reverse proxy, load balancer, scalability options, etc. into the architecture.
 :::
 
-# Blockscout Compilation Procedure
+# Blockscout Deployment Procedure
 
 ## Part 1 - install dependancies
 Before we start we need to make sure we have all the binaries installed that the blockscout is dependent on.
@@ -91,7 +92,7 @@ sudo apt -y postgresql-client
 ```
 
 ## Part 2 - set environment variables
-We need to set the environment variables, before begin with Blockscout compilation.
+We need to set the environment variables, before we begin with Blockscout compilation.
 In this guide we'll set only the basic minimum to get it working.
 Full list of variables that can be set you can find [here](https://docs.blockscout.com/for-developers/information-and-settings/env-variables)
 
@@ -148,10 +149,10 @@ Enter name of role to add: blockscout
 Shall the new role be a superuser? (y/n) y
 ```
 
-## Part 3 - clone and compile blockscout
-Now we finaly get to start the blockscout installation.
+## Part 3 - clone and compile Blockscout
+Now we finaly get to start the Blockscout installation.
 
-### Clone blockscout repo
+### Clone Blockscout repo
 ```bash
 cd ~
 git clone https://github.com/poanetwork/blockscout.git
@@ -168,7 +169,7 @@ mix do deps.get, local.rebar --force, deps.compile, compile
 
 ### Migrate databases
 :::info 
-This part will fail if you didn't setup your DB connection properly or you didn't provide / wrong parameters DATABASE_URL env var.
+This part will fail if you didn't setup your DB connection properly or you didn't provide or you've defined wrong parameters DATABASE_URL env var.
 The database user needs to have superuser privileges.
 :::
 ```bash
@@ -191,7 +192,7 @@ sudo node_modules/webpack/bin/webpack.js --mode production
 ```
 
 ### Build static assets
-For this step you need to return to the root of your blockscout clone folder.
+For this step you need to return to the root of your Blockscout clone folder.
 ```bash
 cd ~/blockscout
 sudo mix phx.digest
@@ -203,8 +204,8 @@ cd apps/block_scout_web
 mix phx.gen.cert blockscout blockscout.local
 ```
 
-## Part 4 - create and run blockscout service
-In this part we need to setup a system service as we want blockscout to run in the backround and persist after system reboot.
+## Part 4 - create and run Blockscout service
+In this part we need to setup a system service as we want Blockscout to run in the backround and persist after system reboot.
 
 ### Create service file
 ```bash
@@ -244,13 +245,13 @@ sudo systemctl daemon-reload
 sudo systemctl enable explorer.service
 ```
 
-### Move your blockscout clone folder to system wide location
+### Move your Blockscout clone folder to system wide location
 Blockscout service needs to have access to the folder you've cloned from Blockscout repo and compiled all the assets.
 ```bash
 sudo mv ~/blockscout /usr/local
 ```
 
-### Create env vars file which will be used by blockscout service
+### Create env vars file which will be used by Blockscout service
 :::info
 Use the same environment variables as you've set in Part 2.
 :::
@@ -261,7 +262,6 @@ sudo touch /usr/local/blockscout/env_vars.env
 sudo vi /usr/local/blockscout/env_vars.env
 
 # env_vars.env file should hold these values ( adjusted for your environment )
-# example: change values accorging to your environment
 ETHEREUM_JSONRPC_HTTP_URL=https://rpc.poa.psdk.io:8545
 ETHEREUM_JSONRPC_TRACE_URL=https://rpc.poa.psdk.io:8545
 DATABASE_URL=postgresql://blockscout:Passw0Rd@db.instance.local:5432/blockscout
@@ -270,13 +270,13 @@ HEART_COMMAND="systemctl start explorer.service"
 ```
 Save the file and exit.
 
-### Finaly start blockscout service
+### Finaly start Blockscout service
 ```bash
 sudo systemctl start explorer.service
 ```
 
-## Part 5 - testout the functionality of your blockscout instance
-Now all thats left to do is to check if blockscout service is running.
+## Part 5 - testout the functionality of your Blockscout instance
+Now all thats left to do is to check if Blockscout service is running.
 Check service status with:
 ```bash
 sudo systemctl status explorer.service
