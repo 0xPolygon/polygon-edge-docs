@@ -169,7 +169,7 @@ mix do deps.get, local.rebar --force, deps.compile, compile
 
 ### Migrate databases
 :::info 
-This part will fail if you didn't setup your DB connection properly or you didn't provide or you've defined wrong parameters DATABASE_URL env var.
+This part will fail if you didn't setup your DB connection properly, you didn't provide or you've defined wrong parameters at DATABASE_URL environment variable.
 The database user needs to have superuser privileges.
 :::
 ```bash
@@ -179,17 +179,17 @@ mix do ecto.create, ecto.migrate
 ### Install npm dependancies and compile frontend assets
 You need to change directory to the folder which contains frontend assets.
 
-:::info Be patient
-Compilation of these assets can take a few minutes, and it will display no output.
-It can look like the process is stuck, but just be patient.
-When compile process is finished, it should output something like: `webpack 5.69.1 compiled with 3 warnings in 104942 ms`
-:::
-
 ```bash
 cd apps/block_scout_web/assets
 sudo npm install
 sudo node_modules/webpack/bin/webpack.js --mode production
 ```
+
+:::info Be patient
+Compilation of these assets can take a few minutes, and it will display no output.
+It can look like the process is stuck, but just be patient.
+When compile process is finished, it should output something like: `webpack 5.69.1 compiled with 3 warnings in 104942 ms`
+:::
 
 ### Build static assets
 For this step you need to return to the root of your Blockscout clone folder.
@@ -275,7 +275,7 @@ Save the file and exit.
 sudo systemctl start explorer.service
 ```
 
-## Part 5 - testout the functionality of your Blockscout instance
+## Part 5 - test out the functionality of your Blockscout instance
 Now all thats left to do is to check if Blockscout service is running.
 Check service status with:
 ```bash
@@ -284,7 +284,7 @@ sudo systemctl status explorer.service
 
 To check service output:
 ```bash
-journalctl -u explorer.service
+sudo journalctl -u explorer.service
 ```
 
 You can check if there are some new listening ports:
@@ -293,14 +293,15 @@ You can check if there are some new listening ports:
 sudo apt install net-tools
 sudo netstat -tulpn
 ```
-you should get a list of listening ports and on the list there should be something like this:
+
+You should get a list of listening ports and on the list there should be something like this:
 ```
 tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN      28142/postgres
 tcp        0      0 0.0.0.0:4000            0.0.0.0:*               LISTEN      42148/beam.smp
 tcp        0      0 0.0.0.0:4001            0.0.0.0:*               LISTEN      42148/beam.smp
 ```
 
-Blockscout web service runs by default on ports 4000(http) and 4001(https).
+Blockscout web service runs by default on ports `4000`(http) and `4001`(https).
 If everythig is ok, you should be able to access the Blockscout web portal with `http://<host_ip>:4000` or `https://<host_ip>:4001`
 
 
