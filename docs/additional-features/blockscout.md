@@ -1,6 +1,6 @@
 ---
 id: blockscout 
-title: Set up and run Blockscout
+title: Blockscout
 ---
 
 ## Overview
