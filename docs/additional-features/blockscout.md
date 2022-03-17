@@ -6,7 +6,6 @@ title: Blockscout
 ## Overview
 This guide goes into details on how to compile and deploy Blockscout instance to work with Polygon-Edge.
 Blockscout has its own [documentation](https://docs.blockscout.com/for-developers/manual-deployment), but this guide focuses on simple but detailed instructions on how to setup Blockscout instance.
-This guide will try to simplify the manual deployment process and provide you with the step-by-step instructions on how to run your own Blockscout instance and pull data from Polygon-Edge network.
 
 ## Environment
 * Operating System: Ubuntu Server 20.04 LTS [download link](https://releases.ubuntu.com/20.04/) with sudo permissions
