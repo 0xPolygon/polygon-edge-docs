@@ -59,6 +59,7 @@ module.exports = {
                     ]
                 },
                 'additional-features/stress-testing',
+                'additional-features/blockscout',
             ]
         },
         {
