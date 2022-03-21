@@ -1,10 +1,10 @@
 {
   "index_name": "sdk-docs.polygon.technology",
   "start_urls": [
-    "https://elegant-nightingale-894b88.netlify.app"
+    "https://edge-docs.polygon.technology"
   ],
   "sitemap_urls": [
-    "https://elegant-nightingale-894b88.netlify.app/sitemap.xml"
+    "https://edge-docs.polygon.technology/sitemap.xml"
   ],
   "stop_urls": [],
   "sitemap_alternate_links": true,
