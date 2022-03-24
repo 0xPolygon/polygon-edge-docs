@@ -100,5 +100,14 @@ module.exports = {
                 'community/report-bug'
             ]
         },
+        {
+            type: 'category',
+            label: 'Performance Reports',
+            items: [
+                'performance-reports/overview',
+                'performance-reports/low-spec',
+                'performance-reports/high-spec'
+            ]
+        }
     ]
 };
