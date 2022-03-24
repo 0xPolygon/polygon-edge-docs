@@ -27,13 +27,14 @@ If block gas limit parameter is set to a high value, block time is set to 1s, an
 Use the loadbot to test everything thoroughly, monitor the system resource utilization and set your configuration parameters accordingly.
 :::
 
-:::Out of Memory Errors
+:::info Out of Memory Errors
 Some linux distros will automaticaly kill the process that has a very high RAM usage ( OOM error ) , in order to preserve the system stability.
 The log output of this OOM error looks something like bellow.
-:::
 ```
 Mar 23 00:19:06 ip-10-151-2-196 kernel: oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/,task=polygon-edge,pid=4560,uid=1000Mar 23 00:19:06 ip-10-151-2-196 kernel: Out of memory: Killed process 4560 (polygon-edge) total-vm:16687652kB, anon-rss:14964372kB, file-rss:0kB, shmem-rss:0kB, UID:1000 pgtables:29668kB oom_score_adj:0Mar 23 00:19:06 ip-10-151-2-196 kernel: oom_reaper: reaped process 4560 (polygon-edge), now anon-rss:0kB, file-rss:0kB, shmem-rss:0kB
 ```
+:::
+
 ### Results of EOA to EOA transfers
 | Metric | Value |
 | ------ | ----- |
@@ -876,7 +877,7 @@ Mar 23 00:19:06 ip-10-151-2-196 kernel: oom-kill:constraint=CONSTRAINT_NONE,node
 
 <details>
     <summary>Loadbot log</summary>
-    
+
     [COUNT DATA]
     Transactions submitted = 20000
     Transactions failed    = 0
