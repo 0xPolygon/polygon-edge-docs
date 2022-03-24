@@ -1,19 +1,15 @@
-# Performance Reports
-
-Our goal is to make a highly-performant, feature-rich and easy to setup and maintain blcokchain client software.
-
-All tests were done using the [Polygon Edge Loadbot](../additional-features/stress-testing.md).
-
-Every performance report you will find on this page is properly dated, environment clearly described and the testing method clearly explained.
-
+---
+id: low-spec
+title: Low Spec
+---
 
 ## March 2nd 2022
 
 ### Summary
 
-This test was done to measure the SC ERC20 and ERC721 token transfer functionality with heavy loads and speed of the transactions.
+This test was done to measure the SC ERC20 token transfers and SC ERC721 token minting functionality with heavy loads and speed of the transactions.
 
-The goal was to check if everything is working as expected during heavy load with ERC20 and ERC721 token transfers. That was also the reason we’ve introduced gas metrics in the loadbot output, which show us if the blocks are filled with transactions properly.
+The goal was to check if everything was working as expected during heavy loads. That was also the reason we’ve introduced gas metrics in the loadbot output, which shows us if the blocks are filled with transactions properly.
 
 All transactions were sent to the single node via GRPC API, and the receipts were received via JSON-RPC API. After all transactions were done, gas information was read from each block, using the eth_getBlockByNumber JSON-RPC method.
 
@@ -294,7 +290,7 @@ since block gas limit & block time are set to sane values that don't consume muc
             </tr>
             <tr>
                 <td>Type of transactions</td>
-                <td>ERC721 to ERC721 transfers</td>
+                <td>ERC721 token mint</td>
             </tr>
         </table>
     </div>
