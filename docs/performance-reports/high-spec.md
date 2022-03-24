@@ -765,11 +765,11 @@ Mar 23 00:19:06 ip-10-151-2-196 kernel: oom-kill:constraint=CONSTRAINT_NONE,node
 
 <details>
     <summary>OOM Error log</summary>
-    ```
+
     Mar 23 00:19:06 ip-10-151-2-196 kernel: oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/,task=polygon-edge,pid=4560,uid=1000
     Mar 23 00:19:06 ip-10-151-2-196 kernel: Out of memory: Killed process 4560 (polygon-edge) total-vm:16687652kB, anon-rss:14964372kB, file-rss:0kB, shmem-rss:0kB, UID:1000 pgtables:29668kB oom_score_adj:0
     Mar 23 00:19:06 ip-10-151-2-196 kernel: oom_reaper: reaped process 4560 (polygon-edge), now anon-rss:0kB, file-rss:0kB, shmem-rss:0kB   
-    ```
+
 </details>
 
 ### Environment ERC721 - very high block gas limit
