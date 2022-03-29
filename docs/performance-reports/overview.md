@@ -3,7 +3,7 @@ id: overview
 title: Overview
 ---
 
-Our goal is to make a highly-performant, feature-rich and easy to setup and maintain blcokchain client software.
+Our goal is to make a highly-performant, feature-rich and easy to setup and maintain blockchain client software.
 All tests were done using the [Polygon Edge Loadbot](../additional-features/stress-testing.md).
 Every performance report you will find in this section is properly dated, environment clearly described and the testing method clearly explained.   
 
