@@ -10,13 +10,13 @@ module.exports = {
                 'get-started/set-up-ibft-on-the-cloud',
                 'get-started/cli-commands',
                 'get-started/json-rpc-commands',
-                'get-started/performance-reports',
             ]
         },
         {
             type: 'category',
             label: 'Configuration',
             items: [
+                'configuration/sample-config',
                 'configuration/manage-private-keys',
                 'configuration/set-up-hashicorp-vault',
                 'configuration/enable-metrics',
@@ -80,6 +80,8 @@ module.exports = {
                         'architecture/modules/consensus',
                         'architecture/modules/storage',
                         'architecture/modules/types',
+                        'architecture/modules/protocol',
+                        'architecture/modules/sealer',
                         'architecture/modules/other-modules'
                     ]
                 }
@@ -100,5 +102,21 @@ module.exports = {
                 'community/report-bug'
             ]
         },
+        {
+            type: 'category',
+            label: 'Performance Reports',
+            items: [
+                'performance-reports/overview',
+                {
+                    type: 'category',
+                    label: 'Test History',
+                    items: [
+                        'performance-reports/test-history/test-2022-03-23',
+                        'performance-reports/test-history/test-2022-03-02',
+                        'performance-reports/test-history/test-2022-01-21',
+                    ]
+                }
+            ]
+        }
     ]
 };
