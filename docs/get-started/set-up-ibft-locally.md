@@ -333,7 +333,7 @@ Example:
 ````bash
 polygon-edge server --config ./test/config-node1.json
 ````
-Currently, we only support `json` based configuration file, sample config file can be found [here](/docs/sample-config)
+Currently, we only support `json` based configuration file, sample config file can be found [here](/docs/configuration/sample-config)
 
 :::
 

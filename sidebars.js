@@ -16,6 +16,7 @@ module.exports = {
             type: 'category',
             label: 'Configuration',
             items: [
+                'configuration/sample-config',
                 'configuration/manage-private-keys',
                 'configuration/set-up-hashicorp-vault',
                 'configuration/enable-metrics',
@@ -79,6 +80,8 @@ module.exports = {
                         'architecture/modules/consensus',
                         'architecture/modules/storage',
                         'architecture/modules/types',
+                        'architecture/modules/protocol',
+                        'architecture/modules/sealer',
                         'architecture/modules/other-modules'
                     ]
                 }
