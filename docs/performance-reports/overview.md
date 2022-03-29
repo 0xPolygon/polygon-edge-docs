@@ -5,9 +5,9 @@ title: Overview
 
 | Type | Value | Link to test |
 | ---- | ----- | ------------ |
-| Regular Transfers | 689 tps | [March 23rd 2022](./test-history/2022-03-23.md) |
-| ERC-20 Transfers | 500 tps | [March 23rd 2022](./test-history/2022-03-23.md) |
-| NFT Minting | 487 tps | [March 23rd 2022](./test-history/2022-03-23.md) |
+| Regular Transfers | 689 tps | [March 23rd 2022](test-history/test-2022-03-23.md) |
+| ERC-20 Transfers | 500 tps | [March 23rd 2022](test-history/test-2022-03-23.md) |
+| NFT Minting | 487 tps | [March 23rd 2022](test-history/test-2022-03-23.md) |
 
 --- 
 
