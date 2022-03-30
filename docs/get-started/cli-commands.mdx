@@ -881,18 +881,18 @@ Instead of an IP address, the DNS address of the bootnode can be provided.
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
 
-        genesis [--max-validator-count MAX_VALIDATOR_COUNT]
+    genesis [--max-validator-count MAX_VALIDATOR_COUNT]
 
   </TabItem>
   <TabItem value="example" label="Example">
 
-        genesis --max-validator-count 42
+    genesis --max-validator-count 42
 
   </TabItem>
 </Tabs>
 
 The maximum number of stakers able to join the validator set in a PoS consensus.
-This number cannot exceed the value of MAX_UINT_32.
+This number cannot exceed the value of MAX_SAFE_INTEGER (2^53 - 2).
 
 
 ---
@@ -902,12 +902,12 @@ This number cannot exceed the value of MAX_UINT_32.
 <Tabs>
   <TabItem value="syntax" label="Syntax" default>
 
-        genesis [--min-validator-count MIN_VALIDATOR_COUNT]
+    genesis [--min-validator-count MIN_VALIDATOR_COUNT]
 
   </TabItem>
   <TabItem value="example" label="Example">
 
-        genesis --min-validator-count 4
+    genesis --min-validator-count 4
 
   </TabItem>
 </Tabs>
@@ -1186,6 +1186,8 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Specifies the genesis file to update. Default: `test`.
 
+---
+
 <h4><i>type</i></h4>
 
 <Tabs>
@@ -1202,6 +1204,8 @@ Specifies the genesis file to update. Default: `test`.
 </Tabs>
 
 Specifies the IBFT type to switch. Possible values: `[PoA, PoS]`.
+
+---
 
 <h4><i>deployment</i></h4>
 
@@ -1220,6 +1224,8 @@ Specifies the IBFT type to switch. Possible values: `[PoA, PoS]`.
 
 Specifies the height of contract deployment. Only available with PoS.
 
+---
+
 <h4><i>from</i></h4>
 
 <Tabs>
@@ -1234,6 +1240,47 @@ Specifies the height of contract deployment. Only available with PoS.
 
   </TabItem>
 </Tabs>
+
+---
+
+<h4><i>max-validator-count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--max-validator-count MAX_VALIDATOR_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft switch --max-validator-count 42
+
+  </TabItem>
+</Tabs>
+
+The maximum number of stakers able to join the validator set in a PoS consensus.
+This number cannot exceed the value of MAX_SAFE_INTEGER (2^53 - 2).
+
+---
+
+<h4><i>min-validator-count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--min-validator-count MIN_VALIDATOR_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    bft switch --min-validator-count 4
+
+  </TabItem>
+</Tabs>
+
+The minimum number of stakers needed to join the validator set in a PoS consensus.
+This number cannot exceed the value of max-validator-count.
+Defaults to 1.
 
 Specifies the beginning height of the fork.
 
