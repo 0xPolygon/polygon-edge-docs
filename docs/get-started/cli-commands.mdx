@@ -314,7 +314,7 @@ Sets the external IP address without the port, as it can be seen by peers.
   </TabItem>
   <TabItem value="example" label="Example">
 
-    server --dns dns4/example.io 
+    server --dns dns4/example.io
 
   </TabItem>
 </Tabs>
@@ -358,7 +358,7 @@ Sets minimum gas price limit to enforce for acceptance into the pool. Default: `
   <TabItem value="example" label="Example">
 
     server --max-slots 1024
-    
+
   </TabItem>
 </Tabs>
 
@@ -874,6 +874,46 @@ Sets consensus protocol. Default: `pow`.
 Multiaddr URL for p2p discovery bootstrap. This flag can be used multiple times.
 Instead of an IP address, the DNS address of the bootnode can be provided.
 
+---
+
+<h4><i>max-validator-count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    genesis [--max-validator-count MAX_VALIDATOR_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    genesis --max-validator-count 42
+
+  </TabItem>
+</Tabs>
+
+The maximum number of stakers able to join the validator set in a PoS consensus.
+This number cannot exceed the value of MAX_SAFE_INTEGER (2^53 - 2).
+
+---
+
+<h4><i>min-validator-count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    genesis [--min-validator-count MIN_VALIDATOR_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    genesis --min-validator-count 4
+
+  </TabItem>
+</Tabs>
+
+The minimum number of stakers needed to join the validator set in a PoS consensus.
+This number cannot exceed the value of max-validator-count.
+Defaults to 1.
 
 ---
 
@@ -885,7 +925,7 @@ Instead of an IP address, the DNS address of the bootnode can be provided.
 |------------------------|-------------------------------------------------------------------------------------|
 | peers add   | Adds a new peer using their libp2p address                                  |
 | peers list             | Lists all the peers the client is connected to through libp2p                      |
-| peers status | Returns the status of a specific peer from the peers list, using the libp2p address 
+| peers status | Returns the status of a specific peer from the peers list, using the libp2p address
 
 <h3>peers add flags</h3>
 
@@ -1145,6 +1185,8 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 Specifies the genesis file to update. Default: `test`.
 
+---
+
 <h4><i>type</i></h4>
 
 <Tabs>
@@ -1161,6 +1203,8 @@ Specifies the genesis file to update. Default: `test`.
 </Tabs>
 
 Specifies the IBFT type to switch. Possible values: `[PoA, PoS]`.
+
+---
 
 <h4><i>deployment</i></h4>
 
@@ -1179,6 +1223,8 @@ Specifies the IBFT type to switch. Possible values: `[PoA, PoS]`.
 
 Specifies the height of contract deployment. Only available with PoS.
 
+---
+
 <h4><i>from</i></h4>
 
 <Tabs>
@@ -1193,6 +1239,47 @@ Specifies the height of contract deployment. Only available with PoS.
 
   </TabItem>
 </Tabs>
+
+---
+
+<h4><i>max-validator-count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--max-validator-count MAX_VALIDATOR_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    ibft switch --max-validator-count 42
+
+  </TabItem>
+</Tabs>
+
+The maximum number of stakers able to join the validator set in a PoS consensus.
+This number cannot exceed the value of MAX_SAFE_INTEGER (2^53 - 2).
+
+---
+
+<h4><i>min-validator-count</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    ibft switch [--min-validator-count MIN_VALIDATOR_COUNT]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    bft switch --min-validator-count 4
+
+  </TabItem>
+</Tabs>
+
+The minimum number of stakers needed to join the validator set in a PoS consensus.
+This number cannot exceed the value of max-validator-count.
+Defaults to 1.
 
 Specifies the beginning height of the fork.
 
@@ -1555,13 +1642,13 @@ The response object is defined using Protocol Buffers.
 ````go title="minimal/proto/system.proto"
 message ServerStatus {
     int64 network = 1;
-    
+
     string genesis = 2;
 
     Block current = 3;
 
     string p2pAddr = 4;
-    
+
     message Block {
         int64 number = 1;
         string hash = 2;
