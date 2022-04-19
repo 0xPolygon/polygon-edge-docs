@@ -26,19 +26,15 @@ Following is the sample format for configuration file:
 		"max_outbound_peers":<maximum_allowded_outbound_peers>
 	},
 	"txpool":{
-		
-			"locals":<local_account_addresses>,
-			"no_locals":<enable/disable_locals>,
-			"price_limit":<minimum_gas_price_limit>,
-			"max_slots":<maximum_txpool_slots>
-		
+		"price_limit":<minimum_gas_price_limit>,
+		"max_slots":<maximum_txpool_slots>
+	},
+	"headers": {
+		"access_control_allow_origins": <allowed_origins>
 	},
 	"seal":<enable/disable_block_sealing>, 
 	"log_level":<log_level>,
-	"dev_mode":<enable/disable_dev_mode>,
-	"dev_internal":<dev_notification_interval>,
-	"join_addr":<peer_address>
-	
+	"block_time":<block_time_in_second>,
+	"restore_file":<backup_file_path>
 }
 ```
-
