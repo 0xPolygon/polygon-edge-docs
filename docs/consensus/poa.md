@@ -45,7 +45,7 @@ The structure of the IBFT commands is covered in the [CLI Commands](/docs/get-st
 Because in this example we are attempting to run the network where all nodes are on the same machine, we need to take care to avoid port conflicts. 
 
 ````bash
-polygon-edge server --data-dir ./test-chain-5 --chain genesis.json --grpc :50000 --libp2p :50001 --jsonrpc :50002 --seal
+polygon-edge server --data-dir ./test-chain-5 --chain genesis.json --grpc-address :50000 --libp2p :50001 --jsonrpc :50002 --seal
 ````
 
 After fetching all blocks, inside your console you will notice that a new node is participating in the validation
