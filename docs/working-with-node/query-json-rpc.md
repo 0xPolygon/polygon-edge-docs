@@ -29,6 +29,10 @@ polygon-edge genesis --premine 0x1010101010101010101010101010101010101010:0x1231
 
 The balance can be either a `hex` or `uint256` value.
 
+:::warning Only premine accounts from which you have a private key!
+If you premine accounts and do not have a private key to access them, you premined balance will be locked
+:::
+
 ## Step 2: Start the Polygon Edge in dev mode
 
 To start the Polygon Edge in development mode, which is explained in the [CLI Commands](/docs/get-started/cli-commands) section, 
@@ -58,9 +62,22 @@ The command should return the following output:
 Now that we've confirmed the account we set up as premined has the correct balance, we can transfer some ether:
 
 ````bash
-polygon-edge txpool add --nonce 0 --from 0x1010101010101010101010101010101010101010 --to 0x0000000000000000000000000000000000000010 --value 0x100
+var Web3 = require("web3");
+
+const web3 = new Web3("<provider's websocket jsonrpc address>"); //example: ws://localhost:10002/ws
+web3.eth.accounts
+  .signTransaction(
+    {
+      to: "<recipient public address>",
+      value: web3.utils.toWei("<value in ETH>"),
+      gas: 21000,
+    },
+    "<private key from premined account>"
+  )
+  .then((signedTxData) => {
+    web3.eth
+      .sendSignedTransaction(signedTxData.rawTransaction)
+      .on("receipt", console.log);
+  });
+
 ````
-
-The **txpool add** command adds the transaction to the transaction pool.
-
-In this case, the transfer is from `0x1010101010101010101010101010101010101010` to `0x0000000000000000000000000000000000000010`, with the value being `0x100` wei.
