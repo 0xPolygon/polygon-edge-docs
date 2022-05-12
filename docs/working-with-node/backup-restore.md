@@ -28,7 +28,7 @@ This section guides you through creating archive data of the blockchain in a run
 `backup` command fetches blocks from a running node by gRPC and generates an archive file. If `--from` and `--to` are not given in the command, this command will fetch blocks from genesis to latest.
 
 ```bash
-$ polygon-edge backup --grpc 127.0.0.1:9632 --out backup.dat [--from 0x0] [--to 0x100]
+$ polygon-edge backup --grpc-address 127.0.0.1:9632 --out backup.dat [--from 0x0] [--to 0x100]
 ```
 
 ### Restore

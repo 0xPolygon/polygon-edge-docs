@@ -286,25 +286,25 @@ avoid port conflicts. This is why we will use the following reasoning for determ
 To run the **first** client (note the port `10001` since it was used as a part of the libp2p multiaddr in **step 2** alongside node 1's Node ID):
 
 ````bash
-polygon-edge server --data-dir ./test-chain-1 --chain genesis.json --grpc :10000 --libp2p :10001 --jsonrpc :10002 --seal
+polygon-edge server --data-dir ./test-chain-1 --chain genesis.json --grpc-address :10000 --libp2p :10001 --jsonrpc :10002 --seal
 ````
 
 To run the **second** client:
 
 ````bash
-polygon-edge server --data-dir ./test-chain-2 --chain genesis.json --grpc :20000 --libp2p :20001 --jsonrpc :20002 --seal
+polygon-edge server --data-dir ./test-chain-2 --chain genesis.json --grpc-address :20000 --libp2p :20001 --jsonrpc :20002 --seal
 ````
 
 To run the **third** client:
 
 ````bash
-polygon-edge server --data-dir ./test-chain-3 --chain genesis.json --grpc :30000 --libp2p :30001 --jsonrpc :30002 --seal
+polygon-edge server --data-dir ./test-chain-3 --chain genesis.json --grpc-address :30000 --libp2p :30001 --jsonrpc :30002 --seal
 ````
 
 To run the **fourth** client:
 
 ````bash
-polygon-edge server --data-dir ./test-chain-4 --chain genesis.json --grpc :40000 --libp2p :40001 --jsonrpc :40002 --seal
+polygon-edge server --data-dir ./test-chain-4 --chain genesis.json --grpc-address :40000 --libp2p :40001 --jsonrpc :40002 --seal
 ````
 
 To briefly go over what has been done so far:
@@ -342,12 +342,12 @@ Currently, we only support `json` based configuration file, sample config file c
 A Non-validator will always sync the latest blocks received from the validator node, you can start a non-validator node by running the following command.
 
 ````bash 
-polygon-edge server --data-dir <directory_path> --chain <genesis_filename> --grpc <portNo> --libp2p <portNo> --jsonrpc <portNo>
+polygon-edge server --data-dir <directory_path> --chain <genesis_filename> --grpc-address <portNo> --libp2p <portNo> --jsonrpc <portNo>
 ````
 For example, you can add **fifth** Non-validator client by executing the following command :
 
 ````bash
-polygon-edge server --data-dir ./test-chain --chain genesis.json --grpc :50000 --libp2p :50001 --jsonrpc :50002 
+polygon-edge server --data-dir ./test-chain --chain genesis.json --grpc-address :50000 --libp2p :50001 --jsonrpc :50002 
 ````
 :::
 
