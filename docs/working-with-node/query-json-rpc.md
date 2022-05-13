@@ -61,7 +61,7 @@ The command should return the following output:
 
 Now that we've confirmed the account we set up as premined has the correct balance, we can transfer some ether:
 
-````bash
+````js
 var Web3 = require("web3");
 
 const web3 = new Web3("<provider's websocket jsonrpc address>"); //example: ws://localhost:10002/ws
