@@ -29,8 +29,8 @@ polygon-edge genesis --premine 0x1010101010101010101010101010101010101010:0x1231
 
 The balance can be either a `hex` or `uint256` value.
 
-:::warning Only premine accounts from which you have a private key!
-If you premine accounts and do not have a private key to access them, you premined balance will be locked
+:::warning Only premine accounts for which you have a private key!
+If you premine accounts and do not have a private key to access them, you premined balance will not be usable
 :::
 
 ## Step 2: Start the Polygon Edge in dev mode
@@ -68,7 +68,7 @@ const web3 = new Web3("<provider's websocket jsonrpc address>"); //example: ws:/
 web3.eth.accounts
   .signTransaction(
     {
-      to: "<recipient public address>",
+      to: "<recipient address>",
       value: web3.utils.toWei("<value in ETH>"),
       gas: 21000,
     },
