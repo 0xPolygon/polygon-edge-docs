@@ -33,7 +33,7 @@ $ polygon-edge backup --grpc-address 127.0.0.1:9632 --out backup.dat [--from 0x0
 
 ### Restore
 
-A server imports blocks from an archive at the start when starting with `--restore` flag. Please make sure that there is a key for new node. To find out more about importing or generating keys, visit the [Set up Hashicorp Vault](/docs/configuration/set-up-hashicorp-vault).
+A server imports blocks from an archive at the start when starting with `--restore` flag. Please make sure that there is a key for new node. To find out more about importing or generating keys, visit the [Secret Managers section](/docs/configuration/secret-managers/set-up-aws-ssm).
 
 ```bash
 $ polygon-edge server --restore archive.dat

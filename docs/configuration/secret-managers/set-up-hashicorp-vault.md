@@ -52,8 +52,8 @@ polygon-edge secrets generate --dir <PATH> --token <TOKEN> --server-url <SERVER_
 
 Parameters present:
 * `PATH` is the path to which the configuration file should be exported to. Default `./secretsManagerConfig.json`
-* `TOKEN` is the access token previously mentioned in the [prerequisites section](/docs/configuration/set-up-hashicorp-vault#prerequisites)
-* `SERVER_URL` is the URL of the API for the Vault server, also mentioned in the [prerequisites section](/docs/configuration/set-up-hashicorp-vault#prerequisites)
+* `TOKEN` is the access token previously mentioned in the [prerequisites section](/docs/configuration/secret-managers/set-up-hashicorp-vault#prerequisites)
+* `SERVER_URL` is the URL of the API for the Vault server, also mentioned in the [prerequisites section](/docs/configuration/secret-managers/set-up-hashicorp-vault#prerequisites)
 * `NODE_NAME` is the name of the current node for which the Vault configuration is being set up as. It can be an arbitrary value. Default `polygon-edge-node`
 
 :::caution Node names

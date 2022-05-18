@@ -246,6 +246,27 @@ Sets the log level for console output. Default: `INFO`.
 
 ---
 
+<h4><i>log-to</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    server [--log-to LOG_FILE]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    server --log-to node.log
+
+  </TabItem>
+</Tabs>
+
+Defines log file name that will hold all log output from the server command.
+By default, all server logs will be outputted to console (stdout),
+but if the flag is set, there will be no output to the console when running server command.
+
+---
+
 <h4><i>chain</i></h4>
 
 <Tabs>
@@ -399,7 +420,7 @@ Specifies the path to the CLI config. Supports `.json`.
   </TabItem>
 </Tabs>
 
-Sets the path to the SecretsManager config file. Used for Hashicorp Vault. If omitted, the local FS secrets manager is used.
+Sets the path to the SecretsManager config file. Used for Hashicorp Vault, AWS SSM and GCP Secrets Manager. If omitted, the local FS secrets manager is used.
 
 ---
 
@@ -782,7 +803,7 @@ Defaults to 1.
 |------------------------|-------------------------------------------------------------------------------------|
 | peers add   | Adds a new peer using their libp2p address                                  |
 | peers list             | Lists all the peers the client is connected to through libp2p                      |
-| peers status | Returns the status of a specific peer from the peers list, using the libp2p address
+| peers status | Returns the status of a specific peer from the peers list, using the libp2p address |
 
 <h3>peers add flags</h3>
 
@@ -1288,7 +1309,7 @@ Subscribes for enqueued tx events in the account queues.
 |------------------------|-------------------------------------------------------------------------------------|
 | status                 | Returns the status of the client. The detailed response can be found below          |
 | monitor                | Subscribes to a blockchain event stream. The detailed response can be found below   |
-| version                | Returns the current version of the client
+| version                | Returns the current version of the client |
 
 <h3>status flags</h3>
 

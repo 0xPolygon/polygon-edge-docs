@@ -18,8 +18,16 @@ module.exports = {
             items: [
                 'configuration/sample-config',
                 'configuration/manage-private-keys',
-                'configuration/set-up-hashicorp-vault',
                 'configuration/enable-metrics',
+                {
+                    type: 'category',
+                    label: 'Secret Managers',
+                    items: [
+                        'configuration/secret-managers/set-up-aws-ssm',
+                        'configuration/secret-managers/set-up-gcp-secrets-manager',
+                        'configuration/secret-managers/set-up-hashicorp-vault',
+                    ]
+                }
             ]
         },
         {
