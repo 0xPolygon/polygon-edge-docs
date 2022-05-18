@@ -4,10 +4,10 @@ title: Server Config File
 ---
 # Server configuration file
 Starting the server with various configuration options can be done using a configuration file instead of using just flags.  
-The command used to start the server with config file `polygon-edge server --config <config_file_name>`
+The command used to start the server with a config file: `polygon-edge server --config <config_file_name>`
 
 ## Export config file with default configuration
-Config file with default settings for the Polygon Edge server can be exported into a config file in either `yaml` or `json` file format.
+The configuration with default settings for the Polygon Edge server can be exported into a config file in either `yaml` or `json` file format.
 This file can be used as a template for running the server using a configuration file.
 
 ### YAML
@@ -52,7 +52,7 @@ headers:
 log_to: ""
 ```
 
-###JSON
+### JSON
 To generate the config file in `json` format:
 ```bash
 polygon-edge server export --type json
