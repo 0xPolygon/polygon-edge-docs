@@ -626,10 +626,8 @@ These 2 methods will return the same results for same filter options:
 *  <b>  QUANTITY </b> - the filter id.
 
 <h4><i>Returns:</i></h4>
-<b> Array </b> - Array of log objects, or an empty array if nothing has changed since last poll.
+<b> Array </b> - Array of log objects, or an empty array
 
-*  For filters created with eth_newBlockFilter the return are block hashes (DATA, 32 Bytes), e.g. ["0x3454645634534..."].
-*  For filters created with eth_newPendingTransactionFilter  the return are transaction hashes (DATA, 32 Bytes), e.g. ["0x6345343454645..."].
 *  For filters created with eth_newFilter logs are objects with the following params:
     * <b> removed: TAG </b> - true when the log was removed, due to a chain reorganization. false if its a valid log.
     * <b> logIndex: QUANTITY </b> - integer of the log index position in the block. null when its pending log.
@@ -662,7 +660,6 @@ Polling method for a filter, which returns an array of logs that occurred since 
 <b> Array </b> - Array of log objects, or an empty array if nothing has changed since last poll.
 
 *  For filters created with eth_newBlockFilter the return are block hashes (DATA, 32 Bytes), e.g. ["0x3454645634534..."].
-*  For filters created with eth_newPendingTransactionFilter  the return are transaction hashes (DATA, 32 Bytes), e.g. ["0x6345343454645..."].
 *  For filters created with eth_newFilter logs are objects with the following params:
     * <b> removed: TAG </b> - true when the log was removed, due to a chain reorganization. false if its a valid log.
     * <b> logIndex: QUANTITY </b> - integer of the log index position in the block. null when its pending log.
