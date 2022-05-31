@@ -536,7 +536,8 @@ curl  https://rpc.poa.psdk.io:8545 -X POST -H "Content-Type: application/json" -
 
 ### eth_newFilter
 
-Creates a filter object, based on filter options, to notify when the state changes (logs).
+Creates a filter object, based on filter options.
+To get all matching logs for specific filter, call eth_getFilterLogs.
 To check if the state has changed, call eth_getFilterChanges.
 
 ---
@@ -584,6 +585,40 @@ curl  https://rpc.poa.psdk.io:8545 -X POST -H "Content-Type: application/json" -
 
 <JsonRpcTerminal method="eth_newBlockFilter" params={[]} network="https://rpc.poa.psdk.io:8545"/>
 
+### eth_getFilterLogs
+Returns an array of all logs matching filter with given id.
+
+:::caution eth_getLogs vs. eth_getFilterLogs
+These 2 methods will return the same results for same filter options:
+1. eth_getLogs with params [options]
+2. eth_newFilter with params [options], getting a [filterId] back, then calling eth_getFilterLogs with [filterId]
+:::
+
+<h4><i>Parameters:</i></h4>
+
+*  <b>  QUANTITY </b> - the filter id.
+
+<h4><i>Returns:</i></h4>
+<b> Array </b> - Array of log objects, or an empty array
+
+*  For filters created with eth_newFilter logs are objects with the following params:
+    * <b> removed: TAG </b> - true when the log was removed, due to a chain reorganization. false if its a valid log.
+    * <b> logIndex: QUANTITY </b> - integer of the log index position in the block. null when its pending log.
+    * <b> transactionIndex: QUANTITY </b> - integer of the transactions index position log was created from. null when its pending log.
+    * <b> transactionHash: DATA, 32 Bytes </b> - hash of the transactions this log was created from. null when its pending log.
+    * <b> blockHash: DATA, 32 Bytes </b> - hash of the block where this log was in.  null when its pending log.
+    * <b> blockNumber: QUANTITY </b> - the block number where this log was in.  null when its pending log.
+    * <b> address: DATA, 20 Bytes </b> - address from which this log originated.
+    * <b> data: DATA </b> - contains one or more 32 Bytes non-indexed arguments of the log.
+    * <b> topics: Array of DATA </b> - Array of 0 to 4 32 Bytes DATA of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
+
+<h4><i>Example:</i></h4>
+
+````bash
+curl  https://rpc.poa.psdk.io:8545 -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x16"],"id":1}'
+````
+
+
 ### eth_getFilterChanges
 
 Polling method for a filter, which returns an array of logs that occurred since the last poll.
@@ -598,7 +633,6 @@ Polling method for a filter, which returns an array of logs that occurred since 
 <b> Array </b> - Array of log objects, or an empty array if nothing has changed since last poll.
 
 *  For filters created with eth_newBlockFilter the return are block hashes (DATA, 32 Bytes), e.g. ["0x3454645634534..."].
-*  For filters created with eth_newPendingTransactionFilter  the return are transaction hashes (DATA, 32 Bytes), e.g. ["0x6345343454645..."].
 *  For filters created with eth_newFilter logs are objects with the following params:
     * <b> removed: TAG </b> - true when the log was removed, due to a chain reorganization. false if its a valid log.
     * <b> logIndex: QUANTITY </b> - integer of the log index position in the block. null when its pending log.
