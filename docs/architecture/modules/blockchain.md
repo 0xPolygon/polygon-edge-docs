@@ -39,25 +39,25 @@ func (b *Blockchain) WriteBlocks(blocks []*types.Block) error {
 	for i := 0; i < len(blocks); i++ {
 		block := blocks[i]
 
-		if blocks[i].Number()-1 != parent.Number {
-			return fmt.Errorf("number sequence not correct at %d, %d and %d", i, blocks[i].Number(), parent.Number)
+		if block.Number()-1 != parent.Number {
+			return fmt.Errorf("number sequence not correct at %d, %d and %d", i, block.Number(), parent.Number)
 		}
-		if blocks[i].ParentHash() != parent.Hash {
+		if block.ParentHash() != parent.Hash {
 			return fmt.Errorf("parent hash not correct")
 		}
-		if err := b.consensus.VerifyHeader(parent, blocks[i].Header, false, true); err != nil {
+		if err := b.consensus.VerifyHeader(parent, block.Header, false, true); err != nil {
 			return fmt.Errorf("failed to verify the header: %v", err)
 		}
 
 		// verify body data
-		if hash := buildroot.CalculateUncleRoot(block.Uncles); hash != blocks[i].Header.Sha3Uncles {
-			return fmt.Errorf("uncle root hash mismatch: have %s, want %s", hash, blocks[i].Header.Sha3Uncles)
+		if hash := buildroot.CalculateUncleRoot(block.Uncles); hash != block.Header.Sha3Uncles {
+			return fmt.Errorf("uncle root hash mismatch: have %s, want %s", hash, block.Header.Sha3Uncles)
 		}
 		
-		if hash := buildroot.CalculateTransactionsRoot(block.Transactions); hash != blocks[i].Header.TxRoot {
-			return fmt.Errorf("transaction root hash mismatch: have %s, want %s", hash, blocks[i].Header.TxRoot)
+		if hash := buildroot.CalculateTransactionsRoot(block.Transactions); hash != block.Header.TxRoot {
+			return fmt.Errorf("transaction root hash mismatch: have %s, want %s", hash, block.Header.TxRoot)
 		}
-		parent = blocks[i].Header
+		parent = block.Header
 	}
 
 	// Write chain
@@ -65,10 +65,10 @@ func (b *Blockchain) WriteBlocks(blocks []*types.Block) error {
 		header := block.Header
 
 		body := block.Body()
-		if err := b.db.WriteBody(block.Header.Hash, block.Body()); err != nil {
+		if err := b.db.WriteBody(header.Hash, block.Body()); err != nil {
 			return err
 		}
-		b.bodiesCache.Add(block.Header.Hash, body)
+		b.bodiesCache.Add(header.Hash, body)
 
 		// Verify uncles. It requires to have the bodies on memory
 		if err := b.VerifyUncles(block); err != nil {
