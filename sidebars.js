@@ -58,12 +58,10 @@ module.exports = {
                     label: 'Chainbridge',
                     items: [
                         'additional-features/chainbridge/overview',
-                        'additional-features/chainbridge/requirements',
-                        'additional-features/chainbridge/deploy-contracts',
-                        'additional-features/chainbridge/setup-relayer',
+                        'additional-features/chainbridge/definitions',
+                        'additional-features/chainbridge/setup',
                         'additional-features/chainbridge/setup-erc20-transfer',
                         'additional-features/chainbridge/setup-erc721-transfer',
-                        'additional-features/chainbridge/roles-in-bridge'
                     ]
                 },
                 'additional-features/stress-testing',
