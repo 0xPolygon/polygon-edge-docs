@@ -20,7 +20,7 @@ In this guide, you will run Polygon Edge nodes, a ChainBridge relayer (more abou
 * Git
 
 
-In addition,[you will need to clone the following repositories with the versions to run some applications.
+In addition, you will need to clone the following repositories with the versions to run some applications.
 
 * [Polygon Edge](https://github.com/0xPolygon/polygon-edge): on the `develop` branch
 * [ChainBridge](https://github.com/ChainSafe/ChainBridge): v1.1.5
