@@ -128,8 +128,6 @@ type ServerConfig = PartialDeep<{
   };
   seal: boolean; // <enable/disable_block_sealing>
   txpool: {
-    locals: string; // <local_account_addresses>
-    no_locals: boolean; // <enable/disable_locals>
     price_limit: number; // <minimum_gas_price_limit>
     max_slots: number; // <maximum_txpool_slots>
   };
@@ -137,6 +135,7 @@ type ServerConfig = PartialDeep<{
   restore_file: string; // <restore_file_path>
   block_time_s: number; // <block_time_seconds>
   headers: Record<string, any>;
+  log_to: string; // <log_to>
 }>
 ```
 
