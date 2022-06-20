@@ -15,7 +15,7 @@ When sending tokens from the public chain to the private chain, the token will b
 
 ## Contracts
 
-Explaining with the own ERC20 contracts instead of the contract developed by ChainBridge for practical usecase. For burn/mint mode, ERC20 contract must have `mint` and `burn` methods in addition to the methods defined in ERC20 like this:
+Explaining with the own ERC20 contracts instead of the contract developed by ChainBridge for practical usecase. For burn/mint mode, ERC20 contract must have `mint` and `burnFrom` methods in addition to the methods defined in ERC20 like this:
 
 ```sol
 pragma solidity ^0.8.14;
@@ -60,7 +60,7 @@ $ cb-sol-cli deploy --bridge --erc20Handler --chainId 99 \
 ```
 
 ```bash
-# Deploy Bridge and ERC20 contracts in Polygon PoS chain
+# Deploy Bridge and ERC20 contracts in Polygon Edge chain
 $ cb-sol-cli deploy --bridge --erc20Handler --chainId 99 \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
@@ -74,11 +74,6 @@ You'll get Bridge and ERC20Handler contract addresses like this:
 Deploying contracts...
 ✓ Bridge contract deployed
 ✓ ERC20Handler contract deployed
-✓ ERC721Handler contract deployed
-✓ GenericHandler contract deployed
-✓ ERC20 contract deployed
-WARNING: Multiple definitions for safeTransferFrom
-✓ ERC721 contract deployed
 
 ================================================================
 Url:        https://rpc-mumbai.matic.today
@@ -117,7 +112,7 @@ WETC:               Not Deployed
 
 ## Step2: Deploy your ERC20 contract
 
-You'll deploy your ERC20 contract. This example guide you with hardhat project [Trapesys/chainbridge-example](https://github.com/Trapesys/chainbridge-example).
+You'll deploy your ERC20 contract. This example guides you with hardhat project [Trapesys/chainbridge-example](https://github.com/Trapesys/chainbridge-example).
 
 ```bash
 $ git clone https://github.com/Trapesys/chainbridge-example.git
