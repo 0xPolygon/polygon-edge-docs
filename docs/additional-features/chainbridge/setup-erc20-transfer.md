@@ -7,7 +7,7 @@ So far, we've set up bridge to exchange assets/data between Polygon PoS and Poly
 
 ## Step 1: Register resource ID
 
-Firstly, you will register a resource ID that associates resources in a cross-chain environment. A Resource ID is a 32-byte value that must be unique to the resource that we are transferring between these blockchains. The Resource IDs are arbitrary, but they may have the chain ID of the home chain in the last byte, as a convention (home chain referring to the network on which these resources originated from).
+Firstly, you will register a resource ID that associates resources in a cross-chain environment. A Resource ID is a 32-bytes value that must be unique to the resource that we are transferring between these blockchains. The Resource IDs are arbitrary, but they may have the chain ID of the home chain in the last byte, as a convention (home chain referring to the network on which these resources originated from).
 
 To register resource ID, you can use the `cb-sol-cli bridge register-resource` command. You will need to give the private key of the `admin` account.
 
@@ -35,21 +35,6 @@ $ cb-sol-cli bridge register-resource \
 
 ## (Optional) Make contracts mintable/burnable
 
-When transferring ERC20 tokens between chains, tokens can be processed in two different modes:
-
-(1) Lock/Release mode
-
-**Source chain**: The tokens you are sending will be locked in the ERC20 Handler Contract  
-**Destination chain**: The same amount of tokens as you sent in the source chain would be unlocked and transferred from the ERC20 Handler contract to the recipient account in the destination chain.
-
-(2) Burn/Mint mode
-
-**Source chain**: The tokens you are sending will be burned  
-**Destination chain**: The same amount of tokens as you sent and burned on the source chain will be minted on the destination chain and sent to the recipient account.
-
-You can use different modes in each chain. It means that you can lock an ERC20 token in the main chain while minting an ERC20 token in the subchain for transfer. For instance, it may make sense to lock/release tokens if the total supply or mint schedule is controlled. Tokens would be minted/burned if the contract in the sub chain has to follow the supply in the main chain.
-
-The default mode is **lock/release** mode. If you want to make the Tokens mintable/burnable, you need to call `adminSetBurnable` method. If you want to mint tokens on execution, you will need to grant `minter` role to the ERC20 Handler contract.
 
 ```bash
 # Let ERC20 contract burn on source chain and mint on destination chain

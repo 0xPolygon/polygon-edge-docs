@@ -15,8 +15,8 @@ In ChainBridge, there are three types of contracts on each chain, called Bridge/
 | **Type** |**Description**                                                                                                                |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|
 | Bridge contract   | A Bridge contract that manages requests, votes, executions needs to be deployed in each chain. Users will call `deposit` in Bridge to start a transfer, and Bridge delegates the process to the Handler contract corresponding to the Target contract. Once the Handler contract has been successful in calling the Target contract, Bridge contract emits a `Deposit` event to notify relayers.|
-| Handler contract  | The account used in the relayer to create transactions to vote or execute a proposal. The relayer accounts pay gas fees when sending transactions for voting and execution in the destination chain.                                                 |
-| Target contract   | The sender/recipient account that sends/receives assets. The sender account pays the gas fees when approving token transfers and calling `deposit` in the Bridge contract to begin a transfer.                                                                    |
+| Handler contract  | This contract interacts with the Target contract to execute a deposit or proposal. It validates the user's request, calls the Target contract and manages deposit records and some settings for the Target contract. There are certain Handler contracts to call each Target contract that has a different interface. The indirect calls by the Handler contract make the bridge to enable the transfer of whatever kind of assets or data. Currently, there are three types of Handler contracts implemented by ChainBridge: ERC20Handler, ERC721Handler, and GenericHandler.                                                |
+| Target contract   | A contract that manages assets to be exchanged or processes messages to be transferred between chains. The interaction with this contract will be made on each side of the bridge.                                                                    |
 
 <div style={{textAlign: 'center'}}>
 
@@ -53,14 +53,14 @@ $ cb-sol-cli admin add-admin \
   --url [JSON_RPC_URL] \
   --privateKey [PRIVATE_KEY] \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
-  --addmin "[NEW_ACCOUNT_ADDRESS]"
+  --admin "[NEW_ACCOUNT_ADDRESS]"
 
 # Revoke admin role
 $ cb-sol-cli admin remove-admin \
   --url [JSON_RPC_URL] \
   --privateKey [PRIVATE_KEY] \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
-  --addmin "[NEW_ACCOUNT_ADDRESS]"
+  --admin "[NEW_ACCOUNT_ADDRESS]"
 ```
 
 The operations which are allowed by the `admin` account are as below.
@@ -172,17 +172,33 @@ $ cb-sol-cli admin set-threshold \
 
 ## Chain ID
 
-The Chainbridge `chainId` is an arbitrary value used in the bridge for differentiating between the blockchain networks. To not be confused with the chain ID of the network, they are not the same thing. This value needs to be unique (not the same as the chain ID of the network), since two networks might have the same one.
+The Chainbridge `chainId` is an arbitrary value used in the bridge for differentiating between the blockchain networks, and it has to be in the range of uint8. To not be confused with the chain ID of the network, they are not the same thing. This value needs to be unique, but it doesn't have to be the same as the ID of the network.
 
 In this example, we set  `99` in `chainId`, because the chain ID of the Mumbai testnet is `80001`, which cannot be represented with a uint8.
 
 ## Resource ID
 
-A resource ID is a unique 32-byte value in a cross-chain environment, associated with a certain asset (resource) that is being transferred between networks.
+A resource ID is a unique 32-bytes value in a cross-chain environment, associated with a certain asset (resource) that is being transferred between networks.
 
-The resource ID is arbitrary, but, as a convention, usually the last byte contains the chain ID of the source chain (the network from which this asset originated from). For example, let’s say we have a certain token that is transferred between two networks, Network1 and Network2. On Network1, the resource ID would be tokenA, and, for Network2, the equivalent would be tokenB (A and B being the last byte containing the ID of the source chain).
+The resource ID is arbitrary, but, as a convention, usually the last byte contains the chain ID of the source chain (the network from which this asset originated from). 
 
 ## JSON-RPC URL for Polygon PoS
 
-For this guide, we’ll use https://rpc-mumbai.matic.today, a public JSON-RPC URL provided by Polygon, which may have traffic or rate-limits. We advise you to obtain your JSON-RPC URL by an external service like Infura because deploying contracts will send many queries/requests to the JSON-RPC.
+For this guide, we’ll use https://rpc-mumbai.matic.today, a public JSON-RPC URL provided by Polygon, which may have traffic or rate-limits. This will be used only to connect with the Polygon Mumbai testnet. We advise you to obtain your JSON-RPC URL by an external service like Infura because deploying contracts will send many queries/requests to the JSON-RPC.
+
+## Ways of processing the transfer of tokens
+When transferring ERC20 tokens between chains, they can be processed in two different modes:
+
+### Lock/release mode
+Source chain: The tokens you are sending will be locked in the Handler Contract.
+Destination chain: The same amount of tokens as you sent in the source chain would be unlocked and transferred from the Handler contract to the recipient account in the destination chain.
+
+### Burn/mint mode
+Source chain: The tokens you are sending will be burned.
+Destination chain: The same amount of tokens that you sent and burned on the source chain will be minted on the destination chain and sent to the recipient account.
+
+You can use different modes on each chain. It means that you can lock a token in the main chain while minting a token in the subchain for transfer. For instance, it may make sense to lock/release tokens if the total supply or mint schedule is controlled. Tokens would be minted/burned if the contract in the subchain has to follow the supply in the main chain.
+
+The default mode is lock/release mode. If you want to make the Tokens mintable/burnable, you need to call `adminSetBurnable` method. If you want to mint tokens on execution, you will need to grant `minter` role to the ERC20 Handler contract.
+
 

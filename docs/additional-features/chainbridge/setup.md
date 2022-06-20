@@ -26,7 +26,7 @@ $ cb-sol-cli deploy --all --chainId 99 \
 ```
 
 
-Learn about chainID and JSON-RPC URL [here](https://edge-docs.polygon.technology/docs/additional-features/chainbridge/definitions)
+Learn about chainID and JSON-RPC URL [here](/docs/additional-features/chainbridge/definitions)
 
 :::caution
 
