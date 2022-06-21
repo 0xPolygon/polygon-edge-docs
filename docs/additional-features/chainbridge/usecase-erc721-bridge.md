@@ -260,7 +260,7 @@ Before starting this step, please make sure that you've started relayer. Please 
 During NFT transfer from Mumbai to Edge, ERC721 Handler contract in Mumbai withdraws NFT from your account. You'll call approve in order to approve this process before NFT transfer.
 
 ```bash
-$ npx hardhat approve --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --spender [ERC721_CONTRACT_ADDRESS] --id 0x50 --network mumbai
+$ npx hardhat approve --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --address [ERC721_HANDLER_CONTRACT_ADDRESS] --id 0x50 --network mumbai
 ```
 
 Finally, you'll start NFT transfer from Mumbai to Edge using `cb-sol-cli`.
