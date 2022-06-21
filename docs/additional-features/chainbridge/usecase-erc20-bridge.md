@@ -189,7 +189,7 @@ $ cb-sol-cli bridge set-burn \
 And grant minter role to the ERC20 Handler contract using the hardhat project.
 
 ```bash
-$ npx hardhat grant --role mint --contract [ERC20_CONTRACT_ADDRESS] --address [ERC20_HANDLER_CONTRACT_ADDRESS]
+$ npx hardhat grant --role mint --contract [ERC20_CONTRACT_ADDRESS] --address [ERC20_HANDLER_CONTRACT_ADDRESS] --network edge
 ```
 
 ## Step5: Mint Token
@@ -197,7 +197,7 @@ $ npx hardhat grant --role mint --contract [ERC20_CONTRACT_ADDRESS] --address [E
 You'll mint new ERC20 tokens in Mumbai chain using the hardhat project.
 
 ```bash
-$ npx hardhat mint --type erc20 --contract [ERC20_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --amount 56BC75E2D63100000 # 100 Token
+$ npx hardhat mint --type erc20 --contract [ERC20_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --amount 56BC75E2D63100000  --network mumbai # 100 Token
 ```
 
 After transaction is successful, the account will have the minted token.
@@ -209,7 +209,7 @@ Before starting this step, please make sure that you've started relayer. Please 
 During token transfer from Mumbai to Edge, ERC20 Handler contract in Mumbai withdraws tokens from your account. You'll call approve in order to approve this process before token transfer.
 
 ```bash
-$ npx hardhat approve --type erc20 --contract [ERC20_CONTRACT_ADDRESS] --spender [ERC20_CONTRACT_ADDRESS] --amount 56BC75E2D63100000 # 100 Token
+$ npx hardhat approve --type erc20 --contract [ERC20_CONTRACT_ADDRESS] --spender [ERC20_CONTRACT_ADDRESS] --amount 56BC75E2D63100000 --network mumbai # 100 Token
 ```
 
 Finally, you'll start token transfer from Mumbai to Edge using `cb-sol-cli`.

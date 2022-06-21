@@ -240,7 +240,7 @@ $ cb-sol-cli bridge set-burn \
 And grant minter role to the ERC721 Handler contract using the hardhat project.
 
 ```bash
-$ npx hardhat grant --role mint --contract [ERC721_CONTRACT_ADDRESS] --address [ERC721_HANDLER_CONTRACT_ADDRESS]
+$ npx hardhat grant --role mint --contract [ERC721_CONTRACT_ADDRESS] --address [ERC721_HANDLER_CONTRACT_ADDRESS] --network edge
 ```
 
 ## Step5: Mint NFT
@@ -248,7 +248,7 @@ $ npx hardhat grant --role mint --contract [ERC721_CONTRACT_ADDRESS] --address [
 You'll mint new ERC721 NFT in Mumbai chain using the hardhat project.
 
 ```bash
-$ npx hardhat mint --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --id 0x50
+$ npx hardhat mint --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --id 0x50 --network mumbai
 ```
 
 After transaction is successful, the account will have the minted NFT.
@@ -260,7 +260,7 @@ Before starting this step, please make sure that you've started relayer. Please 
 During NFT transfer from Mumbai to Edge, ERC721 Handler contract in Mumbai withdraws NFT from your account. You'll call approve in order to approve this process before NFT transfer.
 
 ```bash
-$ npx hardhat approve --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --spender [ERC721_CONTRACT_ADDRESS] --id 0x50 
+$ npx hardhat approve --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --spender [ERC721_CONTRACT_ADDRESS] --id 0x50 --network mumbai
 ```
 
 Finally, you'll start NFT transfer from Mumbai to Edge using `cb-sol-cli`.
