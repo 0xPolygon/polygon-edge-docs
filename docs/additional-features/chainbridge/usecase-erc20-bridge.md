@@ -61,7 +61,7 @@ $ cb-sol-cli deploy --bridge --erc20Handler --chainId 99 \
 
 ```bash
 # Deploy Bridge and ERC20 contracts in Polygon Edge chain
-$ cb-sol-cli deploy --bridge --erc20Handler --chainId 99 \
+$ cb-sol-cli deploy --bridge --erc20Handler --chainId 100 \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --relayers [RELAYER_ACCOUNT_ADDRESS] \
