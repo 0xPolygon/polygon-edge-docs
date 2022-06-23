@@ -28,6 +28,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract SampleNFT is ERC721, ERC721Burnable, ERC721URIStorage, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
     string public baseURI;
 
@@ -38,6 +39,7 @@ contract SampleNFT is ERC721, ERC721Burnable, ERC721URIStorage, AccessControl {
     ) ERC721(name, symbol) {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(MINTER_ROLE, _msgSender());
+        _setupRole(BURNER_ROLE, _msgSender());
 
         _setBaseURI(baseURI);
     }
@@ -54,6 +56,7 @@ contract SampleNFT is ERC721, ERC721Burnable, ERC721URIStorage, AccessControl {
     function burn(uint256 tokenID)
         public
         override(ERC721Burnable)
+        onlyRole(BURNER_ROLE)
     {
         _burn(tokenID);
     }
@@ -240,10 +243,11 @@ $ cb-sol-cli bridge set-burn \
   --tokenContract "[ERC721_CONTRACT_ADDRESS]"
 ```
 
-And you need to grant a minter role to the ERC721 Handler contract.
+And you need to grant a minter and burner role to the ERC721 Handler contract.
 
 ```bash
 $ npx hardhat grant --role mint --contract [ERC721_CONTRACT_ADDRESS] --address [ERC721_HANDLER_CONTRACT_ADDRESS] --network edge
+$ npx hardhat grant --role burn --contract [ERC721_CONTRACT_ADDRESS] --address [ERC721_HANDLER_CONTRACT_ADDRESS] --network edge
 ```
 
 ## Step5: Mint NFT
@@ -251,7 +255,7 @@ $ npx hardhat grant --role mint --contract [ERC721_CONTRACT_ADDRESS] --address [
 You'll mint new ERC721 NFT in Mumbai chain.
 
 ```bash
-$ npx hardhat mint --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --id 0x50 --network mumbai
+$ npx hardhat mint --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --id 0x50 --data hello.json --network mumbai
 ```
 
 After transaction is successful, the account will have the minted NFT.
@@ -279,7 +283,7 @@ $ cb-sol-cli erc721 deposit \
   --dest 100 \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_EDGE_CHAIN]" \
-  --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00"
+  --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501"
 ```
 
 After the deposit transaction is successful, the relayer will get the event and vote for the proposal.  

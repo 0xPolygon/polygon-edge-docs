@@ -25,10 +25,12 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract SampleToken is ERC20, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
     constructor(string memory name, string memory symbol) ERC20(name, symbol) {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(MINTER_ROLE, _msgSender());
+        _setupRole(BURNER_ROLE, _msgSender());
     }
 
     function mint(address recipient, uint256 amount)
@@ -38,7 +40,10 @@ contract SampleToken is ERC20, AccessControl {
         _mint(recipient, amount);
     }
 
-    function burnFrom(address owner, uint256 amount) external {
+    function burnFrom(address owner, uint256 amount)
+        external
+        onlyRole(BURNER_ROLE)
+    {
         _burn(owner, amount);
     }
 }
@@ -186,10 +191,11 @@ $ cb-sol-cli bridge set-burn \
   --tokenContract "[ERC20_CONTRACT_ADDRESS]"
 ```
 
-And you need to grant a minter role to the ERC20 Handler contract.
+And you need to grant a minter and burner role to the ERC20 Handler contract.
 
 ```bash
 $ npx hardhat grant --role mint --contract [ERC20_CONTRACT_ADDRESS] --address [ERC20_HANDLER_CONTRACT_ADDRESS] --network edge
+$ npx hardhat grant --role burn --contract [ERC20_CONTRACT_ADDRESS] --address [ERC20_HANDLER_CONTRACT_ADDRESS] --network edge
 ```
 
 ## Step5: Mint Token
