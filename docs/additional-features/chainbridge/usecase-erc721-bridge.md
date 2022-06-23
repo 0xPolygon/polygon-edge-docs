@@ -105,7 +105,7 @@ Firstly, you'll deploy Bridge and ERC721Handler contracts using `cb-sol-cli` in 
 # Deploy Bridge and ERC721 contracts in Polygon PoS chain
 $ cb-sol-cli deploy --bridge --erc721Handler --chainId 99 \
   --url https://rpc-mumbai.matic.today \
---gasPrice [GAS_PRICE] \
+  --gasPrice [GAS_PRICE] \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --relayers [RELAYER_ACCOUNT_ADDRESS] \
   --relayerThreshold 1
