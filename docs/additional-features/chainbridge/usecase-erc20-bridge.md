@@ -3,19 +3,19 @@ id: usecase-erc20-bridge
 title: Usecase - ERC20 Bridge
 ---
 
-This section aims to give a setup flow of ERC20 Bridge for the practical usecase.
+This section aims to give you a setup flow of ERC20 Bridge for a practical usecase.
 
 In this guide, you will use Mumbai Polygon PoS testnet and Polygon Edge local chain. Please make sure you have JSON-RPC endpoint for Mumbai and you've set up Polygon Edge in local environment. Please refer to [Local Setup](/docs/get-started/set-up-ibft-locally) or [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) for more details.
 
 ## Scenario
 
-This scenario is to setup a Bridge for the ERC20 token that has been deployed in public chain (Polygon PoS) already in order to enable low-cost transfer in a private chain (Polygon Edge) for users in a regular case. In such a case, the total supply of token has been defined in the public chain and only the amount of the token, which has been transferred from the public chain to the private chain, needs to exist in the private chain. For that reason, you'll need to use lock/release mode in the public chain and burn/mint mode in the private chain.
+This scenario is to setup a Bridge for the ERC20 token that has been deployed in public chain (Polygon PoS) already in order to enable low-cost transfer in a private chain (Polygon Edge) for users in a regular case. In such a case, the total supply of token has been defined in the public chain and only the amount of the token which has been transferred from the public chain to the private chain must exist in the private chain. For that reason, you'll need to use lock/release mode in the public chain and burn/mint mode in the private chain.
 
 When sending tokens from the public chain to the private chain, the token will be locked in ERC20 Handler contract of the public chain and the same amount of token will be minted in the private chain. On the other hand, in case of transfer from the private chain to the public chain, the token in the private chain will be burned and the same amount of token will be released from ERC20 Handler contract in the public chain.
 
 ## Contracts
 
-Explaining with the own ERC20 contracts instead of the contract developed by ChainBridge for practical usecase. For burn/mint mode, ERC20 contract must have `mint` and `burnFrom` methods in addition to the methods defined in ERC20 like this:
+Explaining with a simple ERC20 contracts instead of the contract developed by ChainBridge. For burn/mint mode, ERC20 contract must have `mint` and `burnFrom` methods in addition to the methods for ERC20 like this:
 
 ```sol
 pragma solidity ^0.8.14;
@@ -44,7 +44,7 @@ contract SampleToken is ERC20, AccessControl {
 }
 ```
 
-All codes and scripts are defined in Github Repo [Trapesys/chainbridge-example](https://github.com/Trapesys/chainbridge-example).
+All codes and scripts are in Github Repo [Trapesys/chainbridge-example](https://github.com/Trapesys/chainbridge-example).
 
 ## Step1: Deploy Bridge and ERC20 Handler contracts
 
@@ -55,6 +55,7 @@ Firstly, you'll deploy Bridge and ERC20Handler contracts using `cb-sol-cli` in t
 $ cb-sol-cli deploy --bridge --erc20Handler --chainId 99 \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --relayers [RELAYER_ACCOUNT_ADDRESS] \
   --relayerThreshold 1
 ```
@@ -138,7 +139,7 @@ $ npx hardhat deploy --contract erc20 --name <ERC20_TOKEN_NAME> --symbol <ERC20_
 $ npx hardhat deploy --contract erc20 --name <ERC20_TOKEN_NAME> --symbol <ERC20_TOKEN_SYMBOL> --network edge
 ```
 
-After deployment is successful, you'll get contract address like this:
+After deployment is successful, you'll get a contract address like this:
 
 ```bash
 ERC20 contract has been deployed
@@ -149,13 +150,13 @@ Symbol: <ERC20_TOKEN_SYMBOL>
 
 ## Step3: Register resource ID in Bridge
 
-You will register a resource ID that associates resources in a cross-chain environment.
+You will register a resource ID that associates resource in a cross-chain environment. You need to set the same resource ID in the both chain.
 
 ```bash
 $ cb-sol-cli bridge register-resource \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
-  # Set Resource ID for ERC20
+  --gasPrice [GAS_PRICE] \
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
@@ -166,7 +167,6 @@ $ cb-sol-cli bridge register-resource \
 $ cb-sol-cli bridge register-resource \
   --url http://localhost:10002 \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
-  # Set Resource ID for ERC20
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
@@ -175,7 +175,7 @@ $ cb-sol-cli bridge register-resource \
 
 ## Step4: Set Mint/Burn mode in ERC20 bridge of the Edge
 
-Bridge expects to work as burn/mint mode in Edge. You'll set burn/mint mode using `cb-sol-cli`.
+Bridge expects to work as burn/mint mode in Polygon Edge. You'll set burn/mint mode using `cb-sol-cli`.
 
 ```bash
 $ cb-sol-cli bridge set-burn \
@@ -186,7 +186,7 @@ $ cb-sol-cli bridge set-burn \
   --tokenContract "[ERC20_CONTRACT_ADDRESS]"
 ```
 
-And grant minter role to the ERC20 Handler contract using the hardhat project.
+And you need to grant a minter role to the ERC20 Handler contract.
 
 ```bash
 $ npx hardhat grant --role mint --contract [ERC20_CONTRACT_ADDRESS] --address [ERC20_HANDLER_CONTRACT_ADDRESS] --network edge
@@ -194,19 +194,19 @@ $ npx hardhat grant --role mint --contract [ERC20_CONTRACT_ADDRESS] --address [E
 
 ## Step5: Mint Token
 
-You'll mint new ERC20 tokens in Mumbai chain using the hardhat project.
+You'll mint new ERC20 tokens in Mumbai chain.
 
 ```bash
-$ npx hardhat mint --type erc20 --contract [ERC20_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --amount 100000000000000000000  --network mumbai # 100 Token
+$ npx hardhat mint --type erc20 --contract [ERC20_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --amount 100000000000000000000 --network mumbai # 100 Token
 ```
 
-After transaction is successful, the account will have the minted token.
+After the transaction is successful, the account will have the minted token.
 
 ## Step6: Start ERC20 transfer
 
-Before starting this step, please make sure that you've started relayer. Please check [Setup](/docs/additional-features/chainbridge/setup) for more details.
+Before starting this step, please make sure that you've started a relayer. Please check [Setup](/docs/additional-features/chainbridge/setup) for more details.
 
-During token transfer from Mumbai to Edge, ERC20 Handler contract in Mumbai withdraws tokens from your account. You'll call approve in order to approve this process before token transfer.
+During token transfer from Mumbai to Edge, ERC20 Handler contract in Mumbai withdraws tokens from your account. You'll call approve before transfer.
 
 ```bash
 $ npx hardhat approve --type erc20 --contract [ERC20_CONTRACT_ADDRESS] --address [ERC20_HANDLER_CONTRACT_ADDRESS] --amount 10000000000000000000 --network mumbai # 10 Token
@@ -219,8 +219,9 @@ Finally, you'll start token transfer from Mumbai to Edge using `cb-sol-cli`.
 $ cb-sol-cli erc20 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --amount 10 \
-  # ChainID for Polygon Edge chain
+  # ChainID of Polygon Edge chain
   --dest 100 \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --recipient "[RECIPIENT_ADDRESS_IN_POLYGON_EDGE_CHAIN]" \
@@ -238,4 +239,4 @@ INFO[11-19|08:15:59] Submitted proposal vote                  chain=polygon-edge
 INFO[11-19|08:16:24] Submitted proposal execution             chain=polygon-edge tx=0x63615a775a55fcb00676a40e3c9025eeefec94d0c32ee14548891b71f8d1aad1 src=99 dst=100 nonce=1 gasPrice=5
 ```
 
-Once the execution transaction has been successful, you will get tokens in the Polygon Edge chain.
+Once the execution transaction is successful, you will get tokens in the Polygon Edge chain.

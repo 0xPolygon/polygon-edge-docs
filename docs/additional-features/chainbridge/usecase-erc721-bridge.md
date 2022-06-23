@@ -3,24 +3,25 @@ id: usecase-erc721-bridge
 title: Usecase - ERC721 Bridge
 ---
 
-This section aims to give a setup flow of ERC721 Bridge for the practical usecase.
+This section aims to give you a setup flow of ERC721 Bridge for a practical usecase.
 
 In this guide, you will use Mumbai Polygon PoS testnet and Polygon Edge local chain. Please make sure you have JSON-RPC endpoint for Mumbai and you've set up Polygon Edge in local environment. Please refer to [Local Setup](/docs/get-started/set-up-ibft-locally) or [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) for more details.
 
 ## Scenario
 
-This scenario is to setup a Bridge for the ERC721 NFT that has been deployed in public chain (Polygon PoS) already in order to enable low-cost transfer in a private chain (Polygon Edge) for users in a regular case. In such a case, the original metadata has been defined in the public chain and the only NFTs that have been transferred from Public chain can exist. For that reason, you'll need to use lock/release mode in the public chain and burn/mint mode in the private chain.
+This scenario is to setup a Bridge for the ERC721 NFT that has been deployed in public chain (Polygon PoS) already in order to enable low-cost transfer in a private chain (Polygon Edge) for users in a regular case. In such a case, the original metadata has been defined in the public chain and the only NFTs that have been transferred from Public chain can exist in the private chain. For that reason, you'll need to use lock/release mode in the public chain and burn/mint mode in the private chain.
 
-When sending NFTs from the public chain to the private chain, the NFT will be locked in ERC721 Handler contract of the public chain and the same NFT will be minted in the private chain. On the other hand, in case of transfer from the private chain to the public chain, the NFT in the private chain will be burned and the same NFT will be released from ERC721 Handler contract in the public chain.
+When sending NFTs from the public chain to the private chain, the NFT will be locked in ERC721 Handler contract in the public chain and the same NFT will be minted in the private chain. On the other hand, in case of transfer from the private chain to the public chain, the NFT in the private chain will be burned and the same NFT will be released from ERC721 Handler contract in the public chain.
 
 ## Contracts
 
-Explaining with the own ERC721 contracts instead of the contract developed by ChainBridge for practical usecase. For burn/mint mode, ERC721 contract must have `mint` and `burn` methods in addition to the methods defined in ERC721 like this:
+Explaining with a simple ERC721 contract instead of the contract developed by ChainBridge. For burn/mint mode, ERC721 contract must have `mint` and `burn` methods in addition to the methods defined in ERC721 like this:
 
 ```sol
 pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -94,7 +95,7 @@ contract SampleNFT is ERC721, ERC721Burnable, ERC721URIStorage, AccessControl {
 }
 ```
 
-All codes and scripts are defined in Github Repo [Trapesys/chainbridge-example](https://github.com/Trapesys/chainbridge-example).
+All codes and scripts are in Github Repo [Trapesys/chainbridge-example](https://github.com/Trapesys/chainbridge-example).
 
 ## Step1: Deploy Bridge and ERC721 Handler contracts
 
@@ -104,6 +105,7 @@ Firstly, you'll deploy Bridge and ERC721Handler contracts using `cb-sol-cli` in 
 # Deploy Bridge and ERC721 contracts in Polygon PoS chain
 $ cb-sol-cli deploy --bridge --erc721Handler --chainId 99 \
   --url https://rpc-mumbai.matic.today \
+--gasPrice [GAS_PRICE] \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --relayers [RELAYER_ACCOUNT_ADDRESS] \
   --relayerThreshold 1
@@ -206,6 +208,7 @@ You will register a resource ID that associates resources in a cross-chain envir
 $ cb-sol-cli bridge register-resource \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   # Set Resource ID for ERC721
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
@@ -226,7 +229,7 @@ $ cb-sol-cli bridge register-resource \
 
 ## Step4: Set Mint/Burn mode in ERC721 bridge of the Edge
 
-Bridge expects to work as burn/mint mode in Edge. You'll set burn/mint mode using `cb-sol-cli`.
+Bridge expects to work as burn/mint mode in Edge. You'll set burn/mint mode.
 
 ```bash
 $ cb-sol-cli bridge set-burn \
@@ -237,7 +240,7 @@ $ cb-sol-cli bridge set-burn \
   --tokenContract "[ERC721_CONTRACT_ADDRESS]"
 ```
 
-And grant minter role to the ERC721 Handler contract using the hardhat project.
+And you need to grant a minter role to the ERC721 Handler contract.
 
 ```bash
 $ npx hardhat grant --role mint --contract [ERC721_CONTRACT_ADDRESS] --address [ERC721_HANDLER_CONTRACT_ADDRESS] --network edge
@@ -245,7 +248,7 @@ $ npx hardhat grant --role mint --contract [ERC721_CONTRACT_ADDRESS] --address [
 
 ## Step5: Mint NFT
 
-You'll mint new ERC721 NFT in Mumbai chain using the hardhat project.
+You'll mint new ERC721 NFT in Mumbai chain.
 
 ```bash
 $ npx hardhat mint --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --address [ACCOUNT_ADDRESS] --id 0x50 --network mumbai
@@ -257,19 +260,20 @@ After transaction is successful, the account will have the minted NFT.
 
 Before starting this step, please make sure that you've started relayer. Please check [Setup](/docs/additional-features/chainbridge/setup) for more details.
 
-During NFT transfer from Mumbai to Edge, ERC721 Handler contract in Mumbai withdraws NFT from your account. You'll call approve in order to approve this process before NFT transfer.
+During NFT transfer from Mumbai to Edge, ERC721 Handler contract in Mumbai withdraws NFT from your account. You'll call approve before transfer.
 
 ```bash
 $ npx hardhat approve --type erc721 --contract [ERC721_CONTRACT_ADDRESS] --address [ERC721_HANDLER_CONTRACT_ADDRESS] --id 0x50 --network mumbai
 ```
 
-Finally, you'll start NFT transfer from Mumbai to Edge using `cb-sol-cli`.
+Finally, you'll start NFT transfer from Mumbai to Edge.
 
 ```bash
 # Start transfer from Mumbai to Polygon Edge chain
 $ cb-sol-cli erc721 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --id 0x50 \
   # ChainID for Polygon Edge chain
   --dest 100 \
@@ -278,7 +282,8 @@ $ cb-sol-cli erc721 deposit \
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00"
 ```
 
-After the deposit transaction is successful, the relayer will get the event and vote for the proposal. It executes a transaction to send NFT to the recipient account in the Polygon Edge chain after the required number of votes are submitted. 
+After the deposit transaction is successful, the relayer will get the event and vote for the proposal.  
+It executes a transaction to send NFT to the recipient account in Polygon Edge chain after the required number of votes are submitted. 
 
 ```bash
 INFO[11-19|09:07:50] Handling nonfungible deposit event       chain=mumbai
@@ -289,4 +294,4 @@ INFO[11-19|09:07:50] Submitted proposal vote                  chain=polygon-edge
 INFO[11-19|09:08:15] Submitted proposal execution             chain=polygon-edge tx=0x57419844881a07531e31667c609421662d94d21d0709e64fb728138309267e68 src=99 dst=100 nonce=2 gasPrice=3
 ```
 
-Once the execution transaction has been successful, you will get NFT in the Polygon Edge chain.
+Once the execution transaction is successful, you will get NFT in Polygon Edge chain.

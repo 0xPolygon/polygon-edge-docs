@@ -20,6 +20,7 @@ Firstly, we will deploy contracts to the Polygon PoS chain by `cb-sol-cli deploy
 # Deploy all required contracts into Polygon PoS chain
 $ cb-sol-cli deploy --all --chainId 99 \
   --url https://rpc-mumbai.matic.today \
+  --gasPrice [GAS_PRICE] \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
   --relayers [RELAYER_ACCOUNT_ADDRESS] \
   --relayerThreshold 1
@@ -189,5 +190,3 @@ INFO[11-19|07:15:31] Connecting to ethereum chain...          chain=polygon-edge
 ```
 
 Once the relayer has begun, it will start to watch new blocks on each chain.
-
-

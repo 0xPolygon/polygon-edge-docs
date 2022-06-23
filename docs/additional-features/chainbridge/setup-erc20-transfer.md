@@ -16,11 +16,12 @@ To register resource ID, you can use the `cb-sol-cli bridge register-resource` c
 $ cb-sol-cli bridge register-resource \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   # Set Resource ID for ERC20
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
-  --targetContract "[ERC20_CONTRACT_ADDRESS]"
+  --targetContract "[ERC20_CONTRACT_ADDRESS]" 
 
 # For Polygon Edge chain
 $ cb-sol-cli bridge register-resource \
@@ -79,6 +80,7 @@ First, you will get tokens by minting. An account with the `minter` role can min
 $ cb-sol-cli erc20 mint \
   --url https://rpc-mumbai.matic.today \
   --privateKey [MINTER_ACCOUNT_PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
   --amount 1000
 ```
@@ -89,7 +91,6 @@ To check the current balance, you can use `cb-sol-cli erc20 balance` command.
 # Check ERC20 token balance
 $ cb-sol-cli erc20 balance \
   --url https://rpc-mumbai.matic.today \
-  --privateKey [PRIVATE_KEY] \
   --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
   --address "[ACCOUNT_ADDRESS]"
 
@@ -103,6 +104,7 @@ Next, you need to approve ERC20 token transfer from the account by ERC20 Handler
 $ cb-sol-cli erc20 approve \
   --url https://rpc-mumbai.matic.today \
   --privateKey [USER_ACCOUNT_ADDRESS] \
+  --gasPrice [GAS_PRICE] \
   --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
   --recipient "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
   --amount 500
@@ -115,6 +117,7 @@ To transfer tokens to Polygon Edge chains, you will call `deposit`.
 $ cb-sol-cli erc20 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --amount 10 \
   # ChainID of Polygon Edge chain
   --dest 100 \
