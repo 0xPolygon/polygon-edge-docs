@@ -106,7 +106,7 @@ The default size of an epoch is `100000` blocks in the Polygon Edge.
 ## Contract pre-deployment
 
 The Polygon Edge _pre-deploys_
-the [Staking Smart Contract](https://github.com/0xPolygon/staking-contracts/blob/main/contracts/staking.sol)
+the [Staking Smart Contract](https://github.com/0xPolygon/staking-contracts/blob/main/contracts/Staking.sol)
 during **genesis generation** to the address `0x0000000000000000000000000000000000001001`.
 
 It does so without a running EVM, by modifying the blockchain state of the Smart Contract directly, using the passed in
