@@ -226,7 +226,9 @@ curl  https://rpc.poa.psdk.io:8545 -X POST -H "Content-Type: application/json" -
 
 ### eth_gasPrice
 
-Returns the current price per gas in wei.
+Returns the current price of gas in wei.
+If minimum gas price is enforced by setting the `--price-limit` flag,
+this endpoint will return the value defined by this flag as minimum gas price.
 
 ---
 
