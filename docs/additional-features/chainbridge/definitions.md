@@ -38,8 +38,7 @@ Please make sure the accounts have enough native tokens to create transactions b
 
 | **Type** |**Description**                                                                                                                |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|
-| Admin  |The account that deploys the Bridge contract. This account will be given the admin role as default and will be able to do certain actions in Bridge. The admin account pays the gas fees when deploying contracts, registering resource IDs, updating settings in the contracts, or minting tokens.|
-| Relayer | The account used in the relayer to create transactions to vote or execute a proposal. The relayer accounts pay gas fees when sending transactions for voting and execution in the destination chain.|
+| Admin  | This account will be given the admin role as default. |
 | User   | The sender/recipient account that sends/receives assets. The sender account pays the gas fees when approving token transfers and calling deposit in the Bridge contract to begin a transfer.                                                             |
 
 :::info The admin role
