@@ -13,7 +13,7 @@ This guide is intended to help with the Chainbridge integration to Polygon Edge.
 
 ## Requirements
 
-In this guide, you will run Polygon Edge nodes, a ChainBridge relayer (more about it  [here](/docs/additional-features/chainbridge/definitions)), and the cb-sol-cli tool, which is a CLI tool to deploy contracts locally, registering resource and changing settings for the bridge (you can check [this](https://chainbridge.chainsafe.io/cli-options/#cli-options) too). The following environments are required before starting the setup:
+In this guide, you will run Polygon Edge nodes, a ChainBridge relayer (more about it  [here](/docs/additional-features/chainbridge/definitions)), and the cb-sol-cli tool, which is a CLI tool to deploy contracts locally, registering resource, and changing settings for the bridge (you can check [this](https://chainbridge.chainsafe.io/cli-options/#cli-options) too). The following environments are required before starting the setup:
 
 * Go: >= 1.17 
 * Node.js >= 16.13.0
