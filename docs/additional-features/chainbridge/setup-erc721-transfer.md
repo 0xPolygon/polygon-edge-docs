@@ -14,6 +14,7 @@ You will first need to register the resource ID for the ERC721 token in the Brid
 $ cb-sol-cli bridge register-resource \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   # Set ResourceID for ERC721 Token
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
@@ -61,6 +62,7 @@ Firstly, you will mint an NFT if you need it.
 $ cb-sol-cli erc721 mint \
   --url https://rpc-mumbai.matic.today \
   --privateKey [MINTER_ROLE_ACCOUNT] \
+  --gasPrice [GAS_PRICE] \
   --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
   --id 0x50
 ```
@@ -71,7 +73,6 @@ To check the NFT owner, you can use `cb-sol-cli erc721 owner`
 # Check the current owner of NFT
 $ cb-sol-cli erc721 owner \
   --url https://rpc-mumbai.matic.today \
-  --privateKey [PRIVATE_KEY] \
   --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
   --id 0x50
 ```
@@ -83,6 +84,7 @@ Then, you will approve a transfer of the NFT by ERC721 Handler
 $ cb-sol-cli erc721 approve \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
   --recipient "[ERC721_HANDLER_CONTRACT_ADDRESS]" \
   --id 0x50
@@ -95,6 +97,7 @@ Finally, you will start the transfer
 $ cb-sol-cli erc721 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --resourceId "0x000000000000000000000000000000e389d61c11e5fe32ec1735b3cd38c69501" \
   --id 0x50 \
@@ -120,7 +123,6 @@ You can check the owner of the NFT on the Polygon Edge network after the executi
 # Check the owner of NFT 0x50 in Polygon Edge chain
 $ cb-sol-cli erc721 owner \
   --url http://localhost:10002 \
-  --privateKey [PRIVATE_KEY] \
   --erc721Address "[ERC721_CONTRACT_ADDRESS]" \
   --id 0x50
 ```
