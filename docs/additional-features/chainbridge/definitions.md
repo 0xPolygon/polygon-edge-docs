@@ -44,6 +44,9 @@ Please make sure the accounts have enough native tokens to create transactions b
 :::info The admin role
 Certain actions can only be performed by the admin role account. By default, the deployer of the Bridge contract has the admin role. You will find below how to grant the admin role to another account or to remove it.
 
+### Add admin role
+
+Adds an admin
 
 ```bash
 # Grant admin role
@@ -52,7 +55,12 @@ $ cb-sol-cli admin add-admin \
   --privateKey [PRIVATE_KEY] \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --admin "[NEW_ACCOUNT_ADDRESS]"
+```
+### Revoke admin role
 
+Removes an admin
+
+```bash
 # Revoke admin role
 $ cb-sol-cli admin remove-admin \
   --url [JSON_RPC_URL] \
@@ -61,9 +69,11 @@ $ cb-sol-cli admin remove-admin \
   --admin "[NEW_ACCOUNT_ADDRESS]"
 ```
 
-The operations which are allowed by the `admin` account are as below.
+## The operations which are allowed by the `admin` account are as below.
 
 ### Set Resource
+
+Register a resource ID with a contract address for a handler.
 
 ```bash
 # Register new resource
@@ -77,6 +87,8 @@ $ cb-sol-cli bridge register-resource \
 ```
 
 ### Make contract burnable/mintable
+
+Set a token contract as mintable/burnable in a handler.
 
 ```bash
 # Let contract burnable/mintable
