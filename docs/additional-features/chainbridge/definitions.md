@@ -188,12 +188,12 @@ For this guide, we’ll use https://rpc-mumbai.matic.today, a public JSON-RPC UR
 When transferring ERC20 tokens between chains, they can be processed in two different modes:
 
 ### Lock/release mode
-Source chain: The tokens you are sending will be locked in the Handler Contract.
-Destination chain: The same amount of tokens as you sent in the source chain would be unlocked and transferred from the Handler contract to the recipient account in the destination chain.
+<b>Source chain: </b>The tokens you are sending will be locked in the Handler Contract.  <br/>
+<b>Destination chain:</b> The same amount of tokens as you sent in the source chain would be unlocked and transferred from the Handler contract to the recipient account in the destination chain.
 
 ### Burn/mint mode
-Source chain: The tokens you are sending will be burned.
-Destination chain: The same amount of tokens that you sent and burned on the source chain will be minted on the destination chain and sent to the recipient account.
+<b>Source chain:</b> The tokens you are sending will be burned.   <br/>
+<b>Destination chain:</b> The same amount of tokens that you sent and burned on the source chain will be minted on the destination chain and sent to the recipient account.
 
 You can use different modes on each chain. It means that you can lock a token in the main chain while minting a token in the subchain for transfer. For instance, it may make sense to lock/release tokens if the total supply or mint schedule is controlled. Tokens would be minted/burned if the contract in the subchain has to follow the supply in the main chain.
 
