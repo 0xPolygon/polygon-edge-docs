@@ -3,42 +3,28 @@ id: overview
 title: Overview
 ---
 
-ChainBridge is a modular multi-directional blockchain bridge supporting EVM and Substrate compatible chains. It allows users to transfer whatever kind of assets or messages to another chain.
+## What is ChainBridge?
 
-To find out more about ChainBridge, visit the [official docs](https://chainbridge.chainsafe.io/).
+ChainBridge is a modular multi-directional blockchain bridge supporting EVM and Substrate compatible chains, built by ChainSafe. It allows users to transfer all kinds of assets or messages between two different chains.
 
-## Architecture
+To find out more about ChainBridge, please first visit the [official docs](https://chainbridge.chainsafe.io/) provided by its developers.
 
-In ChainBridge, there are three types of contracts called Bridge/Handler/Target in each chain and relayers to communicate between chains.
+This guide is intended to help with the Chainbridge integration to Polygon Edge. It walks through the setup of a bridge between a running Polygon PoS (Mumbai testnet) and a local Polygon Edge network. 
 
-### Bridge contract
+## Requirements
 
-A Bridge contract that manages requests, votes, executions needs to be deployed in each chain. Users will call `deposit` in Bridge to start a transfer and Bridge delegates the process to Handler contract corresponding to Target contract. Once Handler contract has been successful in call Target contract, Bridge contract emits `Deposit` event to notify relayers.
+In this guide, you will run Polygon Edge nodes, a ChainBridge relayer (more about it  [here](/docs/additional-features/chainbridge/definitions)), and the cb-sol-cli tool, which is a CLI tool to deploy contracts locally, registering resource, and changing settings for the bridge (you can check [this](https://chainbridge.chainsafe.io/cli-options/#cli-options) too). The following environments are required before starting the setup:
 
-### Handler contract
+* Go: >= 1.17 
+* Node.js >= 16.13.0
+* Git
 
-Handler contract interacts with Target contract to execute deposit or proposal. It validates the user's request, calls Target contract and manages deposit records and some settings for Target contract. There are some Handler contracts to call each Target contract that has a different interface. The indirect calls by Handler contract make the bridge enable to transfer whatever kind of assets or data.
 
-Currently, there are three types of Handler contracts implemented by ChainBridge: ERC20Handler, ERC721Handler, and GenericHandler.
+In addition, you will need to clone the following repositories with the versions to run some applications.
 
-### Target contract
+* [Polygon Edge](https://github.com/0xPolygon/polygon-edge): on the `develop` branch
+* [ChainBridge](https://github.com/ChainSafe/ChainBridge): v1.1.5
+* [ChainBridge Deploy Tools](https://github.com/ChainSafe/chainbridge-deploy): `f2aa093` on `main` branch
 
-A contract that manages assets to be exchanged or processes messages to be transferred between chains.
 
-### Relayer
-
-Relayer is an application that monitors events from every chain and votes for a proposal in the Bridge contract of the destination chain when it receives `Deposit` event from a chain. A relayer calls a method in the Bridge contract to execute the proposal after the required number of votes are submitted. Bridge delegates execution to Handler contract.
-
-<div style={{textAlign: 'center'}}>
-
-![ChainBridge Architecture](/img/chainbridge/architecture.svg)
-*ChainBridge Architecture*
-
-</div>
-
-<div style={{textAlign: 'center'}}>
-
-![Workflow of ERC20 token transfer](/img/chainbridge/erc20-workflow.svg)
-*ex. Workflow of ERC20 token transfer*
-
-</div>
+You need to set up a Polygon Edge network before proceeding to the next section. Please check [Local Setup](/docs/get-started/set-up-ibft-locally) or [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) for more details.

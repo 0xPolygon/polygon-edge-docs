@@ -7,7 +7,7 @@ So far, we've set up bridge to exchange assets/data between Polygon PoS and Poly
 
 ## Step 1: Register resource ID
 
-Firstly, you will register a resource ID that associates resources in a cross-chain environment. A Resource ID is a 32-byte value that must be unique to the resource that we are transferring between these blockchains. The Resource IDs are arbitrary, but they may have the chain ID of the home chain in the last byte, as a convention (home chain referring to the network on which these resources originated from).
+Firstly, you will register a resource ID that associates resources in a cross-chain environment. A Resource ID is a 32-bytes value that must be unique to the resource that we are transferring between these blockchains. The Resource IDs are arbitrary, but they may have the chain ID of the home chain in the last byte, as a convention (home chain referring to the network on which these resources originated from).
 
 To register resource ID, you can use the `cb-sol-cli bridge register-resource` command. You will need to give the private key of the `admin` account.
 
@@ -16,11 +16,12 @@ To register resource ID, you can use the `cb-sol-cli bridge register-resource` c
 $ cb-sol-cli bridge register-resource \
   --url https://rpc-mumbai.matic.today \
   --privateKey [ADMIN_ACCOUNT_PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   # Set Resource ID for ERC20
   --resourceId "0x000000000000000000000000000000c76ebe4a02bbc34786d860b355f5a5ce00" \
   --bridge "[BRIDGE_CONTRACT_ADDRESS]" \
   --handler "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
-  --targetContract "[ERC20_CONTRACT_ADDRESS]"
+  --targetContract "[ERC20_CONTRACT_ADDRESS]" 
 
 # For Polygon Edge chain
 $ cb-sol-cli bridge register-resource \
@@ -35,21 +36,6 @@ $ cb-sol-cli bridge register-resource \
 
 ## (Optional) Make contracts mintable/burnable
 
-When transferring ERC20 tokens between chains, tokens can be processed in two different modes:
-
-(1) Lock/Release mode
-
-**Source chain**: The tokens you are sending will be locked in the ERC20 Handler Contract  
-**Destination chain**: The same amount of tokens as you sent in the source chain would be unlocked and transferred from the ERC20 Handler contract to the recipient account in the destination chain.
-
-(2) Burn/Mint mode
-
-**Source chain**: The tokens you are sending will be burned  
-**Destination chain**: The same amount of tokens as you sent and burned on the source chain will be minted on the destination chain and sent to the recipient account.
-
-You can use different modes in each chain. It means that you can lock an ERC20 token in the main chain while minting an ERC20 token in the subchain for transfer. For instance, it may make sense to lock/release tokens if the total supply or mint schedule is controlled. Tokens would be minted/burned if the contract in the sub chain has to follow the supply in the main chain.
-
-The default mode is **lock/release** mode. If you want to make the Tokens mintable/burnable, you need to call `adminSetBurnable` method. If you want to mint tokens on execution, you will need to grant `minter` role to the ERC20 Handler contract.
 
 ```bash
 # Let ERC20 contract burn on source chain and mint on destination chain
@@ -79,6 +65,7 @@ First, you will get tokens by minting. An account with the `minter` role can min
 $ cb-sol-cli erc20 mint \
   --url https://rpc-mumbai.matic.today \
   --privateKey [MINTER_ACCOUNT_PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
   --amount 1000
 ```
@@ -89,7 +76,6 @@ To check the current balance, you can use `cb-sol-cli erc20 balance` command.
 # Check ERC20 token balance
 $ cb-sol-cli erc20 balance \
   --url https://rpc-mumbai.matic.today \
-  --privateKey [PRIVATE_KEY] \
   --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
   --address "[ACCOUNT_ADDRESS]"
 
@@ -103,6 +89,7 @@ Next, you need to approve ERC20 token transfer from the account by ERC20 Handler
 $ cb-sol-cli erc20 approve \
   --url https://rpc-mumbai.matic.today \
   --privateKey [USER_ACCOUNT_ADDRESS] \
+  --gasPrice [GAS_PRICE] \
   --erc20Address "[ERC20_CONTRACT_ADDRESS]" \
   --recipient "[ERC20_HANDLER_CONTRACT_ADDRESS]" \
   --amount 500
@@ -115,6 +102,7 @@ To transfer tokens to Polygon Edge chains, you will call `deposit`.
 $ cb-sol-cli erc20 deposit \
   --url https://rpc-mumbai.matic.today \
   --privateKey [PRIVATE_KEY] \
+  --gasPrice [GAS_PRICE] \
   --amount 10 \
   # ChainID of Polygon Edge chain
   --dest 100 \
