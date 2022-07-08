@@ -44,7 +44,6 @@ Please make sure the accounts have enough native tokens to create transactions b
 :::info The admin role
 Certain actions can only be performed by the admin role account. By default, the deployer of the Bridge contract has the admin role. You will find below how to grant the admin role to another account or to remove it.
 
-The operations which are allowed by the admin account are as below:
 
 ```bash
 # Grant admin role
