@@ -119,6 +119,7 @@ module.exports = {
                     type: 'category',
                     label: 'Test History',
                     items: [
+                        'performance-reports/test-history/test-2022-07-04',
                         'performance-reports/test-history/test-2022-03-23',
                         'performance-reports/test-history/test-2022-03-02',
                         'performance-reports/test-history/test-2022-01-21',
