@@ -62,8 +62,8 @@ module.exports = {
                         'additional-features/chainbridge/setup',
                         'additional-features/chainbridge/setup-erc20-transfer',
                         'additional-features/chainbridge/setup-erc721-transfer',
-                        'additional-features/chainbridge/usecase-erc20-bridge',
-                        'additional-features/chainbridge/usecase-erc721-bridge',
+                        'additional-features/chainbridge/use-case-erc20-bridge',
+                        'additional-features/chainbridge/use-case-erc721-bridge',
                     ]
                 },
                 'additional-features/stress-testing',

@@ -1,9 +1,16 @@
 ---
-id: usecase-erc20-bridge
-title: Usecase - ERC20 Bridge
+id: use-case-erc20-bridge
+title: Use case - ERC20 Bridge
+description: Example for to bridge ERC20 contract
+keywords:
+  - docs
+  - polygon
+  - edge
+  - Bridge
+  - ERC20
 ---
 
-This section aims to give you a setup flow of ERC20 Bridge for a practical usecase.
+This section aims to give you a setup flow of ERC20 Bridge for a practical use case.
 
 In this guide, you will use Mumbai Polygon PoS testnet and Polygon Edge local chain. Please make sure you have JSON-RPC endpoint for Mumbai and you've set up Polygon Edge in local environment. Please refer to [Local Setup](/docs/get-started/set-up-ibft-locally) or [Cloud Setup](/docs/get-started/set-up-ibft-on-the-cloud) for more details.
 
