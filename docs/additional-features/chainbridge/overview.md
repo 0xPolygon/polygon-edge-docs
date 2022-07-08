@@ -7,7 +7,7 @@ title: Overview
 
 ChainBridge is a modular multi-directional blockchain bridge supporting EVM and Substrate compatible chains, built by ChainSafe. It allows users to transfer all kinds of assets or messages between two different chains.
 
-To find out more about ChainBridge, please first visit the [official docs](https://chainbridge.chainsafe.io/) provided by its developer.
+To find out more about ChainBridge, please first visit the [official docs](https://chainbridge.chainsafe.io/) provided by its developers.
 
 This guide is intended to help with the Chainbridge integration to Polygon Edge. It walks through the setup of a bridge between a running Polygon PoS (Mumbai testnet) and a local Polygon Edge network. 
 
