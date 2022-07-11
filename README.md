@@ -1,7 +1,5 @@
 ## Polygon Edge Docs
 
-This is the main repo for contributing to the Polygon Edge documentation.
+The Polygon Edge docs have been migrated to https://github.com/maticnetwork/matic-docs
 
-If you'd like to contribute, please check out our contribution guide.
-
-For any questions, please contact the Polygon Edge team.
+This repo is archived.
